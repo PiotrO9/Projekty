@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "spoj.com_CALC_enum", "spoj.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "spoj.com_PRIME_T", "spoj.com_PRIME_T\spoj.com_PRIME_T.csproj", "{1BAA53F9-EAF7-4E76-8788-24F945859E46}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "spoj.com_RNO_DOD", "spoj.com_RNO_DOD\spoj.com_RNO_DOD.csproj", "{52FF1BD2-CC4E-41C9-B523-A7C15E3C365C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{1BAA53F9-EAF7-4E76-8788-24F945859E46}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1BAA53F9-EAF7-4E76-8788-24F945859E46}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1BAA53F9-EAF7-4E76-8788-24F945859E46}.Release|Any CPU.Build.0 = Release|Any CPU
+		{52FF1BD2-CC4E-41C9-B523-A7C15E3C365C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52FF1BD2-CC4E-41C9-B523-A7C15E3C365C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52FF1BD2-CC4E-41C9-B523-A7C15E3C365C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52FF1BD2-CC4E-41C9-B523-A7C15E3C365C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
