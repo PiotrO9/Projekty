@@ -24,11 +24,9 @@ namespace spoj.com_CALC_enum
                 int number1 = int.Parse(wordlist[1]);
                 int number2 = int.Parse(wordlist[2]);
 
-                Test firstChar;
+                Test firstChar = Test.Plus;
 
                 string znak = wordlist[0];
-
-                string testing1;
 
                 if(wordlist[0] == "+")
                 {
@@ -53,19 +51,41 @@ namespace spoj.com_CALC_enum
                 else 
                 {
                     Console.WriteLine("Źle podany pierwszy znak");
-                    Console.ReadLine();
-                    
+                    Console.ReadLine(); 
                 }
 
-                switch(firstChar)
+               Console.WriteLine(Calculate(number1, number2,firstChar));
+            }
+         
+            int Calculate(int firstNumber, int secoundNumber, Test wyliczeniowy)
+            {
+                switch (wyliczeniowy)
                 {
                     case Test.Plus:
-                        { }
-
+                        return firstNumber + secoundNumber;
+                    case Test.Minus:
+                        return firstNumber - secoundNumber;
+                    case Test.Mnozenie:
+                        return firstNumber * secoundNumber;
+                    case Test.Dzielenie:
+                        {
+                            if (secoundNumber == 0)
+                            {
+                                Console.WriteLine("Dzielenie przez 0 niemożliwe!");
+                                break;
+                            }
+                        return firstNumber / secoundNumber;
+                        }
+                    case Test.Reszta:
+                        return firstNumber%secoundNumber;
+                    default:
+                        return 0;
                 }
 
+                return 0;
             }
-         }   
+        
+        }   
     } 
 
 }
