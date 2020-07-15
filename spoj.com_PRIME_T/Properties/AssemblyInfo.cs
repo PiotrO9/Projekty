@@ -1,14 +1,15 @@
 ﻿using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 // Ogólne informacje o zestawie są kontrolowane poprzez następujący 
 // zestaw atrybutów. Zmień wartości tych atrybutów, aby zmodyfikować informacje
 // powiązane z zestawem.
-[assembly: AssemblyTitle("spoj.com_CALC_enum")]
+[assembly: AssemblyTitle("spoj.com_PRIME_T")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("spoj.com_CALC_enum")]
+[assembly: AssemblyProduct("spoj.com_PRIME_T")]
 [assembly: AssemblyCopyright("Copyright ©  2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -19,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // Następujący identyfikator GUID jest identyfikatorem biblioteki typów w przypadku udostępnienia tego projektu w modelu COM
-[assembly: Guid("d1b76d9d-2f76-4ace-880d-73835a777a1f")]
+[assembly: Guid("1baa53f9-eaf7-4e76-8788-24f945859e46")]
 
 // Informacje o wersji zestawu zawierają następujące cztery wartości:
 //

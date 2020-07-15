@@ -1,16 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace spoj.com_CALC_enum
 {
     class Program
     {
 
- enum Test{Plus,Minus,Mnozenie,Dzielenie,Reszta}
+        enum Test { Plus, Minus, Mnozenie, Dzielenie, Reszta }
         static void Main(string[] args)
         {
             string textInput;
@@ -28,11 +23,11 @@ namespace spoj.com_CALC_enum
 
                 string znak = wordlist[0];
 
-                if(wordlist[0] == "+")
+                if (wordlist[0] == "+")
                 {
                     firstChar = Test.Plus;
                 }
-                else if(wordlist[0] == "-")
+                else if (wordlist[0] == "-")
                 {
                     firstChar = Test.Minus;
                 }
@@ -48,15 +43,15 @@ namespace spoj.com_CALC_enum
                 {
                     firstChar = Test.Reszta;
                 }
-                else 
+                else
                 {
                     Console.WriteLine("Źle podany pierwszy znak");
-                    Console.ReadLine(); 
+                    Console.ReadLine();
                 }
 
-               Console.WriteLine(Calculate(number1, number2,firstChar));
+                Console.WriteLine(Calculate(number1, number2, firstChar));
             }
-         
+
             int Calculate(int firstNumber, int secoundNumber, Test wyliczeniowy)
             {
                 switch (wyliczeniowy)
@@ -74,18 +69,18 @@ namespace spoj.com_CALC_enum
                                 Console.WriteLine("Dzielenie przez 0 niemożliwe!");
                                 break;
                             }
-                        return firstNumber / secoundNumber;
+                            return firstNumber / secoundNumber;
                         }
                     case Test.Reszta:
-                        return firstNumber%secoundNumber;
+                        return firstNumber % secoundNumber;
                     default:
                         return 0;
                 }
 
                 return 0;
             }
-        
-        }   
-    } 
+
+        }
+    }
 
 }
