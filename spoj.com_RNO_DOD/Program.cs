@@ -10,19 +10,31 @@ namespace spoj.com_RNO_DOD
     {
         static void Main(string[] args)
         {
-            string text1;
+            string text1 = Console.ReadLine();
+            int number1 = int.Parse(text1);
+            int counting = 0;
 
-            int test = text1.
 
             for (int i = 0; i < number1;i++)
             {
-                string label1 = Console.ReadLine();
+                string text2 = Console.ReadLine();
+                int number2 = int.Parse(text2);
 
-                string[] array1 = label1.Split(' ');
+                string mainText = Console.ReadLine();
+                string[] array1 = mainText.Split(' ');
 
+
+                for(int j=0;j<number2;j++)
+                {
+                    int convertingNumber = int.Parse(array1[j]);
+                    counting = counting + convertingNumber;
+                }
+
+                Console.WriteLine(counting);
+                counting = 0;
             }
-
-
+            Console.WriteLine("Koniec!");
+            Console.ReadLine();
         }
     }
 }
