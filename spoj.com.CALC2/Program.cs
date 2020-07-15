@@ -18,6 +18,8 @@ namespace spoj.com.CALC2
                 userInputText = Console.ReadLine();
             }
             Console.ReadLine();
+            Console.ReadLine();
+
         }
     }
 }
