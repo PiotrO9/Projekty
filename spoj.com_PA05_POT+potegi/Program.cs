@@ -37,6 +37,11 @@ namespace spoj.com_PA05_POT_potegi
                 }
 
                 Console.WriteLine(multiplication);
+                int length = multiplication.ToString().Length;
+                string score = multiplication.ToString();
+
+                Console.WriteLine(score[length - 1]);
+                
             }
             Console.ReadLine();
 
