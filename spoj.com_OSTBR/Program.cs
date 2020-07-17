@@ -12,6 +12,11 @@ namespace spoj.com_OSTBR
         {
             for(; ; )
             {
+                string textInput = Console.ReadLine();
+
+                int length = textInput.Length;
+
+                Console.WriteLine(textInput[length - 1]);
 
             }
 
