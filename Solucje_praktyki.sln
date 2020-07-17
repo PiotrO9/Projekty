@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "spoj.com_PA05_POT+potegi", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "spoj.com_OSTBR", "spoj.com_OSTBR\spoj.com_OSTBR.csproj", "{A6EAAA44-CF6A-4759-A5D3-33E499FAC683}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "spoj.com_PPODST", "spoj.com_PPODST\spoj.com_PPODST.csproj", "{67331730-CCD0-4AFC-AE84-CE26D6707D68}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +59,10 @@ Global
 		{A6EAAA44-CF6A-4759-A5D3-33E499FAC683}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A6EAAA44-CF6A-4759-A5D3-33E499FAC683}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A6EAAA44-CF6A-4759-A5D3-33E499FAC683}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67331730-CCD0-4AFC-AE84-CE26D6707D68}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67331730-CCD0-4AFC-AE84-CE26D6707D68}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67331730-CCD0-4AFC-AE84-CE26D6707D68}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67331730-CCD0-4AFC-AE84-CE26D6707D68}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
