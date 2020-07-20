@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace spoj.com.CALC
 {
@@ -19,16 +15,16 @@ namespace spoj.com.CALC
             if (TryParseUserDates(userInputText, out convertedNumber, "Użytkwnik nie wprowadził liczby") == false)
                 return;
 
-                string mnoznikInput = Console.ReadLine();
+            string mnoznikInput = Console.ReadLine();
 
-            if (TryParseUserDates( mnoznikInput, out mnoznikOutput, "Użytkwnik nie wprowadził poprawnego mnożnika") == false)
+            if (TryParseUserDates(mnoznikInput, out mnoznikOutput, "Użytkwnik nie wprowadził poprawnego mnożnika") == false)
                 return;
 
             Console.WriteLine(convertedNumber * mnoznikOutput);
             Console.ReadLine();
         }
 
-        private static bool TryParseUserDates(string userText,out int userNumber, string userComunicate)
+        private static bool TryParseUserDates(string userText, out int userNumber, string userComunicate)
         {
             if (!int.TryParse(userText, out userNumber))
             {

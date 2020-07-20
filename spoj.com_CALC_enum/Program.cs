@@ -5,7 +5,7 @@ namespace spoj.com_CALC_enum
     class Program
     {
 
-        enum Test { Plus, Minus, Mnozenie, Dzielenie, Reszta }
+        enum Test { Plus = 1, Minus, Mnozenie, Dzielenie, Reszta }
         static void Main(string[] args)
         {
             string textInput;

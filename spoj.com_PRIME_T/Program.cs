@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace spoj.com_PRIME_T
 {
@@ -28,7 +24,7 @@ namespace spoj.com_PRIME_T
                     Console.Write("To nie liczba pierwsza \n");
                 }
 
-                
+
 
             }
 
@@ -36,13 +32,13 @@ namespace spoj.com_PRIME_T
 
         static bool pierwsza(int number)
         {
-            if(number<2)
+            if (number < 2)
             { return false; }
-            
-            for(int i=2;i*i<=number;i++)
+
+            for (int i = 2; i * i <= number; i++)
             {
-                if(number%i==0)
-                return false;
+                if (number % i == 0)
+                    return false;
             }
 
             return true;

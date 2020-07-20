@@ -4,11 +4,11 @@ using System.Runtime.InteropServices;
 // Ogólne informacje o zestawie są kontrolowane poprzez następujący 
 // zestaw atrybutów. Zmień wartości tych atrybutów, aby zmodyfikować informacje
 // powiązane z zestawem.
-[assembly: AssemblyTitle("spoj.com.CALC2")]
+[assembly: AssemblyTitle("Nowyprojekt2")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("spoj.com.CALC2")]
+[assembly: AssemblyProduct("Nowyprojekt2")]
 [assembly: AssemblyCopyright("Copyright ©  2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -19,7 +19,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // Następujący identyfikator GUID jest identyfikatorem biblioteki typów w przypadku udostępnienia tego projektu w modelu COM
-[assembly: Guid("3410d900-fc35-4108-9540-44072b52b24c")]
+[assembly: Guid("95d9da13-4968-4068-a6f9-90cbd4b90d2d")]
 
 // Informacje o wersji zestawu zawierają następujące cztery wartości:
 //

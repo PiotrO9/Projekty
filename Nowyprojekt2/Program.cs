@@ -1,4 +1,4 @@
-﻿namespace ConsoleApp1
+﻿namespace Nowyprojekt2
 {
     class Program
     {
@@ -7,5 +7,5 @@
 
 
         }
-    }
+        
 }
