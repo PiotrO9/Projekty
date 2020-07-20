@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "spoj.com_PRIME_T", "spoj.co
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnumyZadania", "Enumy_ćwiczenia\EnumyZadania.csproj", "{480B8EA5-4AA7-493E-B910-F20C89BD6ADF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "w3resource.com_exercise_array_1", "w3resource.com_exercise_array_1\w3resource.com_exercise_array_1.csproj", "{195D46A8-6798-4D72-93D9-96E2725740F2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{480B8EA5-4AA7-493E-B910-F20C89BD6ADF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{480B8EA5-4AA7-493E-B910-F20C89BD6ADF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{480B8EA5-4AA7-493E-B910-F20C89BD6ADF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{195D46A8-6798-4D72-93D9-96E2725740F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{195D46A8-6798-4D72-93D9-96E2725740F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{195D46A8-6798-4D72-93D9-96E2725740F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{195D46A8-6798-4D72-93D9-96E2725740F2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
