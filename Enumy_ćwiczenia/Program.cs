@@ -20,13 +20,12 @@ namespace EnumyZadania
             Console.WriteLine((int)number1);
 
             int number2 = (int)test2;
-            number2 += 1;
+            number2 += 4;
             Console.WriteLine((BorderStyle)number2);
 
             foreach (int i in Enum.GetValues(typeof(BorderStyle)))
             {
                 Console.WriteLine((BorderStyle)i);
-
             }
 
             Console.ReadLine();
