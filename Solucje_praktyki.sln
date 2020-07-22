@@ -37,6 +37,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "w3resource.com_exercise_arr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "www.w3resource.com_Array_5", "www.w3resource.com_Array_5\www.w3resource.com_Array_5.csproj", "{81738642-7AA2-4E71-B70C-1EE501B15ADD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "www.w3resource.com_Array_6", "www.w3resource.com_Array_6\www.w3resource.com_Array_6.csproj", "{77A0C7E5-F243-4049-B858-83E177C3BC0D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{C71F3E0A-C844-4F01-989A-935307D2D273}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -111,6 +115,14 @@ Global
 		{81738642-7AA2-4E71-B70C-1EE501B15ADD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{81738642-7AA2-4E71-B70C-1EE501B15ADD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{81738642-7AA2-4E71-B70C-1EE501B15ADD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77A0C7E5-F243-4049-B858-83E177C3BC0D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77A0C7E5-F243-4049-B858-83E177C3BC0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77A0C7E5-F243-4049-B858-83E177C3BC0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77A0C7E5-F243-4049-B858-83E177C3BC0D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C71F3E0A-C844-4F01-989A-935307D2D273}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C71F3E0A-C844-4F01-989A-935307D2D273}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C71F3E0A-C844-4F01-989A-935307D2D273}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C71F3E0A-C844-4F01-989A-935307D2D273}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
