@@ -8,9 +8,9 @@ namespace Common
 {
     public static class InteractiveWithUser
     {
-        public static int GetIntFromUser()
+        public static int GetIntFromUser(string messageForUser = "Wprowadź liczbę")
         {
-            Console.WriteLine("Wprowadź liczbę");
+            Console.WriteLine(messageForUser);
             int loops;
 
             while (!int.TryParse(Console.ReadLine(), out loops))
@@ -24,7 +24,8 @@ namespace Common
         public static int[] GetIntArray()
         {
             Console.WriteLine("Tworzenie nowej tablicy");
-            int loops = GetIntFromUser();
+
+            int loops = GetIntFromUser("Podaj wielkość tablicy");
 
             if (loops <= 0)
             {

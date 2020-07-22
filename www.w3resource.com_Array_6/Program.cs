@@ -11,7 +11,7 @@ namespace www.w3resource.com_Array_6
     {
         static void Main(string[] args)
         {
-            int loops = InteractiveWithUser.GetIntFromUser();
+            int[] arrayFromUser = InteractiveWithUser.GetIntArray();
 
 
         }
