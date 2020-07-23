@@ -47,6 +47,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "www.w3resource.com_Array_8"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "www.w3resource.com_Array_9", "www.w3resource.com_Array_9\www.w3resource.com_Array_9.csproj", "{92778917-94EA-4408-8269-A70B5DDA4BBE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "www.w3resource.com_Array_10", "www.w3resource.com_Array_10\www.w3resource.com_Array_10.csproj", "{5D97286B-847D-4CD2-B64C-C06AC8C54F78}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -141,6 +143,10 @@ Global
 		{92778917-94EA-4408-8269-A70B5DDA4BBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{92778917-94EA-4408-8269-A70B5DDA4BBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{92778917-94EA-4408-8269-A70B5DDA4BBE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D97286B-847D-4CD2-B64C-C06AC8C54F78}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D97286B-847D-4CD2-B64C-C06AC8C54F78}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D97286B-847D-4CD2-B64C-C06AC8C54F78}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D97286B-847D-4CD2-B64C-C06AC8C54F78}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
