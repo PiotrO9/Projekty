@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace www.w3resource.com_Array_11
+namespace www.w3resource.com_Array_12
 {
     class Program
     {
@@ -13,16 +13,10 @@ namespace www.w3resource.com_Array_11
         {
             int[] firstArray = InteractiveWithUser.GetIntArray();
 
-            Array.Sort(firstArray);
-
-            Console.WriteLine("Elementy posortowane rosnąco");
-
-            for (int i = 0; i < firstArray.Length; i++)
-            {
-                Console.Write(firstArray[i] + " ");
-            }
+            firstArray = Sorting.sortingByDescending(firstArray, 1);
 
             Console.ReadLine();
+
         }
     }
 }

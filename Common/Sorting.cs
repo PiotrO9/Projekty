@@ -68,7 +68,7 @@ namespace Common
             Console.WriteLine("\n");
             for (int i = 0; i < arrayToPrint.Length; i++)
             {
-                Console.Write(arrayToPrint[i]);
+                Console.Write(arrayToPrint[i] + " ");
             }
         }
 
