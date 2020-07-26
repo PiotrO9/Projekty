@@ -69,6 +69,8 @@ namespace Kalkulator
                     }
                 }
 
+                //////////////////////////////////////////////////
+
                 for (int i = 0; i < listDivision.Count; i++)
                 {
                     numbersList[listDivision[i]] = numbersList[listDivision[i]] / numbersList[listDivision[i] + 1];
