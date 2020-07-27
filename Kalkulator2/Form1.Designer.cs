@@ -45,6 +45,7 @@
             this.btnMul = new System.Windows.Forms.Button();
             this.btnDiv = new System.Windows.Forms.Button();
             this.btnC = new System.Windows.Forms.Button();
+            this.btnDot = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Display
@@ -156,9 +157,9 @@
             // 
             // btnEquals
             // 
-            this.btnEquals.Location = new System.Drawing.Point(66, 134);
+            this.btnEquals.Location = new System.Drawing.Point(122, 134);
             this.btnEquals.Name = "btnEquals";
-            this.btnEquals.Size = new System.Drawing.Size(106, 30);
+            this.btnEquals.Size = new System.Drawing.Size(50, 30);
             this.btnEquals.TabIndex = 11;
             this.btnEquals.Text = "=";
             this.btnEquals.UseVisualStyleBackColor = true;
@@ -214,11 +215,21 @@
             this.btnC.UseVisualStyleBackColor = true;
             this.btnC.Click += new System.EventHandler(this.btnC_Click);
             // 
+            // btnDot
+            // 
+            this.btnDot.Location = new System.Drawing.Point(68, 134);
+            this.btnDot.Name = "btnDot";
+            this.btnDot.Size = new System.Drawing.Size(50, 30);
+            this.btnDot.TabIndex = 17;
+            this.btnDot.Text = ".";
+            this.btnDot.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(234, 179);
+            this.Controls.Add(this.btnDot);
             this.Controls.Add(this.btnC);
             this.Controls.Add(this.btnDiv);
             this.Controls.Add(this.btnMul);
@@ -262,6 +273,7 @@
         private System.Windows.Forms.Button btnMul;
         private System.Windows.Forms.Button btnDiv;
         private System.Windows.Forms.Button btnC;
+        private System.Windows.Forms.Button btnDot;
     }
 }
 
