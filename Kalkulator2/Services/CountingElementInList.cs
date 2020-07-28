@@ -109,7 +109,7 @@ namespace Kalkulator2.Services
                                 break;
                             }
 
-                            ResultCalculation = firstTempNumber - secoundTempNumber;
+                            ResultCalculation = firstTempNumber / secoundTempNumber;
                             TextToDisplay = ResultCalculation.ToString();
 
                             if (ResultCalculation == (int)ResultCalculation)
