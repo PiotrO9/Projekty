@@ -73,6 +73,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "www.w3resource.com_Array20"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kalkulator2", "Kalkulator2\Kalkulator2.csproj", "{F89B6FCA-4E58-4CBD-A8C3-B0B320FC734C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "www.w3resource.com_Array21", "www.w3resource.com_Array21\www.w3resource.com_Array21.csproj", "{4AC5CDE9-7E4D-4D54-9AFD-BFEF0F8C0C2C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -219,6 +221,10 @@ Global
 		{F89B6FCA-4E58-4CBD-A8C3-B0B320FC734C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F89B6FCA-4E58-4CBD-A8C3-B0B320FC734C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F89B6FCA-4E58-4CBD-A8C3-B0B320FC734C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4AC5CDE9-7E4D-4D54-9AFD-BFEF0F8C0C2C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4AC5CDE9-7E4D-4D54-9AFD-BFEF0F8C0C2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4AC5CDE9-7E4D-4D54-9AFD-BFEF0F8C0C2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4AC5CDE9-7E4D-4D54-9AFD-BFEF0F8C0C2C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Common
 {
-    class Matrix
+    public static class Matrix
     {
-        int[,] generateMatrix()
+        public static int[,] generateMatrix(string message = "Podaj wymiar: ")
         {
-            Console.WriteLine("Podaj 1 wymiar: ");
+            Console.WriteLine(message);
             int firstSize;
             int secoundSize;
 
@@ -37,6 +37,21 @@ namespace Common
             }
 
             return mainArray;
+        }
+
+        public static int[,] fillingMatrix(int[,] matrixToFill)
+        {
+            int size = matrixToFill.Length;
+
+            for (int i = 0; i < size; i++)
+            {
+                for (int j = 0; j < size; j++)
+                {
+                    matrixToFill[i, j] = int.Parse(Console.ReadLine());
+                }
+            }
+
+            return matrixToFill;
         }
 
     }
