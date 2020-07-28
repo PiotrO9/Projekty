@@ -1,4 +1,5 @@
-﻿using Kalkulator2.Model;
+﻿using EnumsNET;
+using Kalkulator2.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,5 +25,9 @@ namespace Kalkulator2
             this.CalcOperationType = operationType;
             this.CalcItemType = ItemType.Operation;
         }
+
+        public override string ToString() =>
+            this.CalcItemType == ItemType.Number ? (CalcNumber ?? 0).ToString() :
+                                                   (CalcOperationType ?? OperationType.Plus).AsString(EnumFormat.Description);
     }
 }

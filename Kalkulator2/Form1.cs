@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Kalkulator2.Services;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -26,7 +27,16 @@ namespace Kalkulator2
 
         private void btnEquals_Click(object sender, EventArgs e)
         {
-            ;
+            if (_fillingCalculationList.IsCorrect() == false)
+                return;
+
+            var countingEngine = new CountingElementInList(_calculactionNameList);
+
+            if (countingEngine.IsCalculatedOk == true)
+            {
+                this._fillingCalculationList.Clear();
+                Display.Text = countingEngine.TextToDisplay;
+            }
         }
 
         private void btnPlus_Click(object sender, EventArgs e)
