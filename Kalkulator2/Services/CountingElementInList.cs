@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Kalkulator2.Model;
+using System;
 using System.CodeDom;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,13 +18,18 @@ namespace Kalkulator2.Services
 
         public CountingElementInList(List<Item> collectionToCalculate)
         {
-            Item temp = collectionToCalculate[1];
-
-            switch (collectionToCalculate[1])
+            if (collectionToCalculate[1].CalcItemType == ItemType.Operation)
             {
-
-
+                switch (collectionToCalculate[1].CalcOperationType)
+                {
+                    case OperationType.Plus:
+                        {
+                            int firstTemp = collectionToCalculate[1].
+                                break;
+                        }
+                }
             }
+
 
 
 
