@@ -14,7 +14,7 @@ namespace Kalkulator2
         public OperationType? CalcOperationType { get; private set; }
         public double? CalcNumber { get; private set; }
 
-        public Item(double number)
+        public Item(float number)
         {
             this.CalcNumber = number;
             this.CalcItemType = ItemType.Number;

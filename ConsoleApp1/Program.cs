@@ -7,15 +7,10 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            List<int> test = new List<int>();
-            test.Add(0);
-            for (; ; )
-            {
-                Console.WriteLine(test[0]);
-                Console.WriteLine("Podaj liczbę");
+            float test = float.Parse(Console.ReadLine());
 
-                test[0] = int.Parse(Console.ReadLine());
-            }
+            Console.WriteLine(test);
+            Console.ReadLine();
 
         }
     }

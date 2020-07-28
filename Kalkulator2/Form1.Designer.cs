@@ -45,7 +45,7 @@
             this.btnMul = new System.Windows.Forms.Button();
             this.btnDiv = new System.Windows.Forms.Button();
             this.btnC = new System.Windows.Forms.Button();
-            this.btnDot = new System.Windows.Forms.Button();
+            this.btnFloat = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Display
@@ -215,21 +215,21 @@
             this.btnC.UseVisualStyleBackColor = true;
             this.btnC.Click += new System.EventHandler(this.btnC_Click);
             // 
-            // btnDot
+            // btnFloat
             // 
-            this.btnDot.Location = new System.Drawing.Point(68, 134);
-            this.btnDot.Name = "btnDot";
-            this.btnDot.Size = new System.Drawing.Size(50, 30);
-            this.btnDot.TabIndex = 17;
-            this.btnDot.Text = ".";
-            this.btnDot.UseVisualStyleBackColor = true;
+            this.btnFloat.Location = new System.Drawing.Point(68, 134);
+            this.btnFloat.Name = "btnFloat";
+            this.btnFloat.Size = new System.Drawing.Size(50, 30);
+            this.btnFloat.TabIndex = 17;
+            this.btnFloat.Text = ",";
+            this.btnFloat.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(234, 179);
-            this.Controls.Add(this.btnDot);
+            this.Controls.Add(this.btnFloat);
             this.Controls.Add(this.btnC);
             this.Controls.Add(this.btnDiv);
             this.Controls.Add(this.btnMul);
@@ -248,6 +248,7 @@
             this.Controls.Add(this.btn1);
             this.Controls.Add(this.Display);
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Kalkulator";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -273,7 +274,7 @@
         private System.Windows.Forms.Button btnMul;
         private System.Windows.Forms.Button btnDiv;
         private System.Windows.Forms.Button btnC;
-        private System.Windows.Forms.Button btnDot;
+        private System.Windows.Forms.Button btnFloat;
     }
 }
 
