@@ -34,7 +34,6 @@ namespace Kalkulator2
 
             if (countingEngine.IsCalculatedOk == true)
             {
-                this._fillingCalculationList.Clear();
                 Display.Text = countingEngine.TextToDisplay;
             }
         }

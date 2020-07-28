@@ -40,10 +40,10 @@ namespace Kalkulator2
                 return;
             }
 
-            _lastMinus = false;
-
             Item test = new Item(operationType);
             _calculactionNameList.Add(test);
+
+            _lastMinus = false;
         }
 
         public void AddNumber(int number)
