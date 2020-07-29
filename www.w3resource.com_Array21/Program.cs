@@ -11,6 +11,8 @@ namespace www.w3resource.com_Array21
     {
         static void Main(string[] args)
         {
+            int sum;
+
             int[,] firstMatrix = Matrix.generateMatrix();
 
             int[,] secoundMatrix = Matrix.generateMatrix();
@@ -23,15 +25,28 @@ namespace www.w3resource.com_Array21
 
             secoundMatrix = Matrix.fillingMatrix(secoundMatrix);
 
-            int[,] thirdMatrix = Matrix.generateMatrix();
+            int[,] thirdMatrix = new int[firstMatrix.GetLength(0), firstMatrix.GetLength(0)];
 
-            int sizeOfThirdMatrix = thirdMatrix.Length;
+            int sizeOfThirdMatrix = firstMatrix.GetLength(0);
 
             for (int i = 0; i < sizeOfThirdMatrix; i++)
             {
                 for (int j = 0; j < sizeOfThirdMatrix; j++)
                 {
-                    thirdMatrix[i, j] = firstMatrix[i, j] * secoundMatrix[j, i];
+                    thirdMatrix[i, j] = 0;
+                }
+            }
+
+            for (int i = 0; i < sizeOfThirdMatrix; i++)
+            {
+                for (int j = 0; j < sizeOfThirdMatrix; j++)
+                {
+                    sum = 0;
+                    for (int k = 0; k < sizeOfThirdMatrix; k++)
+                    {
+                        sum += firstMatrix[i, k] * secoundMatrix[k, j];
+                    }
+                    thirdMatrix[i, j] = sum;
                 }
             }
 

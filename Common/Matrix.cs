@@ -41,7 +41,7 @@ namespace Common
 
         public static int[,] fillingMatrix(int[,] matrixToFill)
         {
-            int size = matrixToFill.Length;
+            int size = matrixToFill.GetLength(0);
 
             for (int i = 0; i < size; i++)
             {
