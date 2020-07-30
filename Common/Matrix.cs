@@ -8,7 +8,7 @@ namespace Common
 {
     public static class Matrix
     {
-        public static int[,] generateMatrix(string message = "Podaj wymiar: ")
+        public static int[,] generateMatrix(string message = "Podaj wymiary: ")
         {
             Console.WriteLine(message);
             int firstSize;
