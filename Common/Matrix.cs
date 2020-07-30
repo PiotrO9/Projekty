@@ -27,7 +27,7 @@ namespace Common
             else
             {
                 mainArray = new int[0, 0];
-                Console.WriteLine("Tablica zawiera nieprawidłowy rozmiar, domyślnie utworzono 0,0");
+                Console.WriteLine("Tablica zawiera nieprawidłowy rozmiar, domyślnie utworzono macierz o rozmiarze 0,0");
             }
 
             return mainArray;
