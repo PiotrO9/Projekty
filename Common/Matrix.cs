@@ -33,11 +33,11 @@ namespace Common
             return mainArray;
         }
 
-        public static int[,] fillingMatrix(int[,] matrixToFill)
+        public static int[,] fillingMatrix(int[,] matrixToFill, string message = "Wypełnianie macierzy")
         {
             int size = matrixToFill.GetLength(0);
 
-            Console.WriteLine("Wypełnianie macierzy");
+            Console.WriteLine(message);
 
             for (int i = 0; i < size; i++)
             {
