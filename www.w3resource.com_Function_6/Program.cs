@@ -10,6 +10,9 @@ namespace www.w3resource.com_Function_6
     class Program
     {
         public static void swap()
+        {
+            ;
+        }
 
         static void Main(string[] args)
         {
