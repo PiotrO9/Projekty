@@ -11,24 +11,18 @@ namespace Common
         public static int[,] generateMatrix(string message = "Podaj wymiary: ")
         {
             Console.WriteLine(message);
-            int firstSize;
-            int secoundSize;
+            int size;
 
             int[,] mainArray;
 
-            while (!int.TryParse(Console.ReadLine(), out firstSize))
+            while (!int.TryParse(Console.ReadLine(), out size))
             {
                 Console.WriteLine("Wprowadzony ciąg nie jest liczbą");
             }
 
-            while (!int.TryParse(Console.ReadLine(), out secoundSize))
+            if (size > 0)
             {
-                Console.WriteLine("Wprowadzony ciąg nie jest liczbą");
-            }
-
-            if (firstSize > 0 && secoundSize > 0)
-            {
-                mainArray = new int[firstSize, secoundSize];
+                mainArray = new int[size, size];
             }
             else
             {
@@ -43,6 +37,8 @@ namespace Common
         {
             int size = matrixToFill.GetLength(0);
 
+            Console.WriteLine("Wypełnianie macierzy");
+
             for (int i = 0; i < size; i++)
             {
                 for (int j = 0; j < size; j++)
@@ -52,6 +48,23 @@ namespace Common
             }
 
             return matrixToFill;
+        }
+
+        public static void printingMatrix(int[,] matrixToPrint)
+        {
+            int size = matrixToPrint.GetLength(0);
+
+            Console.WriteLine("Wyświetlanie macierzy");
+
+            for (int i = 0; i < size; i++)
+            {
+                for (int j = 0; j < size; j++)
+                {
+                    Console.Write(matrixToPrint[i, j] + " ");
+                }
+                Console.Write("\n");
+            }
+            Console.Write("\n");
         }
 
     }
