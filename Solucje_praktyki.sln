@@ -87,6 +87,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "www.w3resource.com_Array26"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "www.w3resource.com_Array27", "www.w3resource.com_Array27\www.w3resource.com_Array27.csproj", "{A3DF12A4-7DE7-49A9-B493-5C61C70FCFCF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "www.w3resource.com_Array28", "www.w3resource.com_Array28\www.w3resource.com_Array28.csproj", "{6ECAE357-2D06-4FAA-AAA9-86A3971BE32C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -261,6 +263,10 @@ Global
 		{A3DF12A4-7DE7-49A9-B493-5C61C70FCFCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A3DF12A4-7DE7-49A9-B493-5C61C70FCFCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A3DF12A4-7DE7-49A9-B493-5C61C70FCFCF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6ECAE357-2D06-4FAA-AAA9-86A3971BE32C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6ECAE357-2D06-4FAA-AAA9-86A3971BE32C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6ECAE357-2D06-4FAA-AAA9-86A3971BE32C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6ECAE357-2D06-4FAA-AAA9-86A3971BE32C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
