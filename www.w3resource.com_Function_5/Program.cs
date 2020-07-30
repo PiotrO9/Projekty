@@ -25,7 +25,7 @@ namespace www.w3resource.com_Function_5
 
             Console.WriteLine("Wprowadź liczbę elementów w tabeli");
 
-            while (int.TryParse(Console.ReadLine(), out size))
+            while (!int.TryParse(Console.ReadLine(), out size))
             {
                 Console.WriteLine("Wprowadzona liczba jest nieprawidłowa, wprowadź ponownie");
             }

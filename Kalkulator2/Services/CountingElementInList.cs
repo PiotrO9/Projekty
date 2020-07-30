@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace Kalkulator2.Services
 {
-    internal class CountingElementInList
+    internal class CountingElementInList : ICountingElementInList
     {
         public bool IsCalculatedOk { get; private set; }
 
