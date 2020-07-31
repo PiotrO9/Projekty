@@ -17,13 +17,26 @@ namespace Paint
         int y = -1;
         bool moving = false;
         Pen pen;
-        string test = "FFFFFF";
+
+        int Red = 0;
+        int Green = 0;
+        int Blue = 0;
 
         public Form1()
         {
             InitializeComponent();
             g = panel1.CreateGraphics();
-            pen = new Pen(Color.Black, 5);
+            pen = new Pen(Color.Black, 1);
+        }
+
+        public void penColorChange()
+        {
+            pen.Color = Color.FromArgb(Red, Green, Blue);
+        }
+
+        public void panelColorUpdate()
+        {
+            panel2.BackColor = Color.FromArgb(Red, Green, Blue);
         }
 
         private void panel1_MouseDown(object sender, MouseEventArgs e)
@@ -50,6 +63,34 @@ namespace Paint
             y = -1;
         }
 
+        private void trackBarR_ValueChanged(object sender, EventArgs e)
+        {
+            Red = trackBarR.Value;
+            label1.Text = Red.ToString();
+            penColorChange();
+            panelColorUpdate();
+        }
 
+        private void trackBarG_ValueChanged(object sender, EventArgs e)
+        {
+            Green = trackBarG.Value;
+            label2.Text = Green.ToString();
+            penColorChange();
+            panelColorUpdate();
+        }
+
+        private void trackBarB_ValueChanged(object sender, EventArgs e)
+        {
+            Blue = trackBarB.Value;
+            label3.Text = Blue.ToString();
+            penColorChange();
+            panelColorUpdate();
+        }
+
+        private void trackBarW_ValueChanged(object sender, EventArgs e)
+        {
+            lblW.Text = trackBarW.Value.ToString();
+            pen.Width = trackBarW.Value;
+        }
     }
 }
