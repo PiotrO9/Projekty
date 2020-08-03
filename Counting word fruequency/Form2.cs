@@ -14,6 +14,7 @@ namespace Counting_word_fruequency
     {
         public TextBox textBoxForm1;
 
+
         public Form2()
         {
             InitializeComponent();
@@ -32,9 +33,11 @@ namespace Counting_word_fruequency
                 return;
             }
 
-            List<string> listOfWords = textBoxForm1.Text.Split(new char[] { ' ', '.', ',', '!', '?', ':', ';', '\r', '\n' },
+            var listOfWords = (textBoxForm1.Text.Split(new char[] { ' ', '.', ',', '!', '?', ':', ';', '\r', '\n' },
                                                                 StringSplitOptions.RemoveEmptyEntries)
-                                                        .ToList();
+                                                        ).ToList();
+
+            ListPrint.DataSource = listOfWords;
 
             int counting = 0;
 
@@ -54,9 +57,9 @@ namespace Counting_word_fruequency
 
         }
 
-        private void lbl1_Click(object sender, EventArgs e)
+        private void ListPrint_SizeChanged(object sender, EventArgs e)
         {
-
+            ;
         }
     }
 }

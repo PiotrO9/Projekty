@@ -30,12 +30,12 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.btnClose = new System.Windows.Forms.Button();
             this.lbl1 = new System.Windows.Forms.Label();
             this.btnC = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.ListPrint = new System.Windows.Forms.ListBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -65,17 +65,6 @@
             this.tabPage1.Text = "Counting word";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.listBox1);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(368, 244);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Most frequency words";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
             // btnClose
             // 
             this.btnClose.Location = new System.Drawing.Point(135, 143);
@@ -94,7 +83,6 @@
             this.lbl1.TabIndex = 6;
             this.lbl1.Text = "Wyniki wyszukiwania";
             this.lbl1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lbl1.Click += new System.EventHandler(this.lbl1_Click);
             // 
             // btnC
             // 
@@ -104,6 +92,7 @@
             this.btnC.TabIndex = 5;
             this.btnC.Text = "Count";
             this.btnC.UseVisualStyleBackColor = true;
+            this.btnC.Click += new System.EventHandler(this.btnC_Click);
             // 
             // textBox1
             // 
@@ -112,13 +101,25 @@
             this.textBox1.Size = new System.Drawing.Size(148, 20);
             this.textBox1.TabIndex = 4;
             // 
-            // listBox1
+            // tabPage2
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(10, 41);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(195, 147);
-            this.listBox1.TabIndex = 0;
+            this.tabPage2.Controls.Add(this.ListPrint);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(368, 244);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Most frequency words";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // ListPrint
+            // 
+            this.ListPrint.FormattingEnabled = true;
+            this.ListPrint.Location = new System.Drawing.Point(6, 6);
+            this.ListPrint.Name = "ListPrint";
+            this.ListPrint.Size = new System.Drawing.Size(195, 147);
+            this.ListPrint.TabIndex = 0;
+            this.ListPrint.SizeChanged += new System.EventHandler(this.ListPrint_SizeChanged);
             // 
             // Form2
             // 
@@ -145,6 +146,6 @@
         private System.Windows.Forms.Label lbl1;
         private System.Windows.Forms.Button btnC;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox ListPrint;
     }
 }
