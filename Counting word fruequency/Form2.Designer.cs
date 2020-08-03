@@ -28,69 +28,123 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.btnC = new System.Windows.Forms.Button();
-            this.lbl1 = new System.Windows.Forms.Label();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.btnClose = new System.Windows.Forms.Button();
+            this.lbl1 = new System.Windows.Forms.Label();
+            this.btnC = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
             this.SuspendLayout();
             // 
-            // textBox1
+            // tabControl1
             // 
-            this.textBox1.Location = new System.Drawing.Point(12, 12);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(148, 20);
-            this.textBox1.TabIndex = 0;
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Location = new System.Drawing.Point(-2, 1);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(376, 270);
+            this.tabControl1.TabIndex = 4;
             // 
-            // btnC
+            // tabPage1
             // 
-            this.btnC.Location = new System.Drawing.Point(42, 38);
-            this.btnC.Name = "btnC";
-            this.btnC.Size = new System.Drawing.Size(85, 37);
-            this.btnC.TabIndex = 1;
-            this.btnC.Text = "Count";
-            this.btnC.UseVisualStyleBackColor = true;
-            this.btnC.Click += new System.EventHandler(this.btnC_Click);
+            this.tabPage1.Controls.Add(this.btnClose);
+            this.tabPage1.Controls.Add(this.lbl1);
+            this.tabPage1.Controls.Add(this.btnC);
+            this.tabPage1.Controls.Add(this.textBox1);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(368, 244);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Counting word";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.listBox1);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(368, 244);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Most frequency words";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // btnClose
+            // 
+            this.btnClose.Location = new System.Drawing.Point(135, 143);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(85, 37);
+            this.btnClose.TabIndex = 7;
+            this.btnClose.Text = "Exit";
+            this.btnClose.UseVisualStyleBackColor = true;
             // 
             // lbl1
             // 
             this.lbl1.AutoSize = true;
-            this.lbl1.Location = new System.Drawing.Point(69, 107);
+            this.lbl1.Location = new System.Drawing.Point(123, 106);
             this.lbl1.Name = "lbl1";
-            this.lbl1.Size = new System.Drawing.Size(35, 13);
-            this.lbl1.TabIndex = 2;
-            this.lbl1.Text = "label1";
+            this.lbl1.Size = new System.Drawing.Size(107, 13);
+            this.lbl1.TabIndex = 6;
+            this.lbl1.Text = "Wyniki wyszukiwania";
+            this.lbl1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl1.Click += new System.EventHandler(this.lbl1_Click);
             // 
-            // btnClose
+            // btnC
             // 
-            this.btnClose.Location = new System.Drawing.Point(42, 270);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(69, 37);
-            this.btnClose.TabIndex = 3;
-            this.btnClose.Text = "Exit";
-            this.btnClose.UseVisualStyleBackColor = true;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            this.btnC.Location = new System.Drawing.Point(135, 43);
+            this.btnC.Name = "btnC";
+            this.btnC.Size = new System.Drawing.Size(85, 37);
+            this.btnC.TabIndex = 5;
+            this.btnC.Text = "Count";
+            this.btnC.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(115, 17);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(148, 20);
+            this.textBox1.TabIndex = 4;
+            // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Location = new System.Drawing.Point(10, 6);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(120, 95);
+            this.listBox1.TabIndex = 0;
             // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(180, 328);
-            this.Controls.Add(this.btnClose);
-            this.Controls.Add(this.lbl1);
-            this.Controls.Add(this.btnC);
-            this.Controls.Add(this.textBox1);
+            this.AutoSize = true;
+            this.ClientSize = new System.Drawing.Size(374, 270);
+            this.Controls.Add(this.tabControl1);
             this.Name = "Form2";
             this.Text = "Counting";
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button btnC;
-        private System.Windows.Forms.Label lbl1;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.Label lbl1;
+        private System.Windows.Forms.Button btnC;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.ListBox listBox1;
     }
 }

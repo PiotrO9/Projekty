@@ -43,8 +43,14 @@ namespace Counting_word_fruequency
 
         private void countToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form2 form2 = new Form2();
-            form2.Show();
+            if (textBox.Text == string.Empty)
+            {
+                MessageBox.Show("Nie wprowadzono tekstu");
+                return;
+            }
+            Form2 secoundForm = new Form2();
+            secoundForm.textBoxForm1 = this.textBox;
+            secoundForm.Show();
         }
 
     }

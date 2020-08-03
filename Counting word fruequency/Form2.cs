@@ -12,6 +12,8 @@ namespace Counting_word_fruequency
 {
     public partial class Form2 : Form
     {
+        public TextBox textBoxForm1;
+
         public Form2()
         {
             InitializeComponent();
@@ -24,10 +26,37 @@ namespace Counting_word_fruequency
 
         private void btnC_Click(object sender, EventArgs e)
         {
-            if ()
+            if (textBox1.Text == string.Empty)
             {
-
+                MessageBox.Show("Nie podano wyrazu");
+                return;
             }
+
+            List<string> listOfWords = textBoxForm1.Text.Split(new char[] { ' ', '.', ',', '!', '?', ':', ';', '\r', '\n' },
+                                                                StringSplitOptions.RemoveEmptyEntries)
+                                                        .ToList();
+
+            int counting = 0;
+
+            foreach (var word in listOfWords)
+            {
+                if (String.Equals(word, textBox1.Text, StringComparison.OrdinalIgnoreCase))
+                    counting++;
+            }
+
+            if (counting == 0)
+            {
+                lbl1.Text = "Podanego słowa nie ma w tekście";
+                return;
+            }
+
+            lbl1.Text = "Podane słowo wystąpiło: " + "\n" + counting + " raz w tekście";
+
+        }
+
+        private void lbl1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
