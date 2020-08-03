@@ -78,6 +78,7 @@
             this.countToolStripMenuItem.Name = "countToolStripMenuItem";
             this.countToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
             this.countToolStripMenuItem.Text = "Count";
+            this.countToolStripMenuItem.Click += new System.EventHandler(this.countToolStripMenuItem_Click);
             // 
             // openFileDialog1
             // 
@@ -102,11 +103,11 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox;
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem loadToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem clearToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem countToolStripMenuItem;
+        public System.Windows.Forms.TextBox textBox;
+        public System.Windows.Forms.MenuStrip menuStrip1;
+        public System.Windows.Forms.ToolStripMenuItem loadToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem clearToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem countToolStripMenuItem;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }

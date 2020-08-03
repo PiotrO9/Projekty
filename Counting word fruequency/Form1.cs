@@ -40,5 +40,12 @@ namespace Counting_word_fruequency
             path = string.Empty;
             textBox.Clear();
         }
+
+        private void countToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form2 form2 = new Form2();
+            form2.Show();
+        }
+
     }
 }
