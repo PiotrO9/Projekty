@@ -36,6 +36,7 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.ListPrint = new System.Windows.Forms.ListBox();
+            this.listPrintOfNumbers = new System.Windows.Forms.ListBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -103,6 +104,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.listPrintOfNumbers);
             this.tabPage2.Controls.Add(this.ListPrint);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
@@ -117,9 +119,17 @@
             this.ListPrint.FormattingEnabled = true;
             this.ListPrint.Location = new System.Drawing.Point(6, 6);
             this.ListPrint.Name = "ListPrint";
-            this.ListPrint.Size = new System.Drawing.Size(195, 147);
+            this.ListPrint.Size = new System.Drawing.Size(186, 225);
             this.ListPrint.TabIndex = 0;
             this.ListPrint.SizeChanged += new System.EventHandler(this.ListPrint_SizeChanged);
+            // 
+            // listPrintOfNumbers
+            // 
+            this.listPrintOfNumbers.FormattingEnabled = true;
+            this.listPrintOfNumbers.Location = new System.Drawing.Point(198, 6);
+            this.listPrintOfNumbers.Name = "listPrintOfNumbers";
+            this.listPrintOfNumbers.Size = new System.Drawing.Size(46, 225);
+            this.listPrintOfNumbers.TabIndex = 1;
             // 
             // Form2
             // 
@@ -147,5 +157,6 @@
         private System.Windows.Forms.Button btnC;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.ListBox ListPrint;
+        private System.Windows.Forms.ListBox listPrintOfNumbers;
     }
 }
