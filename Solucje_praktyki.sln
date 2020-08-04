@@ -105,6 +105,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Paint", "Paint\Paint.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Counting word fruequency", "Counting word fruequency\Counting word fruequency.csproj", "{3783ADD8-2DBD-4B1B-8723-0C329F8B56DF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Digital Clock", "Digital Clock\Digital Clock.csproj", "{705D21FC-7D5E-4794-A5BA-4F47FCFF13E5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -315,6 +317,10 @@ Global
 		{3783ADD8-2DBD-4B1B-8723-0C329F8B56DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3783ADD8-2DBD-4B1B-8723-0C329F8B56DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3783ADD8-2DBD-4B1B-8723-0C329F8B56DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{705D21FC-7D5E-4794-A5BA-4F47FCFF13E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{705D21FC-7D5E-4794-A5BA-4F47FCFF13E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{705D21FC-7D5E-4794-A5BA-4F47FCFF13E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{705D21FC-7D5E-4794-A5BA-4F47FCFF13E5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
