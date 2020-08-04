@@ -109,6 +109,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Digital Clock", "Digital Cl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "www.w3resource.com_DateTime_1", "www.w3resource.com_DateTime_1\www.w3resource.com_DateTime_1.csproj", "{3F58AD9E-58B3-472C-97AA-0FCB8E79A27E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "www.w3resource.com_DateTime_2", "www.w3resource.com_DateTime_2\www.w3resource.com_DateTime_2.csproj", "{1F5D2FAA-BFB8-46E9-889E-614C03ED04BB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -327,6 +329,10 @@ Global
 		{3F58AD9E-58B3-472C-97AA-0FCB8E79A27E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3F58AD9E-58B3-472C-97AA-0FCB8E79A27E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3F58AD9E-58B3-472C-97AA-0FCB8E79A27E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1F5D2FAA-BFB8-46E9-889E-614C03ED04BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F5D2FAA-BFB8-46E9-889E-614C03ED04BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F5D2FAA-BFB8-46E9-889E-614C03ED04BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F5D2FAA-BFB8-46E9-889E-614C03ED04BB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
