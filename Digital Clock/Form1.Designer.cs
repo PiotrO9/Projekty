@@ -37,9 +37,12 @@
             this.lblS = new System.Windows.Forms.Label();
             this.lblHM = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblStoperTime = new System.Windows.Forms.Label();
+            this.btnStartOrStop = new System.Windows.Forms.Button();
+            this.btnMeasure = new System.Windows.Forms.Button();
+            this.btnRestart = new System.Windows.Forms.Button();
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.lstOfMesurement = new System.Windows.Forms.ListBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -121,9 +124,11 @@
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.Black;
-            this.tabPage2.Controls.Add(this.button1);
+            this.tabPage2.Controls.Add(this.btnRestart);
+            this.tabPage2.Controls.Add(this.btnMeasure);
+            this.tabPage2.Controls.Add(this.btnStartOrStop);
             this.tabPage2.Controls.Add(this.lstOfMesurement);
-            this.tabPage2.Controls.Add(this.label1);
+            this.tabPage2.Controls.Add(this.lblStoperTime);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -131,16 +136,52 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Stoper";
             // 
-            // label1
+            // lblStoperTime
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Nirmala UI", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(35, 76);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(293, 86);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "00:00:00";
+            this.lblStoperTime.AutoSize = true;
+            this.lblStoperTime.Font = new System.Drawing.Font("Nirmala UI", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStoperTime.ForeColor = System.Drawing.Color.White;
+            this.lblStoperTime.Location = new System.Drawing.Point(35, 76);
+            this.lblStoperTime.Name = "lblStoperTime";
+            this.lblStoperTime.Size = new System.Drawing.Size(293, 86);
+            this.lblStoperTime.TabIndex = 5;
+            this.lblStoperTime.Text = "00:00:00";
+            // 
+            // btnStartOrStop
+            // 
+            this.btnStartOrStop.Location = new System.Drawing.Point(50, 180);
+            this.btnStartOrStop.Name = "btnStartOrStop";
+            this.btnStartOrStop.Size = new System.Drawing.Size(75, 23);
+            this.btnStartOrStop.TabIndex = 7;
+            this.btnStartOrStop.Text = "Start";
+            this.btnStartOrStop.UseVisualStyleBackColor = true;
+            this.btnStartOrStop.Click += new System.EventHandler(this.btnStartOrStop_Click);
+            // 
+            // btnMeasure
+            // 
+            this.btnMeasure.Location = new System.Drawing.Point(140, 180);
+            this.btnMeasure.Name = "btnMeasure";
+            this.btnMeasure.Size = new System.Drawing.Size(75, 23);
+            this.btnMeasure.TabIndex = 8;
+            this.btnMeasure.Text = "Measure";
+            this.btnMeasure.UseVisualStyleBackColor = true;
+            this.btnMeasure.Click += new System.EventHandler(this.btnMeasure_Click);
+            // 
+            // btnRestart
+            // 
+            this.btnRestart.Location = new System.Drawing.Point(232, 180);
+            this.btnRestart.Name = "btnRestart";
+            this.btnRestart.Size = new System.Drawing.Size(75, 23);
+            this.btnRestart.TabIndex = 9;
+            this.btnRestart.Text = "Restart";
+            this.btnRestart.UseVisualStyleBackColor = true;
+            this.btnRestart.Click += new System.EventHandler(this.btnRestart_Click);
+            // 
+            // timer2
+            // 
+            this.timer2.Enabled = true;
+            this.timer2.Interval = 1000;
+            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
             // lstOfMesurement
             // 
@@ -149,15 +190,6 @@
             this.lstOfMesurement.Name = "lstOfMesurement";
             this.lstOfMesurement.Size = new System.Drawing.Size(141, 225);
             this.lstOfMesurement.TabIndex = 6;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(50, 198);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -187,9 +219,12 @@
         private System.Windows.Forms.Label lblDate;
         private System.Windows.Forms.Label lblS;
         private System.Windows.Forms.Label lblHM;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnStartOrStop;
+        private System.Windows.Forms.Label lblStoperTime;
+        private System.Windows.Forms.Button btnRestart;
+        private System.Windows.Forms.Button btnMeasure;
+        private System.Windows.Forms.Timer timer2;
         private System.Windows.Forms.ListBox lstOfMesurement;
-        private System.Windows.Forms.Label label1;
     }
 }
 
