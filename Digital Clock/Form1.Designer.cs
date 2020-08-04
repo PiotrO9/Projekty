@@ -43,9 +43,18 @@
             this.btnRestart = new System.Windows.Forms.Button();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.lstOfMesurement = new System.Windows.Forms.ListBox();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.lblTimer = new System.Windows.Forms.Label();
+            this.lblMin = new System.Windows.Forms.Label();
+            this.lblSecounds = new System.Windows.Forms.Label();
+            this.txtM = new System.Windows.Forms.TextBox();
+            this.txtS = new System.Windows.Forms.TextBox();
+            this.btnAccept = new System.Windows.Forms.Button();
+            this.timer3 = new System.Windows.Forms.Timer(this.components);
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.tabPage3.SuspendLayout();
             this.SuspendLayout();
             // 
             // timer1
@@ -57,6 +66,7 @@
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Location = new System.Drawing.Point(-3, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -191,6 +201,82 @@
             this.lstOfMesurement.Size = new System.Drawing.Size(141, 225);
             this.lstOfMesurement.TabIndex = 6;
             // 
+            // tabPage3
+            // 
+            this.tabPage3.BackColor = System.Drawing.Color.Black;
+            this.tabPage3.Controls.Add(this.btnAccept);
+            this.tabPage3.Controls.Add(this.txtS);
+            this.tabPage3.Controls.Add(this.txtM);
+            this.tabPage3.Controls.Add(this.lblSecounds);
+            this.tabPage3.Controls.Add(this.lblMin);
+            this.tabPage3.Controls.Add(this.lblTimer);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(541, 263);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Timer";
+            // 
+            // lblTimer
+            // 
+            this.lblTimer.AutoSize = true;
+            this.lblTimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblTimer.ForeColor = System.Drawing.Color.White;
+            this.lblTimer.Location = new System.Drawing.Point(166, 154);
+            this.lblTimer.Name = "lblTimer";
+            this.lblTimer.Size = new System.Drawing.Size(199, 73);
+            this.lblTimer.TabIndex = 0;
+            this.lblTimer.Text = "00:00";
+            // 
+            // lblMin
+            // 
+            this.lblMin.AutoSize = true;
+            this.lblMin.ForeColor = System.Drawing.Color.White;
+            this.lblMin.Location = new System.Drawing.Point(176, 36);
+            this.lblMin.Name = "lblMin";
+            this.lblMin.Size = new System.Drawing.Size(38, 13);
+            this.lblMin.TabIndex = 1;
+            this.lblMin.Text = "Minuts";
+            // 
+            // lblSecounds
+            // 
+            this.lblSecounds.AutoSize = true;
+            this.lblSecounds.ForeColor = System.Drawing.Color.White;
+            this.lblSecounds.Location = new System.Drawing.Point(283, 36);
+            this.lblSecounds.Name = "lblSecounds";
+            this.lblSecounds.Size = new System.Drawing.Size(55, 13);
+            this.lblSecounds.TabIndex = 2;
+            this.lblSecounds.Text = "Secounds";
+            // 
+            // txtM
+            // 
+            this.txtM.Location = new System.Drawing.Point(150, 52);
+            this.txtM.Name = "txtM";
+            this.txtM.Size = new System.Drawing.Size(100, 20);
+            this.txtM.TabIndex = 3;
+            // 
+            // txtS
+            // 
+            this.txtS.Location = new System.Drawing.Point(265, 52);
+            this.txtS.Name = "txtS";
+            this.txtS.Size = new System.Drawing.Size(100, 20);
+            this.txtS.TabIndex = 4;
+            // 
+            // btnAccept
+            // 
+            this.btnAccept.Location = new System.Drawing.Point(213, 95);
+            this.btnAccept.Name = "btnAccept";
+            this.btnAccept.Size = new System.Drawing.Size(102, 45);
+            this.btnAccept.TabIndex = 5;
+            this.btnAccept.Text = "Start";
+            this.btnAccept.UseVisualStyleBackColor = true;
+            this.btnAccept.Click += new System.EventHandler(this.btnAccept_Click);
+            // 
+            // timer3
+            // 
+            this.timer3.Interval = 1000;
+            this.timer3.Tick += new System.EventHandler(this.timer3_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -206,6 +292,8 @@
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -225,6 +313,14 @@
         private System.Windows.Forms.Button btnMeasure;
         private System.Windows.Forms.Timer timer2;
         private System.Windows.Forms.ListBox lstOfMesurement;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.Button btnAccept;
+        private System.Windows.Forms.TextBox txtS;
+        private System.Windows.Forms.TextBox txtM;
+        private System.Windows.Forms.Label lblSecounds;
+        private System.Windows.Forms.Label lblMin;
+        private System.Windows.Forms.Label lblTimer;
+        private System.Windows.Forms.Timer timer3;
     }
 }
 

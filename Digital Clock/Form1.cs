@@ -145,5 +145,120 @@ namespace Digital_Clock
             lstOfMesurement.Items.Add(setTimeInLabel());
         }
 
+        //Third part/////////////////////
+
+        int sumOfTime = 0;
+
+        int amountOfMinuts = 0;
+        int amountOfSecounds = 0;
+
+
+        private void btnAccept_Click(object sender, EventArgs e)
+        {
+            //Sprawdzanie poprawności danych w textboxach
+            if (txtM.Text == string.Empty)
+            {
+                if (txtS.Text == string.Empty)
+                {
+                    MessageBox.Show("Pola są puste");
+                    return;
+                }
+                amountOfMinuts = 0;
+            }
+            else
+            {
+                if (int.TryParse(txtM.Text, out amountOfMinuts))
+                {
+                    amountOfMinuts = int.Parse(txtM.Text);
+                }
+                else
+                {
+                    MessageBox.Show("Wprowadzono nieprawidłową wartość");
+                    return;
+                }
+            }
+
+
+
+            if (txtS.Text == string.Empty)
+            {
+                if (txtM.Text == string.Empty)
+                {
+                    MessageBox.Show("Pola są puste");
+                    return;
+                }
+
+                amountOfSecounds = 0;
+            }
+            else
+            {
+                if (int.TryParse(txtS.Text, out amountOfSecounds))
+                {
+                    amountOfSecounds = int.Parse(txtS.Text);
+                }
+                else
+                {
+                    MessageBox.Show("Wprowadzono nieprawidłową wartość");
+                    return;
+                }
+            }
+
+
+
+            timer3.Enabled = true;
+        }
+
+        //Wyświetlanie czasu
+
+        private string setTimeInTimer()
+        {
+            string tempM;
+            string tempS;
+
+            if (amountOfSecounds < 10)
+            {
+                tempS = "0" + amountOfSecounds.ToString();
+            }
+            else
+            {
+                tempS = amountOfSecounds.ToString();
+            }
+
+            //////////////////////////////
+
+            if (amountOfMinuts < 10)
+            {
+                tempM = "0" + amountOfMinuts.ToString();
+            }
+            else
+            {
+                tempM = amountOfMinuts.ToString();
+            }
+
+            return tempM + ":" + tempS;
+        }
+
+        private void timer3_Tick(object sender, EventArgs e)
+        {
+            sumOfTime = amountOfMinuts * 60 + amountOfSecounds;
+
+            if (sumOfTime > 0)
+            {
+                lblTimer.Text = setTimeInTimer();
+                amountOfSecounds--;
+                if (amountOfSecounds == 0)
+                {
+                    amountOfSecounds = 60;
+                    amountOfMinuts--;
+                }
+            }
+            else
+            {
+                lblTimer.Text = "00:00";
+                timer3.Enabled = false;
+                MessageBox.Show("Czas upłynął");
+                return;
+            }
+        }
     }
 }
