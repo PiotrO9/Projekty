@@ -203,8 +203,7 @@ namespace Digital_Clock
                 }
             }
 
-
-
+            btnAccept.Enabled = false;
             timer3.Enabled = true;
         }
 
@@ -242,18 +241,21 @@ namespace Digital_Clock
         {
             sumOfTime = amountOfMinuts * 60 + amountOfSecounds;
 
+            lblTimer.Text = setTimeInTimer();
             if (sumOfTime > 0)
             {
-                lblTimer.Text = setTimeInTimer();
-                amountOfSecounds--;
                 if (amountOfSecounds == 0)
                 {
                     amountOfSecounds = 60;
                     amountOfMinuts--;
                 }
+                amountOfSecounds--;
             }
             else
             {
+                txtS.Text = string.Empty;
+                txtM.Text = string.Empty;
+                btnAccept.Enabled = true;
                 lblTimer.Text = "00:00";
                 timer3.Enabled = false;
                 MessageBox.Show("Czas upłynął");
