@@ -123,6 +123,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoAlbumTarea", "PhotoAlb
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shapes", "Shapes\Shapes.csproj", "{6E22BBE2-F081-408C-B6CF-0E77F9041A84}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Array of objects - table", "Array of objects - table\Array of objects - table.csproj", "{EF316BAE-DAE1-4B86-9225-B7D484183CED}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -365,6 +367,10 @@ Global
 		{6E22BBE2-F081-408C-B6CF-0E77F9041A84}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6E22BBE2-F081-408C-B6CF-0E77F9041A84}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6E22BBE2-F081-408C-B6CF-0E77F9041A84}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF316BAE-DAE1-4B86-9225-B7D484183CED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF316BAE-DAE1-4B86-9225-B7D484183CED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF316BAE-DAE1-4B86-9225-B7D484183CED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF316BAE-DAE1-4B86-9225-B7D484183CED}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -373,6 +379,7 @@ Global
 		{FD094AB6-156B-42AB-8C7F-11D6A6A1EE40} = {114E9575-D522-40B9-ABC6-1BCD4009D692}
 		{1FB73EEA-0629-42FA-8AFA-75984D6F4E3B} = {114E9575-D522-40B9-ABC6-1BCD4009D692}
 		{6E22BBE2-F081-408C-B6CF-0E77F9041A84} = {114E9575-D522-40B9-ABC6-1BCD4009D692}
+		{EF316BAE-DAE1-4B86-9225-B7D484183CED} = {114E9575-D522-40B9-ABC6-1BCD4009D692}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {72C7B389-4144-4568-B93F-CFAD988CEABF}
