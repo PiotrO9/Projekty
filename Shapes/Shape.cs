@@ -11,7 +11,7 @@ namespace Shapes
     {
         protected Location c;
 
-        public string ToString()
+        public virtual string ToString()
         {
             return "";
         }
@@ -21,7 +21,7 @@ namespace Shapes
             return 0.000;
         }
 
-        public double Perimeter()
+        public virtual double Perimeter()
         {
             return 0.000;
         }
