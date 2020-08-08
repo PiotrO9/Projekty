@@ -13,12 +13,22 @@ namespace Sudoku
 {
     public partial class Form1 : Form
     {
-        private readonly GameEngine _generatingCells = new GameEngine();
+        private GameEngine _generatingCells = new GameEngine();
 
         public Form1()
         {
             InitializeComponent();
             tableLayoutPanel1.Controls.AddRange(_generatingCells.Buttons.ToArray());
+            _generatingCells.AddingValues();
+        }
+
+        private void lbl1_Click(object sender, EventArgs e)
+        {
+            _generatingCells.buttonsDisabling();
+            _generatingCells.putValueIntoKeyboard(1);
         }
     }
+
+
 }
+

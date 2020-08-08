@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.lbl1 = new System.Windows.Forms.Label();
-            this.lbl2 = new System.Windows.Forms.Label();
-            this.lbl3 = new System.Windows.Forms.Label();
-            this.lbl4 = new System.Windows.Forms.Label();
-            this.lbl5 = new System.Windows.Forms.Label();
-            this.lbl6 = new System.Windows.Forms.Label();
-            this.lbl7 = new System.Windows.Forms.Label();
-            this.lbl8 = new System.Windows.Forms.Label();
             this.lbl9 = new System.Windows.Forms.Label();
+            this.lbl8 = new System.Windows.Forms.Label();
+            this.lbl7 = new System.Windows.Forms.Label();
+            this.lbl6 = new System.Windows.Forms.Label();
+            this.lbl5 = new System.Windows.Forms.Label();
+            this.lbl4 = new System.Windows.Forms.Label();
+            this.lbl3 = new System.Windows.Forms.Label();
+            this.lbl2 = new System.Windows.Forms.Label();
+            this.lbl1 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.nowaGraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lblTimer = new System.Windows.Forms.Label();
@@ -53,7 +53,7 @@
             this.tableLayoutPanel2.ColumnCount = 3;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 53F));
             this.tableLayoutPanel2.Controls.Add(this.lbl9, 2, 2);
             this.tableLayoutPanel2.Controls.Add(this.lbl8, 1, 2);
             this.tableLayoutPanel2.Controls.Add(this.lbl7, 0, 2);
@@ -72,75 +72,15 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(153, 153);
             this.tableLayoutPanel2.TabIndex = 3;
             // 
-            // lbl1
+            // lbl9
             // 
-            this.lbl1.AutoSize = true;
-            this.lbl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 33.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lbl1.Location = new System.Drawing.Point(3, 0);
-            this.lbl1.Name = "lbl1";
-            this.lbl1.Size = new System.Drawing.Size(44, 50);
-            this.lbl1.TabIndex = 0;
-            this.lbl1.Text = "1";
-            // 
-            // lbl2
-            // 
-            this.lbl2.AutoSize = true;
-            this.lbl2.Font = new System.Drawing.Font("Microsoft Sans Serif", 33.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lbl2.Location = new System.Drawing.Point(53, 0);
-            this.lbl2.Name = "lbl2";
-            this.lbl2.Size = new System.Drawing.Size(44, 50);
-            this.lbl2.TabIndex = 4;
-            this.lbl2.Text = "2";
-            // 
-            // lbl3
-            // 
-            this.lbl3.AutoSize = true;
-            this.lbl3.Font = new System.Drawing.Font("Microsoft Sans Serif", 33.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lbl3.Location = new System.Drawing.Point(103, 0);
-            this.lbl3.Name = "lbl3";
-            this.lbl3.Size = new System.Drawing.Size(47, 50);
-            this.lbl3.TabIndex = 5;
-            this.lbl3.Text = "3";
-            // 
-            // lbl4
-            // 
-            this.lbl4.AutoSize = true;
-            this.lbl4.Font = new System.Drawing.Font("Microsoft Sans Serif", 33.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lbl4.Location = new System.Drawing.Point(3, 50);
-            this.lbl4.Name = "lbl4";
-            this.lbl4.Size = new System.Drawing.Size(44, 50);
-            this.lbl4.TabIndex = 6;
-            this.lbl4.Text = "4";
-            // 
-            // lbl5
-            // 
-            this.lbl5.AutoSize = true;
-            this.lbl5.Font = new System.Drawing.Font("Microsoft Sans Serif", 33.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lbl5.Location = new System.Drawing.Point(53, 50);
-            this.lbl5.Name = "lbl5";
-            this.lbl5.Size = new System.Drawing.Size(44, 50);
-            this.lbl5.TabIndex = 7;
-            this.lbl5.Text = "5";
-            // 
-            // lbl6
-            // 
-            this.lbl6.AutoSize = true;
-            this.lbl6.Font = new System.Drawing.Font("Microsoft Sans Serif", 33.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lbl6.Location = new System.Drawing.Point(103, 50);
-            this.lbl6.Name = "lbl6";
-            this.lbl6.Size = new System.Drawing.Size(47, 50);
-            this.lbl6.TabIndex = 8;
-            this.lbl6.Text = "6";
-            // 
-            // lbl7
-            // 
-            this.lbl7.AutoSize = true;
-            this.lbl7.Font = new System.Drawing.Font("Microsoft Sans Serif", 33.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lbl7.Location = new System.Drawing.Point(3, 100);
-            this.lbl7.Name = "lbl7";
-            this.lbl7.Size = new System.Drawing.Size(44, 52);
-            this.lbl7.TabIndex = 9;
-            this.lbl7.Text = "7";
+            this.lbl9.AutoSize = true;
+            this.lbl9.Font = new System.Drawing.Font("Microsoft Sans Serif", 33.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lbl9.Location = new System.Drawing.Point(103, 100);
+            this.lbl9.Name = "lbl9";
+            this.lbl9.Size = new System.Drawing.Size(47, 52);
+            this.lbl9.TabIndex = 11;
+            this.lbl9.Text = "9";
             // 
             // lbl8
             // 
@@ -152,15 +92,76 @@
             this.lbl8.TabIndex = 10;
             this.lbl8.Text = "8";
             // 
-            // lbl9
+            // lbl7
             // 
-            this.lbl9.AutoSize = true;
-            this.lbl9.Font = new System.Drawing.Font("Microsoft Sans Serif", 33.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lbl9.Location = new System.Drawing.Point(103, 100);
-            this.lbl9.Name = "lbl9";
-            this.lbl9.Size = new System.Drawing.Size(47, 52);
-            this.lbl9.TabIndex = 11;
-            this.lbl9.Text = "9";
+            this.lbl7.AutoSize = true;
+            this.lbl7.Font = new System.Drawing.Font("Microsoft Sans Serif", 33.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lbl7.Location = new System.Drawing.Point(3, 100);
+            this.lbl7.Name = "lbl7";
+            this.lbl7.Size = new System.Drawing.Size(44, 52);
+            this.lbl7.TabIndex = 9;
+            this.lbl7.Text = "7";
+            // 
+            // lbl6
+            // 
+            this.lbl6.AutoSize = true;
+            this.lbl6.Font = new System.Drawing.Font("Microsoft Sans Serif", 33.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lbl6.Location = new System.Drawing.Point(103, 50);
+            this.lbl6.Name = "lbl6";
+            this.lbl6.Size = new System.Drawing.Size(47, 50);
+            this.lbl6.TabIndex = 8;
+            this.lbl6.Text = "6";
+            // 
+            // lbl5
+            // 
+            this.lbl5.AutoSize = true;
+            this.lbl5.Font = new System.Drawing.Font("Microsoft Sans Serif", 33.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lbl5.Location = new System.Drawing.Point(53, 50);
+            this.lbl5.Name = "lbl5";
+            this.lbl5.Size = new System.Drawing.Size(44, 50);
+            this.lbl5.TabIndex = 7;
+            this.lbl5.Text = "5";
+            // 
+            // lbl4
+            // 
+            this.lbl4.AutoSize = true;
+            this.lbl4.Font = new System.Drawing.Font("Microsoft Sans Serif", 33.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lbl4.Location = new System.Drawing.Point(3, 50);
+            this.lbl4.Name = "lbl4";
+            this.lbl4.Size = new System.Drawing.Size(44, 50);
+            this.lbl4.TabIndex = 6;
+            this.lbl4.Text = "4";
+            // 
+            // lbl3
+            // 
+            this.lbl3.AutoSize = true;
+            this.lbl3.Font = new System.Drawing.Font("Microsoft Sans Serif", 33.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lbl3.Location = new System.Drawing.Point(103, 0);
+            this.lbl3.Name = "lbl3";
+            this.lbl3.Size = new System.Drawing.Size(47, 50);
+            this.lbl3.TabIndex = 5;
+            this.lbl3.Text = "3";
+            // 
+            // lbl2
+            // 
+            this.lbl2.AutoSize = true;
+            this.lbl2.Font = new System.Drawing.Font("Microsoft Sans Serif", 33.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lbl2.Location = new System.Drawing.Point(53, 0);
+            this.lbl2.Name = "lbl2";
+            this.lbl2.Size = new System.Drawing.Size(44, 50);
+            this.lbl2.TabIndex = 4;
+            this.lbl2.Text = "2";
+            // 
+            // lbl1
+            // 
+            this.lbl1.AutoSize = true;
+            this.lbl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 33.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lbl1.Location = new System.Drawing.Point(3, 0);
+            this.lbl1.Name = "lbl1";
+            this.lbl1.Size = new System.Drawing.Size(44, 50);
+            this.lbl1.TabIndex = 0;
+            this.lbl1.Text = "1";
+            this.lbl1.Click += new System.EventHandler(this.lbl1_Click);
             // 
             // menuStrip1
             // 

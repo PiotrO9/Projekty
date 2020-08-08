@@ -17,7 +17,7 @@ namespace Sudoku.model
         public int X { get; private set; }
         public int Y { get; private set; }
 
-        public int GeneratedValue { get; private set; }
+        public int GeneratedValue { get; set; }
 
         public int UserValue { get; set; }
 
@@ -27,6 +27,7 @@ namespace Sudoku.model
         {
             this.X = x;
             this.Y = y;
+            this.Active = true;
 
             this.ButtonCell = new Button()
             {
@@ -41,9 +42,9 @@ namespace Sudoku.model
 
         private void ButtonCell_Click(object sender, EventArgs e)
         {
-            this.ButtonCell.Enabled = false;
             this.CellClicked?.Invoke(this, new CellEventArgs() { X = this.X, Y = this.Y });
 
+            this.Active = false;
         }
 
         public void Clear()
@@ -51,11 +52,6 @@ namespace Sudoku.model
             this.GeneratedValue = 0;
             this.UserValue = 0;
             this.ButtonCell.Text = string.Empty;
-        }
-
-        public void PuttingValuesInCell()
-        {
-
         }
 
     }
