@@ -32,6 +32,8 @@
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.opcjeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dodajPosiłekToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.wyczyśćToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listView2 = new System.Windows.Forms.ListView();
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.listView3 = new System.Windows.Forms.ListView();
@@ -49,8 +51,11 @@
             this.lblB = new System.Windows.Forms.Label();
             this.lblT = new System.Windows.Forms.Label();
             this.lblW = new System.Windows.Forms.Label();
-            this.dodajPosiłekToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.wyczyśćToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lblAdd1 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -84,6 +89,18 @@
             this.opcjeToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
             this.opcjeToolStripMenuItem.Text = "Opcje";
             // 
+            // dodajPosiłekToolStripMenuItem
+            // 
+            this.dodajPosiłekToolStripMenuItem.Name = "dodajPosiłekToolStripMenuItem";
+            this.dodajPosiłekToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.dodajPosiłekToolStripMenuItem.Text = "Dodaj posiłek";
+            // 
+            // wyczyśćToolStripMenuItem
+            // 
+            this.wyczyśćToolStripMenuItem.Name = "wyczyśćToolStripMenuItem";
+            this.wyczyśćToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.wyczyśćToolStripMenuItem.Text = "Wyczyść";
+            // 
             // listView2
             // 
             this.listView2.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
@@ -100,7 +117,7 @@
             this.listView3.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader3});
             this.listView3.HideSelection = false;
-            this.listView3.Location = new System.Drawing.Point(12, 322);
+            this.listView3.Location = new System.Drawing.Point(12, 310);
             this.listView3.Name = "listView3";
             this.listView3.Size = new System.Drawing.Size(243, 83);
             this.listView3.TabIndex = 3;
@@ -111,7 +128,7 @@
             this.listView4.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader4});
             this.listView4.HideSelection = false;
-            this.listView4.Location = new System.Drawing.Point(12, 448);
+            this.listView4.Location = new System.Drawing.Point(12, 433);
             this.listView4.Name = "listView4";
             this.listView4.Size = new System.Drawing.Size(243, 83);
             this.listView4.TabIndex = 4;
@@ -122,7 +139,7 @@
             this.listView5.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader5});
             this.listView5.HideSelection = false;
-            this.listView5.Location = new System.Drawing.Point(12, 573);
+            this.listView5.Location = new System.Drawing.Point(12, 565);
             this.listView5.Name = "listView5";
             this.listView5.Size = new System.Drawing.Size(243, 83);
             this.listView5.TabIndex = 5;
@@ -152,7 +169,7 @@
             // 
             this.lbl3.AutoSize = true;
             this.lbl3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lbl3.Location = new System.Drawing.Point(22, 299);
+            this.lbl3.Location = new System.Drawing.Point(22, 287);
             this.lbl3.Name = "lbl3";
             this.lbl3.Size = new System.Drawing.Size(52, 20);
             this.lbl3.TabIndex = 8;
@@ -162,7 +179,7 @@
             // 
             this.lbl4.AutoSize = true;
             this.lbl4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lbl4.Location = new System.Drawing.Point(22, 425);
+            this.lbl4.Location = new System.Drawing.Point(22, 410);
             this.lbl4.Name = "lbl4";
             this.lbl4.Size = new System.Drawing.Size(56, 20);
             this.lbl4.TabIndex = 9;
@@ -172,7 +189,7 @@
             // 
             this.lbl5.AutoSize = true;
             this.lbl5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lbl5.Location = new System.Drawing.Point(22, 544);
+            this.lbl5.Location = new System.Drawing.Point(22, 531);
             this.lbl5.Name = "lbl5";
             this.lbl5.Size = new System.Drawing.Size(67, 20);
             this.lbl5.TabIndex = 10;
@@ -217,17 +234,56 @@
             this.lblW.TabIndex = 14;
             this.lblW.Text = "W";
             // 
-            // dodajPosiłekToolStripMenuItem
+            // lblAdd1
             // 
-            this.dodajPosiłekToolStripMenuItem.Name = "dodajPosiłekToolStripMenuItem";
-            this.dodajPosiłekToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.dodajPosiłekToolStripMenuItem.Text = "Dodaj posiłek";
+            this.lblAdd1.AutoSize = true;
+            this.lblAdd1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblAdd1.Location = new System.Drawing.Point(233, 27);
+            this.lblAdd1.Name = "lblAdd1";
+            this.lblAdd1.Size = new System.Drawing.Size(22, 24);
+            this.lblAdd1.TabIndex = 15;
+            this.lblAdd1.Text = "+";
+            this.lblAdd1.Click += new System.EventHandler(this.lblAdd1_Click);
             // 
-            // wyczyśćToolStripMenuItem
+            // label1
             // 
-            this.wyczyśćToolStripMenuItem.Name = "wyczyśćToolStripMenuItem";
-            this.wyczyśćToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.wyczyśćToolStripMenuItem.Text = "Wyczyść";
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label1.Location = new System.Drawing.Point(233, 155);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(22, 24);
+            this.label1.TabIndex = 16;
+            this.label1.Text = "+";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label2.Location = new System.Drawing.Point(233, 273);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(22, 24);
+            this.label2.TabIndex = 17;
+            this.label2.Text = "+";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label3.Location = new System.Drawing.Point(233, 406);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(22, 24);
+            this.label3.TabIndex = 18;
+            this.label3.Text = "+";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label4.Location = new System.Drawing.Point(233, 531);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(22, 24);
+            this.label4.TabIndex = 19;
+            this.label4.Text = "+";
             // 
             // Form1
             // 
@@ -235,7 +291,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.Teal;
-            this.ClientSize = new System.Drawing.Size(318, 616);
+            this.ClientSize = new System.Drawing.Size(318, 411);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblAdd1);
             this.Controls.Add(this.lblW);
             this.Controls.Add(this.lblT);
             this.Controls.Add(this.lblB);
@@ -253,6 +314,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Liczenie kalorii";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -263,8 +325,8 @@
 
         #endregion
 
-        private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
+        public System.Windows.Forms.ListView listView1;
+        public System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem opcjeToolStripMenuItem;
         private System.Windows.Forms.ListView listView2;
@@ -286,6 +348,11 @@
         private System.Windows.Forms.Label lblB;
         private System.Windows.Forms.Label lblT;
         private System.Windows.Forms.Label lblW;
+        private System.Windows.Forms.Label lblAdd1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
     }
 }
 
