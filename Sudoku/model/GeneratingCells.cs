@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -52,65 +54,104 @@ namespace Sudoku.model
             Random rnd = new Random();
             foreach (var item in _listOfCells)
             {
-                //int test;
-                //test = rnd.Next(1, 10);
-                //item.UserValue = test;
-                //item.ButtonCell.Text = test.ToString();
-
-
                 int rn = rnd.Next(1, 10);
 
                 IEnumerable<Cell> queryI = _listOfCells.Where(_listOfCells => _listOfCells.X == item.X);
                 IEnumerable<Cell> queryJ = _listOfCells.Where(_listOfCells => _listOfCells.Y == item.Y);
 
+                item.GeneratedValue = rn;
+
                 foreach (var itemI in queryI)
                 {
-                    item.GeneratedValue = rnd.Next(1, 10);
-
-                    if (itemI.Y == item.Y)
-                    {
-                        continue;
-                    }
-
-                    if (itemI.GeneratedValue == item.GeneratedValue && itemI.GeneratedValue != 0)
+                    if (itemI.GeneratedValue == item.GeneratedValue)
                     {
                         while (itemI.GeneratedValue != item.GeneratedValue)
                         {
-                            item.GeneratedValue = rnd.Next(1, 10);
+                            rn = rnd.Next(1, 10);
+                            item.GeneratedValue = rn;
                         }
+                        item.ButtonCell.Text = item.GeneratedValue.ToString();
                     }
                     else
                     {
-                        continue;
+                        item.ButtonCell.Text = item.GeneratedValue.ToString();
                     }
-
-                    item.ButtonCell.Text = item.GeneratedValue.ToString();
                 }
 
                 foreach (var itemJ in queryJ)
                 {
-                    itemJ.GeneratedValue = rnd.Next(1, 10);
-
-                    if (itemJ.X == item.X)
-                    {
-                        continue;
-                    }
-
-                    if (itemJ.GeneratedValue == item.GeneratedValue && itemJ.GeneratedValue != 0)
+                    if (itemJ.GeneratedValue == item.GeneratedValue)
                     {
                         while (itemJ.GeneratedValue != item.GeneratedValue)
                         {
-                            item.GeneratedValue = rnd.Next(1, 10);
+                            rn = rnd.Next(1, 10);
+                            item.GeneratedValue = rn;
                         }
+                        item.ButtonCell.Text = item.GeneratedValue.ToString();
                     }
                     else
                     {
-                        continue;
+                        item.ButtonCell.Text = item.GeneratedValue.ToString();
                     }
-
-                    item.ButtonCell.Text = item.GeneratedValue.ToString();
                 }
             }
+
+            ///////////////////////////////////////////////////////////////////////////////////////////////
+
+            //int rn = rnd.Next(1, 10);
+
+            //IEnumerable<Cell> queryI = _listOfCells.Where(_listOfCells => _listOfCells.X == item.X);
+            //IEnumerable<Cell> queryJ = _listOfCells.Where(_listOfCells => _listOfCells.Y == item.Y);
+
+            //foreach (var itemI in queryI)
+            //{
+            //    item.GeneratedValue = rnd.Next(1, 10);
+
+            //    if (itemI.Y == item.Y)
+            //    {
+            //        continue;
+            //    }
+
+            //    if (itemI.GeneratedValue == item.GeneratedValue && itemI.GeneratedValue != 0)
+            //    {
+            //        while (itemI.GeneratedValue != item.GeneratedValue)
+            //        {
+            //            item.GeneratedValue = rnd.Next(1, 10);
+            //        }
+            //    }
+            //    else
+            //    {
+            //        continue;
+            //    }
+
+            //    item.ButtonCell.Text = item.GeneratedValue.ToString();
+            //}
+
+            //foreach (var itemJ in queryJ)
+            //{
+            //    itemJ.GeneratedValue = rnd.Next(1, 10);
+
+            //    if (itemJ.X == item.X)
+            //    {
+            //        continue;
+            //    }
+
+            //    if (itemJ.GeneratedValue == item.GeneratedValue && itemJ.GeneratedValue != 0)
+            //    {
+            //        while (itemJ.GeneratedValue != item.GeneratedValue)
+            //        {
+            //            item.GeneratedValue = rnd.Next(1, 10);
+            //        }
+            //    }
+            //    else
+            //    {
+            //        continue;
+            //    }
+
+            //    item.ButtonCell.Text = item.GeneratedValue.ToString();
+            //}
+
+            /////////////////////////////////////////////////////////////////////////////////////////////////////
 
             //foreach (var item in _listOfCells)
             //{
@@ -165,15 +206,19 @@ namespace Sudoku.model
             //}
         }
 
-        public void putValueIntoKeyboard(int number)
+
+        public void putValueInButtons(int number)
         {
-            IEnumerable<Cell> query = _listOfCells.Where(_listOfCells => _listOfCells.Active = false);
+            IEnumerable<Cell> query = _listOfCells.Where(_listOfCells => _listOfCells.Active == true);
 
             foreach (var item in query)
             {
-                item.UserValue = number;
                 item.ButtonCell.Text = number.ToString();
-                item.Active = false;
+                item.UserValue = number;
+                if (item.UserValue == item.GeneratedValue)
+                {
+                    item.ButtonCell.BackColor = Color.Red;
+                }
             }
         }
 
@@ -181,9 +226,10 @@ namespace Sudoku.model
         {
             foreach (var item in _listOfCells)
             {
-                item.Active = true;
+                item.Active = false;
             }
         }
 
     }
 }
+

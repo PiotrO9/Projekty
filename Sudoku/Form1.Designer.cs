@@ -81,6 +81,7 @@
             this.lbl9.Size = new System.Drawing.Size(47, 52);
             this.lbl9.TabIndex = 11;
             this.lbl9.Text = "9";
+            this.lbl9.Click += new System.EventHandler(this.lbl9_Click);
             // 
             // lbl8
             // 
@@ -91,6 +92,7 @@
             this.lbl8.Size = new System.Drawing.Size(44, 52);
             this.lbl8.TabIndex = 10;
             this.lbl8.Text = "8";
+            this.lbl8.Click += new System.EventHandler(this.lbl8_Click);
             // 
             // lbl7
             // 
@@ -101,6 +103,7 @@
             this.lbl7.Size = new System.Drawing.Size(44, 52);
             this.lbl7.TabIndex = 9;
             this.lbl7.Text = "7";
+            this.lbl7.Click += new System.EventHandler(this.lbl7_Click);
             // 
             // lbl6
             // 
@@ -111,6 +114,7 @@
             this.lbl6.Size = new System.Drawing.Size(47, 50);
             this.lbl6.TabIndex = 8;
             this.lbl6.Text = "6";
+            this.lbl6.Click += new System.EventHandler(this.lbl6_Click);
             // 
             // lbl5
             // 
@@ -121,6 +125,7 @@
             this.lbl5.Size = new System.Drawing.Size(44, 50);
             this.lbl5.TabIndex = 7;
             this.lbl5.Text = "5";
+            this.lbl5.Click += new System.EventHandler(this.lbl5_Click);
             // 
             // lbl4
             // 
@@ -131,6 +136,7 @@
             this.lbl4.Size = new System.Drawing.Size(44, 50);
             this.lbl4.TabIndex = 6;
             this.lbl4.Text = "4";
+            this.lbl4.Click += new System.EventHandler(this.lbl4_Click);
             // 
             // lbl3
             // 
@@ -141,6 +147,7 @@
             this.lbl3.Size = new System.Drawing.Size(47, 50);
             this.lbl3.TabIndex = 5;
             this.lbl3.Text = "3";
+            this.lbl3.Click += new System.EventHandler(this.lbl3_Click);
             // 
             // lbl2
             // 
@@ -151,6 +158,7 @@
             this.lbl2.Size = new System.Drawing.Size(44, 50);
             this.lbl2.TabIndex = 4;
             this.lbl2.Text = "2";
+            this.lbl2.Click += new System.EventHandler(this.lbl2_Click);
             // 
             // lbl1
             // 

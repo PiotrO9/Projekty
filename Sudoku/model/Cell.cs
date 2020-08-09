@@ -44,7 +44,7 @@ namespace Sudoku.model
         {
             this.CellClicked?.Invoke(this, new CellEventArgs() { X = this.X, Y = this.Y });
 
-            this.Active = false;
+            this.Active = true;
         }
 
         public void Clear()
@@ -53,6 +53,5 @@ namespace Sudoku.model
             this.UserValue = 0;
             this.ButtonCell.Text = string.Empty;
         }
-
     }
 }

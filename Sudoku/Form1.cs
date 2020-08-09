@@ -20,12 +20,52 @@ namespace Sudoku
             InitializeComponent();
             tableLayoutPanel1.Controls.AddRange(_generatingCells.Buttons.ToArray());
             _generatingCells.AddingValues();
+            _generatingCells.buttonsDisabling();
         }
 
         private void lbl1_Click(object sender, EventArgs e)
         {
-            _generatingCells.buttonsDisabling();
-            _generatingCells.putValueIntoKeyboard(1);
+            _generatingCells.putValueInButtons(1);
+        }
+
+        private void lbl2_Click(object sender, EventArgs e)
+        {
+            _generatingCells.putValueInButtons(2);
+        }
+
+        private void lbl3_Click(object sender, EventArgs e)
+        {
+            _generatingCells.putValueInButtons(3);
+        }
+
+        private void lbl4_Click(object sender, EventArgs e)
+        {
+            _generatingCells.putValueInButtons(4);
+        }
+
+        private void lbl5_Click(object sender, EventArgs e)
+        {
+            _generatingCells.putValueInButtons(5);
+        }
+
+        private void lbl6_Click(object sender, EventArgs e)
+        {
+            _generatingCells.putValueInButtons(6);
+        }
+
+        private void lbl7_Click(object sender, EventArgs e)
+        {
+            _generatingCells.putValueInButtons(7);
+        }
+
+        private void lbl8_Click(object sender, EventArgs e)
+        {
+            _generatingCells.putValueInButtons(8);
+        }
+
+        private void lbl9_Click(object sender, EventArgs e)
+        {
+            _generatingCells.putValueInButtons(9);
         }
     }
 
