@@ -27,7 +27,8 @@ namespace Sudoku.model
         {
             this.X = x;
             this.Y = y;
-            this.Active = true;
+            this.Active = false;
+            this.GeneratedValue = 0;
 
             this.ButtonCell = new Button()
             {

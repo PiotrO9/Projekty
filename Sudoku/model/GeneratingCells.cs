@@ -63,147 +63,152 @@ namespace Sudoku.model
 
                 foreach (var itemI in queryI)
                 {
-                    if (itemI.GeneratedValue == item.GeneratedValue)
+                    if (item.Y == itemI.Y)
                     {
-                        while (itemI.GeneratedValue != item.GeneratedValue)
+                        continue;
+                    }
+                    else if (item.GeneratedValue == itemI.GeneratedValue)
+                    {
+                        while (item.GeneratedValue == itemI.GeneratedValue)
                         {
                             rn = rnd.Next(1, 10);
                             item.GeneratedValue = rn;
                         }
-                        item.ButtonCell.Text = item.GeneratedValue.ToString();
                     }
-                    else
-                    {
-                        item.ButtonCell.Text = item.GeneratedValue.ToString();
-                    }
+
+                    item.ButtonCell.Text = item.GeneratedValue.ToString();
                 }
 
                 foreach (var itemJ in queryJ)
                 {
-                    if (itemJ.GeneratedValue == item.GeneratedValue)
+                    if (item.X == itemJ.X)
                     {
-                        while (itemJ.GeneratedValue != item.GeneratedValue)
+                        continue;
+                    }
+                    else if (item.GeneratedValue == itemJ.GeneratedValue)
+                    {
+                        while (item.GeneratedValue == itemJ.GeneratedValue)
                         {
                             rn = rnd.Next(1, 10);
                             item.GeneratedValue = rn;
                         }
-                        item.ButtonCell.Text = item.GeneratedValue.ToString();
                     }
-                    else
-                    {
-                        item.ButtonCell.Text = item.GeneratedValue.ToString();
-                    }
+
+                    item.ButtonCell.Text = item.GeneratedValue.ToString();
                 }
+
+
+                ///////////////////////////////////////////////////////////////////////////////////////////////
+
+                //    int rn = rnd.Next(1, 10);
+
+                //    IEnumerable<Cell> queryI = _listOfCells.Where(_listOfCells => _listOfCells.X == item.X);
+                //    IEnumerable<Cell> queryJ = _listOfCells.Where(_listOfCells => _listOfCells.Y == item.Y);
+
+                //    item.GeneratedValue = rnd.Next(1, 10);
+
+                //    foreach (var itemI in queryI)
+                //    {
+
+                //        if (itemI.X == item.X)
+                //        {
+                //            continue;
+                //        }
+
+                //        if (itemI.GeneratedValue == item.GeneratedValue && itemI.GeneratedValue != 0)
+                //        {
+                //            while (itemI.GeneratedValue == item.GeneratedValue)
+                //            {
+                //                item.GeneratedValue = rnd.Next(1, 10);
+                //            }
+                //        }
+                //        else
+                //        {
+                //            continue;
+                //        }
+
+                //        item.ButtonCell.Text = item.GeneratedValue.ToString();
+                //    }
+
+                //    foreach (var itemJ in queryJ)
+                //    {
+                //        itemJ.GeneratedValue = rnd.Next(1, 10);
+
+                //        if (itemJ.Y == item.Y)
+                //        {
+                //            continue;
+                //        }
+
+                //        if (itemJ.GeneratedValue == item.GeneratedValue && itemJ.GeneratedValue != 0)
+                //        {
+                //            while (itemJ.GeneratedValue == item.GeneratedValue)
+                //            {
+                //                item.GeneratedValue = rnd.Next(1, 10);
+                //            }
+                //        }
+                //        else
+                //        {
+                //            continue;
+                //        }
+
+                //        item.ButtonCell.Text = item.GeneratedValue.ToString();
+                //    }
+                //}
+
+                /////////////////////////////////////////////////////////////////////////////////////////////////////
+
+                //foreach (var item in _listOfCells)
+                //{
+                //    Random rnd = new Random();
+                //    int rn = rnd.Next(1, 10);
+
+                //    IEnumerable<Cell> queryI = _listOfCells.Where(_listOfCells => _listOfCells.X == item.X);
+
+                //    foreach (var elementI in queryI)
+                //    {
+                //        if (elementI.X == item.X)
+                //        {
+                //            break;
+                //        }
+
+                //        if (elementI.GeneratedValue == rn)
+                //        {
+                //            while (elementI.GeneratedValue != rn)
+                //            {
+                //                rn = rnd.Next(1, 10);
+                //            }
+                //        }
+                //        else
+                //        {
+                //            item.GeneratedValue = rn;
+                //        }
+                //    }
+
+                //    IEnumerable<Cell> queryJ = _listOfCells.Where(_listOfCells => _listOfCells.Y == item.Y);
+
+                //    foreach (var elementJ in queryI)
+                //    {
+                //        if (elementJ.Y == item.Y)
+                //        {
+                //            break;
+                //        }
+
+                //        if (elementJ.GeneratedValue == rn)
+                //        {
+                //            while (elementJ.GeneratedValue != rn)
+                //            {
+                //                rn = rnd.Next(1, 10);
+                //            }
+                //        }
+                //        else
+                //        {
+                //            item.GeneratedValue = rn;
+                //        }
+                //    }
+
+                //    item.ButtonCell.Text = item.GeneratedValue.ToString();
+                //}
             }
-
-            ///////////////////////////////////////////////////////////////////////////////////////////////
-
-            //int rn = rnd.Next(1, 10);
-
-            //IEnumerable<Cell> queryI = _listOfCells.Where(_listOfCells => _listOfCells.X == item.X);
-            //IEnumerable<Cell> queryJ = _listOfCells.Where(_listOfCells => _listOfCells.Y == item.Y);
-
-            //foreach (var itemI in queryI)
-            //{
-            //    item.GeneratedValue = rnd.Next(1, 10);
-
-            //    if (itemI.Y == item.Y)
-            //    {
-            //        continue;
-            //    }
-
-            //    if (itemI.GeneratedValue == item.GeneratedValue && itemI.GeneratedValue != 0)
-            //    {
-            //        while (itemI.GeneratedValue != item.GeneratedValue)
-            //        {
-            //            item.GeneratedValue = rnd.Next(1, 10);
-            //        }
-            //    }
-            //    else
-            //    {
-            //        continue;
-            //    }
-
-            //    item.ButtonCell.Text = item.GeneratedValue.ToString();
-            //}
-
-            //foreach (var itemJ in queryJ)
-            //{
-            //    itemJ.GeneratedValue = rnd.Next(1, 10);
-
-            //    if (itemJ.X == item.X)
-            //    {
-            //        continue;
-            //    }
-
-            //    if (itemJ.GeneratedValue == item.GeneratedValue && itemJ.GeneratedValue != 0)
-            //    {
-            //        while (itemJ.GeneratedValue != item.GeneratedValue)
-            //        {
-            //            item.GeneratedValue = rnd.Next(1, 10);
-            //        }
-            //    }
-            //    else
-            //    {
-            //        continue;
-            //    }
-
-            //    item.ButtonCell.Text = item.GeneratedValue.ToString();
-            //}
-
-            /////////////////////////////////////////////////////////////////////////////////////////////////////
-
-            //foreach (var item in _listOfCells)
-            //{
-            //    Random rnd = new Random();
-            //    int rn = rnd.Next(1, 10);
-
-            //    IEnumerable<Cell> queryI = _listOfCells.Where(_listOfCells => _listOfCells.X == item.X);
-
-            //    foreach (var elementI in queryI)
-            //    {
-            //        if (elementI.X == item.X)
-            //        {
-            //            break;
-            //        }
-
-            //        if (elementI.GeneratedValue == rn)
-            //        {
-            //            while (elementI.GeneratedValue != rn)
-            //            {
-            //                rn = rnd.Next(1, 10);
-            //            }
-            //        }
-            //        else
-            //        {
-            //            item.GeneratedValue = rn;
-            //        }
-            //    }
-
-            //    IEnumerable<Cell> queryJ = _listOfCells.Where(_listOfCells => _listOfCells.Y == item.Y);
-
-            //    foreach (var elementJ in queryI)
-            //    {
-            //        if (elementJ.Y == item.Y)
-            //        {
-            //            break;
-            //        }
-
-            //        if (elementJ.GeneratedValue == rn)
-            //        {
-            //            while (elementJ.GeneratedValue != rn)
-            //            {
-            //                rn = rnd.Next(1, 10);
-            //            }
-            //        }
-            //        else
-            //        {
-            //            item.GeneratedValue = rn;
-            //        }
-            //    }
-
-            //    item.ButtonCell.Text = item.GeneratedValue.ToString();
-            //}
         }
 
 
