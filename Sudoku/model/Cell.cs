@@ -44,7 +44,6 @@ namespace Sudoku.model
         private void ButtonCell_Click(object sender, EventArgs e)
         {
             this.CellClicked?.Invoke(this, new CellEventArgs() { X = this.X, Y = this.Y });
-
             this.Active = true;
         }
 

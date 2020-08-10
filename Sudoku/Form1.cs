@@ -67,6 +67,11 @@ namespace Sudoku
         {
             _generatingCells.putValueInButtons(9);
         }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 
 

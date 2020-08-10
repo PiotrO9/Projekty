@@ -44,6 +44,10 @@
             this.lblBack = new System.Windows.Forms.Label();
             this.lblClear = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -229,7 +233,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 34);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(13, 34);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 9;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
@@ -243,18 +247,56 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(309, 272);
             this.tableLayoutPanel1.TabIndex = 8;
+            this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Black;
+            this.panel1.Location = new System.Drawing.Point(15, 123);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(305, 3);
+            this.panel1.TabIndex = 9;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.Black;
+            this.panel2.Location = new System.Drawing.Point(15, 213);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(305, 3);
+            this.panel2.TabIndex = 10;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.Black;
+            this.panel3.Location = new System.Drawing.Point(215, 34);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(3, 275);
+            this.panel3.TabIndex = 11;
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.Black;
+            this.panel4.Location = new System.Drawing.Point(113, 30);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(3, 275);
+            this.panel4.TabIndex = 12;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(573, 318);
-            this.Controls.Add(this.tableLayoutPanel1);
+            this.Controls.Add(this.panel4);
+            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.lblClear);
             this.Controls.Add(this.lblBack);
             this.Controls.Add(this.lblTimer);
             this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.tableLayoutPanel1);
+            this.Location = new System.Drawing.Point(115, 30);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Sudoku";
@@ -284,6 +326,10 @@
         private System.Windows.Forms.Label lblBack;
         private System.Windows.Forms.Label lblClear;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panel4;
     }
 }
 

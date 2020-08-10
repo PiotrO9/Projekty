@@ -36,7 +36,10 @@ namespace Sudoku.model
 
         private void Cell_CellClicked(object sender, CellEventArgs e)
         {
-
+            foreach (var item in _listOfCells.Where(w => w.X != e.X && w.Y != e.X))
+            {
+                item.Active = false;
+            }
         }
 
         public void Clear()
@@ -51,166 +54,54 @@ namespace Sudoku.model
 
         public void AddingValues()
         {
-            Random rnd = new Random();
+            AddingValuesByCode();
+
+            var rnd = new Random();
+
+            int rand1; // ilosc operacji
+            int rand2; // przesunięcie 3 kolumn,wierszy czy przesuniecie 1
+            int rand3; // potrzebne do wylosowania typu operacji
+
+            rand1 = rnd.Next(6, 13);
+
+            for (int i = 0; i < rand1; i++)
+            {
+                rand2 = rnd.Next(1, 3);
+
+                if (rand2 == 1)
+                {
+                    rand3 = rnd.Next(1, 3);
+                }
+                else
+                    rand3 = rnd.Next(1, 7);
+
+                SwitchRows(rand2, rand3);
+            }
+
             foreach (var item in _listOfCells)
             {
-                int rn = rnd.Next(1, 10);
-
-                IEnumerable<Cell> queryI = _listOfCells.Where(_listOfCells => _listOfCells.X == item.X);
-                IEnumerable<Cell> queryJ = _listOfCells.Where(_listOfCells => _listOfCells.Y == item.Y);
-
-                item.GeneratedValue = rn;
-
-                foreach (var itemI in queryI)
-                {
-                    if (item.Y == itemI.Y)
-                    {
-                        continue;
-                    }
-                    else if (item.GeneratedValue == itemI.GeneratedValue)
-                    {
-                        while (item.GeneratedValue == itemI.GeneratedValue)
-                        {
-                            rn = rnd.Next(1, 10);
-                            item.GeneratedValue = rn;
-                        }
-                    }
-
-                    item.ButtonCell.Text = item.GeneratedValue.ToString();
-                }
-
-                foreach (var itemJ in queryJ)
-                {
-                    if (item.X == itemJ.X)
-                    {
-                        continue;
-                    }
-                    else if (item.GeneratedValue == itemJ.GeneratedValue)
-                    {
-                        while (item.GeneratedValue == itemJ.GeneratedValue)
-                        {
-                            rn = rnd.Next(1, 10);
-                            item.GeneratedValue = rn;
-                        }
-                    }
-
-                    item.ButtonCell.Text = item.GeneratedValue.ToString();
-                }
-
-
-                ///////////////////////////////////////////////////////////////////////////////////////////////
-
-                //    int rn = rnd.Next(1, 10);
-
-                //    IEnumerable<Cell> queryI = _listOfCells.Where(_listOfCells => _listOfCells.X == item.X);
-                //    IEnumerable<Cell> queryJ = _listOfCells.Where(_listOfCells => _listOfCells.Y == item.Y);
-
-                //    item.GeneratedValue = rnd.Next(1, 10);
-
-                //    foreach (var itemI in queryI)
-                //    {
-
-                //        if (itemI.X == item.X)
-                //        {
-                //            continue;
-                //        }
-
-                //        if (itemI.GeneratedValue == item.GeneratedValue && itemI.GeneratedValue != 0)
-                //        {
-                //            while (itemI.GeneratedValue == item.GeneratedValue)
-                //            {
-                //                item.GeneratedValue = rnd.Next(1, 10);
-                //            }
-                //        }
-                //        else
-                //        {
-                //            continue;
-                //        }
-
-                //        item.ButtonCell.Text = item.GeneratedValue.ToString();
-                //    }
-
-                //    foreach (var itemJ in queryJ)
-                //    {
-                //        itemJ.GeneratedValue = rnd.Next(1, 10);
-
-                //        if (itemJ.Y == item.Y)
-                //        {
-                //            continue;
-                //        }
-
-                //        if (itemJ.GeneratedValue == item.GeneratedValue && itemJ.GeneratedValue != 0)
-                //        {
-                //            while (itemJ.GeneratedValue == item.GeneratedValue)
-                //            {
-                //                item.GeneratedValue = rnd.Next(1, 10);
-                //            }
-                //        }
-                //        else
-                //        {
-                //            continue;
-                //        }
-
-                //        item.ButtonCell.Text = item.GeneratedValue.ToString();
-                //    }
-                //}
-
-                /////////////////////////////////////////////////////////////////////////////////////////////////////
-
-                //foreach (var item in _listOfCells)
-                //{
-                //    Random rnd = new Random();
-                //    int rn = rnd.Next(1, 10);
-
-                //    IEnumerable<Cell> queryI = _listOfCells.Where(_listOfCells => _listOfCells.X == item.X);
-
-                //    foreach (var elementI in queryI)
-                //    {
-                //        if (elementI.X == item.X)
-                //        {
-                //            break;
-                //        }
-
-                //        if (elementI.GeneratedValue == rn)
-                //        {
-                //            while (elementI.GeneratedValue != rn)
-                //            {
-                //                rn = rnd.Next(1, 10);
-                //            }
-                //        }
-                //        else
-                //        {
-                //            item.GeneratedValue = rn;
-                //        }
-                //    }
-
-                //    IEnumerable<Cell> queryJ = _listOfCells.Where(_listOfCells => _listOfCells.Y == item.Y);
-
-                //    foreach (var elementJ in queryI)
-                //    {
-                //        if (elementJ.Y == item.Y)
-                //        {
-                //            break;
-                //        }
-
-                //        if (elementJ.GeneratedValue == rn)
-                //        {
-                //            while (elementJ.GeneratedValue != rn)
-                //            {
-                //                rn = rnd.Next(1, 10);
-                //            }
-                //        }
-                //        else
-                //        {
-                //            item.GeneratedValue = rn;
-                //        }
-                //    }
-
-                //    item.ButtonCell.Text = item.GeneratedValue.ToString();
-                //}
+                item.ButtonCell.Text = item.GeneratedValue.ToString();
             }
-        }
 
+            //Random rnd = new Random();
+            //foreach (var item in _listOfCells)
+            //{
+            //    int rn = rnd.Next(1, 10);
+
+            //    var elementsOnDiagonals = GetElementOnDiagonal(item.X, item.Y);
+            //    var elementsOnFields = GetElementOnLocalField(item.X, item.Y);
+
+            //    var elementsToCheck = elementsOnDiagonals.Union(elementsOnFields);
+
+            //    while (elementsToCheck.Any(a => a.GeneratedValue == rn))
+            //    {
+            //        rn = rnd.Next(1, 10);
+            //    }
+
+            //    item.GeneratedValue = rn;
+            //    item.ButtonCell.Text = item.GeneratedValue.ToString();
+            //}
+        }
 
         public void putValueInButtons(int number)
         {
@@ -232,6 +123,351 @@ namespace Sudoku.model
             foreach (var item in _listOfCells)
             {
                 item.Active = false;
+            }
+        }
+
+        private IEnumerable<Cell> GetElementOnDiagonal(int x, int y)
+        {
+            IEnumerable<Cell> queryI = _listOfCells.Where(_listOfCells => _listOfCells.X == x);
+            IEnumerable<Cell> queryJ = _listOfCells.Where(_listOfCells => _listOfCells.Y == y);
+            return queryI.Union(queryJ)
+                         .Where(w => w.X != x || w.Y != y);
+        }
+
+        private IEnumerable<Cell> GetElementOnLocalField(int x, int y)
+        {
+            var numberOfField = GetNumberOfField(x, y);
+            return _listOfCells.Where(w => GetNumberOfField(w.X, w.Y) == numberOfField);
+        }
+
+        private int GetNumberOfField(int x, int y)
+        {
+            if (x < 3)
+            {
+                if (y < 3)
+                {
+                    return 1;
+                }
+                if (y >= 3 && y < 6)
+                {
+                    return 4;
+                }
+                if (y >= 6)
+                {
+                    return 7;
+                }
+                else
+                    return 0;
+            }
+
+            if (x >= 3 && x < 6)
+            {
+                if (y < 3)
+                {
+                    return 2;
+                }
+                if (y >= 3 && y < 6)
+                {
+                    return 5;
+                }
+                if (y >= 6)
+                {
+                    return 8;
+                }
+                else
+                    return 0;
+            }
+
+            if (x >= 6)
+            {
+                if (y < 3)
+                {
+                    return 3;
+                }
+                if (y >= 3 && y < 6)
+                {
+                    return 6;
+                }
+                if (y >= 6)
+                {
+                    return 9;
+                }
+                else
+                    return 0;
+            }
+            else
+            {
+                return 0;
+            }
+        }
+
+        private void SwitchRows(int first, int secound)
+        {
+            if (first == 1)
+            {
+                if (secound == 1)
+                {
+                    SwitchRowsAlgorithmVertical(0, 6);
+                    SwitchRowsAlgorithmVertical(1, 7);
+                    SwitchRowsAlgorithmVertical(2, 8);
+                }
+
+                else if (secound == 2)
+                {
+                    SwitchRowsAlgorithmHorizontal(0, 6);
+                    SwitchRowsAlgorithmHorizontal(1, 7);
+                    SwitchRowsAlgorithmHorizontal(2, 8);
+                }
+            }
+            else if (first == 2)
+            {
+                if (secound == 1)
+                {
+                    SwitchRowsAlgorithmVertical(0, 2);
+                }
+                else if (secound == 2)
+                {
+                    SwitchRowsAlgorithmVertical(3, 5);
+                }
+                else if (secound == 3)
+                {
+                    SwitchRowsAlgorithmVertical(6, 8);
+                }
+                else if (secound == 4)
+                {
+                    SwitchRowsAlgorithmHorizontal(0, 2);
+                }
+                else if (secound == 5)
+                {
+                    SwitchRowsAlgorithmHorizontal(3, 5);
+                }
+                else if (secound == 6)
+                {
+                    SwitchRowsAlgorithmHorizontal(6, 8);
+                }
+            }
+        }
+
+        private void SwitchRowsAlgorithmVertical(int firstCollumn, int secoundCollumn)
+        {
+            var firstCollection = _listOfCells.Where(w => w.Y == firstCollumn).ToList();
+            var secoundCollection = _listOfCells.Where(w => w.Y == secoundCollumn).ToList();
+
+            if (firstCollection.Count != secoundCollection.Count)
+            {
+                throw new ArgumentException("Kolekcje mają różną długość!");
+            }
+
+            for (int i = 0; i < firstCollection.Count; i++)
+            {
+                var temp = firstCollection[i].GeneratedValue;
+                firstCollection[i].GeneratedValue = secoundCollection[i].GeneratedValue;
+                secoundCollection[i].GeneratedValue = temp;
+            }
+        }
+
+        private void SwitchRowsAlgorithmHorizontal(int firstCollumn, int secoundCollumn)
+        {
+            var firstCollection = _listOfCells.Where(w => w.X == firstCollumn).ToList();
+            var secoundCollection = _listOfCells.Where(w => w.X == secoundCollumn).ToList();
+
+            if (firstCollection.Count != secoundCollection.Count)
+            {
+                throw new ArgumentException("Kolekcje mają różną długość!");
+            }
+
+            for (int i = 0; i < firstCollection.Count; i++)
+            {
+                var temp = firstCollection[i].GeneratedValue;
+                firstCollection[i].GeneratedValue = secoundCollection[i].GeneratedValue;
+                secoundCollection[i].GeneratedValue = temp;
+            }
+        }
+
+        private void AddingValuesByCode()
+        {
+            foreach (var item in _listOfCells)
+            {
+                //0
+                if (item.X == 0 && item.Y == 0)
+                    item.GeneratedValue = 7;
+                if (item.X == 0 && item.Y == 1)
+                    item.GeneratedValue = 3;
+                if (item.X == 0 && item.Y == 2)
+                    item.GeneratedValue = 5;
+                if (item.X == 0 && item.Y == 3)
+                    item.GeneratedValue = 6;
+                if (item.X == 0 && item.Y == 4)
+                    item.GeneratedValue = 1;
+                if (item.X == 0 && item.Y == 5)
+                    item.GeneratedValue = 4;
+                if (item.X == 0 && item.Y == 6)
+                    item.GeneratedValue = 8;
+                if (item.X == 0 && item.Y == 7)
+                    item.GeneratedValue = 9;
+                if (item.X == 0 && item.Y == 8)
+                    item.GeneratedValue = 2;
+                //1
+                if (item.X == 1 && item.Y == 0)
+                    item.GeneratedValue = 8;
+                if (item.X == 1 && item.Y == 1)
+                    item.GeneratedValue = 4;
+                if (item.X == 1 && item.Y == 2)
+                    item.GeneratedValue = 2;
+                if (item.X == 1 && item.Y == 3)
+                    item.GeneratedValue = 9;
+                if (item.X == 1 && item.Y == 4)
+                    item.GeneratedValue = 7;
+                if (item.X == 1 && item.Y == 5)
+                    item.GeneratedValue = 3;
+                if (item.X == 1 && item.Y == 6)
+                    item.GeneratedValue = 5;
+                if (item.X == 1 && item.Y == 7)
+                    item.GeneratedValue = 6;
+                if (item.X == 1 && item.Y == 8)
+                    item.GeneratedValue = 1;
+                //2
+                if (item.X == 2 && item.Y == 0)
+                    item.GeneratedValue = 9;
+                if (item.X == 2 && item.Y == 1)
+                    item.GeneratedValue = 6;
+                if (item.X == 2 && item.Y == 2)
+                    item.GeneratedValue = 1;
+                if (item.X == 2 && item.Y == 3)
+                    item.GeneratedValue = 2;
+                if (item.X == 2 && item.Y == 4)
+                    item.GeneratedValue = 8;
+                if (item.X == 2 && item.Y == 5)
+                    item.GeneratedValue = 5;
+                if (item.X == 2 && item.Y == 6)
+                    item.GeneratedValue = 3;
+                if (item.X == 2 && item.Y == 7)
+                    item.GeneratedValue = 7;
+                if (item.X == 2 && item.Y == 8)
+                    item.GeneratedValue = 4;
+
+                ///1
+                //3
+
+                if (item.X == 3 && item.Y == 0)
+                    item.GeneratedValue = 2;
+                if (item.X == 3 && item.Y == 1)
+                    item.GeneratedValue = 8;
+                if (item.X == 3 && item.Y == 2)
+                    item.GeneratedValue = 6;
+                if (item.X == 3 && item.Y == 3)
+                    item.GeneratedValue = 3;
+                if (item.X == 3 && item.Y == 4)
+                    item.GeneratedValue = 4;
+                if (item.X == 3 && item.Y == 5)
+                    item.GeneratedValue = 9;
+                if (item.X == 3 && item.Y == 6)
+                    item.GeneratedValue = 1;
+                if (item.X == 3 && item.Y == 7)
+                    item.GeneratedValue = 5;
+                if (item.X == 3 && item.Y == 8)
+                    item.GeneratedValue = 7;
+                //4
+                if (item.X == 4 && item.Y == 0)
+                    item.GeneratedValue = 4;
+                if (item.X == 4 && item.Y == 1)
+                    item.GeneratedValue = 1;
+                if (item.X == 4 && item.Y == 2)
+                    item.GeneratedValue = 3;
+                if (item.X == 4 && item.Y == 3)
+                    item.GeneratedValue = 8;
+                if (item.X == 4 && item.Y == 4)
+                    item.GeneratedValue = 5;
+                if (item.X == 4 && item.Y == 5)
+                    item.GeneratedValue = 7;
+                if (item.X == 4 && item.Y == 6)
+                    item.GeneratedValue = 9;
+                if (item.X == 4 && item.Y == 7)
+                    item.GeneratedValue = 2;
+                if (item.X == 4 && item.Y == 8)
+                    item.GeneratedValue = 6;
+                //5
+                if (item.X == 5 && item.Y == 0)
+                    item.GeneratedValue = 5;
+                if (item.X == 5 && item.Y == 1)
+                    item.GeneratedValue = 7;
+                if (item.X == 5 && item.Y == 2)
+                    item.GeneratedValue = 9;
+                if (item.X == 5 && item.Y == 3)
+                    item.GeneratedValue = 1;
+                if (item.X == 5 && item.Y == 4)
+                    item.GeneratedValue = 2;
+                if (item.X == 5 && item.Y == 5)
+                    item.GeneratedValue = 6;
+                if (item.X == 5 && item.Y == 6)
+                    item.GeneratedValue = 4;
+                if (item.X == 5 && item.Y == 7)
+                    item.GeneratedValue = 3;
+                if (item.X == 5 && item.Y == 8)
+                    item.GeneratedValue = 8;
+
+                ///2
+                //6
+
+                if (item.X == 6 && item.Y == 0)
+                    item.GeneratedValue = 1;
+                if (item.X == 6 && item.Y == 1)
+                    item.GeneratedValue = 5;
+                if (item.X == 6 && item.Y == 2)
+                    item.GeneratedValue = 7;
+                if (item.X == 6 && item.Y == 3)
+                    item.GeneratedValue = 4;
+                if (item.X == 6 && item.Y == 4)
+                    item.GeneratedValue = 9;
+                if (item.X == 6 && item.Y == 5)
+                    item.GeneratedValue = 2;
+                if (item.X == 6 && item.Y == 6)
+                    item.GeneratedValue = 6;
+                if (item.X == 6 && item.Y == 7)
+                    item.GeneratedValue = 8;
+                if (item.X == 6 && item.Y == 8)
+                    item.GeneratedValue = 3;
+
+                //7
+
+                if (item.X == 7 && item.Y == 0)
+                    item.GeneratedValue = 6;
+                if (item.X == 7 && item.Y == 1)
+                    item.GeneratedValue = 9;
+                if (item.X == 7 && item.Y == 2)
+                    item.GeneratedValue = 4;
+                if (item.X == 7 && item.Y == 3)
+                    item.GeneratedValue = 7;
+                if (item.X == 7 && item.Y == 4)
+                    item.GeneratedValue = 3;
+                if (item.X == 7 && item.Y == 5)
+                    item.GeneratedValue = 8;
+                if (item.X == 7 && item.Y == 6)
+                    item.GeneratedValue = 2;
+                if (item.X == 7 && item.Y == 7)
+                    item.GeneratedValue = 1;
+                if (item.X == 7 && item.Y == 8)
+                    item.GeneratedValue = 5;
+
+                //8
+                if (item.X == 8 && item.Y == 0)
+                    item.GeneratedValue = 3;
+                if (item.X == 8 && item.Y == 1)
+                    item.GeneratedValue = 2;
+                if (item.X == 8 && item.Y == 2)
+                    item.GeneratedValue = 8;
+                if (item.X == 8 && item.Y == 3)
+                    item.GeneratedValue = 5;
+                if (item.X == 8 && item.Y == 4)
+                    item.GeneratedValue = 6;
+                if (item.X == 8 && item.Y == 5)
+                    item.GeneratedValue = 1;
+                if (item.X == 8 && item.Y == 6)
+                    item.GeneratedValue = 7;
+                if (item.X == 8 && item.Y == 7)
+                    item.GeneratedValue = 4;
+                if (item.X == 8 && item.Y == 8)
+                    item.GeneratedValue = 9;
             }
         }
 
