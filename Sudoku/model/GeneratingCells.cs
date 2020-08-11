@@ -15,6 +15,9 @@ namespace Sudoku.model
 
         public IEnumerable<Button> Buttons => _listOfCells.Select(s => s.ButtonCell);
 
+        public int mainX = 9;
+        public int mainY = 9;
+
         public GameEngine()
         {
             Generator();
@@ -34,17 +37,51 @@ namespace Sudoku.model
             }
         }
 
+        public void ClearLastPositionValue()
+        {
+            IEnumerable<Cell> query = _listOfCells.Where(_listOfCells => _listOfCells.X == mainX && _listOfCells.Y == mainY);
+
+            foreach (var item in query)
+            {
+                item.UserValue = 0;
+                item.ButtonCell.Text = string.Empty;
+            }
+        }
+
+        public void FillLastPosition(int x, int y)
+        {
+            mainX = x;
+            mainY = y;
+        }
+
+        public bool checkIfWin()
+        {
+            bool temp = true;
+
+            foreach (var item in _listOfCells)
+            {
+                if (item.UserValue == item.GeneratedValue)
+                {
+                    temp = true;
+                }
+                else
+                    return false;
+            }
+
+            return temp;
+        }
+
         private void Cell_CellClicked(object sender, CellEventArgs e)
         {
-            foreach (var item in _listOfCells.Where(w => w.X != e.X && w.Y != e.X))
-            {
-                item.Active = false;
-            }
+            FillLastPosition(e.X, e.Y);
         }
 
         public void Clear()
         {
             _listOfCells.ForEach(cell => cell.Clear());
+            _listOfCells.ForEach(cell => cell.ButtonCell.Enabled = true);
+            _listOfCells.ForEach(cell => cell.ButtonCell.BackColor = Color.FromArgb(236, 233, 216));
+
         }
 
         public void UserClickedNumber(int n)
@@ -78,42 +115,48 @@ namespace Sudoku.model
                 SwitchRows(rand2, rand3);
             }
 
-            foreach (var item in _listOfCells)
+            //Pokazywanie losowo wybranych pól
+
+            for (int i = 0; i < 64; i++)
             {
-                item.ButtonCell.Text = item.GeneratedValue.ToString();
+                int randX = rnd.Next(0, 9);
+                int randY = rnd.Next(0, 9);
+
+                foreach (var item in _listOfCells)
+                {
+                    if (item.X == randX && item.Y == randY)
+                    {
+                        if (item.UserValue != 0)
+                        {
+                            continue;
+                        }
+                        else
+                        {
+                            item.UserValue = item.GeneratedValue;
+                            item.ButtonCell.Text = item.UserValue.ToString();
+                            item.ButtonCell.Enabled = false;
+                            item.ButtonCell.BackColor = Color.Yellow;
+                        }
+                    }
+                }
             }
 
-            //Random rnd = new Random();
-            //foreach (var item in _listOfCells)
-            //{
-            //    int rn = rnd.Next(1, 10);
-
-            //    var elementsOnDiagonals = GetElementOnDiagonal(item.X, item.Y);
-            //    var elementsOnFields = GetElementOnLocalField(item.X, item.Y);
-
-            //    var elementsToCheck = elementsOnDiagonals.Union(elementsOnFields);
-
-            //    while (elementsToCheck.Any(a => a.GeneratedValue == rn))
-            //    {
-            //        rn = rnd.Next(1, 10);
-            //    }
-
-            //    item.GeneratedValue = rn;
-            //    item.ButtonCell.Text = item.GeneratedValue.ToString();
-            //}
         }
 
         public void putValueInButtons(int number)
         {
-            IEnumerable<Cell> query = _listOfCells.Where(_listOfCells => _listOfCells.Active == true);
+            IEnumerable<Cell> query = _listOfCells.Where(_listOfCells => _listOfCells.X == mainX && _listOfCells.Y == mainY);
 
             foreach (var item in query)
             {
-                item.ButtonCell.Text = number.ToString();
                 item.UserValue = number;
+                item.ButtonCell.Text = number.ToString();
                 if (item.UserValue == item.GeneratedValue)
                 {
-                    item.ButtonCell.BackColor = Color.Red;
+                    item.ButtonCell.BackColor = Color.Green;
+                    item.ButtonCell.Enabled = false;
+                    mainX = 9;
+                    mainY = 9;
                 }
             }
         }
@@ -470,6 +513,7 @@ namespace Sudoku.model
                     item.GeneratedValue = 9;
             }
         }
+
 
     }
 }

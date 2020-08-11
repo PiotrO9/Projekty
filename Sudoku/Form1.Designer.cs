@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.lbl9 = new System.Windows.Forms.Label();
             this.lbl8 = new System.Windows.Forms.Label();
@@ -40,14 +41,14 @@
             this.lbl1 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.nowaGraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.lblTimer = new System.Windows.Forms.Label();
-            this.lblBack = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.lblClear = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.tableLayoutPanel2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -190,36 +191,28 @@
             this.nowaGraToolStripMenuItem.Name = "nowaGraToolStripMenuItem";
             this.nowaGraToolStripMenuItem.Size = new System.Drawing.Size(70, 20);
             this.nowaGraToolStripMenuItem.Text = "Nowa gra";
+            this.nowaGraToolStripMenuItem.Click += new System.EventHandler(this.nowaGraToolStripMenuItem_Click);
             // 
-            // lblTimer
+            // label8
             // 
-            this.lblTimer.AutoSize = true;
-            this.lblTimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblTimer.Location = new System.Drawing.Point(387, 274);
-            this.lblTimer.Name = "lblTimer";
-            this.lblTimer.Size = new System.Drawing.Size(71, 25);
-            this.lblTimer.TabIndex = 5;
-            this.lblTimer.Text = "Timer";
-            // 
-            // lblBack
-            // 
-            this.lblBack.AutoSize = true;
-            this.lblBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblBack.Location = new System.Drawing.Point(344, 214);
-            this.lblBack.Name = "lblBack";
-            this.lblBack.Size = new System.Drawing.Size(73, 25);
-            this.lblBack.TabIndex = 6;
-            this.lblBack.Text = "Cofnij";
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label8.Location = new System.Drawing.Point(391, 269);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(59, 25);
+            this.label8.TabIndex = 5;
+            this.label8.Text = "0 : 0";
             // 
             // lblClear
             // 
             this.lblClear.AutoSize = true;
-            this.lblClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblClear.Location = new System.Drawing.Point(428, 214);
+            this.lblClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblClear.Location = new System.Drawing.Point(368, 213);
             this.lblClear.Name = "lblClear";
-            this.lblClear.Size = new System.Drawing.Size(88, 25);
+            this.lblClear.Size = new System.Drawing.Size(118, 33);
             this.lblClear.TabIndex = 7;
             this.lblClear.Text = "Wymaż";
+            this.lblClear.Click += new System.EventHandler(this.lblClear_Click);
             // 
             // tableLayoutPanel1
             // 
@@ -247,7 +240,6 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(309, 272);
             this.tableLayoutPanel1.TabIndex = 8;
-            this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
             // panel1
             // 
@@ -281,6 +273,11 @@
             this.panel4.Size = new System.Drawing.Size(3, 275);
             this.panel4.TabIndex = 12;
             // 
+            // timer1
+            // 
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -291,8 +288,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.lblClear);
-            this.Controls.Add(this.lblBack);
-            this.Controls.Add(this.lblTimer);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.tableLayoutPanel1);
@@ -322,14 +318,14 @@
         private System.Windows.Forms.Label lbl1;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem nowaGraToolStripMenuItem;
-        private System.Windows.Forms.Label lblTimer;
-        private System.Windows.Forms.Label lblBack;
+        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label lblClear;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 

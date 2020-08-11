@@ -33,7 +33,7 @@ namespace Sudoku.model
             this.ButtonCell = new Button()
             {
                 Name = $"btn{x}{y}",
-                Text = $"{x}{y}",
+                // Text = $"{x}{y}",
                 Height = 50,
                 Width = 50,
             };
@@ -44,7 +44,6 @@ namespace Sudoku.model
         private void ButtonCell_Click(object sender, EventArgs e)
         {
             this.CellClicked?.Invoke(this, new CellEventArgs() { X = this.X, Y = this.Y });
-            this.Active = true;
         }
 
         public void Clear()
