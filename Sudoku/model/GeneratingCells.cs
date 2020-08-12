@@ -18,6 +18,8 @@ namespace Sudoku.model
         public int mainX = 9;
         public int mainY = 9;
 
+        private int currentDifficulty = 44;
+
         public GameEngine()
         {
             Generator();
@@ -89,6 +91,12 @@ namespace Sudoku.model
             var activCell = this._listOfCells.Where(w => w.Active);
         }
 
+        public int SetDifficulty(int difficulty = 44)
+        {
+            currentDifficulty = difficulty;
+            return currentDifficulty;
+        }
+
         public void AddingValues()
         {
             AddingValuesByCode();
@@ -117,7 +125,10 @@ namespace Sudoku.model
 
             //Pokazywanie losowo wybranych pól
 
-            for (int i = 0; i < 64; i++)
+            int temp = 0;
+            int numberOfDifficulty = SetDifficulty(currentDifficulty);
+
+            while (temp < numberOfDifficulty)
             {
                 int randX = rnd.Next(0, 9);
                 int randY = rnd.Next(0, 9);
@@ -136,11 +147,11 @@ namespace Sudoku.model
                             item.ButtonCell.Text = item.UserValue.ToString();
                             item.ButtonCell.Enabled = false;
                             item.ButtonCell.BackColor = Color.Yellow;
+                            temp++;
                         }
                     }
                 }
             }
-
         }
 
         public void putValueInButtons(int number)

@@ -49,6 +49,10 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.poziomTrudnościToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.łatwyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.średniToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.trudnyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLayoutPanel2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -179,10 +183,11 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.nowaGraToolStripMenuItem});
+            this.nowaGraToolStripMenuItem,
+            this.poziomTrudnościToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(573, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(520, 24);
             this.menuStrip1.TabIndex = 4;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -278,11 +283,42 @@
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // poziomTrudnościToolStripMenuItem
+            // 
+            this.poziomTrudnościToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.łatwyToolStripMenuItem,
+            this.średniToolStripMenuItem,
+            this.trudnyToolStripMenuItem});
+            this.poziomTrudnościToolStripMenuItem.Name = "poziomTrudnościToolStripMenuItem";
+            this.poziomTrudnościToolStripMenuItem.Size = new System.Drawing.Size(112, 20);
+            this.poziomTrudnościToolStripMenuItem.Text = "Poziom trudności";
+            // 
+            // łatwyToolStripMenuItem
+            // 
+            this.łatwyToolStripMenuItem.Name = "łatwyToolStripMenuItem";
+            this.łatwyToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.łatwyToolStripMenuItem.Text = "Łatwy";
+            this.łatwyToolStripMenuItem.Click += new System.EventHandler(this.łatwyToolStripMenuItem_Click);
+            // 
+            // średniToolStripMenuItem
+            // 
+            this.średniToolStripMenuItem.Name = "średniToolStripMenuItem";
+            this.średniToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.średniToolStripMenuItem.Text = "Średni";
+            this.średniToolStripMenuItem.Click += new System.EventHandler(this.średniToolStripMenuItem_Click);
+            // 
+            // trudnyToolStripMenuItem
+            // 
+            this.trudnyToolStripMenuItem.Name = "trudnyToolStripMenuItem";
+            this.trudnyToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.trudnyToolStripMenuItem.Text = "Trudny";
+            this.trudnyToolStripMenuItem.Click += new System.EventHandler(this.trudnyToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(573, 318);
+            this.ClientSize = new System.Drawing.Size(520, 318);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
@@ -292,6 +328,7 @@
             this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Location = new System.Drawing.Point(115, 30);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
@@ -326,6 +363,10 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.ToolStripMenuItem poziomTrudnościToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem łatwyToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem średniToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem trudnyToolStripMenuItem;
     }
 }
 

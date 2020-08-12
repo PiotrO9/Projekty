@@ -119,15 +119,58 @@ namespace Sudoku
             if (timeCountingM > 0)
             {
                 messageForWinner = timeCountingM.ToString() + " : " + timeCountingS.ToString();
+                if (timeCountingS < 10)
+                {
+                    messageForWinner = timeCountingM.ToString() + " : 0" + timeCountingS.ToString();
+                }
                 label8.Text = messageForWinner;
             }
             else
             {
                 messageForWinner = "0" + " : " + timeCountingS.ToString();
+                if (timeCountingS < 10)
+                {
+                    messageForWinner = "0" + " : 0" + timeCountingS.ToString();
+                }
                 label8.Text = messageForWinner;
             }
         }
 
+        private void łatwyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _generatingCells.SetDifficulty();
+            _generatingCells.Clear();
+            _generatingCells.AddingValues();
+            _generatingCells.buttonsDisabling();
+            timeCountingS = 0;
+            timeCountingM = 0;
+            messageForWinner = string.Empty;
+            timer1.Enabled = true;
+        }
+
+        private void średniToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _generatingCells.SetDifficulty(36);
+            _generatingCells.Clear();
+            _generatingCells.AddingValues();
+            _generatingCells.buttonsDisabling();
+            timeCountingS = 0;
+            timeCountingM = 0;
+            messageForWinner = string.Empty;
+            timer1.Enabled = true;
+        }
+
+        private void trudnyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _generatingCells.SetDifficulty(28);
+            _generatingCells.Clear();
+            _generatingCells.AddingValues();
+            _generatingCells.buttonsDisabling();
+            timeCountingS = 0;
+            timeCountingM = 0;
+            messageForWinner = string.Empty;
+            timer1.Enabled = true;
+        }
     }
 
 
