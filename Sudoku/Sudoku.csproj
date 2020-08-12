@@ -54,7 +54,7 @@
     </Compile>
     <Compile Include="model\Cell.cs" />
     <Compile Include="model\CellEventArgs.cs" />
-    <Compile Include="model\GeneratingCells.cs" />
+    <Compile Include="model\GameEngine.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">

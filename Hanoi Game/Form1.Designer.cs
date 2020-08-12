@@ -31,15 +31,15 @@
             this.pnlFloor = new System.Windows.Forms.Panel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.ilośćKrążkówToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pnlPin1 = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.odNowaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
+            this.odNowaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pnlPin1 = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.pnl1 = new System.Windows.Forms.Panel();
             this.pnl2 = new System.Windows.Forms.Panel();
             this.pnl3 = new System.Windows.Forms.Panel();
@@ -81,6 +81,42 @@
             this.ilośćKrążkówToolStripMenuItem.Size = new System.Drawing.Size(89, 20);
             this.ilośćKrążkówToolStripMenuItem.Text = "Ilość krążków";
             // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(80, 22);
+            this.toolStripMenuItem2.Text = "3";
+            // 
+            // toolStripMenuItem3
+            // 
+            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(80, 22);
+            this.toolStripMenuItem3.Text = "4";
+            // 
+            // toolStripMenuItem4
+            // 
+            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(80, 22);
+            this.toolStripMenuItem4.Text = "5";
+            // 
+            // toolStripMenuItem5
+            // 
+            this.toolStripMenuItem5.Name = "toolStripMenuItem5";
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(80, 22);
+            this.toolStripMenuItem5.Text = "6";
+            // 
+            // toolStripMenuItem6
+            // 
+            this.toolStripMenuItem6.Name = "toolStripMenuItem6";
+            this.toolStripMenuItem6.Size = new System.Drawing.Size(80, 22);
+            this.toolStripMenuItem6.Text = "7";
+            // 
+            // odNowaToolStripMenuItem
+            // 
+            this.odNowaToolStripMenuItem.Name = "odNowaToolStripMenuItem";
+            this.odNowaToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
+            this.odNowaToolStripMenuItem.Text = "Od nowa";
+            // 
             // pnlPin1
             // 
             this.pnlPin1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
@@ -96,6 +132,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(20, 90);
             this.panel1.TabIndex = 3;
+            this.panel1.Click += new System.EventHandler(this.panel1_Click);
             // 
             // panel2
             // 
@@ -104,42 +141,7 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(20, 90);
             this.panel2.TabIndex = 4;
-            // 
-            // odNowaToolStripMenuItem
-            // 
-            this.odNowaToolStripMenuItem.Name = "odNowaToolStripMenuItem";
-            this.odNowaToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
-            this.odNowaToolStripMenuItem.Text = "Od nowa";
-            // 
-            // toolStripMenuItem2
-            // 
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
-            this.toolStripMenuItem2.Text = "3";
-            // 
-            // toolStripMenuItem3
-            // 
-            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(180, 22);
-            this.toolStripMenuItem3.Text = "4";
-            // 
-            // toolStripMenuItem4
-            // 
-            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(180, 22);
-            this.toolStripMenuItem4.Text = "5";
-            // 
-            // toolStripMenuItem5
-            // 
-            this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            this.toolStripMenuItem5.Size = new System.Drawing.Size(180, 22);
-            this.toolStripMenuItem5.Text = "6";
-            // 
-            // toolStripMenuItem6
-            // 
-            this.toolStripMenuItem6.Name = "toolStripMenuItem6";
-            this.toolStripMenuItem6.Size = new System.Drawing.Size(180, 22);
-            this.toolStripMenuItem6.Text = "7";
+            this.panel2.Click += new System.EventHandler(this.panel2_Click);
             // 
             // pnl1
             // 
@@ -148,6 +150,7 @@
             this.pnl1.Name = "pnl1";
             this.pnl1.Size = new System.Drawing.Size(30, 10);
             this.pnl1.TabIndex = 5;
+            this.pnl1.Click += new System.EventHandler(this.pnl1_Click);
             // 
             // pnl2
             // 
@@ -156,6 +159,7 @@
             this.pnl2.Name = "pnl2";
             this.pnl2.Size = new System.Drawing.Size(40, 10);
             this.pnl2.TabIndex = 6;
+            this.pnl2.Click += new System.EventHandler(this.pnl2_Click);
             // 
             // pnl3
             // 
@@ -164,6 +168,7 @@
             this.pnl3.Name = "pnl3";
             this.pnl3.Size = new System.Drawing.Size(50, 10);
             this.pnl3.TabIndex = 7;
+            this.pnl3.Click += new System.EventHandler(this.pnl3_Click);
             // 
             // pnl4
             // 
@@ -172,6 +177,7 @@
             this.pnl4.Name = "pnl4";
             this.pnl4.Size = new System.Drawing.Size(60, 10);
             this.pnl4.TabIndex = 8;
+            this.pnl4.Click += new System.EventHandler(this.pnl4_Click);
             // 
             // pnl5
             // 
@@ -180,6 +186,7 @@
             this.pnl5.Name = "pnl5";
             this.pnl5.Size = new System.Drawing.Size(70, 10);
             this.pnl5.TabIndex = 9;
+            this.pnl5.Click += new System.EventHandler(this.pnl5_Click);
             // 
             // pnl6
             // 
@@ -188,6 +195,7 @@
             this.pnl6.Name = "pnl6";
             this.pnl6.Size = new System.Drawing.Size(80, 10);
             this.pnl6.TabIndex = 10;
+            this.pnl6.Click += new System.EventHandler(this.pnl6_Click);
             // 
             // pnl7
             // 
@@ -196,6 +204,7 @@
             this.pnl7.Name = "pnl7";
             this.pnl7.Size = new System.Drawing.Size(90, 10);
             this.pnl7.TabIndex = 11;
+            this.pnl7.Click += new System.EventHandler(this.pnl7_Click);
             // 
             // Form1
             // 

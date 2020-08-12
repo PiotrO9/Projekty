@@ -15,6 +15,8 @@ namespace Hanoi_Game.Models
         public int X { get; set; }
         public int Y { get; set; }
 
+        public int fromWhichColumn { get; set; }
+
         public Roller(int s)
         {
             size = s;
