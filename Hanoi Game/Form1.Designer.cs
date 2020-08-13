@@ -38,8 +38,8 @@
             this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
             this.odNowaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlPin1 = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.pnlPin2 = new System.Windows.Forms.Panel();
+            this.pnlPin3 = new System.Windows.Forms.Panel();
             this.pnl1 = new System.Windows.Forms.Panel();
             this.pnl2 = new System.Windows.Forms.Panel();
             this.pnl3 = new System.Windows.Forms.Panel();
@@ -124,24 +124,25 @@
             this.pnlPin1.Name = "pnlPin1";
             this.pnlPin1.Size = new System.Drawing.Size(20, 90);
             this.pnlPin1.TabIndex = 2;
+            this.pnlPin1.Click += new System.EventHandler(this.pnlPin1_Click);
             // 
-            // panel1
+            // pnlPin2
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.panel1.Location = new System.Drawing.Point(210, 120);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(20, 90);
-            this.panel1.TabIndex = 3;
-            this.panel1.Click += new System.EventHandler(this.panel1_Click);
+            this.pnlPin2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.pnlPin2.Location = new System.Drawing.Point(210, 120);
+            this.pnlPin2.Name = "pnlPin2";
+            this.pnlPin2.Size = new System.Drawing.Size(20, 90);
+            this.pnlPin2.TabIndex = 3;
+            this.pnlPin2.Click += new System.EventHandler(this.pnlPin2_Click);
             // 
-            // panel2
+            // pnlPin3
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.panel2.Location = new System.Drawing.Point(330, 120);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(20, 90);
-            this.panel2.TabIndex = 4;
-            this.panel2.Click += new System.EventHandler(this.panel2_Click);
+            this.pnlPin3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.pnlPin3.Location = new System.Drawing.Point(330, 120);
+            this.pnlPin3.Name = "pnlPin3";
+            this.pnlPin3.Size = new System.Drawing.Size(20, 90);
+            this.pnlPin3.TabIndex = 4;
+            this.pnlPin3.Click += new System.EventHandler(this.pnlPin3_Click);
             // 
             // pnl1
             // 
@@ -218,8 +219,8 @@
             this.Controls.Add(this.pnl4);
             this.Controls.Add(this.pnl3);
             this.Controls.Add(this.pnl2);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pnlPin3);
+            this.Controls.Add(this.pnlPin2);
             this.Controls.Add(this.pnlPin1);
             this.Controls.Add(this.pnlFloor);
             this.Controls.Add(this.menuStrip1);
@@ -239,8 +240,8 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem ilośćKrążkówToolStripMenuItem;
         private System.Windows.Forms.Panel pnlPin1;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel pnlPin2;
+        private System.Windows.Forms.Panel pnlPin3;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem4;

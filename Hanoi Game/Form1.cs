@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -16,11 +17,49 @@ namespace Hanoi_Game
         private GameEngine _firstColumn = new GameEngine();
         private GameEngine _secoundColumn = new GameEngine(2);
         private GameEngine _thirdColumn = new GameEngine(3);
+
+        int LastClickedNumber = 1;
+
         public Form1()
         {
             InitializeComponent();
             PanelDisabling();
             PrintingFirstColumn();
+        }
+
+        public int FromWhichCOlumn(int n)
+        {
+            if (_firstColumn.GetNumberFromWhichColumn(n) == 0)
+            {
+                if (_secoundColumn.GetNumberFromWhichColumn(n) == 0)
+                {
+                    return 3;
+                }
+                else
+                {
+                    return 2;
+                }
+            }
+            else
+            {
+                return 1;
+            }
+        }
+
+        public void SelectRightList(int n)
+        {
+            if (FromWhichCOlumn(n) == 1)
+            {
+                _firstColumn.CheckLastClickedRoller(n);
+            }
+            else if (FromWhichCOlumn(n) == 2)
+            {
+                _secoundColumn.CheckLastClickedRoller(n);
+            }
+            else if (FromWhichCOlumn(n) == 3)
+            {
+                _thirdColumn.CheckLastClickedRoller(n);
+            }
         }
 
         public void PanelDisabling()
@@ -65,479 +104,66 @@ namespace Hanoi_Game
             }
         }
 
+        public void SetLocation(int x, int y)
+        {
+            ;
+        }
+
+        public void PrintingColumns()
+        {
+            ;
+        }
+
         private void pnl1_Click(object sender, EventArgs e)
         {
-            _firstColumn.CheckLastClickedRoller(1);
+            SelectRightList(1);
+            LastClickedNumber = 1;
         }
 
         private void pnl2_Click(object sender, EventArgs e)
         {
-            _firstColumn.CheckLastClickedRoller(2);
+            SelectRightList(2);
+            LastClickedNumber = 2;
         }
 
         private void pnl3_Click(object sender, EventArgs e)
         {
-            _firstColumn.CheckLastClickedRoller(3);
+            SelectRightList(3);
         }
 
         private void pnl4_Click(object sender, EventArgs e)
         {
-            _firstColumn.CheckLastClickedRoller(4);
+            SelectRightList(4);
         }
 
         private void pnl5_Click(object sender, EventArgs e)
         {
-            _firstColumn.CheckLastClickedRoller(5);
+            SelectRightList(5);
         }
 
         private void pnl6_Click(object sender, EventArgs e)
         {
-            _firstColumn.CheckLastClickedRoller(6);
+            SelectRightList(6);
         }
 
         private void pnl7_Click(object sender, EventArgs e)
         {
-            _firstColumn.CheckLastClickedRoller(7);
+            SelectRightList(7);
         }
 
-        private void panel1_Click(object sender, EventArgs e)
+        private void pnlPin2_Click(object sender, EventArgs e)
         {
-            int tempGet = _firstColumn.GetLastClickedRoller();
-            int tempFirstColumn = _firstColumn.GetNumberFromWhichColumn(tempGet);
-            int tempSecondColumn = _secoundColumn.GetNumberFromWhichColumn(tempGet);
-            int tempThirdColumn = _thirdColumn.GetNumberFromWhichColumn(tempGet);
-            int tempRightColumn;
 
-            //Sprawdzanie w której kolumnie leży ostatnio kliknięty krążek
-
-            if (tempFirstColumn == 0)
-            {
-                if (tempSecondColumn == 0)
-                {
-                    tempRightColumn = tempThirdColumn;
-                }
-                else
-                {
-                    tempRightColumn = tempSecondColumn;
-                }
-            }
-            else
-            {
-                tempRightColumn = tempFirstColumn;
-            }
-
-            ///
-
-            if (tempGet == 1)
-            {
-                if (tempRightColumn == 1)
-                {
-                    if (_secoundColumn.Column.Count == 0)
-                    {
-                        Roller roller = new Roller(1);
-                        _secoundColumn.Column.Add(roller);
-                        _firstColumn.Column.RemoveAt(_firstColumn.Column.Count - 1);
-                        pnl1.Location = new Point(205, 200);
-                    }
-                    else if (_secoundColumn.Column.Count != 0)
-                    {
-                        int temp = _secoundColumn.Column.Count;
-                        int calc = temp * 10;
-
-                        Roller roller = new Roller(1);
-                        _secoundColumn.Column.Add(roller);
-                        _firstColumn.Column.RemoveAt(_firstColumn.Column.Count - 1);
-                        pnl1.Location = new Point(205, 200 - calc);
-                    }
-                }
-                else if (tempRightColumn == 3)
-                {
-                    if (_secoundColumn.Column.Count == 0)
-                    {
-                        Roller roller = new Roller(1);
-                        _secoundColumn.Column.Add(roller);
-                        _thirdColumn.Column.RemoveAt(_thirdColumn.Column.Count - 1);
-                        pnl1.Location = new Point(205, 200);
-                    }
-                    else if (_secoundColumn.Column.Count != 0)
-                    {
-                        int temp = _secoundColumn.Column.Count;
-                        int calc = temp * 10;
-
-                        Roller roller = new Roller(1);
-                        _secoundColumn.Column.Add(roller);
-                        _thirdColumn.Column.RemoveAt(_thirdColumn.Column.Count - 1);
-                        pnl1.Location = new Point(205, 200 - calc);
-                    }
-                }
-            }
-            else if (tempGet == 2)
-            {
-                if (tempRightColumn == 1)
-                {
-                    if (_secoundColumn.Column.Count == 0)
-                    {
-                        Roller roller = new Roller(2);
-                        _secoundColumn.Column.Add(roller);
-                        _firstColumn.Column.RemoveAt(_firstColumn.Column.Count - 1);
-                        pnl2.Location = new Point(200, 200);
-                    }
-                    else if (_secoundColumn.Column.Count != 0)
-                    {
-                        if (_secoundColumn.Column[_secoundColumn.Column.Count - 1].number > 2)
-                        {
-                            int temp = _secoundColumn.Column.Count;
-                            int calc = temp * 10;
-
-                            Roller roller = new Roller(2);
-                            _secoundColumn.Column.Add(roller);
-                            _firstColumn.Column.RemoveAt(_firstColumn.Column.Count - 1);
-                            pnl2.Location = new Point(200, 200 - calc);
-                        }
-                    }
-                }
-                else if (tempRightColumn == 3)
-                {
-                    if (_secoundColumn.Column.Count == 0)
-                    {
-                        Roller roller = new Roller(2);
-                        _secoundColumn.Column.Add(roller);
-                        _thirdColumn.Column.RemoveAt(_thirdColumn.Column.Count - 1);
-                        pnl2.Location = new Point(200, 200);
-                    }
-                    else if (_secoundColumn.Column.Count != 0)
-                    {
-                        if (_secoundColumn.Column[_secoundColumn.Column.Count - 1].number > 2)
-                        {
-                            int temp = _secoundColumn.Column.Count;
-                            int calc = temp * 10;
-
-                            Roller roller = new Roller(2);
-                            _secoundColumn.Column.Add(roller);
-                            _thirdColumn.Column.RemoveAt(_thirdColumn.Column.Count - 1);
-                            pnl2.Location = new Point(200, 200 - calc);
-                        }
-                    }
-                }
-            }
-            else if (tempGet == 3)
-            {
-                if (tempRightColumn == 1)
-                {
-                    if (_secoundColumn.Column.Count == 0)
-                    {
-                        Roller roller = new Roller(3);
-                        _secoundColumn.Column.Add(roller);
-                        _firstColumn.Column.RemoveAt(_firstColumn.Column.Count - 1);
-                        pnl3.Location = new Point(195, 200);
-                    }
-                    else if (_secoundColumn.Column.Count != 0)
-                    {
-                        if (_secoundColumn.Column[_secoundColumn.Column.Count - 1].number > 3)
-                        {
-                            int temp = _secoundColumn.Column.Count;
-                            int calc = temp * 10;
-
-                            Roller roller = new Roller(3);
-                            _secoundColumn.Column.Add(roller);
-                            _firstColumn.Column.RemoveAt(_firstColumn.Column.Count - 1);
-                            pnl3.Location = new Point(195, 200 - calc);
-                        }
-                    }
-                }
-                else if (tempRightColumn == 3)
-                {
-                    if (_secoundColumn.Column.Count == 0)
-                    {
-                        Roller roller = new Roller(3);
-                        _secoundColumn.Column.Add(roller);
-                        _thirdColumn.Column.RemoveAt(_thirdColumn.Column.Count - 1);
-                        pnl3.Location = new Point(195, 200);
-                    }
-                    else if (_secoundColumn.Column.Count != 0)
-                    {
-                        if (_secoundColumn.Column[_secoundColumn.Column.Count - 1].number > 3)
-                        {
-                            int temp = _secoundColumn.Column.Count;
-                            int calc = temp * 10;
-
-                            Roller roller = new Roller(3);
-                            _secoundColumn.Column.Add(roller);
-                            _thirdColumn.Column.RemoveAt(_thirdColumn.Column.Count - 1);
-                            pnl3.Location = new Point(195, 200 - calc);
-                        }
-                    }
-                }
-            }
-            else if (tempGet == 4)
-            {
-                if (tempRightColumn == 1)
-                {
-                    if (_secoundColumn.Column.Count == 0)
-                    {
-                        Roller roller = new Roller(4);
-                        _secoundColumn.Column.Add(roller);
-                        _firstColumn.Column.RemoveAt(_firstColumn.Column.Count - 1);
-                        pnl4.Location = new Point(190, 200);
-                    }
-                    else if (_secoundColumn.Column.Count != 0)
-                    {
-                        if (_secoundColumn.Column[_secoundColumn.Column.Count - 1].number > 4)
-                        {
-                            int temp = _secoundColumn.Column.Count;
-                            int calc = temp * 10;
-
-                            Roller roller = new Roller(4);
-                            _secoundColumn.Column.Add(roller);
-                            _firstColumn.Column.RemoveAt(_firstColumn.Column.Count - 1);
-                            pnl4.Location = new Point(190, 200 - calc);
-                        }
-                    }
-                }
-                else if (tempRightColumn == 3)
-                {
-                    if (_secoundColumn.Column.Count == 0)
-                    {
-                        Roller roller = new Roller(4);
-                        _secoundColumn.Column.Add(roller);
-                        _thirdColumn.Column.RemoveAt(_thirdColumn.Column.Count - 1);
-                        pnl4.Location = new Point(190, 200);
-                    }
-                    else if (_secoundColumn.Column.Count != 0)
-                    {
-                        if (_secoundColumn.Column[_secoundColumn.Column.Count - 1].number > 4)
-                        {
-                            int temp = _secoundColumn.Column.Count;
-                            int calc = temp * 10;
-
-                            Roller roller = new Roller(4);
-                            _secoundColumn.Column.Add(roller);
-                            _thirdColumn.Column.RemoveAt(_thirdColumn.Column.Count - 1);
-                            pnl4.Location = new Point(190, 200 - calc);
-                        }
-                    }
-                }
-            }
-            else if (tempGet == 5)
-            {
-                if (tempRightColumn == 1)
-                {
-                    if (_secoundColumn.Column.Count == 0)
-                    {
-                        Roller roller = new Roller(5);
-                        _secoundColumn.Column.Add(roller);
-                        _firstColumn.Column.RemoveAt(_firstColumn.Column.Count - 1);
-                        pnl5.Location = new Point(185, 200);
-                    }
-                    else if (_secoundColumn.Column.Count != 0)
-                    {
-                        if (_secoundColumn.Column[_secoundColumn.Column.Count - 1].number > 5)
-                        {
-                            int temp = _secoundColumn.Column.Count;
-                            int calc = temp * 10;
-
-                            Roller roller = new Roller(5);
-                            _secoundColumn.Column.Add(roller);
-                            _firstColumn.Column.RemoveAt(_firstColumn.Column.Count - 1);
-                            pnl5.Location = new Point(185, 200 - calc);
-                        }
-                    }
-                }
-                else if (tempRightColumn == 3)
-                {
-                    if (_secoundColumn.Column.Count == 0)
-                    {
-                        Roller roller = new Roller(5);
-                        _secoundColumn.Column.Add(roller);
-                        _thirdColumn.Column.RemoveAt(_thirdColumn.Column.Count - 1);
-                        pnl5.Location = new Point(185, 200);
-                    }
-                    else if (_secoundColumn.Column.Count != 0)
-                    {
-                        if (_secoundColumn.Column[_secoundColumn.Column.Count - 1].number > 5)
-                        {
-                            int temp = _secoundColumn.Column.Count;
-                            int calc = temp * 10;
-
-                            Roller roller = new Roller(5);
-                            _secoundColumn.Column.Add(roller);
-                            _thirdColumn.Column.RemoveAt(_thirdColumn.Column.Count - 1);
-                            pnl5.Location = new Point(185, 200 - calc);
-                        }
-                    }
-                }
-            }
-            else if (tempGet == 6)
-            {
-                if (tempRightColumn == 1)
-                {
-                    if (_secoundColumn.Column.Count == 0)
-                    {
-                        Roller roller = new Roller(6);
-                        _secoundColumn.Column.Add(roller);
-                        _firstColumn.Column.RemoveAt(_firstColumn.Column.Count - 1);
-                        pnl6.Location = new Point(180, 200);
-                    }
-                    else if (_secoundColumn.Column.Count != 0)
-                    {
-                        if (_secoundColumn.Column[_secoundColumn.Column.Count - 1].number > 6)
-                        {
-                            int temp = _secoundColumn.Column.Count;
-                            int calc = temp * 10;
-
-                            Roller roller = new Roller(6);
-                            _secoundColumn.Column.Add(roller);
-                            _firstColumn.Column.RemoveAt(_firstColumn.Column.Count - 1);
-                            pnl6.Location = new Point(180, 200 - calc);
-                        }
-                    }
-                }
-                else if (tempRightColumn == 3)
-                {
-                    if (_secoundColumn.Column.Count == 0)
-                    {
-                        Roller roller = new Roller(6);
-                        _secoundColumn.Column.Add(roller);
-                        _thirdColumn.Column.RemoveAt(_thirdColumn.Column.Count - 1);
-                        pnl6.Location = new Point(180, 200);
-                    }
-                    else if (_secoundColumn.Column.Count != 0)
-                    {
-                        if (_secoundColumn.Column[_secoundColumn.Column.Count - 1].number > 6)
-                        {
-                            int temp = _secoundColumn.Column.Count;
-                            int calc = temp * 10;
-
-                            Roller roller = new Roller(6);
-                            _secoundColumn.Column.Add(roller);
-                            _thirdColumn.Column.RemoveAt(_thirdColumn.Column.Count - 1);
-                            pnl6.Location = new Point(180, 200 - calc);
-                        }
-                    }
-                }
-            }
-            else if (tempGet == 7)
-            {
-                if (tempRightColumn == 1)
-                {
-                    if (_secoundColumn.Column.Count == 0)
-                    {
-                        Roller roller = new Roller(7);
-                        _secoundColumn.Column.Add(roller);
-                        _firstColumn.Column.RemoveAt(_firstColumn.Column.Count - 1);
-                        pnl7.Location = new Point(175, 200);
-                    }
-                    else if (_secoundColumn.Column.Count != 0)
-                    {
-                        if (_secoundColumn.Column[_secoundColumn.Column.Count - 1].number > 7)
-                        {
-                            int temp = _secoundColumn.Column.Count;
-                            int calc = temp * 10;
-
-                            Roller roller = new Roller(7);
-                            _secoundColumn.Column.Add(roller);
-                            _firstColumn.Column.RemoveAt(_firstColumn.Column.Count - 1);
-                            pnl7.Location = new Point(175, 200 - calc);
-                        }
-                    }
-                }
-                else if (tempRightColumn == 3)
-                {
-                    if (_secoundColumn.Column.Count == 0)
-                    {
-                        Roller roller = new Roller(7);
-                        _secoundColumn.Column.Add(roller);
-                        _thirdColumn.Column.RemoveAt(_thirdColumn.Column.Count - 1);
-                        pnl7.Location = new Point(175, 200);
-                    }
-                    else if (_secoundColumn.Column.Count != 0)
-                    {
-                        if (_secoundColumn.Column[_secoundColumn.Column.Count - 1].number > 7)
-                        {
-                            int temp = _secoundColumn.Column.Count;
-                            int calc = temp * 10;
-
-                            Roller roller = new Roller(7);
-                            _secoundColumn.Column.Add(roller);
-                            _thirdColumn.Column.RemoveAt(_thirdColumn.Column.Count - 1);
-                            pnl7.Location = new Point(175, 200 - calc);
-                        }
-                    }
-                }
-            }
         }
 
-        private void panel2_Click(object sender, EventArgs e)
+        private void pnlPin3_Click(object sender, EventArgs e)
         {
-            int tempGet = _firstColumn.GetLastClickedRoller();
-            int tempFirstColumn = _firstColumn.GetNumberFromWhichColumn(tempGet);
-            int tempSecondColumn = _secoundColumn.GetNumberFromWhichColumn(tempGet);
-            int tempThirdColumn = _thirdColumn.GetNumberFromWhichColumn(tempGet);
-            int tempRightColumn;
 
-            //Sprawdzanie w której kolumnie leży ostatnio kliknięty krążek
+        }
 
-            if (tempFirstColumn == 0)
-            {
-                if (tempSecondColumn == 0)
-                {
-                    tempRightColumn = tempThirdColumn;
-                }
-                else
-                {
-                    tempRightColumn = tempSecondColumn;
-                }
-            }
-            else
-            {
-                tempRightColumn = tempFirstColumn;
-            }
+        private void pnlPin1_Click(object sender, EventArgs e)
+        {
 
-            ///
-
-            if (tempGet == 1)
-            {
-                if (tempRightColumn == 1)
-                {
-                    if (_secoundColumn.Column.Count == 0)
-                    {
-                        Roller roller = new Roller(1);
-                        _thirdColumn.Column.Add(roller);
-                        _firstColumn.Column.RemoveAt(_firstColumn.Column.Count - 1);
-                        pnl1.Location = new Point(325, 200);
-                    }
-                    else if (_secoundColumn.Column.Count != 0)
-                    {
-                        int temp = _thirdColumn.Column.Count;
-                        int calc = temp * 10;
-
-                        Roller roller = new Roller(1);
-                        _thirdColumn.Column.Add(roller);
-                        _firstColumn.Column.RemoveAt(_firstColumn.Column.Count - 1);
-                        pnl1.Location = new Point(325, 200 - calc);
-                    }
-                }
-                else if (tempRightColumn == 2)
-                {
-                    if (_secoundColumn.Column.Count == 0)
-                    {
-                        Roller roller = new Roller(1);
-                        _thirdColumn.Column.Add(roller);
-                        _secoundColumn.Column.RemoveAt(_secoundColumn.Column.Count - 1);
-                        pnl1.Location = new Point(325, 200);
-                    }
-                    else if (_secoundColumn.Column.Count != 0)
-                    {
-                        int temp = _thirdColumn.Column.Count;
-                        int calc = temp * 10;
-
-                        Roller roller = new Roller(1);
-                        _thirdColumn.Column.Add(roller);
-                        _secoundColumn.Column.RemoveAt(_secoundColumn.Column.Count - 1);
-                        pnl1.Location = new Point(325, 200 - calc);
-                    }
-                }
-            }
         }
     } // class
 }
