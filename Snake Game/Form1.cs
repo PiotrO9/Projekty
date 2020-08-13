@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Snake_Game.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,12 @@ namespace Snake_Game
 {
     public partial class Form1 : Form
     {
+        private GameEngine _generatingFields = new GameEngine();
+
         public Form1()
         {
             InitializeComponent();
+            tableLayoutPanel1.Controls.AddRange(_generatingFields.)
         }
     }
 }

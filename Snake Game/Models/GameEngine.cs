@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Snake_Game.Models
 {
@@ -10,7 +11,7 @@ namespace Snake_Game.Models
     {
         public readonly List<Field> listOfFields = new List<Field>();
 
-
+        public IEnumerable<Panel> Panels => listOfFields.Select(s => s.PanelField);
 
         public GameEngine()
         {
