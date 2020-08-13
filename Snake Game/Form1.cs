@@ -14,11 +14,15 @@ namespace Snake_Game
     public partial class Form1 : Form
     {
         private GameEngine _generatingFields = new GameEngine();
+        private Direction Dir;
 
         public Form1()
         {
             InitializeComponent();
-            tableLayoutPanel1.Controls.AddRange(_generatingFields.)
+            tableLayoutPanel1.Controls.AddRange(_generatingFields.Pictures.ToArray());
+            _generatingFields.PrintStartingPosition();
         }
+
+
     }
 }

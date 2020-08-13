@@ -13,15 +13,20 @@ namespace Snake_Game.Models
         public int X { get; set; }
         public int Y { get; set; }
 
-        public Panel PanelField { get; private set; }
+        public bool Active { get; set; }
+
+        public PictureBox PictureField { get; private set; }
 
         public Field(int x, int y)
         {
             this.X = x;
             this.Y = y;
+            this.Active = false;
 
-            this.PanelField = new Panel();
+            this.PictureField = new PictureBox()
             {
+                Name = $"Picture{x}{y}",
+                // BackColor = Color.FromArgb(255, 0, 0),
 
             };
         }
