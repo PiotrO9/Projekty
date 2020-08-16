@@ -13,6 +13,8 @@ namespace Snake_Game.Models
         public int X { get; set; }
         public int Y { get; set; }
 
+        public TypeOfField Type { get; set; }
+
         public bool Active { get; set; }
 
         public PictureBox PictureField { get; private set; }

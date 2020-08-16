@@ -14,6 +14,8 @@ namespace Snake_Game.Models
 
         public IEnumerable<PictureBox> Pictures => listOfFields.Select(s => s.PictureField);
 
+        public Direction dir = Direction.left;
+
         public GameEngine()
         {
             for (int i = 0; i < 30; i++)
@@ -21,21 +23,51 @@ namespace Snake_Game.Models
                 for (int j = 0; j < 30; j++)
                 {
                     var field = new Field(i, j);
+                    field.Type = TypeOfField.None;
                     listOfFields.Add(field);
                 }
             }
         }
 
-        public void PrintStartingPosition()
+        public void SettingStartFields()
         {
-            IEnumerable<PictureBox> Pictures = listOfFields.Select(s => s.PictureField).Where(w => w.Name == "Picture55" || w.Name == "Picture56");
-            IEnumerable<Field> Fields = listOfFields.Where(w => w.X == 5 &&);
+            IEnumerable<Field> Fields = listOfFields.Where(w => (w.X == 5 && w.Y == 5) || (w.X == 5 && w.Y == 6) || (w.X == 5 && w.Y == 7));
 
-            foreach (var item in Pictures)
+            foreach (var item in Fields)
             {
-                item.BackColor = Color.FromArgb(255, 0, 0);
+                item.Type = TypeOfField.Snake;
             }
         }
+
+        public void PrintingElements()
+        {
+            foreach (var item in listOfFields)
+            {
+                if (item.Type == TypeOfField.None)
+                {
+                    item.PictureField.BackColor = Color.FromArgb(255, 0, 0);
+                }
+                else if (item.Type == TypeOfField.Snake)
+                {
+                    item.PictureField.BackColor = Color.FromArgb(0, 191, 255);
+                }
+                else if (item.Type == TypeOfField.Snake)
+                {
+                    item.PictureField.BackColor = Color.FromArgb(0, 255, 0);
+                }
+            }
+        }
+
+        //public void PrintStartingPosition()
+        //{
+        //    IEnumerable<PictureBox> Pictures = listOfFields.Select(s => s.PictureField).Where(w => w.Name == "Picture55" || w.Name == "Picture56");
+        //    IEnumerable<Field> Fields = listOfFields.Where(w => w.X == 5 &&);
+
+        //    foreach (var item in Pictures)
+        //    {
+        //        item.BackColor = Color.FromArgb(255, 0, 0);
+        //    }
+        //}
 
     }
 }

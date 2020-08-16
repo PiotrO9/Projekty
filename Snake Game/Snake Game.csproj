@@ -55,6 +55,8 @@
     <Compile Include="Models\Direction.cs" />
     <Compile Include="Models\Field.cs" />
     <Compile Include="Models\GameEngine.cs" />
+    <Compile Include="Models\SnakeEngine.cs" />
+    <Compile Include="Models\TypeOfField.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
