@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,5 +20,14 @@ namespace Snake_Game.Models
                 listOfSnakeElements.Add(field);
             }
         }
+
+        public void PrintingElementsSnakeEngine()
+        {
+            foreach (var item in listOfSnakeElements)
+            {
+                item.PictureField.BackColor = Color.FromArgb(0, 191, 255);
+            }
+        }
+
     }
 }

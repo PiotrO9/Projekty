@@ -39,7 +39,7 @@ namespace Snake_Game.Models
             }
         }
 
-        public void PrintingElements()
+        public void PrintingElementsGameEngine()
         {
             foreach (var item in listOfFields)
             {
@@ -51,23 +51,12 @@ namespace Snake_Game.Models
                 {
                     item.PictureField.BackColor = Color.FromArgb(0, 191, 255);
                 }
-                else if (item.Type == TypeOfField.Snake)
+                else if (item.Type == TypeOfField.Food)
                 {
                     item.PictureField.BackColor = Color.FromArgb(0, 255, 0);
                 }
             }
         }
-
-        //public void PrintStartingPosition()
-        //{
-        //    IEnumerable<PictureBox> Pictures = listOfFields.Select(s => s.PictureField).Where(w => w.Name == "Picture55" || w.Name == "Picture56");
-        //    IEnumerable<Field> Fields = listOfFields.Where(w => w.X == 5 &&);
-
-        //    foreach (var item in Pictures)
-        //    {
-        //        item.BackColor = Color.FromArgb(255, 0, 0);
-        //    }
-        //}
 
     }
 }

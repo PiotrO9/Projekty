@@ -21,7 +21,8 @@ namespace Snake_Game
             InitializeComponent();
             tableLayoutPanel1.Controls.AddRange(_generatingFields.Pictures.ToArray());
             _generatingFields.SettingStartFields();
-            _generatingFields.PrintingElements();
+            _generatingFields.PrintingElementsGameEngine();
+            _generatingSnake.PrintingElementsSnakeEngine();
         }
 
     }
