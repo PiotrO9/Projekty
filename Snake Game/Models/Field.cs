@@ -10,12 +10,32 @@ namespace Snake_Game.Models
 {
     class Field
     {
-        public int X { get; set; }
-        public int Y { get; set; }
+        public int X { get; private set; }
+        public int Y { get; private set; }
 
-        public TypeOfField Type { get; set; }
-
-        public bool Active { get; set; }
+        private TypeOfField _type;
+        public TypeOfField Type
+        {
+            get { return _type; }
+            set
+            {
+                _type = value;
+                switch (value)
+                {
+                    case TypeOfField.None:
+                        this.PictureField.BackColor = Color.FromArgb(255, 0, 0);
+                        break;
+                    case TypeOfField.Snake:
+                        this.PictureField.BackColor = Color.FromArgb(0, 191, 255);
+                        break;
+                    case TypeOfField.Food:
+                        this.PictureField.BackColor = Color.FromArgb(0, 255, 0);
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
 
         public PictureBox PictureField { get; private set; }
 
@@ -23,7 +43,6 @@ namespace Snake_Game.Models
         {
             this.X = x;
             this.Y = y;
-            this.Active = false;
 
             this.PictureField = new PictureBox()
             {

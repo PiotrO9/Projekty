@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Snake_Game.Models
 {
@@ -29,5 +30,25 @@ namespace Snake_Game.Models
             }
         }
 
+        public void SnakeMove(Direction dir)
+        {
+            if (dir == Direction.left)
+            {
+                var field = new Field(listOfSnakeElements[0].X, listOfSnakeElements[0].Y - 1);
+                field.Type = TypeOfField.Snake;
+                listOfSnakeElements.Insert(0, field);
+                listOfSnakeElements.RemoveAt(listOfSnakeElements.Count - 1);
+            }
+        }
+
+        public void SnakeAteFood()
+        {
+
+        }
+
+        public void ChangeDirection(Direction direction)
+        {
+
+        }
     }
 }

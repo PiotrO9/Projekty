@@ -16,6 +16,8 @@ namespace Snake_Game.Models
 
         public Direction dir = Direction.left;
 
+        private SnakeEngine _generatingSnake = new SnakeEngine();
+
         public GameEngine()
         {
             for (int i = 0; i < 30; i++)
@@ -29,6 +31,16 @@ namespace Snake_Game.Models
             }
         }
 
+        public void UserChangeDIrectionRequest(Direction direction)
+        {
+
+        }
+
+        public void SnakeMove(Direction direction)
+        {
+
+        }
+
         public void SettingStartFields()
         {
             IEnumerable<Field> Fields = listOfFields.Where(w => (w.X == 5 && w.Y == 5) || (w.X == 5 && w.Y == 6) || (w.X == 5 && w.Y == 7));
@@ -36,25 +48,6 @@ namespace Snake_Game.Models
             foreach (var item in Fields)
             {
                 item.Type = TypeOfField.Snake;
-            }
-        }
-
-        public void PrintingElementsGameEngine()
-        {
-            foreach (var item in listOfFields)
-            {
-                if (item.Type == TypeOfField.None)
-                {
-                    item.PictureField.BackColor = Color.FromArgb(255, 0, 0);
-                }
-                else if (item.Type == TypeOfField.Snake)
-                {
-                    item.PictureField.BackColor = Color.FromArgb(0, 191, 255);
-                }
-                else if (item.Type == TypeOfField.Food)
-                {
-                    item.PictureField.BackColor = Color.FromArgb(0, 255, 0);
-                }
             }
         }
 
