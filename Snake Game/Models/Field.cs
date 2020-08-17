@@ -23,13 +23,13 @@ namespace Snake_Game.Models
                 switch (value)
                 {
                     case TypeOfField.None:
-                        this.PictureField.BackColor = Color.FromArgb(255, 0, 0);
+                        this.PictureField.BackColor = Color.FromArgb(0, 0, 0);
                         break;
                     case TypeOfField.Snake:
-                        this.PictureField.BackColor = Color.FromArgb(0, 191, 255);
+                        this.PictureField.BackColor = Color.FromArgb(124, 252, 0);
                         break;
                     case TypeOfField.Food:
-                        this.PictureField.BackColor = Color.FromArgb(0, 255, 0);
+                        this.PictureField.BackColor = Color.FromArgb(255, 0, 0);
                         break;
                     default:
                         break;

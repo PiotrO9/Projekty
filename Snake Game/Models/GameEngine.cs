@@ -16,10 +16,11 @@ namespace Snake_Game.Models
 
         public Direction dir = Direction.left;
 
-        private SnakeEngine _generatingSnake = new SnakeEngine();
+        private SnakeEngine _generatingSnake;
 
         public GameEngine()
         {
+            this._generatingSnake = new SnakeEngine(listOfFields);
             for (int i = 0; i < 30; i++)
             {
                 for (int j = 0; j < 30; j++)
@@ -31,14 +32,60 @@ namespace Snake_Game.Models
             }
         }
 
-        public void UserChangeDIrectionRequest(Direction direction)
+        public void UserChangeDirectionRequest(Keys keys)
         {
-
+            if (keys == Keys.Up)
+            {
+                if (dir == Direction.down)
+                {
+                    return;
+                }
+                else
+                {
+                    dir = Direction.up;
+                }
+            }
+            else if (keys == Keys.Down)
+            {
+                if (dir == Direction.up)
+                {
+                    return;
+                }
+                else
+                {
+                    dir = Direction.down;
+                }
+            }
+            else if (keys == Keys.Right)
+            {
+                if (dir == Direction.left)
+                {
+                    return;
+                }
+                else
+                {
+                    dir = Direction.right;
+                }
+            }
+            else if (keys == Keys.Left)
+            {
+                if (dir == Direction.right)
+                {
+                    return;
+                }
+                else
+                {
+                    dir = Direction.left;
+                }
+            }
         }
 
-        public void SnakeMove(Direction direction)
+        public void TimerTick()
         {
-
+            if (_generatingSnake.CheckIfMovePossible(dir) == true)
+            {
+                _generatingSnake.SnakeMove(dir);
+            }
         }
 
         public void SettingStartFields()
@@ -50,6 +97,22 @@ namespace Snake_Game.Models
                 item.Type = TypeOfField.Snake;
             }
         }
+
+        public void IfSnakeAteFood()
+        {
+            (int x, int y) = _generatingSnake.GetIndex(dir);
+            IEnumerable<Field> query = listOfFields.Where(w => w.X == x && w.Y == y);
+            foreach (var item in query)
+            {
+                if (item.Type == TypeOfField.Food)
+                {
+                    item.Type = TypeOfField.None;
+                    _generatingSnake.SnakeAdd(dir);
+
+                }
+            }
+        }
+
 
     }
 }

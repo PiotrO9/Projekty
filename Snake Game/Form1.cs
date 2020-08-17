@@ -21,22 +21,33 @@ namespace Snake_Game
             InitializeComponent();
             tableLayoutPanel1.Controls.AddRange(_gameEngine.Pictures.ToArray());
             _gameEngine.SettingStartFields();
+
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-
-        }
-
-        private void SwitchingEngines()
-        {
-
+            _gameEngine.IfSnakeAteFood();
+            _gameEngine.TimerTick();
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
-
-
+            if (e.KeyCode == Keys.Up)
+            {
+                _gameEngine.UserChangeDirectionRequest(Keys.Up);
+            }
+            else if (e.KeyCode == Keys.Down)
+            {
+                _gameEngine.UserChangeDirectionRequest(Keys.Down);
+            }
+            else if (e.KeyCode == Keys.Right)
+            {
+                _gameEngine.UserChangeDirectionRequest(Keys.Right);
+            }
+            else if (e.KeyCode == Keys.Left)
+            {
+                _gameEngine.UserChangeDirectionRequest(Keys.Left);
+            }
         }
     }
 }
