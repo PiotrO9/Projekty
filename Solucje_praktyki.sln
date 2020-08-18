@@ -137,6 +137,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Snake Game", "Snake Game\Sn
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "www.w3resource.com_Function_7", "www.w3resource.com_Function_7\www.w3resource.com_Function_7.csproj", "{7CDE9E92-DA42-4299-9201-CCFCD0757387}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "www.w3resource.com_Function_8", "www.w3resource.com_Function_8\www.w3resource.com_Function_8.csproj", "{5B21AF89-A37B-4907-853A-52B658273B5F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -407,6 +409,10 @@ Global
 		{7CDE9E92-DA42-4299-9201-CCFCD0757387}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7CDE9E92-DA42-4299-9201-CCFCD0757387}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7CDE9E92-DA42-4299-9201-CCFCD0757387}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B21AF89-A37B-4907-853A-52B658273B5F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B21AF89-A37B-4907-853A-52B658273B5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B21AF89-A37B-4907-853A-52B658273B5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B21AF89-A37B-4907-853A-52B658273B5F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
