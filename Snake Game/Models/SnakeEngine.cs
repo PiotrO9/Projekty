@@ -26,6 +26,12 @@ namespace Snake_Game.Models
             }
         }
 
+        public void NewSnake(IEnumerable<Field> snake)
+        {
+            listOfSnakeElements.Clear();
+            listOfSnakeElements.AddRange(snake);
+        }
+
         public bool CheckIfMovePossible(Direction direction)
         {
             (int x, int y) = GetIndex(direction);
@@ -70,23 +76,22 @@ namespace Snake_Game.Models
         {
             (int x, int y) = GetIndex(dir);
 
-            int temp = listOfSnakeElements.Count - 1;
+            var newField = _listOfFields.First(w => w.X == x && w.Y == y);
+            var eaten = newField.Type == TypeOfField.Food;
 
-            IEnumerable<Field> query = _listOfFields.Where(w => w.X == x && w.Y == y);
-            IEnumerable<Field> last = _listOfFields.Where(w => w.X == listOfSnakeElements[temp].X && w.Y == listOfSnakeElements[temp].Y);
-            foreach (var item in query)
+            var last = listOfSnakeElements.Last();
+
+            newField.Type = TypeOfField.Snake;
+
+            listOfSnakeElements.Insert(0, newField);
+            if (!eaten)
             {
-                item.Type = TypeOfField.Snake;
-                listOfSnakeElements.Insert(0, item);
-                listOfSnakeElements.RemoveAt(listOfSnakeElements.Count - 1);
+                listOfSnakeElements.Remove(last);
+                last.Type = TypeOfField.None;
 
-
-                foreach (var element in last)
-                {
-                    element.Type = TypeOfField.None;
-                }
             }
-
+            else
+                RandomFoodGenerating();
         }
 
         public void SnakeAdd(Direction direction)

@@ -14,13 +14,14 @@ namespace Snake_Game.Models
 
         public IEnumerable<PictureBox> Pictures => listOfFields.Select(s => s.PictureField);
 
-        public Direction dir = Direction.left;
+        public Direction nexDir = Direction.left;
+        private Direction snakeDir { get; set; }
 
-        private SnakeEngine _generatingSnake;
+        private readonly SnakeEngine _snakeEngine;
 
         public GameEngine()
         {
-            this._generatingSnake = new SnakeEngine(listOfFields);
+            this._snakeEngine = new SnakeEngine(listOfFields);
             for (int i = 0; i < 30; i++)
             {
                 for (int j = 0; j < 30; j++)
@@ -36,77 +37,80 @@ namespace Snake_Game.Models
         {
             if (keys == Keys.Up)
             {
-                if (dir == Direction.down)
+                if (snakeDir == Direction.down)
                 {
                     return;
                 }
                 else
                 {
-                    dir = Direction.up;
+                    nexDir = Direction.up;
                 }
             }
             else if (keys == Keys.Down)
             {
-                if (dir == Direction.up)
+                if (snakeDir == Direction.up)
                 {
                     return;
                 }
                 else
                 {
-                    dir = Direction.down;
+                    nexDir = Direction.down;
                 }
             }
             else if (keys == Keys.Right)
             {
-                if (dir == Direction.left)
+                if (snakeDir == Direction.left)
                 {
                     return;
                 }
                 else
                 {
-                    dir = Direction.right;
+                    nexDir = Direction.right;
                 }
             }
             else if (keys == Keys.Left)
             {
-                if (dir == Direction.right)
+                if (snakeDir == Direction.right)
                 {
                     return;
                 }
                 else
                 {
-                    dir = Direction.left;
+                    nexDir = Direction.left;
                 }
             }
         }
 
-        public int TimerTick()
+        public bool TimerTick()
         {
-            if (_generatingSnake.CheckIfMovePossible(dir) == true)
+            if (_snakeEngine.CheckIfMovePossible(nexDir) == true)
             {
-                _generatingSnake.SnakeMove(dir);
-                return 1;
+                _snakeEngine.SnakeMove(nexDir);
+                snakeDir = nexDir;
+                return true;
             }
             else
             {
-                return 0;
+                return false;
             }
+
         }
 
         public void SettingStartFields()
         {
-            foreach (var item in listOfFields)
-            {
-                item.Type = TypeOfField.None;
-            }
+            nexDir = Direction.up;
+            listOfFields.ForEach(f => f.Type = TypeOfField.None);
 
-            IEnumerable<Field> Fields = listOfFields.Where(w => (w.X == 5 && w.Y == 5) || (w.X == 5 && w.Y == 6) || (w.X == 5 && w.Y == 7));
+            IEnumerable<Field> fields = listOfFields.Where(w => (w.X == 15 && w.Y == 15) ||
+                                                                (w.X == 15 && w.Y == 16) ||
+                                                                (w.X == 15 && w.Y == 17)).
+                                                    OrderBy(o => o.Y);
 
-            foreach (var item in Fields)
+            foreach (var item in fields)
             {
                 item.Type = TypeOfField.Snake;
             }
-
+            this._snakeEngine.NewSnake(fields);
         }
 
         public void RandomFoodGenerating()
@@ -143,14 +147,14 @@ namespace Snake_Game.Models
 
         public void IfSnakeAteFood()
         {
-            (int x, int y) = _generatingSnake.GetIndex(dir);
+            (int x, int y) = _snakeEngine.GetIndex(nexDir);
             IEnumerable<Field> query = listOfFields.Where(w => w.X == x && w.Y == y);
             foreach (var item in query)
             {
                 if (item.Type == TypeOfField.Food)
                 {
                     item.Type = TypeOfField.Snake;
-                    _generatingSnake.SnakeAdd(dir);
+                    _snakeEngine.SnakeAdd(nexDir);
                     RandomFoodGenerating();
                 }
             }

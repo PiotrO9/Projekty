@@ -47,7 +47,7 @@ namespace Snake_Game.Models
             this.PictureField = new PictureBox()
             {
                 Name = $"Picture{x}{y}",
-                // BackColor = Color.FromArgb(255, 0, 0),
+                Margin = new Padding(0, 0, 0, 0),
 
             };
         }

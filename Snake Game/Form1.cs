@@ -26,8 +26,7 @@ namespace Snake_Game
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            _gameEngine.IfSnakeAteFood();
-            if (_gameEngine.TimerTick() == 0)
+            if (_gameEngine.TimerTick() == false)
             {
                 timer1.Enabled = false;
                 _gameEngine.GameOver();
