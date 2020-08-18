@@ -80,21 +80,64 @@ namespace Snake_Game.Models
             }
         }
 
-        public void TimerTick()
+        public int TimerTick()
         {
             if (_generatingSnake.CheckIfMovePossible(dir) == true)
             {
                 _generatingSnake.SnakeMove(dir);
+                return 1;
+            }
+            else
+            {
+                return 0;
             }
         }
 
         public void SettingStartFields()
         {
+            foreach (var item in listOfFields)
+            {
+                item.Type = TypeOfField.None;
+            }
+
             IEnumerable<Field> Fields = listOfFields.Where(w => (w.X == 5 && w.Y == 5) || (w.X == 5 && w.Y == 6) || (w.X == 5 && w.Y == 7));
 
             foreach (var item in Fields)
             {
                 item.Type = TypeOfField.Snake;
+            }
+
+        }
+
+        public void RandomFoodGenerating()
+        {
+            bool temp = false;
+
+            int rn1;
+            int rn2;
+            IEnumerable<Field> query;
+
+            Random rnd = new Random();
+            do
+            {
+                rn1 = rnd.Next(0, 30);
+                rn2 = rnd.Next(0, 30);
+
+                query = listOfFields.Where(w => w.X == rn1 && w.Y == rn2);
+
+                foreach (var item in query)
+                {
+                    if (item.Type == TypeOfField.None)
+                    {
+                        temp = true;
+                    }
+                }
+            }
+            while (temp == false);
+
+            foreach (var item in query)
+            {
+                item.Type = TypeOfField.Food;
             }
         }
 
@@ -106,13 +149,17 @@ namespace Snake_Game.Models
             {
                 if (item.Type == TypeOfField.Food)
                 {
-                    item.Type = TypeOfField.None;
+                    item.Type = TypeOfField.Snake;
                     _generatingSnake.SnakeAdd(dir);
-
+                    RandomFoodGenerating();
                 }
             }
         }
-
-
+        public void GameOver()
+        {
+            MessageBox.Show("Game Over, twój wynik to: " + listOfFields.Where(w => w.Type == TypeOfField.Snake).Count());
+            SettingStartFields();
+            RandomFoodGenerating();
+        }
     }
 }

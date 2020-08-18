@@ -26,14 +26,6 @@ namespace Snake_Game.Models
             }
         }
 
-        public void PrintingElementsSnakeEngine()
-        {
-            foreach (var item in listOfSnakeElements)
-            {
-                item.PictureField.BackColor = Color.FromArgb(0, 191, 255);
-            }
-        }
-
         public bool CheckIfMovePossible(Direction direction)
         {
             (int x, int y) = GetIndex(direction);
@@ -139,7 +131,5 @@ namespace Snake_Game.Models
                 item.Type = TypeOfField.Food;
             }
         }
-
-        //_generatingSnake.RandomFoodGenerating();
     }
 }

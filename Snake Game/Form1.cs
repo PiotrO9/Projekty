@@ -21,13 +21,18 @@ namespace Snake_Game
             InitializeComponent();
             tableLayoutPanel1.Controls.AddRange(_gameEngine.Pictures.ToArray());
             _gameEngine.SettingStartFields();
-
+            _gameEngine.RandomFoodGenerating();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
             _gameEngine.IfSnakeAteFood();
-            _gameEngine.TimerTick();
+            if (_gameEngine.TimerTick() == 0)
+            {
+                timer1.Enabled = false;
+                _gameEngine.GameOver();
+                timer1.Enabled = true;
+            }
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
