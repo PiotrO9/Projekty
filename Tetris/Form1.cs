@@ -7,14 +7,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Tetris.Models.Engines;
 
 namespace Tetris
 {
-    public partial class Form1 : Form
+    public partial class Tetris : Form
     {
-        public Form1()
+        private GameEngine _gameEngine = new GameEngine();
+
+        public Tetris()
         {
             InitializeComponent();
+            tableLayoutPanel1.Controls.AddRange(_gameEngine.Pictures.ToArray());
+            _gameEngine.GeneratingBlock();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            _gameEngine.Timer_tick();
         }
     }
 }

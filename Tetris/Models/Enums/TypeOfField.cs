@@ -9,6 +9,10 @@ namespace Tetris.Models.Enums
     enum TypeOfField
     {
         none,
-        field
+        redField,
+        blueField,
+        greenField,
+        yellowField,
+        orangeField,
     }
 }

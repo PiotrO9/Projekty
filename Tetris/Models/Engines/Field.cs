@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -12,17 +13,42 @@ namespace Tetris.Models.Enums
     {
         public int X { get; set; }
         public int Y { get; set; }
-        public TypeOfField Type { get; set; }
 
         public PictureBox Picture { get; set; }
 
         private TypeOfField _type;
 
-        public int MyProperty
+        public TypeOfField Type
         {
-            get;
+            get { return _type; }
 
-            set;
+            set
+            {
+                _type = value;
+                switch (value)
+                {
+                    case TypeOfField.none:
+                        break;
+                    case TypeOfField.redField:
+                        this.Picture.BackColor = Color.FromArgb(255, 0, 0);
+                        break;
+                    case TypeOfField.blueField:
+                        this.Picture.BackColor = Color.FromArgb(0, 0, 255);
+                        break;
+                    case TypeOfField.greenField:
+                        this.Picture.BackColor = Color.FromArgb(0, 255, 0);
+                        break;
+                    case TypeOfField.yellowField:
+                        this.Picture.BackColor = Color.FromArgb(255, 255, 0);
+                        break;
+                    case TypeOfField.orangeField:
+                        this.Picture.BackColor = Color.FromArgb(255, 165, 0);
+                        break;
+                    default:
+                        break;
+                }
+                ;
+            }
         }
 
         public Field(int x, int y)
