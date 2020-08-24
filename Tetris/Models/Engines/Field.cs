@@ -14,6 +14,8 @@ namespace Tetris.Models.Enums
         public int X { get; set; }
         public int Y { get; set; }
 
+        public bool Active = false;
+
         public PictureBox Picture { get; set; }
 
         private TypeOfField _type;
@@ -28,6 +30,7 @@ namespace Tetris.Models.Enums
                 switch (value)
                 {
                     case TypeOfField.none:
+                        this.Picture.BackColor = Color.FromArgb(0, 127, 255);
                         break;
                     case TypeOfField.redField:
                         this.Picture.BackColor = Color.FromArgb(255, 0, 0);
