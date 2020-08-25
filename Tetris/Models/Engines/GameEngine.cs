@@ -147,6 +147,8 @@ namespace Tetris.Models.Engines
                     field.Type = TypeOfField.blueField;
                     _oneBlockToMove.Insert(i, field);
                 }
+
+
             }
             else if (CheckingColision(2) == true && CurrentBlockNumber == 2)
             {
@@ -184,6 +186,7 @@ namespace Tetris.Models.Engines
                 }
 
                 _oneBlockToMove.Clear();
+                CurrentBlockNumber = 0;
                 GeneratingBlock();
             }
         }
@@ -197,6 +200,8 @@ namespace Tetris.Models.Engines
 
             if (n == 1)
             {
+                int temp = 0;
+
                 for (int i = 0; i < 4; i++)
                 {
                     (TempX, TempY) = GetIndex(i);
@@ -204,12 +209,18 @@ namespace Tetris.Models.Engines
                     {
                         return false; // sprawdzenie czy znajdujemy się na samym dole czyli indexie x == 19
                     }
+
                     Field query = _listOfField.Where(w => w.X == TempX + 1 && w.Y == TempY).FirstOrDefault();
 
                     if (query.Type == TypeOfField.none)
                     {
-                        return true; // sprawdzenie czy pole pod nami to pole już zajęte
+                        temp++; // sprawdzenie czy pole pod nami to pole już zajęte
                     }
+                }
+
+                if (temp == 4)
+                {
+                    return true;
                 }
 
             }
