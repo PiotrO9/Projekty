@@ -35,7 +35,7 @@ namespace Tetris.Models.Engines
         public void GeneratingBlock()
         {
             Random rnd = new Random();
-            int rn = rnd.Next(1, 3);
+            int rn = rnd.Next(1, 4);
 
             GenerateByNumber(rn);
         }
@@ -69,16 +69,16 @@ namespace Tetris.Models.Engines
                     }
                 case 2:
                     {
-                        Field field1 = _listOfField.Where(w => w.X == 0 && w.Y == 3).FirstOrDefault();
+                        Field field1 = _listOfField.Where(w => w.X == 0 && w.Y == 4).FirstOrDefault();
                         field1.Type = TypeOfField.greenField;
                         field1.Active = true;
-                        Field field2 = _listOfField.Where(w => w.X == 0 && w.Y == 4).FirstOrDefault();
+                        Field field2 = _listOfField.Where(w => w.X == 0 && w.Y == 5).FirstOrDefault();
                         field2.Type = TypeOfField.greenField;
                         field2.Active = true;
-                        Field field3 = _listOfField.Where(w => w.X == 1 && w.Y == 3).FirstOrDefault();
+                        Field field3 = _listOfField.Where(w => w.X == 1 && w.Y == 4).FirstOrDefault();
                         field3.Type = TypeOfField.greenField;
                         field3.Active = true;
-                        Field field4 = _listOfField.Where(w => w.X == 1 && w.Y == 4).FirstOrDefault();
+                        Field field4 = _listOfField.Where(w => w.X == 1 && w.Y == 5).FirstOrDefault();
                         field4.Type = TypeOfField.greenField;
                         field4.Active = true;
 
@@ -92,7 +92,25 @@ namespace Tetris.Models.Engines
                     }
                 case 3:
                     {
+                        Field field1 = _listOfField.Where(w => w.X == 1 && w.Y == 3).FirstOrDefault();
+                        field1.Type = TypeOfField.orangeField;
+                        field1.Active = true;
+                        Field field2 = _listOfField.Where(w => w.X == 1 && w.Y == 4).FirstOrDefault();
+                        field2.Type = TypeOfField.orangeField;
+                        field2.Active = true;
+                        Field field3 = _listOfField.Where(w => w.X == 0 && w.Y == 4).FirstOrDefault();
+                        field3.Type = TypeOfField.orangeField;
+                        field3.Active = true;
+                        Field field4 = _listOfField.Where(w => w.X == 0 && w.Y == 5).FirstOrDefault();
+                        field4.Type = TypeOfField.orangeField;
+                        field4.Active = true;
 
+                        _oneBlockToMove.Add(field1);
+                        _oneBlockToMove.Add(field2);
+                        _oneBlockToMove.Add(field3);
+                        _oneBlockToMove.Add(field4);
+
+                        CurrentBlockNumber = 3;
                         break;
                     }
                 case 4:
@@ -178,6 +196,34 @@ namespace Tetris.Models.Engines
                     _oneBlockToMove.Insert(i, field);
                 }
             }
+            else if (CheckingColision(3) == true && CurrentBlockNumber == 3)
+            {
+                for (int i = 0; i < 4; i++) // Ruch
+                {
+                    int TempX;
+                    int TempY;
+
+                    (TempX, TempY) = GetIndex(i);
+
+                    IEnumerable<Field> PrevQuery = _listOfField.Where(w => w.X == TempX && w.Y == TempY);
+
+                    foreach (var item in PrevQuery)
+                    {
+                        item.Type = TypeOfField.none;
+                    }
+
+                    IEnumerable<Field> query = _listOfField.Where(w => w.X == TempX + 1 && w.Y == TempY);
+
+                    foreach (var item in query)
+                    {
+                        item.Type = TypeOfField.orangeField;
+                    }
+                    _oneBlockToMove.RemoveAt(i);
+                    var field = new Field(TempX + 1, TempY);
+                    field.Type = TypeOfField.orangeField;
+                    _oneBlockToMove.Insert(i, field);
+                }
+            }
             else
             {
                 foreach (var item in _oneBlockToMove)
@@ -192,7 +238,6 @@ namespace Tetris.Models.Engines
         }
 
 
-        // Tutaj koniec,oba warunki do przebudowy
         public bool CheckingColision(int n) //true - ruch możliwy, false - kolizja czyli ruch niemożliwy
         {
             int TempX;
@@ -226,6 +271,8 @@ namespace Tetris.Models.Engines
             }
             else if (n == 2)
             {
+                int temp = 0;
+
                 for (int i = 2; i < 4; i++)
                 {
                     (TempX, TempY) = GetIndex(i);
@@ -237,8 +284,37 @@ namespace Tetris.Models.Engines
 
                     if (query.Type == TypeOfField.none)
                     {
-                        return true;
+                        temp++;
                     }
+                }
+
+                if (temp == 2)
+                {
+                    return true;
+                }
+            }
+            else if (n == 3) // Koniec , dodaj sprawdzanie bloku wyżej
+            {
+                int temp = 0;
+
+                for (int i = 0; i < 2; i++)
+                {
+                    (TempX, TempY) = GetIndex(i);
+                    if (TempX + 1 >= 20)
+                    {
+                        return false;
+                    }
+                    Field query = _listOfField.Where(w => w.X == TempX + 1 && w.Y == TempY).FirstOrDefault();
+
+                    if (query.Type == TypeOfField.none)
+                    {
+                        temp++;
+                    }
+                }
+
+                if (temp == 2)
+                {
+                    return true;
                 }
             }
 
