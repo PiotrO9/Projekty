@@ -75,6 +75,7 @@
             // timer1
             // 
             this.timer1.Enabled = true;
+            this.timer1.Interval = 200;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // Tetris
@@ -85,6 +86,7 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "Tetris";
             this.Text = "Tetris";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Tetris_KeyDown);
             this.ResumeLayout(false);
 
         }

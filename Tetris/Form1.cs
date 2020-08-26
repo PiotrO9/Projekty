@@ -26,5 +26,10 @@ namespace Tetris
         {
             _gameEngine.Timer_tick();
         }
+
+        private void Tetris_KeyDown(object sender, KeyEventArgs e)
+        {
+
+        }
     }
 }
