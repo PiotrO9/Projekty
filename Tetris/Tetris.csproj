@@ -55,6 +55,7 @@
     <Compile Include="Models\Engines\GameEngine.cs" />
     <Compile Include="Models\Engines\Field.cs" />
     <Compile Include="Models\Enums\TypeOfField.cs" />
+    <Compile Include="Models\Enums\WhatIspressed.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">

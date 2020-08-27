@@ -16,6 +16,12 @@ namespace Tetris.Models.Engines
         private List<Field> _oneBlockToMove = new List<Field>();
 
         int CurrentBlockNumber;
+        WhatIspressed whatIspressed = WhatIspressed.none;
+
+        bool IsPressed = false;
+
+
+
 
         public IEnumerable<PictureBox> Pictures => _listOfField.Select(s => s.Picture);
 
@@ -35,7 +41,7 @@ namespace Tetris.Models.Engines
         public void GeneratingBlock()
         {
             Random rnd = new Random();
-            int rn = rnd.Next(1, 6);
+            int rn = rnd.Next(1, 2);
 
             GenerateByNumber(rn);
         }
@@ -177,6 +183,14 @@ namespace Tetris.Models.Engines
 
         public void Timer_tick()
         {
+            if (IsPressed == true)
+            {
+                if (CheckingColisionHorizontal(whatIspressed) == true)
+                {
+                    this.MoveHorizontal(whatIspressed);
+                }
+            }
+
             if (CheckingColision(1) == true && CurrentBlockNumber == 1)
             {
                 for (int i = 0; i < 4; i++) // Ruch
@@ -495,29 +509,139 @@ namespace Tetris.Models.Engines
             return false;
         } // end
 
-        //Koniec
 
-        public bool CheckingColisionHorizontal(Keys e) // true możliwy ruch, false ruch niemożliwy
+        public bool CheckingColisionHorizontal(WhatIspressed temp) // true możliwy ruch, false ruch niemożliwy
         {
-            if (e == Keys.Left)
-            {
+            int TempX;
+            int TempY;
 
+            if (temp == WhatIspressed.left)
+            {
+                if (CurrentBlockNumber == 1)
+                {
+                    (TempX, TempY) = GetIndex(0);
+                    Field query = _listOfField.Where(w => w.X == TempX && w.Y == TempY - 1).FirstOrDefault();
+
+                    if (query == null)
+                    {
+                        return false;
+                    }
+
+                    if (query.Y >= 0 && query.Type == TypeOfField.none)
+                    {
+                        return true;
+                    }
+                }
             }
-            else if (e == Keys.Right)
+            else if (temp == WhatIspressed.right)
             {
+                if (CurrentBlockNumber == 1)
+                {
+                    (TempX, TempY) = GetIndex(3);
+                    Field query = _listOfField.Where(w => w.X == TempX && w.Y == TempY + 1).FirstOrDefault();
 
+                    if (query == null)
+                    {
+                        return false;
+                    }
+
+                    if (query.Y < 10 && query.Type == TypeOfField.none)
+                    {
+                        return true;
+                    }
+
+                }
             }
 
             return false;
         }
 
-        public void MoveHorizontal()
+        public void MoveHorizontal(WhatIspressed temp)
         {
-            if (CurrentBlockNumber == 1)
+            if (temp == WhatIspressed.right)
             {
-                ; // Koniec
+                if (CurrentBlockNumber == 1)
+                {
+                    for (int i = 3; i >= 0; i--)
+                    {
+                        int TempX;
+                        int TempY;
+
+                        (TempX, TempY) = GetIndex(i);
+
+                        IEnumerable<Field> PrevQuery = _listOfField.Where(w => w.X == TempX && w.Y == TempY);
+
+                        foreach (var item in PrevQuery)
+                        {
+                            item.Type = TypeOfField.none;
+                        }
+
+                        IEnumerable<Field> query = _listOfField.Where(w => w.X == TempX && w.Y == TempY + 1);
+
+                        foreach (var item in query)
+                        {
+                            item.Type = TypeOfField.blueField;
+                        }
+                        _oneBlockToMove.RemoveAt(i);
+                        var field = new Field(TempX, TempY + 1);
+                        field.Type = TypeOfField.blueField;
+                        _oneBlockToMove.Insert(i, field);
+                    }
+                }
+            }
+            else if (temp == WhatIspressed.left)
+            {
+                if (CurrentBlockNumber == 1)
+                {
+                    for (int i = 0; i < 4; i++)
+                    {
+                        int TempX;
+                        int TempY;
+
+                        (TempX, TempY) = GetIndex(i);
+
+                        IEnumerable<Field> PrevQuery = _listOfField.Where(w => w.X == TempX && w.Y == TempY);
+
+                        foreach (var item in PrevQuery)
+                        {
+                            item.Type = TypeOfField.none;
+                        }
+
+                        IEnumerable<Field> query = _listOfField.Where(w => w.X == TempX && w.Y == TempY - 1);
+
+                        foreach (var item in query)
+                        {
+                            item.Type = TypeOfField.blueField;
+                        }
+                        _oneBlockToMove.RemoveAt(i);
+                        var field = new Field(TempX, TempY - 1);
+                        field.Type = TypeOfField.blueField;
+                        _oneBlockToMove.Insert(i, field);
+                    }
+                }
+            }
+
+            this.Unpressing();
+        }
+
+        public void Pressing(Keys keys)
+        {
+            IsPressed = true;
+
+            if (keys == Keys.Left)
+            {
+                whatIspressed = WhatIspressed.left;
+            }
+            else if (keys == Keys.Right)
+            {
+                whatIspressed = WhatIspressed.right;
             }
         }
 
+        public void Unpressing()
+        {
+            IsPressed = false;
+            whatIspressed = WhatIspressed.none;
+        }
     }
 }

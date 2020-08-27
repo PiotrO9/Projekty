@@ -13,6 +13,7 @@ namespace Tetris
 {
     public partial class Tetris : Form
     {
+        int test = 1;
         private GameEngine _gameEngine = new GameEngine();
 
         public Tetris()
@@ -29,7 +30,19 @@ namespace Tetris
 
         private void Tetris_KeyDown(object sender, KeyEventArgs e)
         {
+            if (e.KeyCode == Keys.Left)
+            {
+                _gameEngine.Pressing(Keys.Left);
+            }
+            else if (e.KeyCode == Keys.Right)
+            {
+                _gameEngine.Pressing(Keys.Right);
+            }
+        }
 
+        private void Tetris_KeyUp(object sender, KeyEventArgs e)
+        {
+            _gameEngine.Unpressing();
         }
     }
 }
