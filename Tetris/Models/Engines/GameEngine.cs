@@ -337,13 +337,14 @@ namespace Tetris.Models.Engines
             {
                 foreach (var item in _oneBlockToMove)
                 {
-                    item.Active = false;
+                    Field query = _listOfField.Where(w => w.X == item.X && w.Y == item.Y).FirstOrDefault();
+                    query.Active = false;
                 }
 
                 _oneBlockToMove.Clear();
                 CurrentBlockNumber = 0;
-                ClearNotActivedRows();
                 GeneratingBlock();
+                ClearNotActivedRows();
             }
         }
 
@@ -1193,6 +1194,8 @@ namespace Tetris.Models.Engines
                 }
             }
         }
+
+        //Koniec - Przeanalizować funkcje wyżej
 
     }
 }
