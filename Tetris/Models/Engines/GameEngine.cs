@@ -41,7 +41,7 @@ namespace Tetris.Models.Engines
         public void GeneratingBlock()
         {
             Random rnd = new Random();
-            int rn = rnd.Next(4, 5); // Losowanie poszczególnych elementów
+            int rn = rnd.Next(1, 3); // Losowanie poszczególnych elementów
 
             GenerateByNumber(rn);
         }
@@ -342,6 +342,7 @@ namespace Tetris.Models.Engines
 
                 _oneBlockToMove.Clear();
                 CurrentBlockNumber = 0;
+                ClearNotActivedRows();
                 GeneratingBlock();
             }
         }
@@ -607,6 +608,41 @@ namespace Tetris.Models.Engines
                         return true;
                     }
                 }
+                else if (CurrentBlockNumber == 5)
+                {
+                    int temp2 = 0;
+
+                    (TempX, TempY) = GetIndex(0);
+                    Field query = _listOfField.Where(w => w.X == TempX && w.Y == TempY - 1).FirstOrDefault();
+
+                    if (query == null)
+                    {
+                        return false;
+                    }
+
+                    if (query.Y >= 0 && query.Type == TypeOfField.none)
+                    {
+                        temp2++;
+                    }
+
+                    (TempX, TempY) = GetIndex(1);
+                    Field query2 = _listOfField.Where(w => w.X == TempX && w.Y == TempY - 1).FirstOrDefault();
+
+                    if (query2 == null)
+                    {
+                        return false;
+                    }
+
+                    if (query2.Y >= 0 && query2.Type == TypeOfField.none)
+                    {
+                        temp2++;
+                    }
+
+                    if (temp2 == 2)
+                    {
+                        return true;
+                    }
+                }
 
             }
             else if (temp == WhatIspressed.right)
@@ -658,6 +694,40 @@ namespace Tetris.Models.Engines
                     }
                 }
                 else if (CurrentBlockNumber == 4)
+                {
+                    int temp2 = 0;
+                    (TempX, TempY) = GetIndex(0);
+                    Field query = _listOfField.Where(w => w.X == TempX && w.Y == TempY + 1).FirstOrDefault();
+
+                    if (query == null)
+                    {
+                        return false;
+                    }
+
+                    if (query.Y < 10 && query.Type == TypeOfField.none)
+                    {
+                        temp2++;
+                    }
+
+                    (TempX, TempY) = GetIndex(3);
+                    Field query2 = _listOfField.Where(w => w.X == TempX && w.Y == TempY + 1).FirstOrDefault();
+
+                    if (query2 == null)
+                    {
+                        return false;
+                    }
+
+                    if (query2.Y < 10 && query2.Type == TypeOfField.none)
+                    {
+                        temp2++;
+                    }
+
+                    if (temp2 == 2)
+                    {
+                        return true;
+                    }
+                }
+                else if (CurrentBlockNumber == 5)
                 {
                     int temp2 = 0;
                     (TempX, TempY) = GetIndex(0);
@@ -804,7 +874,7 @@ namespace Tetris.Models.Engines
                         _oneBlockToMove.Insert(i, field);
                     }
                 }
-                else if (CurrentBlockNumber == 4)
+                else if (CurrentBlockNumber == 4 || CurrentBlockNumber == 5)
                 {
                     int TempX;
                     int TempY;
@@ -821,12 +891,18 @@ namespace Tetris.Models.Engines
 
                     foreach (var item in query)
                     {
-                        item.Type = TypeOfField.redField;
+                        if (CurrentBlockNumber == 4)
+                            item.Type = TypeOfField.redField;
+                        else if (CurrentBlockNumber == 5)
+                            item.Type = TypeOfField.yellowField;
                     }
 
                     _oneBlockToMove.RemoveAt(0);
                     var field = new Field(TempX, TempY + 1);
-                    field.Type = TypeOfField.redField;
+                    if (CurrentBlockNumber == 4)
+                        field.Type = TypeOfField.redField;
+                    else if (CurrentBlockNumber == 5)
+                        field.Type = TypeOfField.yellowField;
                     _oneBlockToMove.Insert(0, field);
 
                     for (int i = 3; i > 0; i--)
@@ -846,16 +922,22 @@ namespace Tetris.Models.Engines
 
                         foreach (var item in query2)
                         {
-                            item.Type = TypeOfField.redField;
+                            if (CurrentBlockNumber == 4)
+                                item.Type = TypeOfField.redField;
+                            else if (CurrentBlockNumber == 5)
+                                item.Type = TypeOfField.yellowField;
                         }
 
                         _oneBlockToMove.RemoveAt(i);
                         var field2 = new Field(TempX2, TempY2 + 1);
-                        field2.Type = TypeOfField.redField;
+                        if (CurrentBlockNumber == 4)
+                            field2.Type = TypeOfField.redField;
+                        else if (CurrentBlockNumber == 5)
+                            field2.Type = TypeOfField.yellowField;
                         _oneBlockToMove.Insert(i, field2);
                     }
-
                 }
+
             }
             else if (temp == WhatIspressed.left)
             {
@@ -964,7 +1046,7 @@ namespace Tetris.Models.Engines
                         _oneBlockToMove.Insert(i, field);
                     }
                 }
-                else if (CurrentBlockNumber == 4)
+                else if (CurrentBlockNumber == 4 || CurrentBlockNumber == 5)
                 {
                     int TempX;
                     int TempY;
@@ -982,11 +1064,17 @@ namespace Tetris.Models.Engines
 
                     foreach (var item in query)
                     {
-                        item.Type = TypeOfField.redField;
+                        if (CurrentBlockNumber == 4)
+                            item.Type = TypeOfField.redField;
+                        else if (CurrentBlockNumber == 5)
+                            item.Type = TypeOfField.yellowField;
                     }
                     _oneBlockToMove.RemoveAt(0);
                     var field = new Field(TempX, TempY - 1);
-                    field.Type = TypeOfField.redField;
+                    if (CurrentBlockNumber == 4)
+                        field.Type = TypeOfField.redField;
+                    else if (CurrentBlockNumber == 5)
+                        field.Type = TypeOfField.yellowField;
                     _oneBlockToMove.Insert(0, field);
 
                     for (int i = 1; i < 4; i++)
@@ -1007,11 +1095,17 @@ namespace Tetris.Models.Engines
 
                         foreach (var item in query2)
                         {
-                            item.Type = TypeOfField.redField;
+                            if (CurrentBlockNumber == 4)
+                                item.Type = TypeOfField.redField;
+                            else if (CurrentBlockNumber == 5)
+                                item.Type = TypeOfField.yellowField;
                         }
                         _oneBlockToMove.RemoveAt(i);
                         var field2 = new Field(TempX2, TempY2 - 1);
-                        field2.Type = TypeOfField.redField;
+                        if (CurrentBlockNumber == 4)
+                            field2.Type = TypeOfField.redField;
+                        else if (CurrentBlockNumber == 5)
+                            field2.Type = TypeOfField.yellowField;
                         _oneBlockToMove.Insert(i, field2);
                     }
 
@@ -1040,5 +1134,65 @@ namespace Tetris.Models.Engines
             IsPressed = false;
             whatIspressed = WhatIspressed.none;
         }
+
+        public void ClearNotActivedRows() // koniec
+        {
+            int Test()
+            {
+                for (int i = 19; i > 0; i--)
+                {
+                    IEnumerable<Field> query = _listOfField.Where(w => w.X == i);
+
+                    int temp = 0;
+
+                    foreach (var item in query)
+                    {
+                        if (item.Active == false && item.Type != TypeOfField.none)
+                        {
+                            temp++;
+                        }
+                    }
+
+                    if (temp == 10)
+                    {
+                        return i;
+                    }
+                }
+
+                return -1;
+            }
+
+            int tempIntiger = Test();
+
+            if (tempIntiger != -1)
+            {
+                for (int i = tempIntiger; i > 0; i--)
+                {
+                    IEnumerable<Field> query1 = _listOfField.Where(w => w.X == i);
+                    IEnumerable<Field> query2 = _listOfField.Where(w => w.X == i - 1);
+
+
+                    foreach (var item in query1)
+                    {
+                        Field query3 = query2.FirstOrDefault();
+
+                        item.Type = query3.Type;
+                        item.Active = query3.Active;
+
+                        query2.ToList().RemoveAt(0);
+                    }
+
+                }
+
+                IEnumerable<Field> LastRow = _listOfField.Where(w => w.X == 0);
+
+                foreach (var item in LastRow)
+                {
+                    item.Type = TypeOfField.none;
+                    item.Active = true;
+                }
+            }
+        }
+
     }
 }

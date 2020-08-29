@@ -14,7 +14,7 @@ namespace Tetris.Models.Enums
         public int X { get; set; }
         public int Y { get; set; }
 
-        public bool Active = false;
+        public bool Active = true;
 
         public PictureBox Picture { get; set; }
 
