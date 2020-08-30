@@ -41,7 +41,7 @@ namespace Tetris.Models.Engines
         public void GeneratingBlock()
         {
             Random rnd = new Random();
-            int rn = rnd.Next(1, 3); // Losowanie poszczególnych elementów
+            int rn = rnd.Next(1, 6); // Losowanie poszczególnych elementów
 
             GenerateByNumber(rn);
         }
@@ -341,10 +341,21 @@ namespace Tetris.Models.Engines
                     query.Active = false;
                 }
 
+                ClearNotActivedRows();
                 _oneBlockToMove.Clear();
                 CurrentBlockNumber = 0;
+
+                IEnumerable<Field> query2 = _listOfField.Where(w => (w.X == 3 && w.Y == 3) || (w.X == 3 && w.Y == 4) || (w.X == 3 && w.Y == 5) || (w.X == 3 && w.Y == 6));
+
+                foreach (var item in query2)
+                {
+                    if (item.Type == TypeOfField.none)
+                    {
+                        //Koniec;
+                    }
+                }
+
                 GeneratingBlock();
-                ClearNotActivedRows();
             }
         }
 
@@ -1169,29 +1180,26 @@ namespace Tetris.Models.Engines
             {
                 for (int i = tempIntiger; i > 0; i--)
                 {
-                    IEnumerable<Field> query1 = _listOfField.Where(w => w.X == i);
-                    IEnumerable<Field> query2 = _listOfField.Where(w => w.X == i - 1);
+                    IEnumerable<Field> FirstList = _listOfField.Where(w => w.X == i);
+                    IEnumerable<Field> SecoundList = _listOfField.Where(w => w.X == i - 1);
 
-
-                    foreach (var item in query1)
+                    int temp = 0;
+                    foreach (var item in FirstList)
                     {
-                        Field query3 = query2.FirstOrDefault();
-
-                        item.Type = query3.Type;
-                        item.Active = query3.Active;
-
-                        query2.ToList().RemoveAt(0);
+                        Field query = SecoundList.Where(w => w.Y == temp).FirstOrDefault();
+                        item.Type = query.Type;
+                        item.Active = query.Active;
+                        temp++;
                     }
-
                 }
 
-                IEnumerable<Field> LastRow = _listOfField.Where(w => w.X == 0);
+                //IEnumerable<Field> QueryOfFirstRow = _listOfField.Where(w => w.X == 0);
 
-                foreach (var item in LastRow)
-                {
-                    item.Type = TypeOfField.none;
-                    item.Active = true;
-                }
+                //foreach (var item in QueryOfFirstRow)
+                //{
+                //    item.Active = true;
+                //    item.Type = TypeOfField.none;
+                //}
             }
         }
 
