@@ -25,7 +25,10 @@ namespace Tetris
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            _gameEngine.Timer_tick();
+            if (_gameEngine.Timer_tick() == true)
+            {
+                _gameEngine.Timer_tick();
+            }
         }
 
         private void Tetris_KeyDown(object sender, KeyEventArgs e)
