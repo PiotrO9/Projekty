@@ -15,7 +15,6 @@ namespace Snake_Game
     {
         private GameEngine _gameEngine = new GameEngine();
 
-
         public Form1()
         {
             InitializeComponent();

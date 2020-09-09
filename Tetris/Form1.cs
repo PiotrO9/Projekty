@@ -13,7 +13,6 @@ namespace Tetris
 {
     public partial class Tetris : Form
     {
-        int test = 1;
         private GameEngine _gameEngine = new GameEngine();
 
         public Tetris()
@@ -28,6 +27,15 @@ namespace Tetris
             if (_gameEngine.Timer_tick() == true)
             {
                 _gameEngine.Timer_tick();
+                _gameEngine.AddPointsByTime();
+                label1.Text = _gameEngine.ReturnPointsAmount().ToString();
+                lblAomuntOfRows.Text = _gameEngine.ReturnRowsAmount().ToString();
+
+                lblBlue.Text = _gameEngine.ReturnAmountOfColors(4).ToString();
+                lblOrange.Text = _gameEngine.ReturnAmountOfColors(3).ToString();
+                lblYellow.Text = _gameEngine.ReturnAmountOfColors(2).ToString();
+                lblGreen.Text = _gameEngine.ReturnAmountOfColors(1).ToString();
+                lblRed.Text = _gameEngine.ReturnAmountOfColors(0).ToString();
             }
         }
 
@@ -41,11 +49,21 @@ namespace Tetris
             {
                 _gameEngine.Pressing(Keys.Right);
             }
+            else if (e.KeyCode == Keys.Down)
+            {
+                timer1.Interval = 100;
+            }
         }
 
         private void Tetris_KeyUp(object sender, KeyEventArgs e)
         {
+            if (e.KeyCode == Keys.Down)
+            {
+                timer1.Interval = 500;
+            }
+
             _gameEngine.Unpressing();
         }
+
     }
 }

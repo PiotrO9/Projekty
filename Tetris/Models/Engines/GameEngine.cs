@@ -16,6 +16,11 @@ namespace Tetris.Models.Engines
         private List<Field> _oneBlockToMove = new List<Field>();
 
         int CurrentBlockNumber;
+        int points;
+        int AmountOfRows;
+
+        int[] ArrayOfColors = new int[5];
+
         WhatIspressed whatIspressed = WhatIspressed.none;
 
         bool IsPressed = false;
@@ -39,7 +44,7 @@ namespace Tetris.Models.Engines
         public void GeneratingBlock()
         {
             Random rnd = new Random();
-            int rn = rnd.Next(6, 7); // Losowanie poszczególnych elementów
+            int rn = rnd.Next(1, 7); // Losowanie poszczególnych elementów
 
             GenerateByNumber(rn);
         }
@@ -421,7 +426,16 @@ namespace Tetris.Models.Engines
                 else
                 {
                     TimerEnabled = false;
-                    DialogResult result1 = MessageBox.Show("Game Over");
+
+                    DialogResult result1 = MessageBox.Show("Game Over, Twój wynik to " + this.ReturnPointsAmount().ToString());
+
+                    points = 0;
+                    AmountOfRows = 0;
+
+                    for (int i = 0; i < 5; i++)
+                    {
+                        ArrayOfColors[i] = 0;
+                    }
 
                     if (result1 == DialogResult.OK)
                     {
@@ -435,7 +449,9 @@ namespace Tetris.Models.Engines
                         TimerEnabled = true;
                     }
                 }
+
             }
+
 
             return true;
         }
@@ -1354,7 +1370,7 @@ namespace Tetris.Models.Engines
             whatIspressed = WhatIspressed.none;
         }
 
-        public void ClearNotActivedRows() // koniec
+        public void ClearNotActivedRows()
         {
             int Test()
             {
@@ -1385,6 +1401,7 @@ namespace Tetris.Models.Engines
 
             if (tempIntiger != -1)
             {
+
                 for (int i = tempIntiger; i > 0; i--)
                 {
                     IEnumerable<Field> FirstList = _listOfField.Where(w => w.X == i);
@@ -1393,14 +1410,60 @@ namespace Tetris.Models.Engines
                     int temp = 0;
                     foreach (var item in FirstList)
                     {
+                        if (item.Type == TypeOfField.blueField)
+                        {
+                            points += 50;
+                            ArrayOfColors[4]++;
+                        }
+                        else if (item.Type == TypeOfField.greenField)
+                        {
+                            points += 75;
+                            ArrayOfColors[1]++;
+                        }
+                        else if (item.Type == TypeOfField.redField)
+                        {
+                            points += 100;
+                            ArrayOfColors[0]++;
+                        }
+                        else if (item.Type == TypeOfField.yellowField)
+                        {
+                            points += 150;
+                            ArrayOfColors[2]++;
+                        }
+                        else if (item.Type == TypeOfField.orangeField)
+                        {
+                            points += 200;
+                            ArrayOfColors[3]++;
+                        }
+
                         Field query = SecoundList.Where(w => w.Y == temp).FirstOrDefault();
                         item.Type = query.Type;
                         item.Active = query.Active;
                         temp++;
                     }
                 }
+                AmountOfRows++;
             }
         }
 
+        public int ReturnPointsAmount()
+        {
+            return points;
+        }
+
+        public int ReturnRowsAmount()
+        {
+            return AmountOfRows;
+        }
+
+        public void AddPointsByTime()
+        {
+            points += 10;
+        }
+
+        public int ReturnAmountOfColors(int n)
+        {
+            return ArrayOfColors[n];
+        }
     }
 }
