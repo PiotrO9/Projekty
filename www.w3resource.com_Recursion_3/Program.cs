@@ -8,16 +8,18 @@ namespace www.w3resource.com_Recursion_3
 {
     class Program
     {
-        readonly static int number = 0;
-
         static void Main(string[] args)
         {
-            Console.WriteLine("Podaj ilość liczb do zsumowania: ");
+            for (; ; )
+            {
+                Console.WriteLine("Podaj ilość liczb do zsumowania: ");
 
-            int number = int.Parse(Console.ReadLine());
-            Console.WriteLine(Recursion(1, 10));
+                int number = int.Parse(Console.ReadLine());
 
-            Console.ReadLine();
+                Console.Clear();
+
+                Console.WriteLine("Wynik to: " + Recursion(1, number));
+            }
         }
 
         static int Recursion(int min, int val)
