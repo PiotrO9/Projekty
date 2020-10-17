@@ -12,21 +12,21 @@ namespace www.w3resource.com_Recursion_5
         {
             int number = int.Parse(Console.ReadLine());
 
-            CountingDigits(number);
+            CountingDigits(number, 0);
 
             Console.Read();
         }
 
-        static void CountingDigits(int temp, int test = 0)
+        static void CountingDigits(int temp, int test)
         {
-            if (temp < 100)
+            if (temp == 0)
             {
                 Console.WriteLine(test);
             }
             else
             {
                 test++;
-                CountingDigits(temp / 10);
+                CountingDigits(temp / 10, test);
             }
         }
     }

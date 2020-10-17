@@ -161,6 +161,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "www.w3resource.com_Recursio
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "www.w3resource.com_Recursion_6", "www.w3resource.com_Recursion_6\www.w3resource.com_Recursion_6.csproj", "{AE47C740-2715-493D-B947-8E9CCA8B625A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "www.w3resource.com_Recursion_7", "www.w3resource.com_Recursion_7\www.w3resource.com_Recursion_7.csproj", "{DFCD5A94-1F35-4E7E-A114-A3992EED79FB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "www.w3resource.com_Recursion_8", "www.w3resource.com_Recursion_8\www.w3resource.com_Recursion_8.csproj", "{9D838362-D205-404F-869A-4A6B7D4B8EBB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -479,6 +483,14 @@ Global
 		{AE47C740-2715-493D-B947-8E9CCA8B625A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AE47C740-2715-493D-B947-8E9CCA8B625A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AE47C740-2715-493D-B947-8E9CCA8B625A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DFCD5A94-1F35-4E7E-A114-A3992EED79FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DFCD5A94-1F35-4E7E-A114-A3992EED79FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DFCD5A94-1F35-4E7E-A114-A3992EED79FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DFCD5A94-1F35-4E7E-A114-A3992EED79FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9D838362-D205-404F-869A-4A6B7D4B8EBB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D838362-D205-404F-869A-4A6B7D4B8EBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D838362-D205-404F-869A-4A6B7D4B8EBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D838362-D205-404F-869A-4A6B7D4B8EBB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
