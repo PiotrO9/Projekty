@@ -11,7 +11,7 @@ namespace Hanoi_Game.Models
     {
         public List<Roller> Column = new List<Roller>();
 
-        private int amountOfRollers = 3;
+        private int amountOfRollers = 5;
 
         int LastClickedRoller = 1;
 
@@ -31,33 +31,6 @@ namespace Hanoi_Game.Models
             roller.fromWhichColumn = n;
         }
 
-        public void CheckLastClickedRoller(int n)
-        {
-            if (Column[Column.Count - 1].number == n)
-                LastClickedRoller = n;
-        }
-
-        public int GetLastClickedRoller()
-        {
-            return LastClickedRoller;
-        }
-
-        public int GetAmountOfRollers()
-        {
-            return amountOfRollers;
-        }
-
-        public int GetNumberFromWhichColumn(int numberToFind)
-        {
-            foreach (var item in Column)
-            {
-                if (item.number == numberToFind)
-                {
-                    return item.fromWhichColumn;
-                }
-            }
-            return 0;
-        }
 
     }
 }

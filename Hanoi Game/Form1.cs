@@ -23,43 +23,10 @@ namespace Hanoi_Game
         public Form1()
         {
             InitializeComponent();
+            test();
+            setRealHeight();
             PanelDisabling();
-            PrintingFirstColumn();
-        }
-
-        public int FromWhichCOlumn(int n)
-        {
-            if (_firstColumn.GetNumberFromWhichColumn(n) == 0)
-            {
-                if (_secoundColumn.GetNumberFromWhichColumn(n) == 0)
-                {
-                    return 3;
-                }
-                else
-                {
-                    return 2;
-                }
-            }
-            else
-            {
-                return 1;
-            }
-        }
-
-        public void SelectRightList(int n)
-        {
-            if (FromWhichCOlumn(n) == 1)
-            {
-                _firstColumn.CheckLastClickedRoller(n);
-            }
-            else if (FromWhichCOlumn(n) == 2)
-            {
-                _secoundColumn.CheckLastClickedRoller(n);
-            }
-            else if (FromWhichCOlumn(n) == 3)
-            {
-                _thirdColumn.CheckLastClickedRoller(n);
-            }
+            PrintRollers();
         }
 
         public void PanelDisabling()
@@ -86,23 +53,39 @@ namespace Hanoi_Game
             pnl7.Enabled = false;
         }
 
-        public void PrintingFirstColumn()
+        public void test()
         {
-            if (_firstColumn.GetAmountOfRollers() == 3)
+            _firstColumn.Column[0].panel = pnl4;
+            _firstColumn.Column[1].panel = pnl3;
+            _firstColumn.Column[2].panel = pnl2;
+            _firstColumn.Column[3].panel = pnl1;
+        }
+
+        public void setRealHeight()
+        {
+            _firstColumn.Column[0].panel.Top = 200;
+
+            int length = _firstColumn.Column.Count();
+
+            for (int i = 1; i < length; i++)
             {
-                pnl3.Enabled = true;
-                pnl3.Visible = true;
-                pnl3.Location = new Point(pnl3.Location.X, 200);
+                _firstColumn.Column[i].panel.Top = _firstColumn.Column[i - 1].panel.Top - 10;
+            }
 
-                pnl2.Enabled = true;
-                pnl2.Visible = true;
-                pnl2.Location = new Point(pnl2.Location.X, 190);
+        }
 
-                pnl1.Enabled = true;
-                pnl1.Visible = true;
-                pnl1.Location = new Point(pnl1.Location.X, 180);
+        public void PrintRollers()
+        {
+            foreach (var item in _firstColumn.Column)
+            {
+                if (item != null)
+                {
+                    item.panel.Visible = true;
+                    item.panel.Enabled = true;
+                }
             }
         }
+
 
         public void SetLocation(int x, int y)
         {
@@ -116,39 +99,32 @@ namespace Hanoi_Game
 
         private void pnl1_Click(object sender, EventArgs e)
         {
-            SelectRightList(1);
             LastClickedNumber = 1;
         }
 
         private void pnl2_Click(object sender, EventArgs e)
         {
-            SelectRightList(2);
             LastClickedNumber = 2;
         }
 
         private void pnl3_Click(object sender, EventArgs e)
         {
-            SelectRightList(3);
         }
 
         private void pnl4_Click(object sender, EventArgs e)
         {
-            SelectRightList(4);
         }
 
         private void pnl5_Click(object sender, EventArgs e)
         {
-            SelectRightList(5);
         }
 
         private void pnl6_Click(object sender, EventArgs e)
         {
-            SelectRightList(6);
         }
 
         private void pnl7_Click(object sender, EventArgs e)
         {
-            SelectRightList(7);
         }
 
         private void pnlPin2_Click(object sender, EventArgs e)
