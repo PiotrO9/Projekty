@@ -55,23 +55,59 @@ namespace Hanoi_Game
 
         public void test()
         {
-            _firstColumn.Column[0].panel = pnl4;
-            _firstColumn.Column[1].panel = pnl3;
-            _firstColumn.Column[2].panel = pnl2;
-            _firstColumn.Column[3].panel = pnl1;
+            _firstColumn.Column[0].panel = pnl5;
+            _secoundColumn.Column[0].panel = pnl3;
+            _secoundColumn.Column[1].panel = pnl2;
+            _secoundColumn.Column[2].panel = pnl1;
+
+            int i = 0;
+
+            foreach (var item in _secoundColumn.Column)
+            {
+                item.panel.Left += 100;
+                i = i + 10;
+            }
         }
 
         public void setRealHeight()
         {
-            _firstColumn.Column[0].panel.Top = 200;
-
-            int length = _firstColumn.Column.Count();
-
-            for (int i = 1; i < length; i++)
+            if (_firstColumn.Column.Count() != 0)
             {
-                _firstColumn.Column[i].panel.Top = _firstColumn.Column[i - 1].panel.Top - 10;
+                _firstColumn.Column[0].panel.Top = 200;
+
+                int length = _firstColumn.Column.Count();
+
+                for (int i = 1; i < length; i++)
+                {
+                    _firstColumn.Column[i].panel.Top = _firstColumn.Column[i - 1].panel.Top - 10;
+                }
             }
 
+            if (_secoundColumn.Column.Count() != 0)
+            {
+                _secoundColumn.Column[0].panel.Top = 200;
+
+                int length = _secoundColumn.Column.Count();
+
+                for (int i = 1; i < length; i++)
+                {
+                    _secoundColumn.Column[i].panel.Top = _secoundColumn.Column[i - 1].panel.Top - 10;
+                }
+
+            }
+
+            if (_thirdColumn.Column.Count() != 0)
+            {
+                _thirdColumn.Column[0].panel.Top = 200;
+
+                int length = _thirdColumn.Column.Count();
+
+                for (int i = 1; i < length; i++)
+                {
+                    _thirdColumn.Column[i].panel.Top = _thirdColumn.Column[i - 1].panel.Top - 10;
+                }
+
+            }
         }
 
         public void PrintRollers()
@@ -84,17 +120,24 @@ namespace Hanoi_Game
                     item.panel.Enabled = true;
                 }
             }
-        }
 
+            foreach (var item in _secoundColumn.Column)
+            {
+                if (item != null)
+                {
+                    item.panel.Visible = true;
+                    item.panel.Enabled = true;
+                }
+            }
 
-        public void SetLocation(int x, int y)
-        {
-            ;
-        }
-
-        public void PrintingColumns()
-        {
-            ;
+            foreach (var item in _thirdColumn.Column)
+            {
+                if (item != null)
+                {
+                    item.panel.Visible = true;
+                    item.panel.Enabled = true;
+                }
+            }
         }
 
         private void pnl1_Click(object sender, EventArgs e)

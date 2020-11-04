@@ -27,8 +27,15 @@ namespace Hanoi_Game.Models
 
         public GameEngine(int n)
         {
-            Roller roller = new Roller(0);
-            roller.fromWhichColumn = n;
+            //Roller roller = new Roller(0);
+            //roller.fromWhichColumn = n;
+
+            for (int i = amountOfRollers; i > 0; i--)
+            {
+                Roller roller = new Roller(i);
+                roller.fromWhichColumn = 2;
+                Column.Add(roller);
+            }
         }
 
 
