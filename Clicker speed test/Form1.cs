@@ -8,28 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Liczenie_makroskładników
+namespace Clicker_speed_test
 {
     public partial class Form1 : Form
     {
-        List<string> testing = new List<string>();
-
         public Form1()
         {
             InitializeComponent();
         }
 
-        public void form2Opening()
+        private void btn1_Click(object sender, EventArgs e)
         {
-            var form2 = new Form2();
-            form2.Show();
+
         }
-
-        private void lblAdd1_Click(object sender, EventArgs e)
-        {
-            form2Opening();
-        }
-
-
     }
 }
