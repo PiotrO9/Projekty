@@ -58,6 +58,7 @@
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(306, 168);
             this.tabControl1.TabIndex = 0;
+            this.tabControl1.Click += new System.EventHandler(this.tabControl1_Click);
             // 
             // tabPage1
             // 
@@ -98,7 +99,7 @@
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(356, 167);
+            this.tabPage4.Size = new System.Drawing.Size(298, 142);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "60 s";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -124,12 +125,13 @@
             // 
             // btn2
             // 
-            this.btn2.Location = new System.Drawing.Point(98, 58);
+            this.btn2.Location = new System.Drawing.Point(69, 43);
             this.btn2.Name = "btn2";
             this.btn2.Size = new System.Drawing.Size(152, 57);
             this.btn2.TabIndex = 0;
-            this.btn2.Text = "button1";
+            this.btn2.Text = "Start";
             this.btn2.UseVisualStyleBackColor = true;
+            this.btn2.Click += new System.EventHandler(this.btn2_Click);
             // 
             // btn3
             // 
@@ -148,6 +150,10 @@
             this.label1.Size = new System.Drawing.Size(35, 13);
             this.label1.TabIndex = 1;
             this.label1.Text = "label1";
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // Form1
             // 
