@@ -32,13 +32,15 @@
             this.lblA = new System.Windows.Forms.Label();
             this.lblCPS = new System.Windows.Forms.Label();
             this.lblC = new System.Windows.Forms.Label();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.btnShow = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(89, 56);
+            this.label1.Location = new System.Drawing.Point(103, 56);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(55, 20);
             this.label1.TabIndex = 0;
@@ -48,7 +50,7 @@
             // 
             this.lblA.AutoSize = true;
             this.lblA.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblA.Location = new System.Drawing.Point(24, 27);
+            this.lblA.Location = new System.Drawing.Point(35, 27);
             this.lblA.Name = "lblA";
             this.lblA.Size = new System.Drawing.Size(99, 17);
             this.lblA.TabIndex = 1;
@@ -58,7 +60,7 @@
             // 
             this.lblCPS.AutoSize = true;
             this.lblCPS.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblCPS.Location = new System.Drawing.Point(34, 56);
+            this.lblCPS.Location = new System.Drawing.Point(48, 56);
             this.lblCPS.Name = "lblCPS";
             this.lblCPS.Size = new System.Drawing.Size(49, 20);
             this.lblCPS.TabIndex = 2;
@@ -68,17 +70,39 @@
             // 
             this.lblC.AutoSize = true;
             this.lblC.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblC.Location = new System.Drawing.Point(129, 27);
+            this.lblC.Location = new System.Drawing.Point(142, 27);
             this.lblC.Name = "lblC";
             this.lblC.Size = new System.Drawing.Size(16, 17);
             this.lblC.TabIndex = 3;
             this.lblC.Text = "0";
             // 
+            // btnSave
+            // 
+            this.btnSave.Location = new System.Drawing.Point(27, 96);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(75, 23);
+            this.btnSave.TabIndex = 4;
+            this.btnSave.Text = "Zapisz";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // btnShow
+            // 
+            this.btnShow.Location = new System.Drawing.Point(93, 96);
+            this.btnShow.Name = "btnShow";
+            this.btnShow.Size = new System.Drawing.Size(75, 23);
+            this.btnShow.TabIndex = 5;
+            this.btnShow.Text = "Pokaż plik";
+            this.btnShow.UseVisualStyleBackColor = true;
+            this.btnShow.Click += new System.EventHandler(this.btnShow_Click);
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(204, 111);
+            this.ClientSize = new System.Drawing.Size(204, 131);
+            this.Controls.Add(this.btnShow);
+            this.Controls.Add(this.btnSave);
             this.Controls.Add(this.lblC);
             this.Controls.Add(this.lblCPS);
             this.Controls.Add(this.lblA);
@@ -97,5 +121,7 @@
         private System.Windows.Forms.Label lblA;
         private System.Windows.Forms.Label lblCPS;
         private System.Windows.Forms.Label lblC;
+        private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.Button btnShow;
     }
 }
