@@ -121,7 +121,7 @@ namespace Clicker_speed_test
                             btn1.Text = "Start";
                             label1.Text = "0";
                             check = 0;
-                            form2.Show();
+                            form2.ShowDialog();
                         }
                         break;
                     }
@@ -149,7 +149,7 @@ namespace Clicker_speed_test
                             btn2.Text = "Start";
                             label1.Text = "0";
                             check = 0;
-                            form2.Show();
+                            form2.ShowDialog();
                         }
 
                         break;
@@ -178,7 +178,7 @@ namespace Clicker_speed_test
                             btn3.Text = "Start";
                             label1.Text = "0";
                             check = 0;
-                            form2.Show();
+                            form2.ShowDialog();
                         }
 
                         break;
@@ -207,7 +207,7 @@ namespace Clicker_speed_test
                             btn4.Text = "Start";
                             label1.Text = "0";
                             check = 0;
-                            form2.Show();
+                            form2.ShowDialog();
                         }
 
                         break;
