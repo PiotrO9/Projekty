@@ -11,26 +11,39 @@ namespace _2020_zad._4._2.models
         public StringOfCharacters Cut(string s)
         {
             int length = s.Length;
-            int d = 0;
-            int p = 0;
-            for (int i = 0; i < length;)
+
+            int CharAmount = 0;
+
+            char CurrentChar = ' ';
+
+            for (int i = 0; i < length; i++)
             {
-                int j = i + 1;
-                while (j < length && s[i] == s[j])
+                if (CurrentChar == s[i])
                 {
-                    j++;
+                    CharAmount += 1;
                 }
-                if (d < j - 1)
+                else
                 {
-                    d = j - i;
-                    p = i;
+                    CharAmount = 1;
+                    CurrentChar = s[i];
                 }
-                i = j;
+
+                if (CharAmount > length)
+                {
+                    length = CharAmount;
+                }
             }
 
-            string ReadyString = s.Substring(p, d);
+            string CharToString = CurrentChar.ToString();
 
-            StringOfCharacters stringOfCharacters = new StringOfCharacters(ReadyString, d);
+            string ReadyString = "";
+
+            for (int i = 0; i < CharAmount; i++)
+            {
+                ReadyString += CurrentChar.ToString();
+            }
+
+            StringOfCharacters stringOfCharacters = new StringOfCharacters(ReadyString, CharAmount);
             return stringOfCharacters;
 
         }

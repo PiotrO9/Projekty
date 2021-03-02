@@ -40,7 +40,9 @@ namespace _2020_zad._4._2
                 engine engine = new engine();
                 StringOfCharacters stringOfCharacters = engine.Cut(item);
 
-                Console.Write(stringOfCharacters.text + " " + stringOfCharacters.length.ToString() + "\n");
+                string s = stringOfCharacters.text + " " + stringOfCharacters.length.ToString() + "\n";
+
+                Console.Write(s);
             }
 
 
