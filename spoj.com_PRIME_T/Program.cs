@@ -23,9 +23,6 @@ namespace spoj.com_PRIME_T
                 {
                     Console.Write("To nie liczba pierwsza \n");
                 }
-
-
-
             }
 
         }

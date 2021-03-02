@@ -44,37 +44,15 @@ namespace _2020_zad._4._1
                 Console.WriteLine(item);
             }
 
-            //if (primal.Primal(61) == true)
-            //{
-            //    Console.WriteLine("Poprawnie");
-            //}
-            //else
-            //{
-            //    Console.WriteLine("Nie poprawnie");
-            //}
-
 
             foreach (var item in convertedLines)
             {
                 int n = int.Parse(item);
 
-                int n1 = 0;
-                int n2 = 0;
-
-                for (int j = n - 1; j > n; j--)
+                if (n % 2 == 0)
                 {
-                    if (primal.Primal(j) == true)
-                    {
-                        if (primal.Primal(n - j) == true)
-                        {
-                            n1 = j;
-                            n2 = n - j;
-                            break;
-                        }
-                    }
+                    Console.WriteLine(primals.Primals(n));
                 }
-
-                Console.WriteLine(n.ToString() + " " + n1.ToString() + " " + n2.ToString());
             }
 
             Console.ReadLine();
