@@ -1,4 +1,5 @@
 ﻿using _2019_zad._5._1.models;
+using _2019_zad._5._2.models;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -6,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _2019_zad._5._1
+namespace _2019_zad._5._2
 {
     class Program
     {
@@ -28,7 +29,6 @@ namespace _2019_zad._5._1
                     newNote.Falls = int.Parse(item[2]);
                     newNote.CloudCategory = Convert.ToChar(item[3]);
                     newNote.CloudSize = int.Parse(item[4]);
-
                 }
                 catch (FormatException e)
                 {
@@ -38,11 +38,12 @@ namespace _2019_zad._5._1
                 Notes.Add(newNote);
             }
 
-            IEnumerable<Note> query = Notes.Where(note => note.Temperature >= 20 && note.Falls <= 5);
+            List<Note> newNotes = Notes.Select(s => new Note { Day = s.Day, Temperature = s.Temperature })
+                                      .ToList();
 
-            int amount = query.Count();
+            Dates dates = engines.engine.counting(newNotes);
 
-            Console.WriteLine(amount);
+            Console.WriteLine(dates.firstDate + " " + dates.LastDate);
 
             Console.ReadKey();
         }
