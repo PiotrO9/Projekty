@@ -41,6 +41,8 @@ namespace _2019_zad._5._2.engines
 
             Dates dates = new Dates(firstDay, lastDay);
 
+            Func <>
+
             return dates;
         }
     }
