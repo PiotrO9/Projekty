@@ -24,6 +24,7 @@ namespace Liczenie_makroskładników
         {
             InitializeComponent();
             SetSettingsInListViews();
+
         }
 
         public void form2Opening()
@@ -41,6 +42,12 @@ namespace Liczenie_makroskładników
         private void timer1_Tick(object sender, EventArgs e)
         {
             string s = File.ReadAllText("wybor.txt");
+
+            if(s != string.Empty)
+            {
+                CurrentProduct = ImportOneProduct.ImportSingleProduct(s);
+            }
+
             if(CheckIfFileIsEmpty.CheckIfEmpty(s) == false)
             {
                 Product product = CurrentProduct;
@@ -82,13 +89,13 @@ namespace Liczenie_makroskładników
                         break;
                 }
 
-                string clear = "";
-                File.WriteAllText("wybor.txt",clear);
+                //string clear = "";
+                //File.WriteAllText("wybor.txt",clear);
             }
             else
             {
-                string clear = "";
-                File.WriteAllText("wybor.txt", clear);
+                //string clear = "";
+                //File.WriteAllText("wybor.txt", clear);
             }
 
             NumberOfClickedList = 0;
@@ -161,5 +168,11 @@ namespace Liczenie_makroskładników
 
             listView5.Columns.RemoveAt(0);
         }
+
+        private void ClearFile()
+        {
+            ;
+        }
+
     }
 }
