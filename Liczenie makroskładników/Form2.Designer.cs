@@ -35,21 +35,23 @@
             // listView1
             // 
             this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(51, 48);
+            this.listView1.Location = new System.Drawing.Point(12, 48);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(237, 125);
+            this.listView1.Size = new System.Drawing.Size(321, 125);
             this.listView1.TabIndex = 2;
             this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.ItemActivate += new System.EventHandler(this.listView1_ItemActivate);
             this.listView1.Click += new System.EventHandler(this.listView1_Click);
             // 
             // btnTest
             // 
-            this.btnTest.Location = new System.Drawing.Point(127, 179);
+            this.btnTest.Location = new System.Drawing.Point(136, 179);
             this.btnTest.Name = "btnTest";
             this.btnTest.Size = new System.Drawing.Size(77, 37);
             this.btnTest.TabIndex = 3;
             this.btnTest.Text = "1";
             this.btnTest.UseVisualStyleBackColor = true;
+            this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
             // 
             // Form2
             // 

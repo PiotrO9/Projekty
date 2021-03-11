@@ -207,6 +207,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interfaces", "Interfaces\In
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interfaces2", "Interfaces2\Interfaces2.csproj", "{30022286-7763-458C-A8A6-0296C6C0CA19}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stream1", "Stream1\Stream1.csproj", "{F7E8D11A-1517-4E1F-B7AF-81361BA612CA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -609,6 +611,10 @@ Global
 		{30022286-7763-458C-A8A6-0296C6C0CA19}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{30022286-7763-458C-A8A6-0296C6C0CA19}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{30022286-7763-458C-A8A6-0296C6C0CA19}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F7E8D11A-1517-4E1F-B7AF-81361BA612CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7E8D11A-1517-4E1F-B7AF-81361BA612CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F7E8D11A-1517-4E1F-B7AF-81361BA612CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F7E8D11A-1517-4E1F-B7AF-81361BA612CA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -635,6 +641,7 @@ Global
 		{9931BE6E-8260-4CAB-9892-16CC4CF60FA3} = {33BFEC95-4DEA-4CC4-BE29-DC82BD62EF91}
 		{2AB2536F-7AFE-48D7-AF59-B76DEBFA513A} = {33BFEC95-4DEA-4CC4-BE29-DC82BD62EF91}
 		{30022286-7763-458C-A8A6-0296C6C0CA19} = {33BFEC95-4DEA-4CC4-BE29-DC82BD62EF91}
+		{F7E8D11A-1517-4E1F-B7AF-81361BA612CA} = {33BFEC95-4DEA-4CC4-BE29-DC82BD62EF91}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {72C7B389-4144-4568-B93F-CFAD988CEABF}
