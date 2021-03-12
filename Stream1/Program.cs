@@ -18,7 +18,7 @@ namespace Stream1
             sw.WriteLine(s);
             sw.Close();
 
-            StreamReader sr= new StreamReader("test.txt");
+            StreamReader sr = new StreamReader("test.txt");
 
             Console.WriteLine(sr.ReadLine());
 
