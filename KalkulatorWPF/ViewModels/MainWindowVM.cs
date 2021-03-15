@@ -8,9 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace WpfApp1
+namespace KalkulatorWPF
 {
-    public class MainWindoVM : INotifyPropertyChanged
+    class MainWindowVM : INotifyPropertyChanged
     {
         private string buttonName;
         public string ButtonName
@@ -19,33 +19,21 @@ namespace WpfApp1
             set { buttonName = value; OnPropertyChanged(); }
         }
 
-        public ICommand ButtonClickCommand { get; set; }
-
-
         public event PropertyChangedEventHandler PropertyChanged;
-
         protected void OnPropertyChanged([CallerMemberName] string name = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
 
-        public MainWindoVM()
+        public ICommand ButtonClickCommand { get; set; }
+
+        public MainWindowVM()
         {
             ButtonClickCommand = new RelayCommand(() =>
             {
-                ButtonName = "Button name changed";
-
-                //string s = buttonName.ToString();
-                //int temp = 0;
-                //if (int.TryParse(s, out temp) == true)
-                //{ temp = int.Parse(s); temp++; }
-                //buttonName = temp.ToString();
-            });
-        }
-
-        public void ButtonClickICommandImpl()
-        {
-
+                ;
+            }
+            );
         }
     }
 }
