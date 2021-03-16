@@ -1,4 +1,5 @@
 ﻿using GalaSoft.MvvmLight.Command;
+using KalkulatorWPF.Engines;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -96,8 +97,17 @@ namespace KalkulatorWPF
                     }
                 case "+":
                     {
-                        MainText += "+";
-                        ButtonLock();
+                        if ((CheckIfAction.SearchAction(GetCurrentText()) == false)
+                            {
+                            MainText += "+";
+                            ButtonLock();
+                        }
+                        else
+                        {
+
+                        }
+
+
                         break;
                     }
                 case "-":
@@ -116,6 +126,10 @@ namespace KalkulatorWPF
                     {
                         MainText += "/";
                         ButtonLock();
+                        break;
+                    }
+                case "=":
+                    {
                         break;
                     }
                 default:
@@ -141,13 +155,19 @@ namespace KalkulatorWPF
             }
         }
 
-
         public void ButtonUnlock()
         {
             BtnAddStatement = true;
             BtnSubStatement = true;
             BtnMulStatement = true;
             BtnDivStatement = true;
+        }
+
+        public string GetCurrentText()
+        {
+            string temp = MainText;
+
+            return temp;
         }
     }
 }

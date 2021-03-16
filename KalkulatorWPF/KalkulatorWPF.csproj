@@ -83,6 +83,8 @@
     </Compile>
     <Compile Include="Engines\Calculations.cs" />
     <Compile Include="Engines\CheckIfAction.cs" />
+    <Compile Include="Engines\CheckIfAnyAction.cs" />
+    <Compile Include="Engines\MinusIncluded.cs" />
     <Compile Include="Engines\WhenBtnClicked.cs" />
     <Compile Include="MainTextClass.cs" />
     <Compile Include="MainWindow.xaml.cs">
@@ -91,6 +93,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\AnyActionModel.cs" />
+    <Compile Include="Models\Div0Model.cs" />
     <Compile Include="ViewModels\ButtonClickViewModel.cs" />
     <Compile Include="ViewModels\Comands\ButtonClickComand.cs" />
     <Compile Include="ViewModels\MainWindowVM.cs" />
