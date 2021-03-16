@@ -36,12 +36,60 @@ namespace KalkulatorWPF
         {
             Button clickedButton = (Button)sender;
 
+            switch (clickedButton.Content)
+            {
+                case '+':
+                    {
+                        LockActions();
+                        break;
+                    }
+                case '-':
+                    {
+                        LockActions();
+                        break;
+                    }
+                case '*':
+                    {
+                        LockActions();
+                        break;
+                    }
+                case '/':
+                    {
+                        LockActions();
+                        break;
+                    }
+                default:
+                    {
+                        MainTxtBox.Text += clickedButton.Content;
+                    }
+                    break;
+            }
+
             MainTxtBox.Text += clickedButton.Content;
+
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        public void LockActions()
         {
-
+            if (AddBtn.IsEnabled == false)
+            {
+                SubBtn.IsEnabled = false;
+            }
+            else
+            {
+                AddBtn.IsEnabled = true;
+                MulBtn.IsEnabled = true;
+                DivBtn.IsEnabled = true;
+            }
         }
+
+        public void UnlockActions()
+        {
+            AddBtn.IsEnabled = true;
+            SubBtn.IsEnabled = true;
+            MulBtn.IsEnabled = true;
+            DivBtn.IsEnabled = true;
+        }
+
     }
 }
