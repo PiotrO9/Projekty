@@ -19,6 +19,47 @@ namespace KalkulatorWPF
             set { buttonName = value; OnPropertyChanged(); }
         }
 
+        private string mainText;
+
+        public string MainText
+        {
+            get { return mainText; }
+            set { mainText = value; OnPropertyChanged(); }
+        }
+
+        private bool btnAddStatement = true;
+
+        public bool BtnAddStatement
+        {
+            get { return btnAddStatement; }
+            set { btnAddStatement = value; OnPropertyChanged(); }
+        }
+
+        private bool btnSubStatement = true;
+
+        public bool BtnSubStatement
+        {
+            get { return btnSubStatement; }
+            set { btnSubStatement = value; OnPropertyChanged(); }
+        }
+
+        private bool btnMulStatement = true;
+
+        public bool BtnMulStatement
+        {
+            get { return btnMulStatement; }
+            set { btnMulStatement = value; OnPropertyChanged(); }
+        }
+
+        private bool btnDivStatement = true;
+
+        public bool BtnDivStatement
+        {
+            get { return btnDivStatement; }
+            set { btnDivStatement = value; OnPropertyChanged(); }
+        }
+
+
         public event PropertyChangedEventHandler PropertyChanged;
         protected void OnPropertyChanged([CallerMemberName] string name = null)
         {
@@ -27,6 +68,8 @@ namespace KalkulatorWPF
 
         public ICommand ButtonClickCommand { get; set; }
 
+        public ICommand ButtonNumberClickCommand { get; set; }
+
         public MainWindowVM()
         {
             ButtonClickCommand = new RelayCommand(() =>
@@ -34,6 +77,77 @@ namespace KalkulatorWPF
                 ;
             }
             );
+
+
+            ButtonNumberClickCommand = new RelayCommand<string>(ButtonNumberClickCommandImpl);
+        }
+
+        public void ButtonNumberClickCommandImpl(string s)
+        {
+            string temp = MainText;
+
+            switch (s)
+            {
+                case "C":
+                    {
+                        MainText = string.Empty;
+                        ButtonUnlock();
+                        break;
+                    }
+                case "+":
+                    {
+                        MainText += "+";
+                        ButtonLock();
+                        break;
+                    }
+                case "-":
+                    {
+                        MainText += "-";
+                        ButtonLock();
+                        break;
+                    }
+                case "*":
+                    {
+                        MainText += "*";
+                        ButtonLock();
+                        break;
+                    }
+                case "/":
+                    {
+                        MainText += "/";
+                        ButtonLock();
+                        break;
+                    }
+                default:
+                    {
+                        MainText += s;
+                        ButtonUnlock();
+                    }
+                    break;
+            }
+        }
+
+        public void ButtonLock()
+        {
+            if (BtnAddStatement == false)
+            {
+                BtnSubStatement = false;
+            }
+            else
+            {
+                BtnAddStatement = false;
+                BtnMulStatement = false;
+                BtnDivStatement = false;
+            }
+        }
+
+
+        public void ButtonUnlock()
+        {
+            BtnAddStatement = true;
+            BtnSubStatement = true;
+            BtnMulStatement = true;
+            BtnDivStatement = true;
         }
     }
 }

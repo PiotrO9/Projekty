@@ -21,6 +21,8 @@ namespace WpfApp1
 
         public ICommand ButtonClickCommand { get; set; }
 
+        public ICommand TestCommand { get; set; }
+
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -40,6 +42,11 @@ namespace WpfApp1
                 //if (int.TryParse(s, out temp) == true)
                 //{ temp = int.Parse(s); temp++; }
                 //buttonName = temp.ToString();
+            });
+
+            TestCommand = new RelayCommand(() =>
+            {
+                ButtonName = "Test Command name";
             });
         }
 

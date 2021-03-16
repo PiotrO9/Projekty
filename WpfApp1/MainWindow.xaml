@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:Behaviors="http://schemas.microsoft.com/xaml/behaviors"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
@@ -24,7 +25,15 @@
         <Button Grid.Column="0" Grid.Row="0"
                 Content="{Binding Path=ButtonName, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
                 Command="{Binding Path=ButtonClickCommand, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
-        <Button  Grid.Column="1" Grid.Row="0" Content="gfgfg" Margin="5"
-                 Command="{Binding Path=ButtonClickCommand, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <Button  Grid.Column="1" Grid.Row="0" Content="gfgfg" Margin="5" 
+                 Command="{Binding Path=ButtonClickCommand, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}">
+
+            <Behaviors:Interaction.Triggers>
+                <Behaviors:EventTrigger EventName="MouseDoubleClick" SourceObject="{Binding ElementName=button}">
+                    <Behaviors:InvokeCommandAction Command="{Binding TestCommand}" />
+                </Behaviors:EventTrigger>
+            </Behaviors:Interaction.Triggers>
+
+        </Button>
     </Grid>
 </Window>
