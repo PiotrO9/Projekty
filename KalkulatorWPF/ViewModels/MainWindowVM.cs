@@ -1,5 +1,6 @@
 ﻿using GalaSoft.MvvmLight.Command;
 using KalkulatorWPF.Engines;
+using KalkulatorWPF.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -97,14 +98,16 @@ namespace KalkulatorWPF
                     }
                 case "+":
                     {
-                        if ((CheckIfAction.SearchAction(GetCurrentText()) == false)
+                        if ((CheckIfAction.SearchAction(GetCurrentText()) == false))
                             {
+                            
                             MainText += "+";
                             ButtonLock();
                         }
                         else
                         {
-
+                            EqualCalculation();
+                            MainText += "+";
                         }
 
 
@@ -112,24 +115,49 @@ namespace KalkulatorWPF
                     }
                 case "-":
                     {
-                        MainText += "-";
-                        ButtonLock();
+                        if ((CheckIfAction.SearchAction(GetCurrentText()) == false))
+                        {
+                            MainText += "-";
+                            ButtonLock();
+                        }
+                        else
+                        {
+                            EqualCalculation();
+                            MainText += "-";
+                        }
                         break;
                     }
                 case "*":
                     {
-                        MainText += "*";
-                        ButtonLock();
+                        if ((CheckIfAction.SearchAction(GetCurrentText()) == false))
+                        {
+                            MainText += "*";
+                            ButtonLock();
+                        }
+                        else
+                        {
+                            EqualCalculation();
+                            MainText += "*";
+                        }
                         break;
                     }
                 case "/":
                     {
-                        MainText += "/";
-                        ButtonLock();
+                        if ((CheckIfAction.SearchAction(GetCurrentText()) == false))
+                        {
+                            MainText += "/";
+                            ButtonLock();
+                        }
+                        else
+                        {
+                            EqualCalculation();
+                            MainText += "/";
+                        }
                         break;
                     }
                 case "=":
                     {
+                        EqualCalculation();
                         break;
                     }
                 default:
@@ -168,6 +196,20 @@ namespace KalkulatorWPF
             string temp = MainText;
 
             return temp;
+        }
+
+        public void EqualCalculation()
+        {
+            var Result = Calculations.Calculate(MainText);
+
+            if (Result.IsZero == true)
+            {
+                MainText = " ";
+            }
+            else
+            {
+                MainText = Result.Result.ToString();
+            }
         }
     }
 }

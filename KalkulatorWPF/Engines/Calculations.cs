@@ -52,7 +52,7 @@ namespace KalkulatorWPF.Engines
                     }
                 }
 
-                if (AmountOfMinuses == 3)
+                if (AmountOfMinuses == 3) //3
                 {
                     Action = '-';
                     IndexOfAction = NumbersOfIndexes[1];
@@ -62,18 +62,111 @@ namespace KalkulatorWPF.Engines
                     number1 = float.Parse(n1);
                     number2 = float.Parse(n2);
                 }
-                else if (AmountOfMinuses == 2)
+                else if (AmountOfMinuses == 2) //2
                 {
+                    Action = '-';
+
                     var IsActionModel = CheckIfAnyAction.CheckIfAnyActionExists(MainText);
 
                     if (IsActionModel.IsActionFound == true)
                     {
+                        IndexOfAction = IsActionModel.IndexOfAction;
 
+                        string n1 = MainText.Remove(IndexOfAction);
+                        string n2 = MainText.Remove(0, IndexOfAction + 1);
+
+                        number1 = float.Parse(n1);
+                        number2 = float.Parse(n2);
+                    }
+                    else
+                    {
+                        if(MainText[0] == '-')
+                        {
+                            for (int i = 1; i < MainText.Length; i++)
+                            {
+                                if(MainText[i] == '-')
+                                {
+                                    IndexOfAction = i;
+                                    break;
+                                }
+                            }
+
+                            string n1 = MainText.Remove(IndexOfAction);
+                            string n2 = MainText.Remove(0, IndexOfAction + 1);
+
+                            number1 = float.Parse(n1);
+                            number2 = float.Parse(n2);
+                        }
+                        else
+                        {
+                            for (int i = 0; i < MainText.Length; i++)
+                            {
+                                if (MainText[i] == '-')
+                                {
+                                    IndexOfAction = i;
+                                    break;
+                                }
+                            }
+
+                            string n1 = MainText.Remove(IndexOfAction);
+                            string n2 = MainText.Remove(0, IndexOfAction + 1);
+
+                            number1 = float.Parse(n1);
+                            number2 = float.Parse(n2);
+                        }
                     }
                 }
-                else
+                else //1
                 {
+                    char tempChar = ' ';
 
+                    for (int i = 0; i < MainText.Length; i++)
+                    {
+                        if(MainText[i] == '+' || MainText[i] == '*' || MainText[i] == '/')
+                        {
+                            IndexOfAction = i;
+                            tempChar = MainText[i];
+                            break;
+                        }
+                    }
+
+                    if(tempChar != ' ')
+                    {
+                        for (int i = 0; i < MainText.Length; i++)
+                        {
+                            if (MainText[i] == '+' || MainText[i] == '*' || MainText[i] == '/')
+                            {
+                                IndexOfAction = i;
+                                Action = MainText[i];
+                                break;
+                            }
+                        }
+
+                        string n1 = MainText.Remove(IndexOfAction);
+                        string n2 = MainText.Remove(0, IndexOfAction + 1);
+
+                        number1 = float.Parse(n1);
+                        number2 = float.Parse(n2);
+                    }
+                    else
+                    {
+                        Action = '-';
+
+                        for (int i = 0; i < MainText.Length; i++)
+                        {
+                            if(MainText[i] == '-')
+                            {
+                                IndexOfAction = i;
+                                break;
+                            }
+                        }
+
+                        string n1 = MainText.Remove(IndexOfAction);
+                        string n2 = MainText.Remove(0, IndexOfAction + 1);
+
+                        number1 = float.Parse(n1);
+                        number2 = float.Parse(n2);
+                    }
                 }
             }
 

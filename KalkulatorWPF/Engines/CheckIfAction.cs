@@ -33,7 +33,7 @@ namespace KalkulatorWPF.Engines
                 return true;
             }
 
-            int numberOfIndex = 0;
+            int numberOfIndex = 1;
 
             for (int i = 0; i < actionText.Length; i++)
             {
@@ -43,9 +43,13 @@ namespace KalkulatorWPF.Engines
                 }
             }
 
-            if (actionText[numberOfIndex - 1] == '+' || actionText[numberOfIndex - 1] == '*' || actionText[numberOfIndex - 1] == '/')
+
+            if (actionText.Length > 2)
             {
-                return true;
+                if ((actionText[numberOfIndex - 1] == '+' || actionText[numberOfIndex - 1] == '*' || actionText[numberOfIndex - 1] == '/') && (numberOfIndex > 0))
+                {
+                    return true;
+                }
             }
 
 
