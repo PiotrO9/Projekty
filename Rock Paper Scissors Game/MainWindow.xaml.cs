@@ -21,7 +21,12 @@ namespace Rock_Paper_Scissors_Game
     /// </summary>
     public partial class MainWindow : Window
     {
-        private readonly MainWindowVM _vm = new MainWindowVM();
+        static Random rnd = new Random();
+
+        static int n1 = rnd.Next(1, 4);
+        static int n2 = rnd.Next(1, 4);
+
+        private readonly MainWindowVM _vm = new MainWindowVM(n1, n2);
 
         public MainWindow()
         {

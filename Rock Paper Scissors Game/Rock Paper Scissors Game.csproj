@@ -70,6 +70,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Engines\SetCorrectPath.cs" />
     <Compile Include="Models\Choice.cs" />
     <Compile Include="View models\MainWindowVM.cs" />
     <Page Include="MainWindow.xaml">
@@ -120,6 +121,11 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="images\Scissors.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\Cpaper.PNG" />
+    <Resource Include="images\Crock.PNG" />
+    <Resource Include="images\Cscissors.PNG" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
