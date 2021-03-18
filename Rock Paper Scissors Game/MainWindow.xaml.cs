@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Rock_Paper_Scissors_Game.View_models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,12 @@ namespace Rock_Paper_Scissors_Game
     /// </summary>
     public partial class MainWindow : Window
     {
+        private readonly MainWindowVM _vm = new MainWindowVM();
+
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = _vm;
         }
     }
 }
