@@ -99,8 +99,8 @@ namespace KalkulatorWPF
                 case "+":
                     {
                         if ((CheckIfAction.SearchAction(GetCurrentText()) == false))
-                            {
-                            
+                        {
+
                             MainText += "+";
                             ButtonLock();
                         }
@@ -109,13 +109,23 @@ namespace KalkulatorWPF
                             EqualCalculation();
                             MainText += "+";
                         }
-
 
                         break;
                     }
                 case "-":
                     {
-                        if ((CheckIfAction.SearchAction(GetCurrentText()) == false))
+                        if (string.IsNullOrEmpty(MainText) == true)
+                        {
+                            MainText += "-";
+                            ButtonLock();
+                        }
+                        else if (MainText[MainText.Length - 1] == '+' || MainText[MainText.Length - 1] == '*' || MainText[MainText.Length - 1] == '/' || MainText[MainText.Length - 1] == '-')
+                        {
+                            MainText += "-";
+                            ButtonLock();
+
+                        }
+                        else if ((CheckIfAction.SearchAction(GetCurrentText()) == false))
                         {
                             MainText += "-";
                             ButtonLock();
@@ -124,6 +134,7 @@ namespace KalkulatorWPF
                         {
                             EqualCalculation();
                             MainText += "-";
+                            ButtonLock();
                         }
                         break;
                     }

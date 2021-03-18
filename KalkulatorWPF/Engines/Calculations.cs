@@ -80,11 +80,11 @@ namespace KalkulatorWPF.Engines
                     }
                     else
                     {
-                        if(MainText[0] == '-')
+                        if (MainText[0] == '-')
                         {
                             for (int i = 1; i < MainText.Length; i++)
                             {
-                                if(MainText[i] == '-')
+                                if (MainText[i] == '-')
                                 {
                                     IndexOfAction = i;
                                     break;
@@ -122,7 +122,7 @@ namespace KalkulatorWPF.Engines
 
                     for (int i = 0; i < MainText.Length; i++)
                     {
-                        if(MainText[i] == '+' || MainText[i] == '*' || MainText[i] == '/')
+                        if (MainText[i] == '+' || MainText[i] == '*' || MainText[i] == '/')
                         {
                             IndexOfAction = i;
                             tempChar = MainText[i];
@@ -130,7 +130,7 @@ namespace KalkulatorWPF.Engines
                         }
                     }
 
-                    if(tempChar != ' ')
+                    if (tempChar != ' ')
                     {
                         for (int i = 0; i < MainText.Length; i++)
                         {
@@ -154,7 +154,7 @@ namespace KalkulatorWPF.Engines
 
                         for (int i = 0; i < MainText.Length; i++)
                         {
-                            if(MainText[i] == '-')
+                            if (MainText[i] == '-')
                             {
                                 IndexOfAction = i;
                                 break;

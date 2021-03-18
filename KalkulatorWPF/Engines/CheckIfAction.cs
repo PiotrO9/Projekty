@@ -12,14 +12,28 @@ namespace KalkulatorWPF.Engines
         {
             int minusCounter = 0;
 
+            bool IfOtherActionExist = false;
+
             string temp = actionText;
-            actionText = temp.Remove(actionText.Length - 1, 1);
+
+            if (string.IsNullOrEmpty(actionText) == true)
+            {
+                return false;
+            }
+            else if (temp.Length < 2)
+            {
+                return false;
+            }
+            else
+            {
+                actionText = temp.Remove(0, 1);
+            }
 
             foreach (var letter in actionText)
             {
                 if (letter == '+' || letter == '*' || letter == '/')
                 {
-                    return true; // True jeżeli działanie już wystąpiło
+                    IfOtherActionExist = true; // True jeżeli działanie już wystąpiło
                 }
 
                 if (letter == '-')
@@ -43,6 +57,19 @@ namespace KalkulatorWPF.Engines
                 }
             }
 
+            if (minusCounter > 0 && IfOtherActionExist == true)
+            {
+                return true;
+            }
+            else if (minusCounter == 0 && IfOtherActionExist == true)
+            {
+                return true;
+            }
+            else if (minusCounter == 1 && IfOtherActionExist == false)
+            {
+                return true;
+            }
+
 
             if (actionText.Length > 2)
             {
@@ -51,8 +78,6 @@ namespace KalkulatorWPF.Engines
                     return true;
                 }
             }
-
-
 
             return false;
         }
