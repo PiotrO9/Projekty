@@ -1,4 +1,5 @@
-﻿using Rock_Paper_Scissors_Game.View_models;
+﻿using Rock_Paper_Scissors_Game.Engines;
+using Rock_Paper_Scissors_Game.View_models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,6 +33,23 @@ namespace Rock_Paper_Scissors_Game
         {
             InitializeComponent();
             DataContext = _vm;
+        }
+
+        private void Firstimg_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (_vm.DisplayText == "Pick")
+            {
+                if (_vm.ImageNumber == 3)
+                {
+                    _vm.ImageNumber = 1;
+                }
+                else
+                {
+                    _vm.ImageNumber++;
+                }
+
+                _vm.ImagePathOfFirstPicture = SetCorrectPath.SetCorrectPathFunc(_vm.ImageNumber);
+            }
         }
     }
 }

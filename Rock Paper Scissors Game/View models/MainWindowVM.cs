@@ -15,6 +15,8 @@ namespace Rock_Paper_Scissors_Game.View_models
     {
         private string _displayText = "Start";
 
+        public int ImageNumber { get; set; } = 1;
+
         public string DisplayText
         {
             get { return _displayText; }
@@ -45,6 +47,21 @@ namespace Rock_Paper_Scissors_Game.View_models
             set { _isMainWindowEnabled = value; OnPropertyChanged(); }
         }
 
+        private string _firstLabelText = "0";
+
+        public string FirstLabelText
+        {
+            get { return _firstLabelText; }
+            set { _firstLabelText = value; OnPropertyChanged(); }
+        }
+
+        private string _secondLabelText = "0";
+
+        public string SecondLabelText
+        {
+            get { return _secondLabelText; }
+            set { _secondLabelText = value; OnPropertyChanged(); }
+        }
 
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -68,33 +85,91 @@ namespace Rock_Paper_Scissors_Game.View_models
             ButtonClickCommand = new RelayCommand(ButtonNumberClickCommandImpl);
 
             RandomImageGenerate = new RelayCommand(RandomImageGenerateImpl);
-
-            ImageClickCommand = new RelayCommand(ImageClickCommandImpl);
         }
 
         public void ButtonNumberClickCommandImpl()
         {
-            DisplayText = "Pick";
-
-            switch (ImagePathOfSecondPicture)
+            if (DisplayText != "Pick")
             {
-                case "images/paper.PNG":
-                    {
-                        ImagePathOfSecondPicture = "images/Cpaper.PNG";
+                DisplayText = "Pick";
+
+                switch (ImagePathOfSecondPicture)
+                {
+                    case "images/paper.PNG":
+                        {
+                            ImagePathOfSecondPicture = "images/Cpaper.PNG";
+                            break;
+                        }
+                    case "images/Rock.PNG":
+                        {
+                            ImagePathOfSecondPicture = "images/Crock.PNG";
+                            break;
+                        }
+                    case "images/Scissors.PNG":
+                        {
+                            ImagePathOfSecondPicture = "images/Cscissors.PNG";
+                            break;
+                        }
+                    default:
                         break;
-                    }
-                case "images/Rock.PNG":
-                    {
-                        ImagePathOfSecondPicture = "images/Crock.PNG";
-                        break;
-                    }
-                case "images/Scissors.PNG":
-                    {
-                        ImagePathOfSecondPicture = "images/Cscissors.PNG";
-                        break;
-                    }
-                default:
-                    break;
+                }
+            }
+            else
+            {
+                var rand = new Random();
+
+                int randomresult = rand.Next(1, 4);
+
+                ImagePathOfSecondPicture = SetCorrectPath.SetCorrectPathFunc(randomresult);
+
+                DisplayText = "Play again";
+
+                if (ImagePathOfFirstPicture == ImagePathOfSecondPicture)
+                {
+                    var temp = int.Parse(FirstLabelText);
+                    temp++;
+                    FirstLabelText = temp.ToString();
+
+                    temp = int.Parse(SecondLabelText);
+                    temp++;
+                    SecondLabelText = temp.ToString();
+                }
+                else if (ImagePathOfFirstPicture == "images/Rock.PNG" && ImagePathOfSecondPicture == "images/paper.PNG")
+                {
+                    var temp = int.Parse(SecondLabelText);
+                    temp++;
+                    SecondLabelText = temp.ToString();
+                }
+                else if (ImagePathOfFirstPicture == "images/Rock.PNG" && ImagePathOfSecondPicture == "images/Scissors.PNG")
+                {
+                    var temp = int.Parse(FirstLabelText);
+                    temp++;
+                    FirstLabelText = temp.ToString();
+                }
+                else if (ImagePathOfFirstPicture == "images/paper.PNG" && ImagePathOfSecondPicture == "images/Scissors.PNG")
+                {
+                    var temp = int.Parse(SecondLabelText);
+                    temp++;
+                    SecondLabelText = temp.ToString();
+                }
+                else if (ImagePathOfFirstPicture == "images/paper.PNG" && ImagePathOfSecondPicture == "images/Rock.PNG")
+                {
+                    var temp = int.Parse(FirstLabelText);
+                    temp++;
+                    FirstLabelText = temp.ToString();
+                }
+                else if (ImagePathOfFirstPicture == "images/Scissors.PNG" && ImagePathOfSecondPicture == "images/paper.PNG")
+                {
+                    var temp = int.Parse(FirstLabelText);
+                    temp++;
+                    FirstLabelText = temp.ToString();
+                }
+                else if (ImagePathOfFirstPicture == "images/Scissors.PNG" && ImagePathOfSecondPicture == "images/Rock.PNG")
+                {
+                    var temp = int.Parse(SecondLabelText);
+                    temp++;
+                    SecondLabelText = temp.ToString();
+                }
             }
         }
         public void RandomImageGenerateImpl()
@@ -107,9 +182,10 @@ namespace Rock_Paper_Scissors_Game.View_models
             ImagePathOfSecondPicture = SetCorrectPath.SetCorrectPathFunc(randomNumber);
         }
 
-        public void ImageClickCommandImpl()
+
+        public void HiddenButtonClickImpl()
         {
-            ImagePathOfFirstPicture = "images/Crock.PNG";
+
         }
 
     }
