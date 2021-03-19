@@ -31,5 +31,6 @@
         <Button x:Name="Mainbtn" Content="{Binding Path=DisplayText, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" 
                 Grid.Column="1" Grid.Row="1" Command="{Binding ButtonClickCommand}"
                  />
+
     </Grid>
 </Window>
