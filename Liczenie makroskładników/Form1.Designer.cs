@@ -53,11 +53,12 @@
             this.lblT = new System.Windows.Forms.Label();
             this.lblW = new System.Windows.Forms.Label();
             this.lblAdd1 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lblAdd2 = new System.Windows.Forms.Label();
+            this.lblAdd3 = new System.Windows.Forms.Label();
+            this.lblAdd4 = new System.Windows.Forms.Label();
+            this.lblAdd5 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -247,51 +248,56 @@
             this.lblAdd1.Text = "+";
             this.lblAdd1.Click += new System.EventHandler(this.lblAdd1_Click);
             // 
-            // label1
+            // lblAdd2
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(233, 155);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(22, 24);
-            this.label1.TabIndex = 16;
-            this.label1.Text = "+";
+            this.lblAdd2.AutoSize = true;
+            this.lblAdd2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblAdd2.Location = new System.Drawing.Point(233, 155);
+            this.lblAdd2.Name = "lblAdd2";
+            this.lblAdd2.Size = new System.Drawing.Size(22, 24);
+            this.lblAdd2.TabIndex = 16;
+            this.lblAdd2.Text = "+";
             // 
-            // label2
+            // lblAdd3
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label2.Location = new System.Drawing.Point(233, 273);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(22, 24);
-            this.label2.TabIndex = 17;
-            this.label2.Text = "+";
+            this.lblAdd3.AutoSize = true;
+            this.lblAdd3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblAdd3.Location = new System.Drawing.Point(233, 273);
+            this.lblAdd3.Name = "lblAdd3";
+            this.lblAdd3.Size = new System.Drawing.Size(22, 24);
+            this.lblAdd3.TabIndex = 17;
+            this.lblAdd3.Text = "+";
             // 
-            // label3
+            // lblAdd4
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label3.Location = new System.Drawing.Point(233, 406);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(22, 24);
-            this.label3.TabIndex = 18;
-            this.label3.Text = "+";
+            this.lblAdd4.AutoSize = true;
+            this.lblAdd4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblAdd4.Location = new System.Drawing.Point(233, 406);
+            this.lblAdd4.Name = "lblAdd4";
+            this.lblAdd4.Size = new System.Drawing.Size(22, 24);
+            this.lblAdd4.TabIndex = 18;
+            this.lblAdd4.Text = "+";
             // 
-            // label4
+            // lblAdd5
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label4.Location = new System.Drawing.Point(233, 531);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(22, 24);
-            this.label4.TabIndex = 19;
-            this.label4.Text = "+";
+            this.lblAdd5.AutoSize = true;
+            this.lblAdd5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblAdd5.Location = new System.Drawing.Point(233, 531);
+            this.lblAdd5.Name = "lblAdd5";
+            this.lblAdd5.Size = new System.Drawing.Size(22, 24);
+            this.lblAdd5.TabIndex = 19;
+            this.lblAdd5.Text = "+";
             // 
             // timer1
             // 
             this.timer1.Enabled = true;
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // timer2
+            // 
+            this.timer2.Enabled = true;
+            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
             // Form1
             // 
@@ -300,10 +306,10 @@
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.Teal;
             this.ClientSize = new System.Drawing.Size(318, 411);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblAdd5);
+            this.Controls.Add(this.lblAdd4);
+            this.Controls.Add(this.lblAdd3);
+            this.Controls.Add(this.lblAdd2);
             this.Controls.Add(this.lblAdd1);
             this.Controls.Add(this.lblW);
             this.Controls.Add(this.lblT);
@@ -357,11 +363,12 @@
         private System.Windows.Forms.Label lblT;
         private System.Windows.Forms.Label lblW;
         private System.Windows.Forms.Label lblAdd1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblAdd2;
+        private System.Windows.Forms.Label lblAdd3;
+        private System.Windows.Forms.Label lblAdd4;
+        private System.Windows.Forms.Label lblAdd5;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Timer timer2;
     }
 }
 

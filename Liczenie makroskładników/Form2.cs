@@ -107,9 +107,11 @@ namespace Liczenie_makroskładników
             //FileStream test =  File.OpenWrite("wybor.txt");
 
             StreamWriter streamW = new StreamWriter("wybor.txt");
-            streamW.WriteLine(tempString);
-            ;
+            streamW.Write(tempString);
+
             streamW.Close();
+
+            File.WriteAllText("IsForm2Opened.txt", "closed");
 
             this.Close();  
         }

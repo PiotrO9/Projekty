@@ -221,6 +221,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Empty project to practise",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rock Paper Scissors Game", "Rock Paper Scissors Game\Rock Paper Scissors Game.csproj", "{619BA876-38C1-4D12-8859-A9A4E336FE82}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dice Roll Simulator", "Dice Roll Simulator\Dice Roll Simulator.csproj", "{09A15B70-FF8D-4C04-B608-10243CE9F3B1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -647,6 +649,10 @@ Global
 		{619BA876-38C1-4D12-8859-A9A4E336FE82}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{619BA876-38C1-4D12-8859-A9A4E336FE82}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{619BA876-38C1-4D12-8859-A9A4E336FE82}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09A15B70-FF8D-4C04-B608-10243CE9F3B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09A15B70-FF8D-4C04-B608-10243CE9F3B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09A15B70-FF8D-4C04-B608-10243CE9F3B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09A15B70-FF8D-4C04-B608-10243CE9F3B1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -678,6 +684,7 @@ Global
 		{8C280993-4516-4A59-84FE-32758B9B4D6D} = {DA9ACA70-5D83-4212-B817-47EC90BEA105}
 		{3B311868-3FD8-4B49-84A4-6D8F8AFF55AD} = {DA9ACA70-5D83-4212-B817-47EC90BEA105}
 		{619BA876-38C1-4D12-8859-A9A4E336FE82} = {DA9ACA70-5D83-4212-B817-47EC90BEA105}
+		{09A15B70-FF8D-4C04-B608-10243CE9F3B1} = {DA9ACA70-5D83-4212-B817-47EC90BEA105}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {72C7B389-4144-4568-B93F-CFAD988CEABF}

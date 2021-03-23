@@ -15,7 +15,6 @@ namespace Liczenie_makroskładników
 {
     public partial class Form1 : Form
     {
-        //List<string> testing = new List<string>();
 
         Product CurrentProduct;
         int NumberOfClickedList = 0;
@@ -25,30 +24,41 @@ namespace Liczenie_makroskładników
             InitializeComponent();
             SetSettingsInListViews();
 
+            StreamWriter sw = new StreamWriter("wybor.txt");
+            sw.Write("");
+            sw.Close();
+
+            File.WriteAllText("IsForm2Opened.txt", "closed");
+
         }
 
         public void form2Opening()
         {
-            var form2 = new Form2();
+            Form2 form2 = new Form2();
+
+           File.WriteAllText("IsForm2Opened.txt", "opened");
+
             form2.Show();
         }
 
         private void lblAdd1_Click(object sender, EventArgs e)
         {
+            lblAdd1.Enabled = false;
             form2Opening();
             NumberOfClickedList = 1;
+            timer1.Enabled = false;
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
             string s = File.ReadAllText("wybor.txt");
 
-            if(s != string.Empty)
+            if (s != string.Empty && NumberOfClickedList != 0)
             {
                 CurrentProduct = ImportOneProduct.ImportSingleProduct(s);
             }
 
-            if(CheckIfFileIsEmpty.CheckIfEmpty(s) == false)
+            if (CheckIfFileIsEmpty.CheckIfEmpty(s) == false)
             {
                 Product product = CurrentProduct;
                 switch (NumberOfClickedList)
@@ -99,6 +109,15 @@ namespace Liczenie_makroskładników
             }
 
             NumberOfClickedList = 0;
+        }
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            if (CheckIfAnyButtonIsNotEnabled() == false && CheckIfForm2IsOpen() == false)
+            {
+                timer1.Enabled = true;
+                UnlockButtons();
+            }
         }
 
         private void SetSettingsInListViews()
@@ -169,9 +188,53 @@ namespace Liczenie_makroskładników
             listView5.Columns.RemoveAt(0);
         }
 
-        private void ClearFile()
+        private void LockButtons()
         {
-            ;
+            lblAdd1.Enabled = false;
+        }
+
+        private void UnlockButtons()
+        {
+            lblAdd1.Enabled = true;
+        }
+
+        public bool CheckIfAnyButtonIsNotEnabled()
+        {
+            if (lblAdd1.Enabled == false)
+            {
+                return false;
+            }
+            else if (lblAdd2.Enabled == false)
+            {
+                return false;
+            }
+            else if (lblAdd3.Enabled == false)
+            {
+                return false;
+            }
+            else if (lblAdd4.Enabled == false)
+            {
+                return false;
+            }
+            else if (lblAdd5.Enabled == false)
+            {
+                return false;
+            }
+            
+                return true; // true - wszystkie są dostępne
+        }
+
+        public bool CheckIfForm2IsOpen()
+        {
+
+            string temp = File.ReadAllText("IsForm2Opened.txt");
+
+            if(temp == "opened")
+            {
+                return true;
+            }
+
+            return false;
         }
 
     }
