@@ -67,9 +67,9 @@
             this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1});
             this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(12, 53);
+            this.listView1.Location = new System.Drawing.Point(10, 53);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(243, 83);
+            this.listView1.Size = new System.Drawing.Size(300, 83);
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
             // 
@@ -79,7 +79,7 @@
             this.opcjeToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(301, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(307, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -109,9 +109,9 @@
             this.listView2.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader2});
             this.listView2.HideSelection = false;
-            this.listView2.Location = new System.Drawing.Point(12, 187);
+            this.listView2.Location = new System.Drawing.Point(10, 187);
             this.listView2.Name = "listView2";
-            this.listView2.Size = new System.Drawing.Size(243, 83);
+            this.listView2.Size = new System.Drawing.Size(300, 83);
             this.listView2.TabIndex = 2;
             this.listView2.UseCompatibleStateImageBehavior = false;
             // 
@@ -120,9 +120,9 @@
             this.listView3.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader3});
             this.listView3.HideSelection = false;
-            this.listView3.Location = new System.Drawing.Point(12, 310);
+            this.listView3.Location = new System.Drawing.Point(10, 310);
             this.listView3.Name = "listView3";
-            this.listView3.Size = new System.Drawing.Size(243, 83);
+            this.listView3.Size = new System.Drawing.Size(300, 83);
             this.listView3.TabIndex = 3;
             this.listView3.UseCompatibleStateImageBehavior = false;
             // 
@@ -131,9 +131,9 @@
             this.listView4.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader4});
             this.listView4.HideSelection = false;
-            this.listView4.Location = new System.Drawing.Point(12, 433);
+            this.listView4.Location = new System.Drawing.Point(10, 433);
             this.listView4.Name = "listView4";
-            this.listView4.Size = new System.Drawing.Size(243, 83);
+            this.listView4.Size = new System.Drawing.Size(300, 83);
             this.listView4.TabIndex = 4;
             this.listView4.UseCompatibleStateImageBehavior = false;
             // 
@@ -142,9 +142,9 @@
             this.listView5.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader5});
             this.listView5.HideSelection = false;
-            this.listView5.Location = new System.Drawing.Point(12, 565);
+            this.listView5.Location = new System.Drawing.Point(10, 565);
             this.listView5.Name = "listView5";
-            this.listView5.Size = new System.Drawing.Size(243, 83);
+            this.listView5.Size = new System.Drawing.Size(300, 83);
             this.listView5.TabIndex = 5;
             this.listView5.UseCompatibleStateImageBehavior = false;
             // 
@@ -206,6 +206,7 @@
             this.btn1.TabIndex = 11;
             this.btn1.Text = "X";
             this.btn1.UseVisualStyleBackColor = true;
+            this.btn1.Click += new System.EventHandler(this.btn1_Click);
             // 
             // lblB
             // 
@@ -257,6 +258,7 @@
             this.lblAdd2.Size = new System.Drawing.Size(22, 24);
             this.lblAdd2.TabIndex = 16;
             this.lblAdd2.Text = "+";
+            this.lblAdd2.Click += new System.EventHandler(this.lblAdd2_Click);
             // 
             // lblAdd3
             // 
@@ -305,7 +307,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.Teal;
-            this.ClientSize = new System.Drawing.Size(318, 411);
+            this.ClientSize = new System.Drawing.Size(324, 411);
             this.Controls.Add(this.lblAdd5);
             this.Controls.Add(this.lblAdd4);
             this.Controls.Add(this.lblAdd3);

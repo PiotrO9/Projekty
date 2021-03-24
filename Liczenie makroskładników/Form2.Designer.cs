@@ -35,7 +35,7 @@
             // listView1
             // 
             this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(12, 48);
+            this.listView1.Location = new System.Drawing.Point(1, 48);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(321, 125);
             this.listView1.TabIndex = 2;
@@ -45,11 +45,11 @@
             // 
             // btnTest
             // 
-            this.btnTest.Location = new System.Drawing.Point(136, 179);
+            this.btnTest.Location = new System.Drawing.Point(119, 179);
             this.btnTest.Name = "btnTest";
             this.btnTest.Size = new System.Drawing.Size(77, 37);
             this.btnTest.TabIndex = 3;
-            this.btnTest.Text = "1";
+            this.btnTest.Text = "Wybierz";
             this.btnTest.UseVisualStyleBackColor = true;
             this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
             // 
@@ -57,12 +57,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(345, 228);
+            this.ClientSize = new System.Drawing.Size(324, 228);
             this.Controls.Add(this.btnTest);
             this.Controls.Add(this.listView1);
             this.Name = "Form2";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form2";
+            this.Text = "Wybierz produkt";
             this.Load += new System.EventHandler(this.Form2_Load);
             this.Shown += new System.EventHandler(this.Form2_Shown);
             this.ResumeLayout(false);

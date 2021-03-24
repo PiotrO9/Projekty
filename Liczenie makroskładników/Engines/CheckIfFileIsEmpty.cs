@@ -11,7 +11,7 @@ namespace Liczenie_makroskładników.Engines
     {
         public static bool CheckIfEmpty(string s)
         {
-            if (s.Length == 0) // jeżeli pusty to true
+            if (s == string.Empty) // jeżeli pusty to true
             {
                 return true;
             }

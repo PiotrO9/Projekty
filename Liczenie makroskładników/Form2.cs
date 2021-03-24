@@ -113,7 +113,11 @@ namespace Liczenie_makroskładników
 
             File.WriteAllText("IsForm2Opened.txt", "closed");
 
-            this.Close();  
+            this.Close();
+
+            Form3 form3 = new Form3();
+
+            form3.Show();
         }
 
         private void listView1_ItemActivate(object sender, EventArgs e)
