@@ -19,6 +19,9 @@ namespace Liczenie_makroskładników
         Product CurrentProduct;
         public int NumberOfClickedList = 0;
 
+        int[] NumberOfClickedItemInLists = new int[5];
+        bool[] IsNumberOfClickedItemInListsChanged = new bool[5];
+
         public Form1()
         {
             InitializeComponent();
@@ -54,7 +57,30 @@ namespace Liczenie_makroskładników
             NumberOfClickedList = 2;
             lblAdd2.Enabled = false;
             form2Opening();
-            timer2.Enabled = false;
+            timer1.Enabled = false;
+        }
+
+        private void lblAdd3_Click(object sender, EventArgs e)
+        {
+            NumberOfClickedList = 3;
+            lblAdd3.Enabled = false;
+            form2Opening();
+            timer1.Enabled = false;
+        }
+        private void lblAdd4_Click(object sender, EventArgs e)
+        {
+            NumberOfClickedList = 4;
+            lblAdd4.Enabled = false;
+            form2Opening();
+            timer1.Enabled = false;
+        }
+
+        private void lblAdd5_Click(object sender, EventArgs e)
+        {
+            NumberOfClickedList = 5;
+            lblAdd5.Enabled = false;
+            form2Opening();
+            timer1.Enabled = false;
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -71,15 +97,15 @@ namespace Liczenie_makroskładników
 
                     string[] arg = new string[7];
 
-                    int amountOfGrams = int.Parse(File.ReadAllText("ilosc.txt"));
+                    float amountOfGrams = float.Parse(File.ReadAllText("ilosc.txt"));
 
                     float floatingAmount = amountOfGrams / 100;
 
                     arg[0] = product.Name;
                     arg[1] = amountOfGrams.ToString();
-                    arg[2] = (product.B * floatingAmount).ToString();
-                    arg[3] = (product.T * floatingAmount ).ToString();
-                    arg[4] = (product.W * floatingAmount).ToString();
+                    arg[2] = Math.Round(product.B * floatingAmount,1).ToString();
+                    arg[3] = Math.Round(product.T * floatingAmount,1).ToString();
+                    arg[4] = Math.Round(product.W * floatingAmount,1).ToString();
                     arg[5] = (product.Kcal * floatingAmount).ToString();
                     arg[6] = product.Barcode.ToString();
 
@@ -92,27 +118,36 @@ namespace Liczenie_makroskładników
                         case 1:
                             {
                                 listView1.Items.Add(itm);
-
+                                listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+                                CalculateMacros();
                                 break;
                             }
                         case 2:
                             {
                                 listView2.Items.Add(itm);
+                                listView2.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+                                CalculateMacros();
                                 break;
                             }
                         case 3:
                             {
                                 listView3.Items.Add(itm);
+                                listView3.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+                                CalculateMacros();
                                 break;
                             }
                         case 4:
                             {
                                 listView4.Items.Add(itm);
+                                listView4.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+                                CalculateMacros();
                                 break;
                             }
                         case 5:
                             {
                                 listView5.Items.Add(itm);
+                                listView5.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+                                CalculateMacros();
                                 break;
                             }
                         default:
@@ -120,12 +155,14 @@ namespace Liczenie_makroskładników
                     }
                 }
                 NumberOfClickedList = 0;
+                File.WriteAllText("wybor.txt","");
+                File.WriteAllText("ilosc.txt", "");
             }
         }
 
         private void timer2_Tick(object sender, EventArgs e)
         {
-            if (CheckIfAnyButtonIsNotEnabled() == false && CheckIfForm2IsOpen() == false)
+            if(CheckIfAnyButtonIsNotEnabled() == false && CheckIfForm2IsOpen() == false && CheckIfFileIsNotZero.CheckIfFileIsNotZeroFunction() == true) // Tutaj sprawdzić czy 3 forma jest zamknięta
             {
                 timer1.Enabled = true;
                 UnlockButtons();
@@ -147,12 +184,14 @@ namespace Liczenie_makroskładników
             listView1.Columns.Add("Kod kreskowy", 90);
 
             listView1.Columns.RemoveAt(0);
+
             //
             listView2.View = View.Details;
             listView2.GridLines = true;
             listView2.FullRowSelect = true;
 
             listView2.Columns.Add("Produkt", 100);
+            listView2.Columns.Add("G", 35);
             listView2.Columns.Add("B", 35);
             listView2.Columns.Add("T", 35);
             listView2.Columns.Add("W", 35);
@@ -166,6 +205,7 @@ namespace Liczenie_makroskładników
             listView3.FullRowSelect = true;
 
             listView3.Columns.Add("Produkt", 100);
+            listView3.Columns.Add("G", 35);
             listView3.Columns.Add("B", 35);
             listView3.Columns.Add("T", 35);
             listView3.Columns.Add("W", 35);
@@ -179,6 +219,7 @@ namespace Liczenie_makroskładników
             listView4.FullRowSelect = true;
 
             listView4.Columns.Add("Produkt", 100);
+            listView4.Columns.Add("G", 35);
             listView4.Columns.Add("B", 35);
             listView4.Columns.Add("T", 35);
             listView4.Columns.Add("W", 35);
@@ -192,6 +233,7 @@ namespace Liczenie_makroskładników
             listView5.FullRowSelect = true;
 
             listView5.Columns.Add("Produkt", 100);
+            listView5.Columns.Add("G", 35);
             listView5.Columns.Add("B", 35);
             listView5.Columns.Add("T", 35);
             listView5.Columns.Add("W", 35);
@@ -201,14 +243,13 @@ namespace Liczenie_makroskładników
             listView5.Columns.RemoveAt(0);
         }
 
-        private void LockButtons()
-        {
-            lblAdd1.Enabled = false;
-        }
-
         private void UnlockButtons()
         {
             lblAdd1.Enabled = true;
+            lblAdd2.Enabled = true;
+            lblAdd3.Enabled = true;
+            lblAdd4.Enabled = true;
+            lblAdd5.Enabled = true;
         }
 
         public bool CheckIfAnyButtonIsNotEnabled()
@@ -235,13 +276,193 @@ namespace Liczenie_makroskładników
             return false;
         }
 
-        private void btn1_Click(object sender, EventArgs e)
+        private void CalculateMacros()
         {
-            Form3 form3 = new Form3();
-
-            form3.Show();
+            lblBscore.Text = CalculateB().ToString();
+            lblTscore.Text = CalculateT().ToString();
+            lblWscore.Text = CalculateW().ToString();
+            lblKcalscore.Text = CalculateKcal().ToString();
         }
 
-        
+        private float CalculateB()
+        {
+            float sum = 0;
+
+            List<ListView> listOfListViews = new List<ListView>();
+            listOfListViews.Add(listView1);
+            listOfListViews.Add(listView2);
+            listOfListViews.Add(listView3);
+            listOfListViews.Add(listView4);
+            listOfListViews.Add(listView5);
+
+            foreach (var list in listOfListViews)
+            {
+                for (int i = 0; i < list.Items.Count; i++)
+                {
+                    var temp = list.Items[i].SubItems[2];
+                    sum += float.Parse(temp.Text);
+                }
+            }
+            return sum;
+        }
+
+        private float CalculateT()
+        {
+            float sum = 0;
+
+            List<ListView> listOfListViews = new List<ListView>();
+            listOfListViews.Add(listView1);
+            listOfListViews.Add(listView2);
+            listOfListViews.Add(listView3);
+            listOfListViews.Add(listView4);
+            listOfListViews.Add(listView5);
+
+            foreach (var list in listOfListViews)
+            {
+                for (int i = 0; i < list.Items.Count; i++)
+                {
+                    var temp = list.Items[i].SubItems[3];
+                    sum += float.Parse(temp.Text);
+                }
+            }
+            return sum;
+        }
+
+        private float CalculateW()
+        {
+            float sum = 0;
+
+            List<ListView> listOfListViews = new List<ListView>();
+            listOfListViews.Add(listView1);
+            listOfListViews.Add(listView2);
+            listOfListViews.Add(listView3);
+            listOfListViews.Add(listView4);
+            listOfListViews.Add(listView5);
+
+            foreach (var list in listOfListViews)
+            {
+                for (int i = 0; i < list.Items.Count; i++)
+                {
+                    var temp = list.Items[i].SubItems[4];
+                    sum += float.Parse(temp.Text);
+                }
+            }
+            return sum;
+        }
+        private float CalculateKcal()
+        {
+            float sum = 0;
+
+            List<ListView> listOfListViews = new List<ListView>();
+            listOfListViews.Add(listView1);
+            listOfListViews.Add(listView2);
+            listOfListViews.Add(listView3);
+            listOfListViews.Add(listView4);
+            listOfListViews.Add(listView5);
+
+            foreach (var list in listOfListViews)
+            {
+                for (int i = 0; i < list.Items.Count; i++)
+                {
+                    var temp = list.Items[i].SubItems[5];
+                    sum += float.Parse(temp.Text);
+                }
+            }
+            return sum;
+        }
+        private void btnLW1del_Click(object sender, EventArgs e)
+        {
+            if(IsNumberOfClickedItemInListsChanged[0] == true)
+            {
+                listView1.Items.RemoveAt(NumberOfClickedItemInLists[0]);
+                NumberOfClickedItemInLists[0] = 0;
+                IsNumberOfClickedItemInListsChanged[0] = false;
+                CalculateMacros();
+            } 
+        }
+
+        private void btnLW2del_Click(object sender, EventArgs e)
+        {
+            if (IsNumberOfClickedItemInListsChanged[1] == true)
+            {
+                listView2.Items.RemoveAt(NumberOfClickedItemInLists[1]);
+                NumberOfClickedItemInLists[1] = 0;
+                IsNumberOfClickedItemInListsChanged[1] = false;
+                CalculateMacros();
+            }
+        }
+
+        private void btnLW3del_Click(object sender, EventArgs e)
+        {
+            if (IsNumberOfClickedItemInListsChanged[2] == true)
+            {
+                listView3.Items.RemoveAt(NumberOfClickedItemInLists[2]);
+                NumberOfClickedItemInLists[2] = 0;
+                IsNumberOfClickedItemInListsChanged[2] = false;
+                CalculateMacros();
+            }
+        }
+
+        private void btnLW4del_Click(object sender, EventArgs e)
+        {
+            if (IsNumberOfClickedItemInListsChanged[3] == true)
+            {
+                listView4.Items.RemoveAt(NumberOfClickedItemInLists[3]);
+                NumberOfClickedItemInLists[3] = 0;
+                IsNumberOfClickedItemInListsChanged[3] = false;
+                CalculateMacros();
+            }
+        }
+
+        private void btnLW5del_Click(object sender, EventArgs e)
+        {
+            if (IsNumberOfClickedItemInListsChanged[4] == true)
+            {
+                listView5.Items.RemoveAt(NumberOfClickedItemInLists[4]);
+                NumberOfClickedItemInLists[4] = 0;
+                IsNumberOfClickedItemInListsChanged[4] = false;
+                CalculateMacros();
+            }
+        }
+
+        private void listView1_Click(object sender, EventArgs e)
+        {
+            var temp = listView1.SelectedItems[0];
+            int numberOfIndex = temp.Index;
+            NumberOfClickedItemInLists[0] = numberOfIndex;
+            IsNumberOfClickedItemInListsChanged[0] = true;
+        }
+
+        private void listView2_Click(object sender, EventArgs e)
+        {
+            var temp = listView2.SelectedItems[0];
+            int numberOfIndex = temp.Index;
+            NumberOfClickedItemInLists[1] = numberOfIndex;
+            IsNumberOfClickedItemInListsChanged[1] = true;
+        }
+
+        private void listView3_Click(object sender, EventArgs e)
+        {
+            var temp = listView3.SelectedItems[0];
+            int numberOfIndex = temp.Index;
+            NumberOfClickedItemInLists[2] = numberOfIndex;
+            IsNumberOfClickedItemInListsChanged[2] = true;
+        }
+
+        private void listView4_Click(object sender, EventArgs e)
+        {
+            var temp = listView4.SelectedItems[0];
+            int numberOfIndex = temp.Index;
+            NumberOfClickedItemInLists[3] = numberOfIndex;
+            IsNumberOfClickedItemInListsChanged[3] = true;
+        }
+
+        private void listView5_Click(object sender, EventArgs e)
+        {
+            var temp = listView5.SelectedItems[0];
+            int numberOfIndex = temp.Index;
+            NumberOfClickedItemInLists[4] = numberOfIndex;
+            IsNumberOfClickedItemInListsChanged[4] = true;
+        }
     }
 }

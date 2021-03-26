@@ -20,7 +20,7 @@ namespace Liczenie_makroskładników
         public Form2()
         {
             InitializeComponent();
-            
+            btnTest.Enabled = false;
         }
 
         private void Form2_Shown(object sender, EventArgs e)
@@ -52,29 +52,11 @@ namespace Liczenie_makroskładników
                 var itm = new ListViewItem(arg);
                 listView1.Items.Add(itm);
             }
-
-            //string[] arg = new string[4];
-            //var itm = new ListViewItem(arg);
-
-            //arg[0] = "test1";
-            //arg[1] = "3";
-            //arg[2] = "4";
-            //arg[3] = "5.76";
-
-            //itm = new ListViewItem(arg);
-            //listView1.Items.Add(itm);
-
-            //arg[0] = "test2";
-            //arg[1] = "5";
-            //arg[2] = "6.8";
-            //arg[3] = "5.7";
-
-            //itm = new ListViewItem(arg);
-            //listView1.Items.Add(itm);
         }
 
         private void listView1_Click(object sender, EventArgs e)
         {
+            btnTest.Enabled = true;
             var temp = listView1.SelectedItems[0];
 
             Product product = new Product();
