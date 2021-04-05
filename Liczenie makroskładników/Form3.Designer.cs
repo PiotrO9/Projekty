@@ -161,6 +161,7 @@ namespace Liczenie_makroskładników
             this.Controls.Add(this.btn1);
             this.Controls.Add(this.textBox1);
             this.Name = "Form3";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Wybierz ilość";
             this.ResumeLayout(false);
             this.PerformLayout();

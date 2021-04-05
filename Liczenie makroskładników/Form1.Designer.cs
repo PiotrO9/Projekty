@@ -89,7 +89,7 @@
             this.opcjeToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(353, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(360, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -105,14 +105,16 @@
             // dodajPosiłekToolStripMenuItem
             // 
             this.dodajPosiłekToolStripMenuItem.Name = "dodajPosiłekToolStripMenuItem";
-            this.dodajPosiłekToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
+            this.dodajPosiłekToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.dodajPosiłekToolStripMenuItem.Text = "Dodaj posiłek";
+            this.dodajPosiłekToolStripMenuItem.Click += new System.EventHandler(this.dodajPosiłekToolStripMenuItem_Click);
             // 
             // wyczyśćToolStripMenuItem
             // 
             this.wyczyśćToolStripMenuItem.Name = "wyczyśćToolStripMenuItem";
-            this.wyczyśćToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
+            this.wyczyśćToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.wyczyśćToolStripMenuItem.Text = "Wyczyść";
+            this.wyczyśćToolStripMenuItem.Click += new System.EventHandler(this.wyczyśćToolStripMenuItem_Click);
             // 
             // listView2
             // 
@@ -323,36 +325,36 @@
             this.lblBscore.AutoSize = true;
             this.lblBscore.Location = new System.Drawing.Point(47, 657);
             this.lblBscore.Name = "lblBscore";
-            this.lblBscore.Size = new System.Drawing.Size(31, 13);
+            this.lblBscore.Size = new System.Drawing.Size(13, 13);
             this.lblBscore.TabIndex = 21;
-            this.lblBscore.Text = "testB";
+            this.lblBscore.Text = "0";
             // 
             // lblTscore
             // 
             this.lblTscore.AutoSize = true;
             this.lblTscore.Location = new System.Drawing.Point(114, 657);
             this.lblTscore.Name = "lblTscore";
-            this.lblTscore.Size = new System.Drawing.Size(31, 13);
+            this.lblTscore.Size = new System.Drawing.Size(13, 13);
             this.lblTscore.TabIndex = 22;
-            this.lblTscore.Text = "testT";
+            this.lblTscore.Text = "0";
             // 
             // lblWscore
             // 
             this.lblWscore.AutoSize = true;
             this.lblWscore.Location = new System.Drawing.Point(187, 657);
             this.lblWscore.Name = "lblWscore";
-            this.lblWscore.Size = new System.Drawing.Size(35, 13);
+            this.lblWscore.Size = new System.Drawing.Size(13, 13);
             this.lblWscore.TabIndex = 23;
-            this.lblWscore.Text = "testW";
+            this.lblWscore.Text = "0";
             // 
             // lblKcalscore
             // 
             this.lblKcalscore.AutoSize = true;
             this.lblKcalscore.Location = new System.Drawing.Point(277, 657);
             this.lblKcalscore.Name = "lblKcalscore";
-            this.lblKcalscore.Size = new System.Drawing.Size(45, 13);
+            this.lblKcalscore.Size = new System.Drawing.Size(13, 13);
             this.lblKcalscore.TabIndex = 24;
-            this.lblKcalscore.Text = "testKcal";
+            this.lblKcalscore.Text = "0";
             // 
             // btnLW1del
             // 

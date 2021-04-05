@@ -464,5 +464,21 @@ namespace Liczenie_makroskładników
             NumberOfClickedItemInLists[4] = numberOfIndex;
             IsNumberOfClickedItemInListsChanged[4] = true;
         }
+
+        private void wyczyśćToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            listView1.Items.Clear();
+            listView2.Items.Clear();
+            listView3.Items.Clear();
+            listView4.Items.Clear();
+            listView5.Items.Clear();
+            CalculateMacros();
+        }
+
+        private void dodajPosiłekToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form4 form4 = new Form4();
+            form4.Show();
+        }
     }
 }
