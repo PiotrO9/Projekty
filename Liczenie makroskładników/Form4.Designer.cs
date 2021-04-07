@@ -39,20 +39,20 @@ namespace Liczenie_makroskładników
             this.lblW = new System.Windows.Forms.Label();
             this.lblKcal = new System.Windows.Forms.Label();
             this.txtBoxName = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtBoxBarCode = new System.Windows.Forms.TextBox();
             this.lblName = new System.Windows.Forms.Label();
             this.lblBarCode = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnConfirm
             // 
-            this.btnConfirm.Enabled = false;
             this.btnConfirm.Location = new System.Drawing.Point(122, 146);
             this.btnConfirm.Name = "btnConfirm";
             this.btnConfirm.Size = new System.Drawing.Size(75, 23);
             this.btnConfirm.TabIndex = 0;
             this.btnConfirm.Text = "Dodaj";
             this.btnConfirm.UseVisualStyleBackColor = true;
+            this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
             // 
             // txtBoxB
             // 
@@ -68,6 +68,7 @@ namespace Liczenie_makroskładników
             this.txtBoxT.Name = "txtBoxT";
             this.txtBoxT.Size = new System.Drawing.Size(36, 20);
             this.txtBoxT.TabIndex = 2;
+            this.txtBoxT.TextChanged += new System.EventHandler(this.txtBoxT_TextChanged);
             // 
             // txtBoxW
             // 
@@ -75,6 +76,7 @@ namespace Liczenie_makroskładników
             this.txtBoxW.Name = "txtBoxW";
             this.txtBoxW.Size = new System.Drawing.Size(36, 20);
             this.txtBoxW.TabIndex = 3;
+            this.txtBoxW.TextChanged += new System.EventHandler(this.txtBoxW_TextChanged);
             // 
             // txtBoxKcal
             // 
@@ -127,12 +129,12 @@ namespace Liczenie_makroskładników
             this.txtBoxName.Size = new System.Drawing.Size(90, 20);
             this.txtBoxName.TabIndex = 9;
             // 
-            // textBox1
+            // txtBoxBarCode
             // 
-            this.textBox1.Location = new System.Drawing.Point(185, 112);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(90, 20);
-            this.textBox1.TabIndex = 10;
+            this.txtBoxBarCode.Location = new System.Drawing.Point(185, 112);
+            this.txtBoxBarCode.Name = "txtBoxBarCode";
+            this.txtBoxBarCode.Size = new System.Drawing.Size(90, 20);
+            this.txtBoxBarCode.TabIndex = 10;
             // 
             // lblName
             // 
@@ -159,7 +161,7 @@ namespace Liczenie_makroskładników
             this.ClientSize = new System.Drawing.Size(324, 181);
             this.Controls.Add(this.lblBarCode);
             this.Controls.Add(this.lblName);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtBoxBarCode);
             this.Controls.Add(this.txtBoxName);
             this.Controls.Add(this.lblKcal);
             this.Controls.Add(this.lblW);
@@ -189,7 +191,7 @@ namespace Liczenie_makroskładników
         private System.Windows.Forms.Label lblW;
         private System.Windows.Forms.Label lblKcal;
         private System.Windows.Forms.TextBox txtBoxName;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtBoxBarCode;
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Label lblBarCode;
     }

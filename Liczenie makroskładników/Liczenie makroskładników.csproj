@@ -46,13 +46,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Engines\AddProduct.cs" />
+    <Compile Include="Engines\CheckIfAllStatementsAreTrue.cs" />
     <Compile Include="Engines\CheckIfFileIsEmpty.cs" />
     <Compile Include="Engines\CheckIfFileIsNotZero.cs" />
-    <Compile Include="Engines\CheckIfStringIsCorrect.cs" />
     <Compile Include="Engines\ImportOneProduct.cs" />
     <Compile Include="Engines\ImportProductsToList.cs" />
     <Compile Include="Engines\ProductToText.cs" />
-    <Compile Include="Engines\StringContainFlaotingPoint.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
