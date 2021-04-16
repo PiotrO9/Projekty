@@ -480,5 +480,118 @@ namespace Liczenie_makroskładników
             Form4 form4 = new Form4();
             form4.Show();
         }
+
+        private void odczytToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var fileContent = string.Empty;
+            var filePath = string.Empty;
+
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+
+            string directory = AppDomain.CurrentDomain.BaseDirectory;
+            openFileDialog.InitialDirectory = directory + "odczyt";
+            openFileDialog.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
+            openFileDialog.RestoreDirectory = true;
+
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                filePath = openFileDialog.FileName;
+
+                var fileStream = openFileDialog.OpenFile();
+
+                StreamReader reader = new StreamReader(fileStream);
+                fileContent = reader.ReadToEnd();
+
+               var ListOfWords = TextToList.method(fileContent);
+                
+         
+
+            }
+            else
+            {
+                MessageBox.Show("Wystąpił błąd otwierania pliku");
+            }
+        }
+
+        private void zapisToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string CurrentTime = GetCurrentTime.GetCurrentTimeFunction();
+            CurrentTime += ".txt";
+            string directory = AppDomain.CurrentDomain.BaseDirectory;
+
+            directory = directory.Remove(directory.Length - 1, 1);
+
+            string path = @"odczyt\" + CurrentTime;
+
+            File.CreateText(path);
+            
+
+            ;
+
+            List<ListView> ListOfLists = new List<ListView>();
+
+            ListOfLists.Add(listView1);
+            ListOfLists.Add(listView2);
+            ListOfLists.Add(listView3);
+            ListOfLists.Add(listView4);
+            ListOfLists.Add(listView5);
+
+            
+
+            foreach (var item in ListOfLists)
+            {
+                for (int i = 0; i < item.Items.Count; i++)
+                {
+                    string temp = "";
+
+                    temp += item.Items[i].SubItems[0];
+                    temp += ";";
+                    temp += item.Items[i].SubItems[1];
+                    temp += ";";
+                    temp += item.Items[i].SubItems[2];
+                    temp += ";";
+                    temp += item.Items[i].SubItems[3];
+                    temp += ";";
+                    temp += item.Items[i].SubItems[4];
+                    temp += ";";
+                    temp += item.Items[i].SubItems[5];
+                    temp += ";";
+                    temp += item.Items[i].SubItems[6];
+                    temp += ";";
+
+                    // dodanie do
+                }
+            }
+
+        }
+
+        private void AddProductToEspeciallyList(int n,string s)
+        {
+            Product product = ImportOneProduct.ImportSingleProduct(s);
+
+            string[] arg = new string[7];
+
+            arg[0] = product.Name;
+            arg[1] = "test";
+            arg[2] = product.B.ToString();
+            arg[3] = product.T.ToString();
+            arg[4] = product.W.ToString();
+            arg[5] = product.Kcal.ToString();
+            arg[6] = product.Barcode.ToString();
+
+            var itm = new ListViewItem(arg);
+            switch (n)
+            {
+                case 1:
+                    {
+                        listView1.Items.Add(itm);
+                        break;
+                    }
+
+                default:
+                    break;
+            }
+        }
     }
 }

@@ -50,9 +50,11 @@
     <Compile Include="Engines\CheckIfAllStatementsAreTrue.cs" />
     <Compile Include="Engines\CheckIfFileIsEmpty.cs" />
     <Compile Include="Engines\CheckIfFileIsNotZero.cs" />
+    <Compile Include="Engines\GetCurrentTime.cs" />
     <Compile Include="Engines\ImportOneProduct.cs" />
     <Compile Include="Engines\ImportProductsToList.cs" />
     <Compile Include="Engines\ProductToText.cs" />
+    <Compile Include="Engines\TextToList.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

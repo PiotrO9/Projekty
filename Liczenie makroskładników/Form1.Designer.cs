@@ -68,6 +68,9 @@
             this.btnLW3del = new System.Windows.Forms.Button();
             this.btnLW4del = new System.Windows.Forms.Button();
             this.btnLW5del = new System.Windows.Forms.Button();
+            this.zapisodczytToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.zapisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.odczytToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -97,7 +100,8 @@
             // 
             this.opcjeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.dodajPosiłekToolStripMenuItem,
-            this.wyczyśćToolStripMenuItem});
+            this.wyczyśćToolStripMenuItem,
+            this.zapisodczytToolStripMenuItem});
             this.opcjeToolStripMenuItem.Name = "opcjeToolStripMenuItem";
             this.opcjeToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
             this.opcjeToolStripMenuItem.Text = "Opcje";
@@ -105,14 +109,14 @@
             // dodajPosiłekToolStripMenuItem
             // 
             this.dodajPosiłekToolStripMenuItem.Name = "dodajPosiłekToolStripMenuItem";
-            this.dodajPosiłekToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.dodajPosiłekToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.dodajPosiłekToolStripMenuItem.Text = "Dodaj posiłek";
             this.dodajPosiłekToolStripMenuItem.Click += new System.EventHandler(this.dodajPosiłekToolStripMenuItem_Click);
             // 
             // wyczyśćToolStripMenuItem
             // 
             this.wyczyśćToolStripMenuItem.Name = "wyczyśćToolStripMenuItem";
-            this.wyczyśćToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.wyczyśćToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.wyczyśćToolStripMenuItem.Text = "Wyczyść";
             this.wyczyśćToolStripMenuItem.Click += new System.EventHandler(this.wyczyśćToolStripMenuItem_Click);
             // 
@@ -416,13 +420,36 @@
             this.btnLW5del.UseVisualStyleBackColor = true;
             this.btnLW5del.Click += new System.EventHandler(this.btnLW5del_Click);
             // 
+            // zapisodczytToolStripMenuItem
+            // 
+            this.zapisodczytToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.zapisToolStripMenuItem,
+            this.odczytToolStripMenuItem});
+            this.zapisodczytToolStripMenuItem.Name = "zapisodczytToolStripMenuItem";
+            this.zapisodczytToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.zapisodczytToolStripMenuItem.Text = "Zapis/odczyt";
+            // 
+            // zapisToolStripMenuItem
+            // 
+            this.zapisToolStripMenuItem.Name = "zapisToolStripMenuItem";
+            this.zapisToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.zapisToolStripMenuItem.Text = "Zapis";
+            this.zapisToolStripMenuItem.Click += new System.EventHandler(this.zapisToolStripMenuItem_Click);
+            // 
+            // odczytToolStripMenuItem
+            // 
+            this.odczytToolStripMenuItem.Name = "odczytToolStripMenuItem";
+            this.odczytToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.odczytToolStripMenuItem.Text = "Odczyt";
+            this.odczytToolStripMenuItem.Click += new System.EventHandler(this.odczytToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.Teal;
-            this.ClientSize = new System.Drawing.Size(370, 449);
+            this.ClientSize = new System.Drawing.Size(325, 415);
             this.Controls.Add(this.btnLW5del);
             this.Controls.Add(this.btnLW4del);
             this.Controls.Add(this.btnLW3del);
@@ -452,7 +479,10 @@
             this.Controls.Add(this.listView2);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.menuStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.menuStrip1;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Liczenie kalorii";
@@ -504,6 +534,9 @@
         private System.Windows.Forms.Button btnLW3del;
         private System.Windows.Forms.Button btnLW4del;
         private System.Windows.Forms.Button btnLW5del;
+        private System.Windows.Forms.ToolStripMenuItem zapisodczytToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem zapisToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem odczytToolStripMenuItem;
     }
 }
 

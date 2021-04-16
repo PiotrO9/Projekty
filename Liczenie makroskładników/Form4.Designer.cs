@@ -172,6 +172,9 @@ namespace Liczenie_makroskładników
             this.Controls.Add(this.txtBoxT);
             this.Controls.Add(this.txtBoxB);
             this.Controls.Add(this.btnConfirm);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Form4";
             this.Text = "Dodaj produkt";
             this.ResumeLayout(false);
