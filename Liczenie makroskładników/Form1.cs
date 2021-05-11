@@ -496,6 +496,13 @@ namespace Liczenie_makroskładników
 
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
+                listView1.Items.Clear();
+                listView2.Items.Clear();
+                listView3.Items.Clear();
+                listView4.Items.Clear();
+                listView5.Items.Clear();
+                CalculateMacros();
+
                 filePath = openFileDialog.FileName;
 
                 var fileStream = openFileDialog.OpenFile();
@@ -504,7 +511,28 @@ namespace Liczenie_makroskładników
                 fileContent = reader.ReadToEnd();
 
                var ListOfWords = TextToList.method(fileContent);
-                
+
+                int i = 1;
+
+                foreach (var item in ListOfWords)
+                {
+                    if(item == "###")
+                    {
+                        i++;
+                    }
+                    else
+                    {
+                       ProductAndGrams ProductAndGrams = ExtendedTextToProduct.ExtendedTextToProductFunction(item);
+
+                        Product product = ProductAndGrams.product;
+
+                        string ConvertedProduct = ProductToText.ConvertProductIntoText(product);
+
+                        AddProductToEspeciallyList(ProductAndGrams.grams,ConvertedProduct,i);
+
+                        CalculateMacros();
+                    }
+                }
          
 
             }
@@ -524,10 +552,7 @@ namespace Liczenie_makroskładników
 
             string path = @"odczyt\" + CurrentTime;
 
-            File.CreateText(path);
-            
-
-            ;
+            File.CreateText(path).Close();
 
             List<ListView> ListOfLists = new List<ListView>();
 
@@ -537,7 +562,6 @@ namespace Liczenie_makroskładników
             ListOfLists.Add(listView4);
             ListOfLists.Add(listView5);
 
-            
 
             foreach (var item in ListOfLists)
             {
@@ -545,35 +569,54 @@ namespace Liczenie_makroskładników
                 {
                     string temp = "";
 
-                    temp += item.Items[i].SubItems[0];
+                    temp += item.Items[i].SubItems[0].Text;
                     temp += ";";
-                    temp += item.Items[i].SubItems[1];
+                    temp += item.Items[i].SubItems[1].Text;
                     temp += ";";
-                    temp += item.Items[i].SubItems[2];
+                    temp += item.Items[i].SubItems[2].Text;
                     temp += ";";
-                    temp += item.Items[i].SubItems[3];
+                    temp += item.Items[i].SubItems[3].Text;
                     temp += ";";
-                    temp += item.Items[i].SubItems[4];
+                    temp += item.Items[i].SubItems[4].Text;
                     temp += ";";
-                    temp += item.Items[i].SubItems[5];
+                    temp += item.Items[i].SubItems[5].Text;
                     temp += ";";
-                    temp += item.Items[i].SubItems[6];
-                    temp += ";";
+                    temp += item.Items[i].SubItems[6].Text;
 
-                    // dodanie do
+                    StreamReader sr = new StreamReader(path);
+
+                    string TempString = sr.ReadToEnd();
+                    TempString += temp + "\n";
+                    sr.Close();
+
+                    StreamWriter sw = new StreamWriter(path);
+
+                    sw.Write(TempString);
+                    sw.Close();
                 }
+
+                StreamReader Sreader = new StreamReader(path);
+
+                string TempS = Sreader.ReadToEnd();
+                TempS += "###" + "\n";
+                Sreader.Close();
+
+                StreamWriter Swriter = new StreamWriter(path);
+
+                Swriter.Write(TempS);
+                Swriter.Close();
             }
 
         }
 
-        private void AddProductToEspeciallyList(int n,string s)
+        private void AddProductToEspeciallyList(int amountOfGrams,string s,int n)
         {
             Product product = ImportOneProduct.ImportSingleProduct(s);
 
             string[] arg = new string[7];
 
             arg[0] = product.Name;
-            arg[1] = "test";
+            arg[1] = amountOfGrams.ToString();
             arg[2] = product.B.ToString();
             arg[3] = product.T.ToString();
             arg[4] = product.W.ToString();
@@ -588,7 +631,26 @@ namespace Liczenie_makroskładników
                         listView1.Items.Add(itm);
                         break;
                     }
-
+                case 2:
+                    {
+                        listView2.Items.Add(itm);
+                        break;
+                    }
+                case 3:
+                    {
+                        listView3.Items.Add(itm);
+                        break;
+                    }
+                case 4:
+                    {
+                        listView4.Items.Add(itm);
+                        break;
+                    }
+                case 5:
+                    {
+                        listView5.Items.Add(itm);
+                        break;
+                    }
                 default:
                     break;
             }

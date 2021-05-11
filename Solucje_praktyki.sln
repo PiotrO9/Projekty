@@ -221,7 +221,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Empty project to practise",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rock Paper Scissors Game", "Rock Paper Scissors Game\Rock Paper Scissors Game.csproj", "{619BA876-38C1-4D12-8859-A9A4E336FE82}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dice Roll Simulator", "Dice Roll Simulator\Dice Roll Simulator.csproj", "{09A15B70-FF8D-4C04-B608-10243CE9F3B1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dice Roll Simulator", "Dice Roll Simulator\Dice Roll Simulator.csproj", "{09A15B70-FF8D-4C04-B608-10243CE9F3B1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Converting", "Converting", "{7D1475B8-552B-4177-AF25-512B0D99D81D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FromDecimalToBinary", "FromDecimalToBinary\FromDecimalToBinary.csproj", "{95A474AD-D146-4A2D-B9AD-20C35F553F0E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FromBinaryToDecimal", "FromBinaryToDecimal\FromBinaryToDecimal.csproj", "{6DCABF8C-E804-4D05-BA09-C333F0648737}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -653,6 +659,14 @@ Global
 		{09A15B70-FF8D-4C04-B608-10243CE9F3B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{09A15B70-FF8D-4C04-B608-10243CE9F3B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{09A15B70-FF8D-4C04-B608-10243CE9F3B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95A474AD-D146-4A2D-B9AD-20C35F553F0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95A474AD-D146-4A2D-B9AD-20C35F553F0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95A474AD-D146-4A2D-B9AD-20C35F553F0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95A474AD-D146-4A2D-B9AD-20C35F553F0E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6DCABF8C-E804-4D05-BA09-C333F0648737}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DCABF8C-E804-4D05-BA09-C333F0648737}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DCABF8C-E804-4D05-BA09-C333F0648737}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DCABF8C-E804-4D05-BA09-C333F0648737}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -685,6 +699,9 @@ Global
 		{3B311868-3FD8-4B49-84A4-6D8F8AFF55AD} = {DA9ACA70-5D83-4212-B817-47EC90BEA105}
 		{619BA876-38C1-4D12-8859-A9A4E336FE82} = {DA9ACA70-5D83-4212-B817-47EC90BEA105}
 		{09A15B70-FF8D-4C04-B608-10243CE9F3B1} = {DA9ACA70-5D83-4212-B817-47EC90BEA105}
+		{7D1475B8-552B-4177-AF25-512B0D99D81D} = {33BFEC95-4DEA-4CC4-BE29-DC82BD62EF91}
+		{95A474AD-D146-4A2D-B9AD-20C35F553F0E} = {7D1475B8-552B-4177-AF25-512B0D99D81D}
+		{6DCABF8C-E804-4D05-BA09-C333F0648737} = {7D1475B8-552B-4177-AF25-512B0D99D81D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {72C7B389-4144-4568-B93F-CFAD988CEABF}

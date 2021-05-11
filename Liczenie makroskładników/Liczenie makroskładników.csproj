@@ -50,6 +50,7 @@
     <Compile Include="Engines\CheckIfAllStatementsAreTrue.cs" />
     <Compile Include="Engines\CheckIfFileIsEmpty.cs" />
     <Compile Include="Engines\CheckIfFileIsNotZero.cs" />
+    <Compile Include="Engines\ExtendedTextToProduct.cs" />
     <Compile Include="Engines\GetCurrentTime.cs" />
     <Compile Include="Engines\ImportOneProduct.cs" />
     <Compile Include="Engines\ImportProductsToList.cs" />
@@ -81,6 +82,7 @@
     </Compile>
     <Compile Include="models\form2Opening.cs" />
     <Compile Include="models\Product.cs" />
+    <Compile Include="models\ProductAndGrams.cs" />
     <Compile Include="models\StringIsCorrectModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
