@@ -229,6 +229,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FromDecimalToBinary", "From
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FromBinaryToDecimal", "FromBinaryToDecimal\FromBinaryToDecimal.csproj", "{6DCABF8C-E804-4D05-BA09-C333F0648737}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "abstract class", "abstract class\abstract class.csproj", "{2C1F2B2A-4EFF-4A5E-933F-FEF88DFE8125}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -667,6 +669,10 @@ Global
 		{6DCABF8C-E804-4D05-BA09-C333F0648737}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6DCABF8C-E804-4D05-BA09-C333F0648737}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6DCABF8C-E804-4D05-BA09-C333F0648737}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C1F2B2A-4EFF-4A5E-933F-FEF88DFE8125}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C1F2B2A-4EFF-4A5E-933F-FEF88DFE8125}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C1F2B2A-4EFF-4A5E-933F-FEF88DFE8125}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C1F2B2A-4EFF-4A5E-933F-FEF88DFE8125}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -702,6 +708,7 @@ Global
 		{7D1475B8-552B-4177-AF25-512B0D99D81D} = {33BFEC95-4DEA-4CC4-BE29-DC82BD62EF91}
 		{95A474AD-D146-4A2D-B9AD-20C35F553F0E} = {7D1475B8-552B-4177-AF25-512B0D99D81D}
 		{6DCABF8C-E804-4D05-BA09-C333F0648737} = {7D1475B8-552B-4177-AF25-512B0D99D81D}
+		{2C1F2B2A-4EFF-4A5E-933F-FEF88DFE8125} = {33BFEC95-4DEA-4CC4-BE29-DC82BD62EF91}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {72C7B389-4144-4568-B93F-CFAD988CEABF}
