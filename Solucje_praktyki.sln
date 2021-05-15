@@ -235,6 +235,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Mathematical", "Mathematica
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quadratic function", "Quadratic function\Quadratic function.csproj", "{064B9F30-6B5E-4172-B009-5398030B1AF6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Euklides Algorithm", "Euklides Algorithm\Euklides Algorithm.csproj", "{4C0E486B-4581-4CA1-A466-4ACDCE704094}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -681,6 +683,10 @@ Global
 		{064B9F30-6B5E-4172-B009-5398030B1AF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{064B9F30-6B5E-4172-B009-5398030B1AF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{064B9F30-6B5E-4172-B009-5398030B1AF6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C0E486B-4581-4CA1-A466-4ACDCE704094}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C0E486B-4581-4CA1-A466-4ACDCE704094}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C0E486B-4581-4CA1-A466-4ACDCE704094}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C0E486B-4581-4CA1-A466-4ACDCE704094}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -719,6 +725,7 @@ Global
 		{2C1F2B2A-4EFF-4A5E-933F-FEF88DFE8125} = {33BFEC95-4DEA-4CC4-BE29-DC82BD62EF91}
 		{CBDB39F8-8691-4231-B373-12484F00F9A9} = {33BFEC95-4DEA-4CC4-BE29-DC82BD62EF91}
 		{064B9F30-6B5E-4172-B009-5398030B1AF6} = {CBDB39F8-8691-4231-B373-12484F00F9A9}
+		{4C0E486B-4581-4CA1-A466-4ACDCE704094} = {CBDB39F8-8691-4231-B373-12484F00F9A9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {72C7B389-4144-4568-B93F-CFAD988CEABF}
