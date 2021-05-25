@@ -24,17 +24,11 @@ namespace To_do_list
         public MainWindow()
         {
             InitializeComponent();
-            Main.Content = new MainPage();
+            Main.Content = new MainPage(this);
         }
-
-        private void BtnClickP1(object sender, RoutedEventArgs e)
+        private void NewListButton_Click(object sender, RoutedEventArgs e)
         {
-            Main.Content = new Page1();
-        }
-
-        private void BtnClickP2(object sender, RoutedEventArgs e)
-        {
-            Main.Content = new Page2();
+            Main.Content = new WorkPage();
         }
     }
 }

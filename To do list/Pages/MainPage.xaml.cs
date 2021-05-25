@@ -18,9 +18,33 @@ namespace To_do_list.Pages
     /// </summary>
     public partial class MainPage : Page
     {
-        public MainPage()
+        private MainWindow _mainWindow { get; set; }
+
+        public MainPage(MainWindow MW)
         {
             InitializeComponent();
+            MW.Main.Content = new MainPage();
+            _mainWindow = MW;
+        }
+
+        public MainPage()
+        {
+
+        }
+
+        private void NewListButton_Click(object sender, RoutedEventArgs e)
+        {
+            _mainWindow.Main.Content = new WorkPage();
+        }
+
+        private void LoadListButton_Click(object sender, RoutedEventArgs e)
+        {
+            _mainWindow.Main.Content = new WorkPage();
+        }
+
+        private void PreviousListButton_Click(object sender, RoutedEventArgs e)
+        {
+            _mainWindow.Main.Content = new WorkPage();
         }
     }
 }

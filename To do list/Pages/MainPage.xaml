@@ -32,11 +32,11 @@
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
 
-            <Button Grid.Column="0" Grid.Row="0" Content="New List" VerticalAlignment="Top" Margin="0"/>
-            <Button Grid.Column="0" Grid.Row="1" Content="Load List" VerticalAlignment="Top" Margin="0,10,0,0"/>
+            <Button x:Name="NewListButton" Grid.Column="0" Grid.Row="0" Content="New List" VerticalAlignment="Top" Margin="0" Click="NewListButton_Click"/>
+            <Button x:Name="LoadListButton" Grid.Column="0" Grid.Row="1" Content="Load List" VerticalAlignment="Top" Margin="0,10,0,0" Click="LoadListButton_Click"/>
         </Grid>
 
-        <Button Grid.Column="1" Grid.Row="2" Content="Previous List" VerticalAlignment="Top" Margin="0,30,0,0"/>
+        <Button x:Name="PreviousListButton" Grid.Column="1" Grid.Row="2" Content="Previous List" VerticalAlignment="Top" Margin="0,30,0,0" Click="PreviousListButton_Click"/>
 
     </Grid>
 </Page>
