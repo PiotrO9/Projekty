@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,6 +24,50 @@ namespace Empty_project_to_practise
         public MainWindow()
         {
             InitializeComponent();
+            
         }
+
+        int n = 0;
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (n < 1)
+            {
+                List<item> eObj = new List<item>();
+                for (int i = 0; i < 3; i++)
+                {
+                    item item = new item();
+                    item.Text = "Test message";
+                    item.Statement = true;
+
+                    eObj.Add(item);
+                }
+
+                DG.ItemsSource = eObj;
+
+            }
+            else;
+            {
+
+            }
+
+            
+        }
+
+        class item
+        {
+            public string Text { get; set; }
+
+            public bool Statement { get; set; }
+        }
+
+        private void Method()
+        {
+            DataTable dtEmp = new DataTable();
+
+            dtEmp.Columns.Add("Text", typeof(string));
+            dtEmp.Columns.Add("Statement", typeof(bool));
+        }
+
     }
 }

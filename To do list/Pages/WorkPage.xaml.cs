@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Windows;
@@ -12,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Xml.Linq;
+using To_do_list.Models;
+using To_do_list.Viewmodels;
 
 namespace To_do_list.Pages
 {
@@ -20,28 +23,36 @@ namespace To_do_list.Pages
     /// </summary>
     public partial class WorkPage : Page
     {
-        string _xmlFile = "XML\\XMLFile1.xml";
+        private readonly MainDataGridVM _vm = new MainDataGridVM();
+
+        private ObservableCollection<item> ItemsCollection;
 
         public WorkPage()
         {
             InitializeComponent();
+            DataContext = _vm;
+
+            ItemsCollection = new ObservableCollection<item>();
+
+            DataGridView.ItemsSource = ItemsCollection;
+
+            int n = DataGridView.Columns.Count;
         }
 
         private void AcceptButton_Click(object sender, RoutedEventArgs e)
         {
-            XDocument doc = XDocument.Load(_xmlFile);
-            doc.Root.Add(new XElement("Save",
-                new XElement("Text", TextBox.Text),
-                new XElement("State", "true")));
-            doc.Save(_xmlFile);
+            ItemsCollection.Add(new item() { Statement = false, Text = TextBox.Text });
 
-            var  result = doc.Descendants("Save").Select(x => new
-            {
-                Text = x.Element("Text").Value,
-                State = x.Element("State").Value
-            });
+            int n = DataGridView.Columns.Count;
 
-            DataGridView.ItemsSource = result;
         }
+
+
+        private void DataGridView_Initialized(object sender, EventArgs e)
+        {
+            
+
+        }
+
     }
 }
