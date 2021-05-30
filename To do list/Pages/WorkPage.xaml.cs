@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Xml.Linq;
+using To_do_list.Engines;
 using To_do_list.Models;
 using To_do_list.Viewmodels;
 
@@ -41,18 +42,53 @@ namespace To_do_list.Pages
 
         private void AcceptButton_Click(object sender, RoutedEventArgs e)
         {
-            ItemsCollection.Add(new item() { Statement = false, Text = TextBox.Text });
+            string temporaryText = TextBox.Text;
 
-            int n = DataGridView.Columns.Count;
+            bool temporaryBool = false;
+
+            foreach (var item in ItemsCollection)
+            {
+                if (item.Text == temporaryText)
+                {
+                    temporaryBool = true;
+                }
+            }
+
+            if (temporaryBool == false)
+            {
+                ItemsCollection.Add(new item() { Statement = false, Text = TextBox.Text });
+
+                int n = DataGridView.Columns.Count;
+
+                if (DataGridView.Columns.Count > 0)
+                {
+                    DataGridView.Columns[0].IsReadOnly = true;
+                }
+
+                TextBox.Text = "";
+            }
 
         }
 
 
-        private void DataGridView_Initialized(object sender, EventArgs e)
+        private void UpButton_Click(object sender, RoutedEventArgs e)
         {
-            
+            item selectedItem = (item)DataGridView.SelectedItem;
 
+            if(selectedItem != null)
+            {
+                ItemsCollection = ChangeOrder.Method(ItemsCollection, selectedItem, Direction.UP);
+            }
         }
 
+        private void DownButton_Click(object sender, RoutedEventArgs e)
+        {
+            item selectedItem = (item)DataGridView.SelectedItem;
+
+            if (selectedItem != null)
+            {
+                ItemsCollection = ChangeOrder.Method(ItemsCollection, selectedItem, Direction.DOWN);
+            }
+        }
     }
 }
