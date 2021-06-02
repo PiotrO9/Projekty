@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows;
@@ -28,23 +29,53 @@ namespace To_do_list.Pages
 
         private ObservableCollection<item> ItemsCollection;
 
+        private string filePath;
+
         public WorkPage()
         {
             InitializeComponent();
             DataContext = _vm;
 
-            ItemsCollection = new ObservableCollection<item>();
+            filePath = "saves/plik.txt";
+
+            ItemsCollection = TXTtoObservableCollection.Method(filePath);
+
+            DataGridView.ItemsSource = ItemsCollection;
+        }
+
+        public WorkPage(string s)
+        {
+            InitializeComponent();
+            DataContext = _vm;
+
+            ItemsCollection = TXTtoObservableCollection.Method(filePath);
 
             DataGridView.ItemsSource = ItemsCollection;
 
-            int n = DataGridView.Columns.Count;
+            filePath = s;
         }
 
         private void AcceptButton_Click(object sender, RoutedEventArgs e)
         {
             string temporaryText = TextBox.Text;
 
-            bool temporaryBool = false;
+            bool temporaryBool = false; // true - adding blocked
+
+            if(temporaryText == "")
+            {
+                temporaryBool = true;
+            }
+
+            int length = temporaryText.Length;
+
+            for (int i = 0; i < length; i++)
+            {
+                if(temporaryText[i] == ';')
+                {
+                    temporaryBool = true;
+                    break;
+                }
+            }
 
             foreach (var item in ItemsCollection)
             {
@@ -89,6 +120,14 @@ namespace To_do_list.Pages
             {
                 ItemsCollection = ChangeOrder.Method(ItemsCollection, selectedItem, Direction.DOWN);
             }
+
+            using (StreamWriter sw = File.CreateText("saves/plik.txt"))
+            {
+                sw.Write(ObservableCollectionToTXT.Method(ItemsCollection));
+                sw.Close();
+            }      
+
+            ObservableCollection<item> test = TXTtoObservableCollection.Method("saves/plik.txt");
         }
     }
 }
