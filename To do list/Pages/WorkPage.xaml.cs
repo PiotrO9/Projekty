@@ -36,7 +36,10 @@ namespace To_do_list.Pages
             InitializeComponent();
             DataContext = _vm;
 
-            filePath = "saves/plik.txt";
+            filePath = "saves/" + CreateFileName.Method() + ".txt";
+
+            StreamWriter sw = File.CreateText(filePath);
+            sw.Close();
 
             ItemsCollection = TXTtoObservableCollection.Method(filePath);
 
@@ -48,11 +51,11 @@ namespace To_do_list.Pages
             InitializeComponent();
             DataContext = _vm;
 
+            filePath = s;
+
             ItemsCollection = TXTtoObservableCollection.Method(filePath);
 
-            DataGridView.ItemsSource = ItemsCollection;
-
-            filePath = s;
+            DataGridView.ItemsSource = ItemsCollection;  
         }
 
         private void AcceptButton_Click(object sender, RoutedEventArgs e)
@@ -89,6 +92,12 @@ namespace To_do_list.Pages
             {
                 ItemsCollection.Add(new item() { Statement = false, Text = TextBox.Text });
 
+                using (StreamWriter sw = File.CreateText(filePath))
+                {
+                    sw.Write(ObservableCollectionToTXT.Method(ItemsCollection));
+                    sw.Close();
+                }
+
                 int n = DataGridView.Columns.Count;
 
                 if (DataGridView.Columns.Count > 0)
@@ -97,6 +106,14 @@ namespace To_do_list.Pages
                 }
 
                 TextBox.Text = "";
+            }
+            else
+            {
+                using (StreamWriter sw = File.CreateText(filePath))
+                {
+                    sw.Write(ObservableCollectionToTXT.Method(ItemsCollection));
+                    sw.Close();
+                }
             }
 
         }
@@ -110,6 +127,12 @@ namespace To_do_list.Pages
             {
                 ItemsCollection = ChangeOrder.Method(ItemsCollection, selectedItem, Direction.UP);
             }
+
+            using (StreamWriter sw = File.CreateText(filePath))
+            {
+                sw.Write(ObservableCollectionToTXT.Method(ItemsCollection));
+                sw.Close();
+            }
         }
 
         private void DownButton_Click(object sender, RoutedEventArgs e)
@@ -121,13 +144,12 @@ namespace To_do_list.Pages
                 ItemsCollection = ChangeOrder.Method(ItemsCollection, selectedItem, Direction.DOWN);
             }
 
-            using (StreamWriter sw = File.CreateText("saves/plik.txt"))
+            using (StreamWriter sw = File.CreateText(filePath))
             {
                 sw.Write(ObservableCollectionToTXT.Method(ItemsCollection));
                 sw.Close();
-            }      
-
-            ObservableCollection<item> test = TXTtoObservableCollection.Method("saves/plik.txt");
+            }
         }
+
     }
 }
