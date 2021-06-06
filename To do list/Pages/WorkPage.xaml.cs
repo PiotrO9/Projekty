@@ -118,6 +118,22 @@ namespace To_do_list.Pages
 
         }
 
+        private void CancelButton_Click(object sender, RoutedEventArgs e)
+        {
+            item selectedItem = (item)DataGridView.SelectedItem;
+
+            if (selectedItem != null)
+            {
+                foreach (var item in ItemsCollection)
+                {
+                    if (item.Text == selectedItem.Text)
+                    {
+                        ItemsCollection.Remove(item);
+                        break;
+                    }
+                }
+            }
+        }
 
         private void UpButton_Click(object sender, RoutedEventArgs e)
         {
@@ -151,5 +167,6 @@ namespace To_do_list.Pages
             }
         }
 
+        
     }
 }
