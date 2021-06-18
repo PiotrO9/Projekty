@@ -36,7 +36,16 @@
             <Button x:Name="LoadListButton" Grid.Column="0" Grid.Row="1" Content="Load List" VerticalAlignment="Top" Margin="0,10,0,0" Click="LoadListButton_Click"/>
         </Grid>
 
-        <Button x:Name="PreviousListButton" Grid.Column="1" Grid.Row="2" Content="Previous List" VerticalAlignment="Top" Margin="0,30,0,0" Click="PreviousListButton_Click"/>
+        <ListView x:Name="ChoiceListView" Grid.Column="1" Grid.Row="1" Visibility="Hidden" PreviewMouseLeftButtonDown="ChoiceListView_PreviewMouseLeftButtonDown">
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <EventSetter Event="PreviewMouseLeftButtonDown" Handler="ChoiceListView_PreviewMouseLeftButtonDown"/>
+                </Style>
+            </ListView.ItemContainerStyle>
+        </ListView>
+
+
+            <Button x:Name="PreviousListButton" Grid.Column="1" Grid.Row="2" Content="Previous List" VerticalAlignment="Top" Margin="0,30,0,0" Click="PreviousListButton_Click"/>
 
     </Grid>
 </Page>

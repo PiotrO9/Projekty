@@ -42,17 +42,20 @@ namespace To_do_list.Pages
 
         private void LoadListButton_Click(object sender, RoutedEventArgs e)
         {
-            _mainWindow.Main.Content = new WorkPage();
+            string[] files = Directory.GetFiles("saves");
+
+            ChoiceListView.Visibility = Visibility.Visible;
+            ChoiceListView.ItemsSource = files;
         }
 
         private void PreviousListButton_Click(object sender, RoutedEventArgs e)
         {
             FileInfo newestFile = GetNewestFile(new DirectoryInfo("saves"));
 
-            if(newestFile != null)
+            if (newestFile != null)
             {
                 _mainWindow.Main.Content = new WorkPage("saves/" + newestFile.Name);
-            }    
+            }
         }
         public static FileInfo GetNewestFile(DirectoryInfo directory)
         {
@@ -62,5 +65,14 @@ namespace To_do_list.Pages
                 .FirstOrDefault();
         }
 
+        private void ChoiceListView_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {      
+            var item = sender as ListViewItem;
+            if (item != null && item.IsSelected)
+            {
+                
+                _mainWindow.Main.Content = new WorkPage(item.DataContext.ToString());
+            }
+        }
     }
 }
