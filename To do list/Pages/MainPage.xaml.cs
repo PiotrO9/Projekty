@@ -21,7 +21,7 @@ namespace To_do_list.Pages
     /// </summary>
     public partial class MainPage : Page
     {
-        private MainWindow _mainWindow { get; set; }
+        public MainWindow _mainWindow { get; set; }
 
         public MainPage(MainWindow MW)
         {
@@ -37,7 +37,7 @@ namespace To_do_list.Pages
 
         private void NewListButton_Click(object sender, RoutedEventArgs e)
         {
-            _mainWindow.Main.Content = new WorkPage();
+            _mainWindow.Main.Content = new WorkPage(this);
         }
 
         private void LoadListButton_Click(object sender, RoutedEventArgs e)
@@ -54,7 +54,7 @@ namespace To_do_list.Pages
 
             if (newestFile != null)
             {
-                _mainWindow.Main.Content = new WorkPage("saves/" + newestFile.Name);
+                _mainWindow.Main.Content = new WorkPage("saves/" + newestFile.Name, this);
             }
         }
         public static FileInfo GetNewestFile(DirectoryInfo directory)
@@ -71,7 +71,7 @@ namespace To_do_list.Pages
             if (item != null && item.IsSelected)
             {
                 
-                _mainWindow.Main.Content = new WorkPage(item.DataContext.ToString());
+                _mainWindow.Main.Content = new WorkPage(item.DataContext.ToString(),this);
             }
         }
     }

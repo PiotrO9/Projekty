@@ -28,7 +28,7 @@ namespace To_do_list
         }
         private void NewListButton_Click(object sender, RoutedEventArgs e)
         {
-            Main.Content = new WorkPage();
+            //Main.Content = new WorkPage();
         }
 
     }

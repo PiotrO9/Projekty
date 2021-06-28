@@ -27,11 +27,13 @@ namespace To_do_list.Pages
     {
         private readonly MainDataGridVM _vm = new MainDataGridVM();
 
+        private MainPage mp;
+
         private ObservableCollection<item> ItemsCollection;
 
         private string filePath;
 
-        public WorkPage()
+        public WorkPage(MainPage mainPage)
         {
             InitializeComponent();
             DataContext = _vm;
@@ -44,9 +46,11 @@ namespace To_do_list.Pages
             ItemsCollection = TXTtoObservableCollection.Method(filePath);
 
             DataGridView.ItemsSource = ItemsCollection;
+
+            mp = mainPage;
         }
 
-        public WorkPage(string s)
+        public WorkPage(string s, MainPage mainPage)
         {
             InitializeComponent();
             DataContext = _vm;
@@ -55,11 +59,32 @@ namespace To_do_list.Pages
 
             ItemsCollection = TXTtoObservableCollection.Method(filePath);
 
-            DataGridView.ItemsSource = ItemsCollection;  
+            DataGridView.ItemsSource = ItemsCollection;
+
+            mp = mainPage;
+        }
+
+        public WorkPage(string s, MainPage mainPage, string[] text)
+        {
+            InitializeComponent();
+            DataContext = _vm;
+
+            filePath = s;
+
+            StreamWriter sw = File.CreateText(filePath);
+            sw.Close();
+
+            ItemsCollection = TXTtoObservableCollection.fillingMethod(text);
+
+            DataGridView.ItemsSource = ItemsCollection;
+
+            mp = mainPage;
         }
 
         private void AcceptButton_Click(object sender, RoutedEventArgs e)
         {
+            DataGridView.ItemsSource = ItemsCollection;
+
             string temporaryText = TextBox.Text;
 
             bool temporaryBool = false; // true - adding blocked
@@ -167,6 +192,50 @@ namespace To_do_list.Pages
             }
         }
 
-        
+        private void NewFileCopy_Click(object sender, RoutedEventArgs e)
+        {
+            if(CheckItemsListContent() == false)
+            {
+                MessageBox.Show("List is empty");
+            }
+            else
+            {
+                string[] tempText = TXTtoObservableCollection.ReturnOnlyLines(filePath);
+                string tempName = CreateFileName.Method();
+
+                string tempPath = "saves/" + tempName + ".txt";
+
+                WorkPage workPage = new WorkPage(tempPath, mp, tempText);
+
+                workPage.ItemsCollection = TXTtoObservableCollection.fillingMethod(tempText);
+
+                mp._mainWindow.Main.Content = workPage;
+
+                string textToFile = ObservableCollectionToTXT.Method(workPage.ItemsCollection);
+
+                using (StreamWriter sw = File.CreateText(tempPath))
+                {
+                    sw.Write(textToFile);
+                    sw.Close();
+                }
+                
+                DataGridView.ItemsSource = ItemsCollection;
+
+
+                MessageBox.Show("Successfully created new list named: " + tempName);
+            }
+        }
+
+        private bool CheckItemsListContent()
+        {
+            if(ItemsCollection.Count == 0)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
     }
 }

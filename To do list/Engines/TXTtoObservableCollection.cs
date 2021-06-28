@@ -41,5 +41,44 @@ namespace To_do_list.Engines
 
             return collection;
         }
+
+        public static ObservableCollection<item> fillingMethod(string[] lines)
+        {
+            ObservableCollection<item> collection = new ObservableCollection<item>();
+
+            var logList = new List<string>(lines);
+
+            foreach (var item in logList)
+            {
+                var listOfWords = (item.Split(new char[] { ';' }
+                                                                )
+                                                        ).ToList();
+
+                item Item = new item();
+                Item.Text = listOfWords[0];
+
+                if (listOfWords[1] == "True")
+                {
+                    Item.Statement = true;
+                }
+                else if (listOfWords[1] == "False")
+                {
+                    Item.Statement = false;
+                }
+
+                collection.Add(Item);
+            }
+
+
+            return collection;
+        }
+
+
+        public static string[] ReturnOnlyLines(string path)
+        {
+            string[] logFile = File.ReadAllLines(path);
+
+            return logFile;
+        }
     }
 }
