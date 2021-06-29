@@ -33,7 +33,7 @@ namespace To_do_list.Pages
 
         private string filePath;
 
-        public WorkPage(MainPage mainPage)
+        public WorkPage(MainPage mainPage) // New page
         {
             InitializeComponent();
             DataContext = _vm;
@@ -50,7 +50,7 @@ namespace To_do_list.Pages
             mp = mainPage;
         }
 
-        public WorkPage(string s, MainPage mainPage)
+        public WorkPage(string s, MainPage mainPage) // Existing page
         {
             InitializeComponent();
             DataContext = _vm;
@@ -64,7 +64,7 @@ namespace To_do_list.Pages
             mp = mainPage;
         }
 
-        public WorkPage(string s, MainPage mainPage, string[] text)
+        public WorkPage(string s, MainPage mainPage, string[] text) // Existing page with text
         {
             InitializeComponent();
             DataContext = _vm;
@@ -221,20 +221,71 @@ namespace To_do_list.Pages
                 
                 DataGridView.ItemsSource = ItemsCollection;
 
-
                 MessageBox.Show("Successfully created new list named: " + tempName);
             }
         }
 
+        private void ExistingFileCopy_Click(object sender, RoutedEventArgs e)
+        {
+            ChoiceListView.Visibility = Visibility.Visible;
+            string[] files = Directory.GetFiles("saves");
+
+            if (files.Length == 0)
+            {
+                MessageBox.Show("List is empty");
+            }
+            else
+            {
+                ChoiceListView.ItemsSource = files;
+            }
+        }
+
+        private void Overwrite_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
         private bool CheckItemsListContent()
         {
-            if(ItemsCollection.Count == 0)
+            if (ItemsCollection.Count == 0)
             {
                 return false;
             }
             else
             {
                 return true;
+            }
+        }
+
+        private void ChoiceListView_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            var item = sender as ListViewItem;
+            if (item != null && item.IsSelected)
+            {
+                ChoiceListView.Visibility = Visibility.Hidden;
+
+                string[] currentPartOfText = TXTtoObservableCollection.ReturnOnlyLines(filePath);
+                string pickedPath = item.DataContext.ToString();
+                string[] pickedPartOfText = TXTtoObservableCollection.ReturnOnlyLines(pickedPath);
+                string[] resultArray = ConnectTwoStringArrays.Method(currentPartOfText,pickedPartOfText);
+
+                using (StreamWriter sw = File.CreateText(pickedPath))
+                {
+                    for (int i = 0; i < resultArray.Length - 1; i++)
+                    {
+                        sw.WriteLine(resultArray[i]);
+                    }
+                    sw.Close();
+                }
+
+                WorkPage workPage = new WorkPage(pickedPath, mp);
+
+                workPage.ItemsCollection = TXTtoObservableCollection.Method(pickedPath);
+
+                mp._mainWindow.Main.Content = workPage;  
+
+                DataGridView.ItemsSource = ItemsCollection;
+
+                MessageBox.Show("Successfully created new list named: " + pickedPath);
             }
         }
     }

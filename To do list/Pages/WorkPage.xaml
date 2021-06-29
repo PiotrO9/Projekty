@@ -15,10 +15,10 @@
             <MenuItem x:Name="NewFileCopy" Header="Copy to new file" Click="NewFileCopy_Click"/>
             <Separator/>
             <Separator/>
-            <MenuItem x:Name="ExistingFileCopy" Header="Copy to existing file"/>
+            <MenuItem x:Name="ExistingFileCopy" Header="Copy to existing file" Click="ExistingFileCopy_Click"/>
             <Separator/>
             <Separator/>
-            <MenuItem x:Name="Overwrite" Header="Overwrite existing file"/>
+            <MenuItem x:Name="Overwrite" Header="Overwrite existing file" Click="Overwrite_Click"/>
             <Separator/>
             <Separator/>
         </Menu>
@@ -37,6 +37,14 @@
 
         <DataGrid x:Name="DataGridView" Grid.Column="1" Grid.Row="1" Grid.RowSpan="2" SelectionMode="Single"/>
 
+            <ListView x:Name="ChoiceListView" Grid.Column="1" Grid.Row="1" Grid.RowSpan="2" Visibility="Hidden" PreviewMouseLeftButtonDown="ChoiceListView_PreviewMouseLeftButtonDown">
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <EventSetter Event="PreviewMouseLeftButtonDown" Handler="ChoiceListView_PreviewMouseLeftButtonDown"/>
+                    </Style>
+                </ListView.ItemContainerStyle>
+            </ListView>
+        
         <Button x:Name="UpButton" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Bottom" 
                 MinHeight="30" MinWidth="30" Margin="10" Click="UpButton_Click" Content="↑" FontSize="20"/>
         <Button x:Name="DownButton" Grid.Column="2" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top"

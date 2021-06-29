@@ -69,8 +69,7 @@ namespace To_do_list.Pages
         {      
             var item = sender as ListViewItem;
             if (item != null && item.IsSelected)
-            {
-                
+            {   
                 _mainWindow.Main.Content = new WorkPage(item.DataContext.ToString(),this);
             }
         }
