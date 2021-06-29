@@ -33,6 +33,8 @@ namespace To_do_list.Pages
 
         private string filePath;
 
+        private UserTypeOfSaveChoice userTypeOfSaveChoice;
+
         public WorkPage(MainPage mainPage) // New page
         {
             InitializeComponent();
@@ -223,10 +225,12 @@ namespace To_do_list.Pages
 
                 MessageBox.Show("Successfully created new list named: " + tempName);
             }
-        }
+        }      
 
-        private void ExistingFileCopy_Click(object sender, RoutedEventArgs e)
+        private void Overwrite_Click(object sender, RoutedEventArgs e)
         {
+            userTypeOfSaveChoice = UserTypeOfSaveChoice.Overwrite;
+
             ChoiceListView.Visibility = Visibility.Visible;
             string[] files = Directory.GetFiles("saves");
 
@@ -238,11 +242,6 @@ namespace To_do_list.Pages
             {
                 ChoiceListView.ItemsSource = files;
             }
-        }
-
-        private void Overwrite_Click(object sender, RoutedEventArgs e)
-        {
-
         }
         private bool CheckItemsListContent()
         {
@@ -261,32 +260,89 @@ namespace To_do_list.Pages
             var item = sender as ListViewItem;
             if (item != null && item.IsSelected)
             {
-                ChoiceListView.Visibility = Visibility.Hidden;
-
-                string[] currentPartOfText = TXTtoObservableCollection.ReturnOnlyLines(filePath);
-                string pickedPath = item.DataContext.ToString();
-                string[] pickedPartOfText = TXTtoObservableCollection.ReturnOnlyLines(pickedPath);
-                string[] resultArray = ConnectTwoStringArrays.Method(currentPartOfText,pickedPartOfText);
-
-                using (StreamWriter sw = File.CreateText(pickedPath))
+                switch (userTypeOfSaveChoice)
                 {
-                    for (int i = 0; i < resultArray.Length - 1; i++)
-                    {
-                        sw.WriteLine(resultArray[i]);
-                    }
-                    sw.Close();
+                    case UserTypeOfSaveChoice.Copy: //Copy
+                        {
+                            ChoiceListView.Visibility = Visibility.Hidden;
+
+                            string[] currentPartOfText = TXTtoObservableCollection.ReturnOnlyLines(filePath);
+                            string pickedPath = item.DataContext.ToString();
+                            string[] pickedPartOfText = TXTtoObservableCollection.ReturnOnlyLines(pickedPath);
+                            string[] resultArray = ConnectTwoStringArrays.Method(currentPartOfText, pickedPartOfText);
+
+                            using (StreamWriter sw = File.CreateText(pickedPath))
+                            {
+                                for (int i = 0; i < resultArray.Length - 1; i++)
+                                {
+                                    sw.WriteLine(resultArray[i]);
+                                }
+                                sw.Close();
+                            }
+
+                            WorkPage workPage = new WorkPage(pickedPath, mp);
+
+                            workPage.ItemsCollection = TXTtoObservableCollection.Method(pickedPath);
+
+                            mp._mainWindow.Main.Content = workPage;
+
+                            DataGridView.ItemsSource = ItemsCollection;
+
+                            MessageBox.Show("Successfully created new list named: " + pickedPath);
+
+                            break;
+                        }
+                    case UserTypeOfSaveChoice.Overwrite: // Overwrite
+                        {
+                            ChoiceListView.Visibility = Visibility.Hidden;
+                            string[] currentPartOfText = TXTtoObservableCollection.ReturnOnlyLines(filePath);
+                            string pickedPath = item.DataContext.ToString();
+
+                            using (StreamWriter sw = File.CreateText(pickedPath))
+                            {
+                                for (int i = 0; i < currentPartOfText.Length; i++)
+                                {
+                                    sw.WriteLine(currentPartOfText[i]);
+                                }
+                                sw.Close();
+                            }
+
+                            WorkPage workPage = new WorkPage(pickedPath, mp);
+
+                            workPage.ItemsCollection = TXTtoObservableCollection.Method(pickedPath);
+
+                            mp._mainWindow.Main.Content = workPage;
+
+                            DataGridView.ItemsSource = ItemsCollection;
+
+                            MessageBox.Show("Successfully created new list named: " + pickedPath);
+
+                            break;
+                        }
                 }
-
-                WorkPage workPage = new WorkPage(pickedPath, mp);
-
-                workPage.ItemsCollection = TXTtoObservableCollection.Method(pickedPath);
-
-                mp._mainWindow.Main.Content = workPage;  
-
-                DataGridView.ItemsSource = ItemsCollection;
-
-                MessageBox.Show("Successfully created new list named: " + pickedPath);
             }
+        }
+
+        private void ExistingFileCopy_Click(object sender, RoutedEventArgs e)
+        {
+            userTypeOfSaveChoice = UserTypeOfSaveChoice.Copy;
+
+            ChoiceListView.Visibility = Visibility.Visible;
+            string[] files = Directory.GetFiles("saves");
+
+            if (files.Length == 0)
+            {
+                MessageBox.Show("List is empty");
+            }
+            else
+            {
+                ChoiceListView.ItemsSource = files;
+            }
+        }
+
+        private void Exit_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

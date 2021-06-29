@@ -21,6 +21,9 @@
             <MenuItem x:Name="Overwrite" Header="Overwrite existing file" Click="Overwrite_Click"/>
             <Separator/>
             <Separator/>
+            <MenuItem x:Name="Exit" Header="Exit" Click="Exit_Click"/>
+            <Separator/>
+            <Separator/>
         </Menu>
         
     <Grid Background="Wheat" x:Name="WorkGrid">
