@@ -342,7 +342,14 @@ namespace To_do_list.Pages
 
         private void Exit_Click(object sender, RoutedEventArgs e)
         {
+            using (StreamWriter sw = File.CreateText(filePath))
+            {
+                sw.Write(ObservableCollectionToTXT.Method(ItemsCollection));
+                sw.Close();
+            }
 
+            MainPage mainPage = new MainPage(mp._mainWindow);
+            mp._mainWindow.Main.Content = mainPage;
         }
     }
 }
