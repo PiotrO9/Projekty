@@ -9,6 +9,27 @@
       Title="BIOSPage">
 
     <Grid Background="White">
-        <Label Content="Bios Page with text" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Grid x:Name="MainGrid">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Label x:Name="BiosMakerLabel" Grid.Column="0" Grid.Row="0" Content="Bios Maker:    " HorizontalContentAlignment="Right" VerticalContentAlignment="Center" FontSize="30"/>
+            <Label x:Name="BiosVersion" Grid.Column="0" Grid.Row="1" Content="Bios Version:     " HorizontalContentAlignment="Right" VerticalContentAlignment="Center" FontSize="30"/>
+            <Label x:Name="BiosSerialNumber" Grid.Column="0" Grid.Row="2" Content="Bios Serial Number:     " HorizontalContentAlignment="Right" VerticalContentAlignment="Center" FontSize="30"/>
+            <Label x:Name="BiosReleaseDate" Grid.Column="0" Grid.Row="3" Content="Bios Release Date:     " HorizontalContentAlignment="Right" VerticalContentAlignment="Center" FontSize="30"/>
+
+            <Label x:Name="BiosMakerLabelOutput" Grid.Column="1" Grid.Row="0" Content="" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontSize="30"/>
+            <Label x:Name="BiosVersionLabelOutput" Grid.Column="1" Grid.Row="1" Content="" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontSize="30"/>
+            <Label x:Name="BiosSerialNumberOutput" Grid.Column="1" Grid.Row="2" Content="" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontSize="30"/>
+            <Label x:Name="BiosReleaseDateOutput" Grid.Column="1" Grid.Row="3" Content="" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontSize="30"/>
+        </Grid>
     </Grid>
 </Page>

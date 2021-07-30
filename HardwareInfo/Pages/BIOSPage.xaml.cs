@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Management;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -23,6 +24,26 @@ namespace HardwareInfo.Pages
         public BIOSPage()
         {
             InitializeComponent();
+            GetBiosInformation();
+        }
+
+        private void GetBiosInformation()
+        {
+            SelectQuery Sq = new SelectQuery("Win32_BIOS");
+            ManagementObjectSearcher mSearcher = new ManagementObjectSearcher(Sq);
+            ManagementObjectCollection collection = mSearcher.Get();
+
+            foreach (ManagementObject obj in collection)
+            {
+                string relDt = "";
+
+                BiosMakerLabelOutput.Content = (string)obj["Manufacturer"];
+                BiosSerialNumberOutput.Content = (string)obj["SerialNumber"];
+                BiosVersionLabelOutput.Content = (string)obj["Version"];
+                relDt = (string)obj["ReleaseDate"];
+                DateTime dt = ManagementDateTimeConverter.ToDateTime(relDt);
+                BiosReleaseDateOutput.Content = dt.ToString("dd-MMM-yyyy");//date format
+            }
         }
     }
 }

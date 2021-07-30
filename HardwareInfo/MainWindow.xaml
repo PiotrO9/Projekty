@@ -38,7 +38,7 @@
 
                 <Button x:Name="BiosButton" Content="BIOS" Grid.Column="0" Command="{Binding ButtonClickCommand}" Click="BiosButton_Click"/>
                 <Button x:Name="CpuButton" Content="CPU" Grid.Column="1" Command="{Binding ButtonClickCommand}" Click="CpuButton_Click"/>
-                <Button x:Name="MemoryButton" Content="Memory" Grid.Column="2" Command="{Binding ButtonClickCommand}" Click="MemoryButton_Click"/>
+                <Button x:Name="MemoryButton" Content="Drives" Grid.Column="2" Command="{Binding ButtonClickCommand}" Click="MemoryButton_Click"/>
             </Grid>
 
             <Grid x:Name="LowerGrid" Grid.Row="1">

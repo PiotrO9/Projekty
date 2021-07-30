@@ -10,6 +10,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using To_do_list.Pages;
 
 namespace HardwareInfo.Viewmodels
 {
@@ -48,6 +49,9 @@ namespace HardwareInfo.Viewmodels
                         UnlockButtons ub = new UnlockButtons(_mw);
                         ub.UnlockButtonsMehod();
                         _mw.CpuButton.IsEnabled = false;
+
+                        CPUPage CPUPage = new CPUPage();
+                        _mw.MainFrame.Content = CPUPage;
                         break;
                     }
                 case CurrentPageEnum.GPU:
@@ -55,6 +59,9 @@ namespace HardwareInfo.Viewmodels
                         UnlockButtons ub = new UnlockButtons(_mw);
                         ub.UnlockButtonsMehod();
                         _mw.GpuButton.IsEnabled = false;
+
+                        GPUPage GPUPage = new GPUPage();
+                        _mw.MainFrame.Content = GPUPage;
                         break;
                     }
                 case CurrentPageEnum.RAM:
@@ -69,6 +76,9 @@ namespace HardwareInfo.Viewmodels
                         UnlockButtons ub = new UnlockButtons(_mw);
                         ub.UnlockButtonsMehod();
                         _mw.MemoryButton.IsEnabled = false;
+
+                        MemoryPage MemoryPage = new MemoryPage();
+                        _mw.MainFrame.Content = MemoryPage;
                         break;
                     }
                 case CurrentPageEnum.BIOS:
@@ -87,6 +97,9 @@ namespace HardwareInfo.Viewmodels
                         UnlockButtons ub = new UnlockButtons(_mw);
                         ub.UnlockButtonsMehod();
                         _mw.OsButton.IsEnabled = false;
+
+                        OSPage oSPage = new OSPage();
+                        _mw.MainFrame.Content = oSPage;
                         break;
                     }
                 default:
