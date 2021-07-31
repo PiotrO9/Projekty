@@ -1,0 +1,27 @@
+﻿<Page x:Class="HardwareInfo.Pages.RAMPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:HardwareInfo.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="RAMPage">
+
+    <Grid x:Name="MainGrid" Background="White">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Label x:Name="TotalVisibleMemoryLabel" FontSize="30" Content="Total Visible Memory: " HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Column="0" Grid.Row="0"/>
+        <Label x:Name="FreePsychicalMemoryLabel" FontSize="30" Content="Free Psychical Memory: " HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Column="0" Grid.Row="1"/>
+
+        <Label x:Name="TotalVisibleMemoryLabelOutput" FontSize="30" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Column="1" Grid.Row="0"/>
+        <Label x:Name="FreePhysicalMemoryLabelOutput" FontSize="30" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Column="1" Grid.Row="1"/>
+    </Grid>
+</Page>

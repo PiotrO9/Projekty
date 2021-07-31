@@ -69,6 +69,9 @@ namespace HardwareInfo.Viewmodels
                         UnlockButtons ub = new UnlockButtons(_mw);
                         ub.UnlockButtonsMehod();
                         _mw.RAMButton.IsEnabled = false;
+
+                        RAMPage RAMPage = new RAMPage();
+                        _mw.MainFrame.Content = RAMPage;
                         break;
                     }
                 case CurrentPageEnum.MEMORY:
