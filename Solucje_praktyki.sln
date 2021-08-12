@@ -239,7 +239,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Euklides Algorithm", "Eukli
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "To do list", "To do list\To do list.csproj", "{9BB27EF7-5FB3-4ABB-B63E-770326C027AD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HardwareInfo", "HardwareInfo\HardwareInfo.csproj", "{496541BC-7C0C-46AC-A1BC-4B8397B20A6C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HardwareInfo", "HardwareInfo\HardwareInfo.csproj", "{496541BC-7C0C-46AC-A1BC-4B8397B20A6C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfEntityframeworkWithDbfirst", "WpfEntityframeworkWithDbfirst\WpfEntityframeworkWithDbfirst.csproj", "{5D6C06DC-0497-4576-8BF1-F58086069871}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -699,6 +701,10 @@ Global
 		{496541BC-7C0C-46AC-A1BC-4B8397B20A6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{496541BC-7C0C-46AC-A1BC-4B8397B20A6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{496541BC-7C0C-46AC-A1BC-4B8397B20A6C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D6C06DC-0497-4576-8BF1-F58086069871}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D6C06DC-0497-4576-8BF1-F58086069871}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D6C06DC-0497-4576-8BF1-F58086069871}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D6C06DC-0497-4576-8BF1-F58086069871}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -740,6 +746,7 @@ Global
 		{4C0E486B-4581-4CA1-A466-4ACDCE704094} = {CBDB39F8-8691-4231-B373-12484F00F9A9}
 		{9BB27EF7-5FB3-4ABB-B63E-770326C027AD} = {DA9ACA70-5D83-4212-B817-47EC90BEA105}
 		{496541BC-7C0C-46AC-A1BC-4B8397B20A6C} = {DA9ACA70-5D83-4212-B817-47EC90BEA105}
+		{5D6C06DC-0497-4576-8BF1-F58086069871} = {DA9ACA70-5D83-4212-B817-47EC90BEA105}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {72C7B389-4144-4568-B93F-CFAD988CEABF}
