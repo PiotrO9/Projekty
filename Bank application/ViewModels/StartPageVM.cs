@@ -71,7 +71,19 @@ namespace Bank_application.ViewModels
         }
         public void ForgotPasswordClickCommandImpl()
         {
+            if (_sp.AccountNumberTextBox.Text != string.Empty)
+            {
+                UserData userData;
 
+                int temp = int.Parse(_sp.AccountNumberTextBox.Text);
+
+                userData = _mw.db.UserDatas.Where(w => w.AccountNumber == temp).First();
+
+                if(userData != null)
+                {
+                    _mw.MainFrame.Content = new ForgotPasswordPage(_mw, userData);
+                }
+            }
         }
         #endregion
     }

@@ -45,7 +45,7 @@
             </Grid.RowDefinitions>
 
 
-            <Button x:Name="btnForgotPassword" Grid.Column="0" Grid.Row="0" Content="Forgot password" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="30" Background="Aqua"/>
+            <Button x:Name="btnForgotPassword" Grid.Column="0" Grid.Row="0" Content="Forgot password" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="30" Background="Aqua" Command="{Binding ForgotPasswordClickCommand}"/>
             <Button x:Name="btnRegister" Grid.Column="0" Grid.Row="1" Content="Register" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="30" Background="Aqua" Command="{Binding RegisterClickCommand}"/>
             <Button x:Name="btnLogin" Grid.Column="0" Grid.Row="2" Content="Login" FontSize="30" MinWidth="200" Height="auto" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="10" Command="{Binding LoginClickCommand}"/>
         </Grid>

@@ -38,7 +38,18 @@ namespace Bank_application.ViewModels
 
         public void CashOutClickCommandImpl()
         {
+            float temp = float.Parse(_up.AccountAmountOutput.Content.ToString());
 
+            if(temp > 1000)
+            {
+                temp -= 1000;
+            }
+            else
+            {
+                temp = 0;
+            }
+
+            _up.AccountAmountOutput.Content = temp.ToString();
         }
 
         public void LogoutClickCommandImpl()
