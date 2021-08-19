@@ -61,11 +61,25 @@ namespace Bank_application.ViewModels
             {
                 int temp = int.Parse(_sp.AccountNumberTextBox.Text);
 
-                UserData userData = _mw.db.UserDatas.Where(w => w.AccountNumber == (temp)).Where(w => w.Password == _sp.PasswordTextBox.Text).First();
+                UserData userData;
+
+                try
+                {
+                    userData = _mw.db.UserDatas.Where(w => w.AccountNumber == (temp)).Where(w => w.Password == _sp.PasswordTextBox.Text).First();
+                }
+                catch(Exception e)
+                {
+                    return;
+                }
 
                 if(userData != null && userData.IsAdmin == false)
                 {
                     _mw.MainFrame.Content = new UserPage(userData,_mw);
+                }
+                else if(userData != null && userData.IsAdmin == true)
+                {
+                    // tu odpala sie panel admina
+                    _mw.MainFrame.Content = new AdminPage(_mw,userData);
                 }
             }
         }

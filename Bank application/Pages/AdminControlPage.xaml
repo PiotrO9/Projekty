@@ -1,0 +1,39 @@
+﻿<Page x:Class="Bank_application.Pages.AdminControlPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Bank_application.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="450"
+      Title="AdminControlPage">
+
+    <Grid x:Name="MainGrid" Background="Aqua">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Label x:Name="AccountNumberLabel" Grid.Row="0" Grid.Column="0" FontSize="20" Content="Account number: " VerticalAlignment="Center" HorizontalAlignment="Right"/>
+        <Label x:Name="AccountPassword" Grid.Row="1" Grid.Column="0" FontSize="20" Content="Account passwod: "  VerticalAlignment="Center" HorizontalAlignment="Right"/>
+        <Label x:Name="AccountAmount" Grid.Row="2" Grid.Column="0" FontSize="20" Content="Amount: "  VerticalAlignment="Center" HorizontalAlignment="Right"/>
+        <Label x:Name="IsAdmin" Grid.Row="3" Grid.Column="0" FontSize="20" Content="IsAdmin: "  VerticalAlignment="Center" HorizontalAlignment="Right"/>
+    
+        
+        
+        <Label x:Name="AccountNumberLabelOutput" Grid.Row="0" Grid.Column="1" FontSize="20" Content="Account number " VerticalAlignment="Center" HorizontalAlignment="Left"/>
+        <TextBox x:Name="AccountPasswordOutput" Grid.Row="1" Grid.Column="1" FontSize="20" Text="password" VerticalAlignment="Center" MinWidth="100" HorizontalAlignment="Left" Margin="10,0,0,0"/>
+        <TextBox x:Name="AccountAmountOutput" Grid.Row="2" Grid.Column="1"  FontSize="20" Text="amount " VerticalAlignment="Center" MinWidth="100" HorizontalAlignment="Left" Margin="10,0,0,0"/>
+        <CheckBox x:Name="IsAdminOutput" Grid.Row="3" Grid.Column="1"  FontSize="20"  VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0"/>
+
+        <Button x:Name="btnLogOut" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" FontSize="40" Content="Logout"  VerticalAlignment="Center" HorizontalAlignment="Center" Padding="20,10" Click="btnLogOut_Click" />
+
+    </Grid>
+</Page>
