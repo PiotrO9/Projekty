@@ -245,6 +245,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfEntityframeworkWithDbfir
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bank application", "Bank application\Bank application.csproj", "{B8A68022-CEBA-4A46-A5C9-746F88647D7C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FirstApplicationWithAnimation", "FirstApplicationWithAnimation\FirstApplicationWithAnimation.csproj", "{BA212F19-FFCC-4945-9749-150723062425}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -711,6 +713,10 @@ Global
 		{B8A68022-CEBA-4A46-A5C9-746F88647D7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B8A68022-CEBA-4A46-A5C9-746F88647D7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B8A68022-CEBA-4A46-A5C9-746F88647D7C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA212F19-FFCC-4945-9749-150723062425}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA212F19-FFCC-4945-9749-150723062425}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA212F19-FFCC-4945-9749-150723062425}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA212F19-FFCC-4945-9749-150723062425}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -754,6 +760,7 @@ Global
 		{496541BC-7C0C-46AC-A1BC-4B8397B20A6C} = {DA9ACA70-5D83-4212-B817-47EC90BEA105}
 		{5D6C06DC-0497-4576-8BF1-F58086069871} = {DA9ACA70-5D83-4212-B817-47EC90BEA105}
 		{B8A68022-CEBA-4A46-A5C9-746F88647D7C} = {DA9ACA70-5D83-4212-B817-47EC90BEA105}
+		{BA212F19-FFCC-4945-9749-150723062425} = {DA9ACA70-5D83-4212-B817-47EC90BEA105}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {72C7B389-4144-4568-B93F-CFAD988CEABF}
