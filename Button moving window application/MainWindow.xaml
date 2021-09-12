@@ -1,0 +1,24 @@
+﻿<Window x:Class="Button_moving_window_application.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Button_moving_window_application"
+        mc:Ignorable="d"
+        WindowStyle="None"
+        x:Name="mw"
+        Title="MainWindow" Height="200" Width="300">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Button x:Name="btnMoving" Grid.Column="1" Grid.Row="0" Content="Move" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="10"
+                PreviewMouseDown="Move"/>
+    </Grid>
+</Window>

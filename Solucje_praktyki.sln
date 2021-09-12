@@ -247,6 +247,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bank application", "Bank ap
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FirstApplicationWithAnimation", "FirstApplicationWithAnimation\FirstApplicationWithAnimation.csproj", "{BA212F19-FFCC-4945-9749-150723062425}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoundProgressBarAplication", "RoundProgressBarAplication\RoundProgressBarAplication.csproj", "{28F23137-90A2-4A3B-8C4C-D317DFC83476}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Button moving window application", "Button moving window application\Button moving window application.csproj", "{C20AD11D-B4FA-4812-A69C-696F0BA7CD05}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Xamarin", "Xamarin", "{2AD941BC-36CB-4DF1-A71D-C3C80503466F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -717,6 +723,14 @@ Global
 		{BA212F19-FFCC-4945-9749-150723062425}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BA212F19-FFCC-4945-9749-150723062425}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BA212F19-FFCC-4945-9749-150723062425}.Release|Any CPU.Build.0 = Release|Any CPU
+		{28F23137-90A2-4A3B-8C4C-D317DFC83476}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28F23137-90A2-4A3B-8C4C-D317DFC83476}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28F23137-90A2-4A3B-8C4C-D317DFC83476}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28F23137-90A2-4A3B-8C4C-D317DFC83476}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C20AD11D-B4FA-4812-A69C-696F0BA7CD05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C20AD11D-B4FA-4812-A69C-696F0BA7CD05}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C20AD11D-B4FA-4812-A69C-696F0BA7CD05}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C20AD11D-B4FA-4812-A69C-696F0BA7CD05}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -761,6 +775,8 @@ Global
 		{5D6C06DC-0497-4576-8BF1-F58086069871} = {DA9ACA70-5D83-4212-B817-47EC90BEA105}
 		{B8A68022-CEBA-4A46-A5C9-746F88647D7C} = {DA9ACA70-5D83-4212-B817-47EC90BEA105}
 		{BA212F19-FFCC-4945-9749-150723062425} = {DA9ACA70-5D83-4212-B817-47EC90BEA105}
+		{28F23137-90A2-4A3B-8C4C-D317DFC83476} = {DA9ACA70-5D83-4212-B817-47EC90BEA105}
+		{C20AD11D-B4FA-4812-A69C-696F0BA7CD05} = {DA9ACA70-5D83-4212-B817-47EC90BEA105}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {72C7B389-4144-4568-B93F-CFAD988CEABF}
