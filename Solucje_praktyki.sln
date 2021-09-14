@@ -253,6 +253,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Button moving window applic
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Xamarin", "Xamarin", "{2AD941BC-36CB-4DF1-A71D-C3C80503466F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dziennik treningowy.Android", "Dziennik treningowy\Dziennik treningowy.Android\Dziennik treningowy.Android.csproj", "{4D6575FD-6875-48AC-9E18-88921CF7A36C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dziennik treningowy", "Dziennik treningowy\Dziennik treningowy\Dziennik treningowy.csproj", "{DF64A4A9-119D-4F3C-AE9E-2DBBE7DA687B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -731,6 +735,16 @@ Global
 		{C20AD11D-B4FA-4812-A69C-696F0BA7CD05}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C20AD11D-B4FA-4812-A69C-696F0BA7CD05}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C20AD11D-B4FA-4812-A69C-696F0BA7CD05}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D6575FD-6875-48AC-9E18-88921CF7A36C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D6575FD-6875-48AC-9E18-88921CF7A36C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D6575FD-6875-48AC-9E18-88921CF7A36C}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{4D6575FD-6875-48AC-9E18-88921CF7A36C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D6575FD-6875-48AC-9E18-88921CF7A36C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D6575FD-6875-48AC-9E18-88921CF7A36C}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{DF64A4A9-119D-4F3C-AE9E-2DBBE7DA687B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF64A4A9-119D-4F3C-AE9E-2DBBE7DA687B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF64A4A9-119D-4F3C-AE9E-2DBBE7DA687B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF64A4A9-119D-4F3C-AE9E-2DBBE7DA687B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -777,6 +791,8 @@ Global
 		{BA212F19-FFCC-4945-9749-150723062425} = {DA9ACA70-5D83-4212-B817-47EC90BEA105}
 		{28F23137-90A2-4A3B-8C4C-D317DFC83476} = {DA9ACA70-5D83-4212-B817-47EC90BEA105}
 		{C20AD11D-B4FA-4812-A69C-696F0BA7CD05} = {DA9ACA70-5D83-4212-B817-47EC90BEA105}
+		{4D6575FD-6875-48AC-9E18-88921CF7A36C} = {2AD941BC-36CB-4DF1-A71D-C3C80503466F}
+		{DF64A4A9-119D-4F3C-AE9E-2DBBE7DA687B} = {2AD941BC-36CB-4DF1-A71D-C3C80503466F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {72C7B389-4144-4568-B93F-CFAD988CEABF}
