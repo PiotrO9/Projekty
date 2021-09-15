@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Dziennik_treningowy.Views.HistoryPage">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Button x:Name="btnTest" Grid.Column="0" Grid.Row="0" Text="Testowy przycisk" Clicked="btnTest_Clicked" />
+
+            <CollectionView x:Name="MainCollectionView" Grid.Column="0" Grid.Row="1">
+                
+            </CollectionView>
+        </Grid>
+
+    </ContentPage.Content>
+</ContentPage>
