@@ -22,9 +22,7 @@ namespace Dziennik_treningowy.Services.Files_services
                 temp += tempExercise.Reps + "\n";
                 temp += tempExercise.Duration + "\n";
 
-                string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData));
-
-                path += "/test";
+                string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData)) + "/test";
 
                 if (!Directory.Exists(path))
                 {
@@ -39,11 +37,45 @@ namespace Dziennik_treningowy.Services.Files_services
             }
             else if(exercise.noWeightExercise != null)
             {
+                var tempExercise = exercise.noWeightExercise;
+
+                temp += tempExercise.Name + "\n";
+                temp += tempExercise.Time + "\n";
+                temp += tempExercise.Reps + "\n";
+                temp += tempExercise.Duration + "\n";
+
+                string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData)) + "/test";
+
+                if (!Directory.Exists(path))
+                {
+                    Directory.CreateDirectory(path);
+                }
+
+                using (var writer = new StreamWriter(File.Create(path + "/" + "file3.txt")))
+                {
+                    writer.Write(temp);
+                }
 
             }
             else
             {
+                var tempExercise = exercise.timeExercise;
 
+                temp += tempExercise.Name + "\n";
+                temp += tempExercise.Time + "\n";
+                temp += tempExercise.Duration + "\n";
+
+                string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData)) + "/test";
+
+                if (!Directory.Exists(path))
+                {
+                    Directory.CreateDirectory(path);
+                }
+
+                using (var writer = new StreamWriter(File.Create(path + "/" + "file5.txt")))
+                {
+                    writer.Write(temp);
+                }
             }
         }
     }

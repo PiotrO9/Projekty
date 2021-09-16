@@ -25,22 +25,8 @@ namespace Dziennik_treningowy.Views
 
         private void btnTest_Clicked(object sender, EventArgs e)
         {
-            string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData));
+            List<List<Exercise>> TrainingUnit = new List<List<Exercise>>();
 
-            path += "/test";
-
-            Exercise exercise = new Exercise();
-            exercise.weightExercise = new WeightExercise();
-            exercise.weightExercise.Name = "Wyciskanie";
-            exercise.weightExercise.Weight = 56.25f;
-            exercise.weightExercise.Reps = 7;
-            exercise.weightExercise.Duration = 3;
-            exercise.weightExercise.Time = 13;
-
-            ExerciseToTxt.Method(exercise);
-
-            string[] fileEntries = Directory.GetFiles(path);
-            Console.Write(fileEntries[0].ToString());
         }
     }
 }

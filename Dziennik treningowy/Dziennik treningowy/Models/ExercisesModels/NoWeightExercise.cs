@@ -7,9 +7,9 @@ namespace Dziennik_treningowy.Models.ExercisesModels
 {
    public  class NoWeightExercise : IExercise, ICountable, ITimeable
     {
-        public string Name { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public int Time { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public int Reps { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public int Duration { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public string Name { get ; set ; }
+        public int Time { get ; set ; }
+        public int Reps { get ; set ; }
+        public int Duration { get ; set; }
     }
 }
