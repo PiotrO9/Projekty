@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:vm="clr-namespace:Dziennik_treningowy.ViewModels"
+             x:Class="Dziennik_treningowy.Views.SettingsPage"
+             NavigationPage.HasNavigationBar="false">
+
+    <ContentPage.Content>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+
+            <Button x:Name="btnThemeColor" Grid.Column="0" Grid.Row="0" Text="Theme Motywy" CornerRadius="30" Margin="20,60"/>
+            
+            <Button x:Name="btnRecords" Grid.Column="0" Grid.Row="1" Text="Rekordy" CornerRadius="30" Margin="20,60"/>
+            
+            <Button x:Name="btnOneRepMaxCalculator" Grid.Column="0" Grid.Row="2" Text="Kalkulator maksymalnego powtórzenia" CornerRadius="30" Margin="20,60"/>
+
+            <Button x:Name="btnClearingTrainingsHistory" Grid.Column="0" Grid.Row="3" Text="Usuń historie treningów" CornerRadius="30" Margin="20,60"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

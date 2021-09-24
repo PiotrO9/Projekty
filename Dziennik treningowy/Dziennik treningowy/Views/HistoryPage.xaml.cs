@@ -1,6 +1,7 @@
 ﻿using Dziennik_treningowy.Models;
 using Dziennik_treningowy.Models.ExercisesModels;
 using Dziennik_treningowy.Services.Files_services;
+using Dziennik_treningowy.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -19,7 +20,7 @@ namespace Dziennik_treningowy.Views
         public HistoryPage()
         {
             InitializeComponent();
-
+            Content.BindingContext = new HistoryViewModel();
             
         }
 

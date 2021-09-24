@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:viewmodels="clr-namespace:Dziennik_treningowy.ViewModels" 
+             x:DataType="viewmodels:MainPageViewModel"
+             x:Class="Dziennik_treningowy.Views.MainPage"
+             NavigationPage.HasNavigationBar="false">
+
+    <ContentPage.BindingContext>
+        <viewmodels:MainPageViewModel/>
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Content>
+
+        <Grid x:Name="MainGrid">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="8*"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Frame x:Name="MainFrame" Grid.Column="0" Grid.Row="0"/>
+            <Grid x:Name="InsideGrid" Grid.Column="0" Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <StackLayout Orientation="Vertical" Grid.Column="0" Grid.Row="0" HorizontalOptions="Center" VerticalOptions="CenterAndExpand">
+                    <ImageButton x:Name="imbBtnSettings" Source="Images/settings.png" Clicked="imgBtnSettings_Clicked" BackgroundColor="#303030" />
+                    <Label Text="Ustawienia"/>
+                </StackLayout>
+                <StackLayout Orientation="Vertical" Grid.Column="1" Grid.Row="0" HorizontalOptions="Center" VerticalOptions="CenterAndExpand">
+                    <ImageButton x:Name="imgBtnHistory" Source="Images/book.png" Clicked="imbBtnHistory_Clicked" BackgroundColor="#303030"/>
+                    <Label Text="Historia"/>
+                </StackLayout>
+                <StackLayout Orientation="Vertical" Grid.Column="2" Grid.Row="0" HorizontalOptions="Center" VerticalOptions="CenterAndExpand">
+                    <ImageButton x:Name="imgBtnTraining" Source="Images/dumbbell.png" Clicked="imbBtnTraining_Clicked" BackgroundColor="#303030"/>
+                    <Label Text="Trening"/>
+                </StackLayout>
+
+            </Grid>
+
+        </Grid>
+        
+    </ContentPage.Content>
+</ContentPage>
