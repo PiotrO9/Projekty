@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<xct1:Popup
+    xmlns:xct1="http://xamarin.com/schemas/2020/toolkit"
+    
+    xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xct="http://schemas.microsoft.com/schemas/2020/toolkit" 
+    xmlns:viewmodels="clr-namespace:Dziennik_treningowy.ViewModels"
+    x:DataType="viewmodels:ExercisePopupViewModel"
+    x:Class="Dziennik_treningowy.Views.Popups.ExersicePopup"
+                Size="300,500"
+            IsLightDismissEnabled="False">
+
+    <StackLayout x:Name="MainStackLayout">
+        <ListView x:Name="MainListView" ItemsSource="{Binding ExercisesNamesCollection}" SelectionMode="Single" SelectedItem="{Binding SelectedExercise}">
+            
+        </ListView>
+        
+        <Button x:Name="btnClose" Text="Zamknij" Command="{Binding CloseButtonClick}"/>
+    </StackLayout>
+    
+</xct1:Popup>
