@@ -7,9 +7,9 @@ namespace Dziennik_treningowy.Models.ExercisesModels
 {
    public  class NoWeightExercise : IExercise, ICountable, ITimeable
     {
-        public string Name { get ; set ; }
-        public int Time { get ; set ; }
-        public int Reps { get ; set ; }
-        public int Duration { get ; set; }
+        public string Name { get ; set ; } // Nazwa ćwiczenia
+        public int Time { get ; set ; } // Ewentualna przerwa po ćwiczeniu
+        public int Reps { get ; set ; } // Powtórzenia w serii
+        public int Duration { get ; set; } //Czas trwania ćwiczenia
     }
 }

@@ -5,6 +5,7 @@ using Dziennik_treningowy.Views.Popups;
 using GalaSoft.MvvmLight.Command;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -13,11 +14,68 @@ using Xamarin.Forms;
 
 namespace Dziennik_treningowy.ViewModels
 {
-    public class NewTrainingViewModel
+    public class NewTrainingViewModel : INotifyPropertyChanged
     {
         private NewTrainingPage _newTrainingPage { get; set; }
 
         private List<List<Exercise>> ExerciseList;
+
+        #region Exercise properties change
+
+        private string _name;
+        private int _time;
+        private float _weight;
+        private int _reps;
+        private int _duration;
+
+        public string Name
+        {
+            get { return _name; }
+            set
+            {
+                _name = value;
+                OnPropertyChanged();
+            }
+        }
+        public int Time
+        {
+            get { return _time; }
+            set
+            {
+                _time = value;
+                OnPropertyChanged();
+            }
+        }
+        public float Weight
+        {
+            get { return _weight; }
+            set
+            {
+                _weight = value;
+                OnPropertyChanged();
+            }
+        }
+        public int Reps
+        {
+            get { return _reps; }
+            set
+            {
+                _reps = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public int Duration
+        {
+            get { return _duration; }
+            set
+            {
+                _duration = value;
+                OnPropertyChanged();
+            }
+        }
+
+        #endregion
 
         #region Location in Exercise List
 
@@ -33,7 +91,13 @@ namespace Dziennik_treningowy.ViewModels
             AddClickCommand = new Command(AddClickCommandImpl);
         }
 
+        #region Commands
+
         public Command AddClickCommand { get; }
+
+        #endregion
+
+        #region Commands implementations
 
         public void AddClickCommandImpl()
         {
@@ -41,6 +105,57 @@ namespace Dziennik_treningowy.ViewModels
             {
                 IsLightDismissEnabled = false
             });
+        }
+
+        #endregion
+
+        #region ViewModel Inside methods
+
+        public void RefreashPropertiesInViewModel()
+        {
+            Exercise tempExercise = new Exercise();
+
+            Name = "";
+            Time = 0;
+            Weight = 0;
+            Reps = 0;
+            Duration = 0;
+
+            if(CurrentExerciseNumber == 0)
+            {
+                tempExercise.weightExercise = ExerciseList[CurrentListNumber][CurrentExerciseNumber].weightExercise;
+                tempExercise.noWeightExercise = ExerciseList[CurrentListNumber][CurrentExerciseNumber].noWeightExercise;
+                tempExercise.timeExercise = ExerciseList[CurrentListNumber][CurrentExerciseNumber].timeExercise;
+            }
+            else
+            {
+                tempExercise.weightExercise = ExerciseList[CurrentListNumber][CurrentExerciseNumber - 1].weightExercise;
+                tempExercise.noWeightExercise = ExerciseList[CurrentListNumber][CurrentExerciseNumber - 1].noWeightExercise;
+                tempExercise.timeExercise = ExerciseList[CurrentListNumber][CurrentExerciseNumber - 1].timeExercise;
+            }
+
+            if(tempExercise.weightExercise != null)
+            {
+                Name = tempExercise.weightExercise.Name;
+                Time = tempExercise.weightExercise.Time;
+                Weight = tempExercise.weightExercise.Weight;
+                Reps = tempExercise.weightExercise.Reps;
+                Duration = tempExercise.weightExercise.Duration;
+            }
+            else if(tempExercise.noWeightExercise != null)
+            {
+                Name = tempExercise.noWeightExercise.Name;
+                Time = tempExercise.noWeightExercise.Time;
+                Reps = tempExercise.noWeightExercise.Reps;
+                Duration = tempExercise.noWeightExercise.Duration;
+            }
+            else if(tempExercise.timeExercise != null)
+            {
+                Name = tempExercise.timeExercise.Name;
+                Time = tempExercise.timeExercise.Time;
+                Duration = tempExercise.timeExercise.Duration;
+            }
+
         }
 
         public void RefreshExerciseList()
@@ -161,6 +276,20 @@ namespace Dziennik_treningowy.ViewModels
                 }
 
             }
+
+            RefreashPropertiesInViewModel();
         }
+
+        #endregion
+
+        #region Property changed
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected virtual void OnPropertyChanged(string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        #endregion
     }
 }
