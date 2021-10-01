@@ -101,7 +101,7 @@
 
             </Grid>
 
-            <Button x:Name="btnAccept" Grid.Column="0" Grid.Row="3" Text="✔" VerticalOptions="Center" HorizontalOptions="Center" CornerRadius="45"/>
+            <Button x:Name="btnAccept" Grid.Column="0" Grid.Row="3" Text="✔" VerticalOptions="Center" HorizontalOptions="Center" CornerRadius="45" Command="{Binding AcceptClickCommand}"/>
         </Grid>
     </ContentPage.Content>
 </ContentPage>

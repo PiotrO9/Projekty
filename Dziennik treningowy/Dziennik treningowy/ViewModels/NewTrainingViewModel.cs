@@ -79,21 +79,35 @@ namespace Dziennik_treningowy.ViewModels
 
         #region Location in Exercise List
 
+        private bool IsFinished { get; set; }
+
         private int CurrentListNumber { get; set; }
 
         private int CurrentExerciseNumber { get; set; }
 
         #endregion
 
+        #region Location exercise in current page to print
+
+        private int CurrentListNumberToPrint { get; set; }
+
+        private int CurrentExerciseNumberToPrint { get; set; }
+
+        #endregion
+
+
         public NewTrainingViewModel(NewTrainingPage newTrainingPage)
         {
             _newTrainingPage = newTrainingPage;
             AddClickCommand = new Command(AddClickCommandImpl);
+            AcceptClickCommand = new Command(AcceptClickCommandImpl);
         }
 
         #region Commands
 
         public Command AddClickCommand { get; }
+
+        public Command AcceptClickCommand { get; }
 
         #endregion
 
@@ -107,12 +121,30 @@ namespace Dziennik_treningowy.ViewModels
             });
         }
 
+        public void AcceptClickCommandImpl()
+        {
+            RefreashPropertiesInViewModel();
+        }
+
         #endregion
 
         #region ViewModel Inside methods
 
-        public void RefreashPropertiesInViewModel()
+        public void RefreashPropertiesInViewModel() // Odświeżanie danych w tym viewmodelu
         {
+            if(IsFinished == true)
+            {
+                //Koniec ale taki ostateczny
+            }
+
+            if(ExerciseList.Count - 1 == CurrentListNumberToPrint)
+            {
+                if(ExerciseList[CurrentListNumberToPrint - 1].Count - 1 == CurrentExerciseNumberToPrint)
+                {
+                    IsFinished = true; // Tutaj wysyłanie potwierdzenia zakończenia treningu
+                }
+            }
+
             Exercise tempExercise = new Exercise();
 
             Name = "";
@@ -121,18 +153,82 @@ namespace Dziennik_treningowy.ViewModels
             Reps = 0;
             Duration = 0;
 
-            if(CurrentExerciseNumber == 0)
+            if (CurrentExerciseNumberToPrint == 0) // Jeżeli ćwiczenie jest 1, wyświetl je
             {
-                tempExercise.weightExercise = ExerciseList[CurrentListNumber][CurrentExerciseNumber].weightExercise;
-                tempExercise.noWeightExercise = ExerciseList[CurrentListNumber][CurrentExerciseNumber].noWeightExercise;
-                tempExercise.timeExercise = ExerciseList[CurrentListNumber][CurrentExerciseNumber].timeExercise;
+
+                tempExercise.weightExercise = ExerciseList[CurrentListNumberToPrint][CurrentExerciseNumberToPrint].weightExercise;
+                tempExercise.noWeightExercise = ExerciseList[CurrentListNumberToPrint][CurrentExerciseNumberToPrint].noWeightExercise;
+                tempExercise.timeExercise = ExerciseList[CurrentListNumberToPrint][CurrentExerciseNumberToPrint].timeExercise;
+
+                CurrentExerciseNumberToPrint++;
+
+                if(ExerciseList[CurrentListNumberToPrint].Count == 1)
+                {
+                    if(ExerciseList.Count == 1)
+                    {
+                        //Koniec
+                    }
+                    else
+                    {
+                        if(CurrentListNumberToPrint == ExerciseList.Count - 1)
+                        {
+                            //Koniec
+                        }
+                        CurrentListNumberToPrint++;
+                        CurrentExerciseNumberToPrint = 0;
+                    }
+
+                }
             }
-            else
+            else // Kiedy ćwiczenie nie jest 1
             {
-                tempExercise.weightExercise = ExerciseList[CurrentListNumber][CurrentExerciseNumber - 1].weightExercise;
-                tempExercise.noWeightExercise = ExerciseList[CurrentListNumber][CurrentExerciseNumber - 1].noWeightExercise;
-                tempExercise.timeExercise = ExerciseList[CurrentListNumber][CurrentExerciseNumber - 1].timeExercise;
+                if(ExerciseList[CurrentListNumberToPrint][CurrentExerciseNumberToPrint] != null)
+                {
+                    tempExercise.weightExercise = ExerciseList[CurrentListNumberToPrint][CurrentExerciseNumberToPrint].weightExercise;
+                    tempExercise.noWeightExercise = ExerciseList[CurrentListNumberToPrint][CurrentExerciseNumberToPrint].noWeightExercise;
+                    tempExercise.timeExercise = ExerciseList[CurrentListNumberToPrint][CurrentExerciseNumberToPrint].timeExercise;
+
+                    CurrentExerciseNumberToPrint++;
+
+                    if (ExerciseList[CurrentListNumberToPrint].Count == CurrentExerciseNumberToPrint)
+                    {
+                        if (ExerciseList.Count == CurrentListNumberToPrint + 1)
+                        {
+                            //Koniec
+                        }
+                        else
+                        {
+                            if (CurrentListNumberToPrint == ExerciseList.Count - 1)
+                            {
+                                //Koniec
+                            }
+
+                            CurrentListNumberToPrint++;
+                            CurrentExerciseNumberToPrint = 0;
+                        }
+
+                    }
+                }
+                else
+                {
+                    if(ExerciseList[CurrentListNumberToPrint + 1][0] == null)
+                    {
+                        //Koniec
+                    }
+                    else // Przejście do następnej listy
+                    {
+                        if (CurrentListNumberToPrint == ExerciseList.Count - 1)
+                        {
+                            //Koniec
+                        }
+
+                        CurrentListNumberToPrint++;
+                        CurrentExerciseNumberToPrint = 0;
+                    }
+                }
+                
             }
+            
 
             if(tempExercise.weightExercise != null)
             {
@@ -232,7 +328,7 @@ namespace Dziennik_treningowy.ViewModels
                         case TypeOfExercise.Time:
                             {
                                 PickedExerciseName = _newTrainingPage.PickedExercise.timeExercise.Name;
-                                CurrentExerciseName = ExerciseList[CurrentListNumber][CurrentListNumber].timeExercise.Name;
+                                CurrentExerciseName = ExerciseList[CurrentListNumber][CurrentExerciseNumber].timeExercise.Name;
                             break;
                             }
                         default:
@@ -276,8 +372,6 @@ namespace Dziennik_treningowy.ViewModels
                 }
 
             }
-
-            RefreashPropertiesInViewModel();
         }
 
         #endregion
