@@ -2,13 +2,10 @@
 using Dziennik_treningowy.Models;
 using Dziennik_treningowy.Views;
 using Dziennik_treningowy.Views.Popups;
-using GalaSoft.MvvmLight.Command;
-using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
-using System.Windows.Input;
 using Xamarin.CommunityToolkit.Extensions;
 using Xamarin.Forms;
 
@@ -75,6 +72,19 @@ namespace Dziennik_treningowy.ViewModels
             }
         }
 
+        private string _setsLabel;
+
+        public string SetsLabel 
+        {
+            get { return _setsLabel; }
+            set 
+            {
+                _setsLabel = value;
+                OnPropertyChanged();
+            }
+        }
+
+
         #endregion
 
         #region Location in Exercise List
@@ -95,19 +105,42 @@ namespace Dziennik_treningowy.ViewModels
 
         #endregion
 
+        #region Time elapsing
+
+        private bool IsTimeElapsing { get; set; }
+
+        public int TimeToElapse { get; set; }
+
+        #endregion
+
 
         public NewTrainingViewModel(NewTrainingPage newTrainingPage)
         {
             _newTrainingPage = newTrainingPage;
             AddClickCommand = new Command(AddClickCommandImpl);
             AcceptClickCommand = new Command(AcceptClickCommandImpl);
+
+            btnSub1ClickCommand = new Command(btnSub1ClickCommandImpl);
+            btnAdd1ClickCommand = new Command(btnAdd1ClickCommandImpl);
+
+            btnSub2ClickCommand = new Command(btnSub2ClickCommandImpl);
+            btnAdd2ClickCommand = new Command(btnAdd2ClickCommandImpl);
+
+            btnSub3ClickCommand = new Command(btnSub3ClickCommandImpl);
+            btnAdd3ClickCommand = new Command(btnAdd3ClickCommandImpl);
         }
 
         #region Commands
 
         public Command AddClickCommand { get; }
-
         public Command AcceptClickCommand { get; }
+
+        public Command btnSub1ClickCommand { get; }
+        public Command btnAdd1ClickCommand { get; }
+        public Command btnSub2ClickCommand { get; }
+        public Command btnAdd2ClickCommand { get; }
+        public Command btnSub3ClickCommand { get; }
+        public Command btnAdd3ClickCommand { get; }
 
         #endregion
 
@@ -123,12 +156,81 @@ namespace Dziennik_treningowy.ViewModels
 
         public void AcceptClickCommandImpl()
         {
-            RefreashPropertiesInViewModel();
+            if(IsTimeElapsing == true)
+            {
+                IsTimeElapsing = false;
+                RefreashPropertiesInViewModel();
+                return;
+            }
+
+
+            if(ExerciseList == null)
+            {
+
+            }
+            else
+            {
+                if(Time == 0)
+                {
+
+                }
+                else // Tutaj zaczyna sie timer
+                {
+                    if (Time != 0)
+                    {
+                        _newTrainingPage.Navigation.ShowPopup(new TimerPopup(_newTrainingPage, this, Time)
+                        {
+                            IsLightDismissEnabled = false
+                        });
+                    }
+                }
+
+                RefreashPropertiesInViewModel();
+            }
+        }
+        public void btnSub1ClickCommandImpl()
+        {
+
+        }
+        public void btnAdd1ClickCommandImpl()
+        {
+
+        }
+        public void btnSub2ClickCommandImpl()
+        {
+            if(Reps != 0)
+            {
+                Reps = Reps - 1;
+            }
+        }
+        public void btnAdd2ClickCommandImpl()
+        {
+            Reps++;
+        }
+        public void btnSub3ClickCommandImpl()
+        {
+            if(Time != 0)
+            {
+                Time = Time - 5;
+            }
+        }
+        public void btnAdd3ClickCommandImpl()
+        {
+            Time += 5;
         }
 
         #endregion
 
         #region ViewModel Inside methods
+
+        public string SetSetsLabelText()
+        {
+            string result = "";
+
+            result += "Seria " + (CurrentExerciseNumberToPrint + 1).ToString() + " z " + ExerciseList[CurrentListNumberToPrint].Count;
+
+            return result;
+        }
 
         public void RefreashPropertiesInViewModel() // Odświeżanie danych w tym viewmodelu
         {
@@ -139,11 +241,13 @@ namespace Dziennik_treningowy.ViewModels
 
             if(ExerciseList.Count - 1 == CurrentListNumberToPrint)
             {
-                if(ExerciseList[CurrentListNumberToPrint - 1].Count - 1 == CurrentExerciseNumberToPrint)
+                if(ExerciseList[CurrentListNumberToPrint].Count - 1 == CurrentExerciseNumberToPrint)
                 {
                     IsFinished = true; // Tutaj wysyłanie potwierdzenia zakończenia treningu
                 }
             }
+
+            SetsLabel = SetSetsLabelText();
 
             Exercise tempExercise = new Exercise();
 
@@ -206,7 +310,6 @@ namespace Dziennik_treningowy.ViewModels
                             CurrentListNumberToPrint++;
                             CurrentExerciseNumberToPrint = 0;
                         }
-
                     }
                 }
                 else
@@ -226,7 +329,6 @@ namespace Dziennik_treningowy.ViewModels
                         CurrentExerciseNumberToPrint = 0;
                     }
                 }
-                
             }
             
 
@@ -251,7 +353,6 @@ namespace Dziennik_treningowy.ViewModels
                 Time = tempExercise.timeExercise.Time;
                 Duration = tempExercise.timeExercise.Duration;
             }
-
         }
 
         public void RefreshExerciseList()

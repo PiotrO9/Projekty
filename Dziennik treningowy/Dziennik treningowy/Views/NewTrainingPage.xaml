@@ -46,7 +46,7 @@
                     <RowDefinition Height="6*"/>
                 </Grid.RowDefinitions>
 
-                <Label x:Name="lblTimeRest" Grid.Column="0" Grid.Row="0" Text="{Binding Time,Mode=TwoWay}" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="20"/>
+                <Label x:Name="lblTimeRest" Grid.Column="0" Grid.Row="0" Text="{Binding TimeToElapse}" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="20"/>
                 <Image x:Name="imgExercise" Grid.Column="0" Grid.Row="1"/>
 
             </Grid>
@@ -61,7 +61,7 @@
                     <RowDefinition Height="2*"/>
                 </Grid.RowDefinitions>
 
-                <Label x:Name="lblSets" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Text="Seria 1 z 4" FontSize="20"
+                <Label x:Name="lblSets" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Text="{Binding SetsLabel}" FontSize="20"
                        VerticalTextAlignment="End" HorizontalTextAlignment="Center"/>
 
                 <Grid x:Name="DetailsGrid" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1">
@@ -81,20 +81,20 @@
 
                     <StackLayout Grid.Column="1" Grid.Row="0" Orientation="Horizontal">
                         <Label x:Name="lblWeightAmount" Text="{Binding Weight,Mode=TwoWay}" FontSize="15" VerticalOptions="Center" HorizontalOptions="Center"/>
-                        <Button x:Name="btnSub1" Text="-" FontSize="20" TextColor="Red" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Margin="20,0,10,0"/>
-                        <Button x:Name="btnAdd1" Text="+" FontSize="20" TextColor="Red" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Margin="10,0,20,0"/>
+                        <Button x:Name="btnSub1" Text="-" FontSize="20" TextColor="Red" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Margin="20,0,10,0" Command="{Binding btnSub1ClickCommand }"/>
+                        <Button x:Name="btnAdd1" Text="+" FontSize="20" TextColor="Red" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Margin="10,0,20,0" Command="{Binding btnAdd1ClickCommand}"/>
                     </StackLayout >
 
                     <StackLayout Grid.Column="1" Grid.Row="1" Orientation="Horizontal">
                         <Label x:Name="lblRepsAmoount" Text="{Binding Reps,Mode=TwoWay}" FontSize="15" VerticalOptions="Center" HorizontalOptions="Center"/>
-                        <Button x:Name="btnSub2" Text="-" FontSize="10" TextColor="Red" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Margin="30,0,10,0"/>
-                        <Button x:Name="btnAdd2" Text="+" FontSize="10" TextColor="Red" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Margin="10,0,20,0"/>
+                        <Button x:Name="btnSub2" Text="-" FontSize="10" TextColor="Red" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Margin="30,0,10,0" Command="{Binding btnSub2ClickCommand}"/>
+                        <Button x:Name="btnAdd2" Text="+" FontSize="10" TextColor="Red" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Margin="10,0,20,0" Command="{Binding btnAdd2ClickCommand}"/>
                     </StackLayout>
 
                     <StackLayout Grid.Column="1" Grid.Row="2" Orientation="Horizontal">
                         <Label x:Name="lblTimeAmount" Text="{Binding Time,Mode=TwoWay}" FontSize="15" VerticalOptions="Center" HorizontalOptions="Center"/>
-                        <Button x:Name="btnSub3"  Text="-" FontSize="20" TextColor="Red" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Margin="10,0,10,0"/>
-                        <Button x:Name="btnAdd3"  Text="+" FontSize="20" TextColor="Red" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Margin="10,0,20,0"/>
+                        <Button x:Name="btnSub3"  Text="-" FontSize="20" TextColor="Red" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Margin="10,0,10,0" Command="{Binding btnSub3ClickCommand }"/>
+                        <Button x:Name="btnAdd3"  Text="+" FontSize="20" TextColor="Red" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Margin="10,0,20,0" Command="{Binding btnAdd3ClickCommand}"/>
                     </StackLayout>
 
                 </Grid>

@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<xct1:Popup  xmlns:xct1="http://xamarin.com/schemas/2020/toolkit"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Dziennik_treningowy.Views.Popups.TimerPopup"
+             xmlns:viewmodels="clr-namespace:Dziennik_treningowy.ViewModels"
+             x:DataType="viewmodels:TimerPopupViewModel"
+             IsLightDismissEnabled="False"
+             Size="300,300">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="7*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Label x:Name="lblMain" Grid.Column="0" Grid.Row="0" Text="{Binding TextToDisplay}" VerticalOptions="Center" HorizontalOptions="Center" FontSize="30"/>
+
+        <Button x:Name="btnClose" Grid.Column="0" Grid.Row="1" Text="{Binding ButtonText}" Command="{Binding CloseClickCommand}"/>
+
+    </Grid>
+    
+</xct1:Popup>
