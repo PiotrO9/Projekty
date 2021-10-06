@@ -7,8 +7,8 @@
              NavigationPage.HasNavigationBar="False"
              NavigationPage.HasBackButton="False">
 
-    <ContentPage.Content>
-        <Grid x:Name="MainGrid">
+    <ContentPage.Content >
+        <Grid x:Name="MainGrid" BackgroundColor="{Binding BackgroundColor}">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>

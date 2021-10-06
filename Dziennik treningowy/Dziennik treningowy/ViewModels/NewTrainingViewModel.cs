@@ -113,10 +113,18 @@ namespace Dziennik_treningowy.ViewModels
 
         #endregion
 
+        #region Visual properties
+
+        public Color BackgroundColor { get; set; }
+
+        #endregion
 
         public NewTrainingViewModel(NewTrainingPage newTrainingPage)
         {
             _newTrainingPage = newTrainingPage;
+
+            SetStartValues();
+
             AddClickCommand = new Command(AddClickCommandImpl);
             AcceptClickCommand = new Command(AcceptClickCommandImpl);
 
@@ -190,11 +198,14 @@ namespace Dziennik_treningowy.ViewModels
         }
         public void btnSub1ClickCommandImpl()
         {
-
+            if(Weight != 0)
+            {
+                Weight -= 1.0F;
+            }
         }
         public void btnAdd1ClickCommandImpl()
         {
-
+            Weight += 1.0F;
         }
         public void btnSub2ClickCommandImpl()
         {
@@ -253,7 +264,7 @@ namespace Dziennik_treningowy.ViewModels
 
             Name = "";
             Time = 0;
-            Weight = 0;
+            Weight = 0.0F;
             Reps = 0;
             Duration = 0;
 
@@ -473,6 +484,12 @@ namespace Dziennik_treningowy.ViewModels
                 }
 
             }
+        }
+
+        private void SetStartValues()
+        {
+            Weight = 0.0F;
+            BackgroundColor = new Color(241, 241, 241);
         }
 
         #endregion
