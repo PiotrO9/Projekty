@@ -8,7 +8,7 @@
              NavigationPage.HasBackButton="False">
 
     <ContentPage.Content >
-        <Grid x:Name="MainGrid" BackgroundColor="{Binding BackgroundColor}">
+        <Grid x:Name="MainGrid" BackgroundColor="#F1F1F1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
@@ -47,7 +47,7 @@
                 </Grid.RowDefinitions>
 
                 <Label x:Name="lblTimeRest" Grid.Column="0" Grid.Row="0" Text="{Binding TimeToElapse}" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="20"/>
-                <Image x:Name="imgExercise" Grid.Column="0" Grid.Row="1"/>
+                <Image x:Name="imgExercise" Grid.Column="0" Grid.Row="1" Source="{Binding ImagePath}"/>
 
             </Grid>
 

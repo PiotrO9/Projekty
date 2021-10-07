@@ -1,5 +1,6 @@
 ﻿using Dziennik_treningowy.Enums;
 using Dziennik_treningowy.Models;
+using Dziennik_treningowy.Services.Setting_services;
 using Dziennik_treningowy.Views;
 using Dziennik_treningowy.Views.Popups;
 using System.Collections.Generic;
@@ -116,6 +117,24 @@ namespace Dziennik_treningowy.ViewModels
         #region Visual properties
 
         public Color BackgroundColor { get; set; }
+
+        #endregion
+
+        #region Image string path
+
+        private string _imagePath;
+        public string ImagePath
+        {
+            get
+            {
+                return _imagePath;
+            }
+            set
+            {
+                _imagePath = value;
+                OnPropertyChanged();
+            }
+        }
 
         #endregion
 
@@ -364,6 +383,8 @@ namespace Dziennik_treningowy.ViewModels
                 Time = tempExercise.timeExercise.Time;
                 Duration = tempExercise.timeExercise.Duration;
             }
+
+            SetImagePathMethod();
         }
 
         public void RefreshExerciseList()
@@ -489,7 +510,13 @@ namespace Dziennik_treningowy.ViewModels
         private void SetStartValues()
         {
             Weight = 0.0F;
-            BackgroundColor = new Color(241, 241, 241);
+            BackgroundColor = new Color(100, 100, 100);
+            ImagePath = "Empty.png";
+        }
+
+        private void SetImagePathMethod()
+        {
+            ImagePath = SetImagePath.Method(Name);
         }
 
         #endregion
