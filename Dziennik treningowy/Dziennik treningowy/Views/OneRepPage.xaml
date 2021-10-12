@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Dziennik_treningowy.Views.OneRepPage">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Label x:Name="lblBodyweight" Grid.Column="0" Grid.Row="0" Text="Waga" FontSize="15" VerticalOptions="Center" HorizontalOptions="Center"/>
+            <Label x:Name="lblExercise" Grid.Column="0" Grid.Row="1" Text="Ćwiczenie" FontSize="15" VerticalOptions="Center" HorizontalOptions="Center"/>
+            <Label x:Name="lblWeight" Grid.Column="0" Grid.Row="2" Text="Ciężar" FontSize="15" VerticalOptions="Center" HorizontalOptions="Center"/>
+            <Label x:Name="lblReps" Grid.Column="0" Grid.Row="3" Text="Powtórzenia" FontSize="15" VerticalOptions="Center" HorizontalOptions="Center"/>
+
+            <Button x:Name="btnPickedExercise" Grid.Column="1" Grid.Row="1" Text="Wybrane ćwiczenie" HorizontalOptions="Center" VerticalOptions="Center"/>
+
+            <Entry x:Name="BodyWeightEntry" Grid.Column="1" Grid.Row="0" Keyboard="Numeric" ></Entry>
+            <Entry x:Name="WeightEntry" Grid.Column="1" Grid.Row="2" Keyboard="Numeric" ></Entry>
+            <Entry x:Name="RepsEntry" Grid.Column="1" Grid.Row="3" Keyboard="Numeric" ></Entry>
+
+            <Button x:Name="btnCalculate" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="4" Text="Oblicz" FontSize="20" HorizontalOptions="Center" VerticalOptions="Center" Command="{Binding CalculateCommand}"/>
+            <Button x:Name="btnQuit" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="5" Text="X" FontSize="20" HorizontalOptions="Center" VerticalOptions="Center" Command="{Binding QuitCommand}"/>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

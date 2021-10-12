@@ -266,6 +266,12 @@ namespace Dziennik_treningowy.ViewModels
         {
             if(IsFinished == true)
             {
+                _newTrainingPage.Navigation.ShowPopup(new SetFileNamePopup(ExerciseList)
+                {
+                    IsLightDismissEnabled = false
+                });
+
+                Shell.Current.GoToAsync("..");
                 //Koniec ale taki ostateczny
             }
 
@@ -287,7 +293,7 @@ namespace Dziennik_treningowy.ViewModels
             Reps = 0;
             Duration = 0;
 
-            if (CurrentExerciseNumberToPrint == 0) // Jeżeli ćwiczenie jest 1, wyświetl je
+            if (CurrentExerciseNumberToPrint == 0 && CurrentListNumberToPrint == 0) // Jeżeli ćwiczenie jest 1, wyświetl je
             {
 
                 tempExercise.weightExercise = ExerciseList[CurrentListNumberToPrint][CurrentExerciseNumberToPrint].weightExercise;
@@ -300,12 +306,14 @@ namespace Dziennik_treningowy.ViewModels
                 {
                     if(ExerciseList.Count == 1)
                     {
+                        IsFinished = true;
                         //Koniec
                     }
                     else
                     {
                         if(CurrentListNumberToPrint == ExerciseList.Count - 1)
                         {
+                            IsFinished = true;
                             //Koniec
                         }
                         CurrentListNumberToPrint++;
@@ -316,7 +324,7 @@ namespace Dziennik_treningowy.ViewModels
             }
             else // Kiedy ćwiczenie nie jest 1
             {
-                if(ExerciseList[CurrentListNumberToPrint][CurrentExerciseNumberToPrint] != null)
+                if(ExerciseList[CurrentListNumberToPrint].Count != CurrentExerciseNumberToPrint)
                 {
                     tempExercise.weightExercise = ExerciseList[CurrentListNumberToPrint][CurrentExerciseNumberToPrint].weightExercise;
                     tempExercise.noWeightExercise = ExerciseList[CurrentListNumberToPrint][CurrentExerciseNumberToPrint].noWeightExercise;
@@ -329,12 +337,14 @@ namespace Dziennik_treningowy.ViewModels
                         if (ExerciseList.Count == CurrentListNumberToPrint + 1)
                         {
                             //Koniec
+                            IsFinished = true;
                         }
                         else
                         {
                             if (CurrentListNumberToPrint == ExerciseList.Count - 1)
                             {
                                 //Koniec
+                                IsFinished = true;
                             }
 
                             CurrentListNumberToPrint++;
@@ -344,15 +354,17 @@ namespace Dziennik_treningowy.ViewModels
                 }
                 else
                 {
-                    if(ExerciseList[CurrentListNumberToPrint + 1][0] == null)
+                    if(ExerciseList.Count == CurrentListNumberToPrint + 1)
                     {
                         //Koniec
+                        IsFinished = true;
                     }
                     else // Przejście do następnej listy
                     {
                         if (CurrentListNumberToPrint == ExerciseList.Count - 1)
                         {
                             //Koniec
+                            IsFinished = true;
                         }
 
                         CurrentListNumberToPrint++;

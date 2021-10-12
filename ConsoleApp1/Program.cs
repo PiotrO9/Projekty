@@ -11,7 +11,6 @@ namespace ConsoleApp1
 
             Console.WriteLine(test);
             Console.ReadLine();
-
         }
     }
 }

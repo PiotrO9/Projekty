@@ -22,6 +22,7 @@ namespace Dziennik_treningowy
             this.BindingContext = new AppShellViewModel();
             Routing.RegisterRoute(nameof(NewTrainingPage), typeof(NewTrainingPage));
             Routing.RegisterRoute(nameof(PickExersisePage), typeof(PickExersisePage));
+            Routing.RegisterRoute(nameof(OneRepPage), typeof(OneRepPage));
         }
     }
 }

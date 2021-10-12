@@ -1,17 +1,24 @@
-﻿using System;
+﻿using Dziennik_treningowy.Views;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
+using Xamarin.Forms;
 
 namespace Dziennik_treningowy.ViewModels
 {
-    class SettingsViewModel : INotifyPropertyChanged
+    class SettingsViewModel
     {
+        public SettingsViewModel()
+        {
+            OneRepCalculatorClick = new Command(OneRepCalculatorClickImpl);
+        }
 
-        #region INotifyPropertyChanged
+        public Command OneRepCalculatorClick { get; }
 
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        #endregion
+        public async void OneRepCalculatorClickImpl()
+        {
+           await Shell.Current.GoToAsync(nameof(OneRepPage));
+        }
     }
 }

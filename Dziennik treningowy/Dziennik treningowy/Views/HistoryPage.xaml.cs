@@ -20,9 +20,7 @@ namespace Dziennik_treningowy.Views
         public HistoryPage()
         {
             InitializeComponent();
-            Content.BindingContext = new HistoryViewModel();
-            
-        }
+            Content.BindingContext = new HistoryViewModel();        }
 
         private void btnTest_Clicked(object sender, EventArgs e)
         {

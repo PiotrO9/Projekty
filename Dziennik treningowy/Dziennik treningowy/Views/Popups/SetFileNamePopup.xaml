@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<xct1:Popup  xmlns:xct1="http://xamarin.com/schemas/2020/toolkit" xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Dziennik_treningowy.Views.Popups.SetFileNamePopup"
+             Size="300,300"
+             IsLightDismissEnabled="False">
+
+    <Grid x:Name="MainGrid">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="3*"/>
+        </Grid.RowDefinitions>
+
+        <Entry x:Name="TextInputEntry" Grid.Column="0" Grid.Row="0" VerticalOptions="Center" HorizontalOptions="Center" FontSize="20" WidthRequest="250" TextChanged="TextInputEntry_TextChanged"></Entry>
+        <Button x:Name="btnClose"  Grid.Column="0" Grid.Row="1" Text="Potwierdź"  Clicked="btnClose_Clicked" VerticalOptions="Center" HorizontalOptions="Center"/>
+    </Grid>
+    
+    
+</xct1:Popup>
