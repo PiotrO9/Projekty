@@ -111,82 +111,82 @@
     <AndroidResource Include="Resources\drawable\Empty.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\Close grip dumbbells press.jpg" />
+    <AndroidResource Include="Resources\drawable\CloseGripDumbbellsPress.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\Decline bench dumbbell press-Image.jpg" />
+    <AndroidResource Include="Resources\drawable\DeclineBenchDumbbellPress.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\Flyers-Image.jpg" />
+    <AndroidResource Include="Resources\drawable\Flyers.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\Dumbbells press.jpg" />
+    <AndroidResource Include="Resources\drawable\DumbbellsPress.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\Push up-Image.jpg" />
+    <AndroidResource Include="Resources\drawable\PushUp.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\Pulling down lift triceps-Image.jpg" />
+    <AndroidResource Include="Resources\drawable\PullingDownLiftTriceps.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\Scull crushers-Image.jpg" />
+    <AndroidResource Include="Resources\drawable\ScullCrushers.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\Side raises-Image.jpg" />
+    <AndroidResource Include="Resources\drawable\SideRaises.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\Over head dumbbell press-Image.jpg" />
+    <AndroidResource Include="Resources\drawable\OverHeadDumbbellPress.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\Falling side raises-Image.jpg" />
+    <AndroidResource Include="Resources\drawable\FallingSideRaises.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\One arm knee curl-Image.jpg" />
+    <AndroidResource Include="Resources\drawable\OneArmKneeCurl.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\Z barbell curl-Image.jpg" />
+    <AndroidResource Include="Resources\drawable\ZBarbellCurl.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\One arm preacher curl-Image.jpg" />
+    <AndroidResource Include="Resources\drawable\OneArmPreacherCurl.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\Sitting dumbbell curls-Image.jpg" />
+    <AndroidResource Include="Resources\drawable\SittingDumbbellCurls.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\Hammer curls-Image.jpg" />
+    <AndroidResource Include="Resources\drawable\HammerCurls.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\Dumbbells curls-Image.jpg" />
+    <AndroidResource Include="Resources\drawable\DumbbellsCurls.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\Ez Bar Preacher Curl-Image.jpg" />
+    <AndroidResource Include="Resources\drawable\EzBarPreacherCurl.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\forearm press.jpg" />
+    <AndroidResource Include="Resources\drawable\ForearmPress.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\Chin up over-Image.jpg" />
+    <AndroidResource Include="Resources\drawable\ChinUpOver.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\chin up under-Image.jpg" />
+    <AndroidResource Include="Resources\drawable\ChinUpUnder.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\T row-Image .jpg" />
+    <AndroidResource Include="Resources\drawable\Trow.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\Roving barbell-Image.jpg" />
+    <AndroidResource Include="Resources\drawable\RovingBarbell.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\Roving dumbbell-Image.jpg" />
+    <AndroidResource Include="Resources\drawable\RovingDumbbell.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\prayer pulls.jpg" />
+    <AndroidResource Include="Resources\drawable\PrayerPulls.jpg" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\pulldowns.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\Pulling lift close grip-Image.jpg" />
+    <AndroidResource Include="Resources\drawable\PullingLiftCloseGrip.jpg" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\skier.jpg" />
@@ -195,34 +195,34 @@
     <AndroidResource Include="Resources\drawable\Dips.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\Squad-Image.jpg" />
+    <AndroidResource Include="Resources\drawable\Squad.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\Classic deadlift-Image.jpg" />
+    <AndroidResource Include="Resources\drawable\ClassicDeadlift.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\Front squad.jpg" />
+    <AndroidResource Include="Resources\drawable\FrontSquad.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\Leg Extension.jpg" />
+    <AndroidResource Include="Resources\drawable\LegExtension.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\Leg Curl.jpg" />
+    <AndroidResource Include="Resources\drawable\LegCurl.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\Calf tautness-machine.jpg" />
+    <AndroidResource Include="Resources\drawable\CalfTutnessMachine.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\Calf tautness.jpg" />
+    <AndroidResource Include="Resources\drawable\CalfTautness.jpg" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\Allahy.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\sit ups.jpg" />
+    <AndroidResource Include="Resources\drawable\SitUps.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\Leg raises.jpg" />
+    <AndroidResource Include="Resources\drawable\LegRaises.jpg" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\V.jpg" />

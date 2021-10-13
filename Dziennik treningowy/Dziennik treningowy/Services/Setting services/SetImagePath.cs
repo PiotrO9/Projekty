@@ -33,12 +33,12 @@ namespace Dziennik_treningowy.Services.Setting_services
                     }
                 case "Unoszenie nóg w zwisie":
                     {
-                        result += "Leg raises.jpg";
+                        result += "LegRaises.jpg";
                         break;
                     }
                 case "Brzuszki":
                     {
-                        result += "sit ups.jpg";
+                        result += "SitUps.jpg";
                         break;
                     }
                 case "Allahy":
@@ -48,42 +48,42 @@ namespace Dziennik_treningowy.Services.Setting_services
                     }
                 case "Spięcia łydek z obciążeniem stojąc":
                     {
-                        result += "Calf tautness.jpg";
+                        result += "CalfTautness.jpg";
                         break;
                     }
                 case "Spięcia łydek na maszynie":
                     {
-                        result += "Calf tautness-machine.jpg";
+                        result += "CalfTautnessMachine.jpg";
                         break;
                     }
                 case "Uginanie nóg na maszynie":
                     {
-                        result += "Leg Curl.jpg";
+                        result += "LegCurl.jpg";
                         break;
                     }
                 case "Prostowanie nóg na maszynie":
                     {
-                        result += "Leg Extension.jpg";
+                        result += "LegExtension.jpg";
                         break;
                     }
                 case "Przysiad ze sztangą przodem (Front squad)":
                     {
-                        result += "Front squad.jpg";
+                        result += "FrontSquad.jpg";
                         break;
                     }
                 case "Przysiad":
                     {
-                        result += "Squad-Image.jpg";
+                        result += "Squad.jpg";
                         break;
                     }
                 case "Martwy ciąg (klasyczny)":
                     {
-                        result += "Classic deadlift-Image.jpg";
+                        result += "ClassicDeadlift.jpg";
                         break;
                     }
                 case "Martwy ciąg (sumo)":
                     {
-                        result += "Classic deadlift-Image.jpg";
+                        result += "ClassicDeadlift.jpg";
                         break;
                     }
                 case "Narciarz":
@@ -93,7 +93,7 @@ namespace Dziennik_treningowy.Services.Setting_services
                     }
                 case "Ściąganie wyciągu górnego wąsko":
                     {
-                        result += "Pulling lift close grip-Image.jpg";
+                        result += "PullingLiftCloseGrip.jpg";
                         break;
                     }
                 case "Ściąganie wyciągu górnego szeroko":
@@ -103,72 +103,72 @@ namespace Dziennik_treningowy.Services.Setting_services
                     }
                 case "Prostowanie na modlitewniku":
                     {
-                        result += "prayer pulls.jpg";
+                        result += "PrayerPulls.jpg";
                         break;
                     }
                 case "Wiosłowanie hantlą w opadzie":
                     {
-                        result += "Roving dumbbell-Image.jpg";
+                        result += "RovingDumbbell.jpg";
                         break;
                     }
                 case "Wiosłowanie sztangą":
                     {
-                        result += "Roving barbell-Image.jpg";
+                        result += "RovingBarbell.jpg";
                         break;
                     }
                 case "Wiosłowanie (T-row)":
                     {
-                        result += "T row-Image .jpg";
+                        result += "Trow.jpg";
                         break;
                     }
                 case "Podciąganie z obciążeniem":
                     {
-                        result += "chin up under-Image.jpg";
+                        result += "ChinUpUnder.jpg";
                         break;
                     }
                 case "Podciąganie podchwytem":
                     {
-                        result += "chin up under-Image.jpg";
+                        result += "ChinUpUnder.jpg";
                         break;
                     }
                 case "Podciąganie nadchwytem":
                     {
-                        result += "Chin up over-Image.jpg";
+                        result += "ChinUpOver.jpg";
                         break;
                     }
                 case "Uginanie ramion ze sztangą łamaną chwytem odwrotnym":
                     {
-                        result += "forearm press.jpg";
+                        result += "ForearmPress.jpg";
                         break;
                     }
                 case "Uginanie ramion ze sztangą prostą":
                     {
-                        result += "Z barbell curl-Image.jpg";
+                        result += "ZBarbellCurl.jpg";
                         break;
                     }
                 case "Uginanie ramion ze sztangą na modlitweniku":
                     {
-                        result += "Ez Bar Preacher Curl-Image.jpg";
+                        result += "EzBarPreacherCurl.jpg";
                         break;
                     }
                 case "Uginanie ramion z hantlami z suplinacją stojąc":
                     {
-                        result += "Dumbbells curls-Image.jpg";
+                        result += "DumbbellsCurls.jpg";
                         break;
                     }
                 case "Uginanie ramion z hantlami chwytem młotkowym":
                     {
-                        result += "Hammer curls-Image.jpg";
+                        result += "HammerCurls.jpg";
                         break;
                     }
                 case "Uginanie ramion z hantlami z suplinacją siedząc":
                     {
-                        result += "Sitting dumbbell curls-Image.jpg";
+                        result += "SittingDumbbellCurls.jpg";
                         break;
                     }
                 case "Uginanie ramienia z hantlą na ławce":
                     {
-                        result += "One arm preacher curl-Image.jpg";
+                        result += "OneArmPreacherCurl.jpg";
                         break;
                     }
                 case "Uginanie ramion ze sztangą łamaną":
@@ -178,27 +178,27 @@ namespace Dziennik_treningowy.Services.Setting_services
                     }
                 case "Uginanie ramienia z hantlą na kolanie":
                     {
-                        result += "One arm knee curl-Image.jpg";
+                        result += "OneArmKneeCurl.jpg";
                         break;
                     }
                 case "Wznosy hantli bokiem w opadzie":
                     {
-                        result += "Falling side raises-Image.jpg";
+                        result += "FallingSideRaises.jpg";
                         break;
                     }
                 case "Wyciskanie hantli nad głowę (Arnold press)":
                     {
-                        result += "Over head dumbbell press-Image.jpg";
+                        result += "OverHeadDumbbellPress.jpg";
                         break;
                     }
                 case "Wyciskanie hantli nad głowę":
                     {
-                        result += "Over head dumbbell press-Image.jpg";
+                        result += "OverHeadDumbbellPress.jpg";
                         break;
                     }
                 case "Wznosy hantlami bokiem":
                     {
-                        result += "Side raises - Image.jpg";
+                        result += "SideRaises.jpg";
                         break;
                     }
                 case "Pompki na poręczach z obciążeniem (Dipy)":
@@ -213,47 +213,47 @@ namespace Dziennik_treningowy.Services.Setting_services
                     }
                 case "Wyciskanie francuskie sztangą łamaną (Skull crushery)":
                     {
-                        result += "Scull crushers-Image.jpg";
+                        result += "ScullCrushers.jpg";
                         break;
                     }
                 case "Prostowanie ramion na wyciągu górnym":
                     {
-                        result += "Pulling down lift triceps - Image.jpg";
+                        result += "PullingDownLiftTriceps.jpg";
                         break;
                     } 
                 case "Pompki diamentowe":
                     {
-                        result += "Push up-Image.jpg";
+                        result += "PushUp.jpg";
                         break;
                     }
                 case "Pompki":
                     {
-                        result += "Push up-Image.jpg";
+                        result += "PushUp.jpg";
                         break;
                     }
                 case "Wyciskanie hantli na ławce dodatniej":
                     {
-                        result += "Dumbbells press.jpg";
+                        result += "DumbbellsPress.jpg";
                         break;
                     }
                 case "Rozpiętki":
                     {
-                        result += "Flyers-Image.jpg";
+                        result += "Flyers.jpg";
                         break;
                     }
                 case "Wyciskanie hantli na ławce płaskiej":
                     {
-                        result += "Dumbbells press.jpg";
+                        result += "DumbbellsPress.jpg";
                         break;
                     }
                 case "Wyciskanie hantli na ławce ujemnej":
                     {
-                        result += "Decline bench dumbbell press-Image.jpg";
+                        result += "DeclineBenchDumbbellPress.jpg";
                         break;
                     }
                 case "Wyciskanie hantli wąskim chwytem":
                     {
-                        result += "Close grip dumbbells press.jpg";
+                        result += "CloseGripDumbbellsPress.jpg";
                         break;
                     }
                 case "OHP":
