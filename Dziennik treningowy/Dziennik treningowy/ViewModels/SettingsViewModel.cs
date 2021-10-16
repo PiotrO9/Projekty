@@ -18,7 +18,7 @@ namespace Dziennik_treningowy.ViewModels
 
         public async void OneRepCalculatorClickImpl()
         {
-           await Shell.Current.GoToAsync(nameof(OneRepPage));
+            await Shell.Current.GoToAsync(nameof(OneRepPage));
         }
     }
 }
