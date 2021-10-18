@@ -1,6 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:Dziennik_treningowy.ViewModels"
+             x:DataType="viewmodels:HistoryViewModel"
              x:Class="Dziennik_treningowy.Views.HistoryPage"
              NavigationPage.HasNavigationBar="false">
     <ContentPage.Content>
@@ -13,9 +15,8 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
-            <Button x:Name="btnTest" Grid.Column="0" Grid.Row="0" Text="Testowy przycisk" Clicked="btnTest_Clicked" />
-
-            <CollectionView x:Name="MainCollectionView" Grid.Column="0" Grid.Row="1">
+            <CollectionView x:Name="MainCollectionView" Grid.Column="0" Grid.Row="0" ItemSizingStrategy="MeasureAllItems" ItemsSource="{Binding SourceCollection}" SelectionMode="Single" 
+                            SelectedItem="{Binding SelectedItem}" SelectionChanged="MainCollectionView_SelectionChanged">
                 
             </CollectionView>
         </Grid>

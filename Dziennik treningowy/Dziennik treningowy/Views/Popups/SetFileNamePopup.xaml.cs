@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using Xamarin.CommunityToolkit.UI.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Xamarin.CommunityToolkit.Extensions;
 
 namespace Dziennik_treningowy.Views.Popups
 {
@@ -38,8 +39,12 @@ namespace Dziennik_treningowy.Views.Popups
 
             if(fileName != "")
             {
-                TrainingUnitToTxt.Method(_exerciseList, Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "/trainingSaves"));
+                TrainingUnitToTxt.Method(_exerciseList, Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "/trainingSaves"),fileName);
                 this.Dismiss(null);
+            }
+            else
+            {
+                this.DisplayToastAsync("Podana nazwa już istnieje");
             }
         }
     }

@@ -9,7 +9,7 @@ namespace Dziennik_treningowy.Services.Files_services
 {
     public static class TrainingUnitToTxt
     {
-        public static void Method(List<List<Exercise>> TrainingUnit, string path)
+        public static void Method(List<List<Exercise>> TrainingUnit, string path, string workstring)
         {
             string TextToFile = string.Empty; // główny string przesyłany do pliku txt
 
@@ -46,7 +46,7 @@ namespace Dziennik_treningowy.Services.Files_services
 
             #region Saving into txt file at specific path
 
-            using (var writer = new StreamWriter(File.Create(path + "/" + "save2.txt"))) // Tutaj dodać generowanie nazw plików
+            using (var writer = new StreamWriter(File.Create(path + "/" + workstring + ".txt"))) // Tutaj dodać generowanie nazw plików
             {
                 writer.Write(TextToFile);
             }

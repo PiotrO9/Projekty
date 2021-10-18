@@ -171,8 +171,9 @@ namespace Dziennik_treningowy.ViewModels
 
         public void QuitCommandImpl()
         {
-
+            Shell.Current.GoToAsync("..");
         }
+        
 
         #endregion
 
