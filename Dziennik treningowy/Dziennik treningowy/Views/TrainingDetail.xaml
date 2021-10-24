@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:views="clr-namespace:Dziennik_treningowy.Views" 
+             xmlns:views1="clr-namespace:Dziennik_treningowy.ViewModels" 
+             xmlns:models="clr-namespace:Dziennik_treningowy.Models"
+             x:DataType="views1:TrainingDetailViewModel"
+             x:Class="Dziennik_treningowy.Views.TrainingDetail">
+    <ContentPage.Content>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="7*"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0" Grid.Column="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Label x:Name="lblNameSample" Grid.Row="0" Grid.Column="0" Margin="5" FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="Center" Text="Ćwiczenie"/>
+                <Label x:Name="lblTimeSample" Grid.Row="0" Grid.Column="1" Margin="5" FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="Center" Text="Przerwa"/>
+                <Label x:Name="lblWeightSample" Grid.Row="0" Grid.Column="2" Margin="5" FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="Center" Text="Ciężar"/>
+                <Label x:Name="lblRepsSample" Grid.Row="0" Grid.Column="3" Margin="5" FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="Center" Text="Powtórzenia"/>
+            </Grid>
+
+
+            <CollectionView ItemsSource="{Binding TransformedExerciseList}" Grid.Row="1" Grid.Column="0">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="models:TransformedExercise">
+
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+
+                            <Label x:Name="lblName" Grid.Row="0" Grid.Column="0" Margin="5" VerticalOptions="Center" HorizontalOptions="Center" Text="{Binding Name}"/>
+                            <Label x:Name="lblTime" Grid.Row="0" Grid.Column="1" Margin="5" VerticalOptions="Center" HorizontalOptions="Center" Text="{Binding Time}"/>
+                            <Label x:Name="lblWeight" Grid.Row="0" Grid.Column="2" Margin="5" VerticalOptions="Center" HorizontalOptions="Center" Text="{Binding Weight}"/>
+                            <Label x:Name="lblReps" Grid.Row="0" Grid.Column="3" Margin="5" VerticalOptions="Center" HorizontalOptions="Center" Text="{Binding Reps}"/>
+
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+                <CollectionView.EmptyViewTemplate>
+                    <DataTemplate>
+                        <Label Text="Pusta lista"/>
+                    </DataTemplate>
+                </CollectionView.EmptyViewTemplate>
+            </CollectionView>
+
+        </Grid>
+        
+        
+        
+        
+    </ContentPage.Content>
+</ContentPage>

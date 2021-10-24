@@ -7,6 +7,7 @@
 
   <ItemGroup>
     <PackageReference Include="MvvmLightLibs" Version="5.4.1.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="System.Collections" Version="4.3.0" />
     <PackageReference Include="System.ObjectModel" Version="4.3.0" />
     <PackageReference Include="Xamarin.CommunityToolkit" Version="1.2.0" />
@@ -58,6 +59,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\StartTrainingPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\TrainingDetail.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

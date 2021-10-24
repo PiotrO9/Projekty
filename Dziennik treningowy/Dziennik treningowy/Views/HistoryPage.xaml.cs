@@ -2,6 +2,7 @@
 using Dziennik_treningowy.Models.ExercisesModels;
 using Dziennik_treningowy.Services.Files_services;
 using Dziennik_treningowy.ViewModels;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -22,7 +23,7 @@ namespace Dziennik_treningowy.Views
             InitializeComponent();
             Content.BindingContext = new HistoryViewModel();        }
 
-        private void MainCollectionView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private async void MainCollectionView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             string NameAndTxt = MainCollectionView.SelectedItem.ToString() + ".txt";
 
@@ -36,6 +37,19 @@ namespace Dziennik_treningowy.Views
                 {
                     List<List<Exercise>> temp = TxtToTrainingUnit.Method(path + "/" + NameAndTxt);
 
+                    List<Exercise> ResultList = new List<Exercise>();
+
+                    foreach (var list in temp)
+                    {
+                        foreach (var ItemInList in list)
+                        {
+                            ResultList.Add(ItemInList);
+                        }
+                    }
+
+                    var jsonStr = JsonConvert.SerializeObject(ResultList);
+
+                    await Shell.Current.GoToAsync($"{nameof(TrainingDetail)}?Content={jsonStr}");
                     //Tu koniec, dodac nową stronę z przeglądaniem ćwiczeń
                 }
             }
