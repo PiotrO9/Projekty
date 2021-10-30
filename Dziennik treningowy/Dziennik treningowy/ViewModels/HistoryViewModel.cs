@@ -18,14 +18,10 @@ namespace Dziennik_treningowy.ViewModels
         {
             SourceCollection = new List<string>();
             SetCollection();
-
-            OnItemSelected = new Command(OnItemSelectedImpl);
         }
 
 
         #region Commands
-
-        public Command OnItemSelected { get; }
 
         #endregion
 
@@ -40,11 +36,6 @@ namespace Dziennik_treningowy.ViewModels
                 string temp2 = temp.Remove((temp.Length - 4), 4);
                 SourceCollection.Add(temp2);
             }
-        }
-
-        public void OnItemSelectedImpl()
-        {
-
         }
 
         #region INotifyPropertyChanged

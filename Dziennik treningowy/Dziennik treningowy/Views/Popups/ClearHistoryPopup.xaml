@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<xct1:Popup  xmlns:xct1="http://xamarin.com/schemas/2020/toolkit" 
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:viewmodels="clr-namespace:Dziennik_treningowy.ViewModels"
+             x:DataType="viewmodels:ClearHistoryViewModel"
+             x:Class="Dziennik_treningowy.Views.Popups.ClearHistoryPopup"
+             Size="300,300"
+            IsLightDismissEnabled="False">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Text="Czy napewno chcesz wyczyścić historię?" 
+               FontSize="15" VerticalOptions="Center" HorizontalOptions="Center" VerticalTextAlignment="Center"/>
+
+        <Button  Grid.Row="1" Grid.Column="0" Text="Tak" VerticalOptions="Center" HorizontalOptions="Center" Command="{Binding ClearCommand}"/>
+        <Button  Grid.Row="1" Grid.Column="1" Text="Nie" VerticalOptions="Center" HorizontalOptions="Center" Command="{Binding QuitCommand}"/>
+
+    </Grid>
+    
+    
+</xct1:Popup>

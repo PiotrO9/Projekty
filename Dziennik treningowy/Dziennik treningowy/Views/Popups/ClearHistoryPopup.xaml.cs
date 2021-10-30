@@ -4,19 +4,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Xamarin.CommunityToolkit.UI.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace Dziennik_treningowy.Views
+namespace Dziennik_treningowy.Views.Popups
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class SettingsPage : ContentPage
+    public partial class ClearHistoryPopup : Popup
     {
-        public SettingsPage()
+        public ClearHistoryPopup()
         {
             InitializeComponent();
-            Content.BindingContext = new SettingsViewModel(this);
+            BindingContext = new ClearHistoryViewModel(this);
         }
     }
 }

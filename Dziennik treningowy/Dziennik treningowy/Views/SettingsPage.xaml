@@ -26,7 +26,7 @@
 
             <Button x:Name="btnOneRepMaxCalculator" Grid.Column="0" Grid.Row="2" Text="Kalkulator maksymalnego powtórzenia" CornerRadius="30" Margin="20,60" Command="{Binding OneRepCalculatorClick}"/>
 
-            <Button x:Name="btnClearingTrainingsHistory" Grid.Column="0" Grid.Row="3" Text="Usuń historie treningów" CornerRadius="30" Margin="20,60"/>
+            <Button x:Name="btnClearingTrainingsHistory" Grid.Column="0" Grid.Row="3" Text="Usuń historie treningów" CornerRadius="30" Margin="20,60" Command="{ Binding ClearHistoryClick}"/>
         </Grid>
     </ContentPage.Content>
 </ContentPage>

@@ -21,7 +21,8 @@ namespace Dziennik_treningowy.Views
         public HistoryPage()
         {
             InitializeComponent();
-            Content.BindingContext = new HistoryViewModel();        }
+            Content.BindingContext = new HistoryViewModel();        
+        }
 
         private async void MainCollectionView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -50,7 +51,6 @@ namespace Dziennik_treningowy.Views
                     var jsonStr = JsonConvert.SerializeObject(ResultList);
 
                     await Shell.Current.GoToAsync($"{nameof(TrainingDetail)}?Content={jsonStr}");
-                    //Tu koniec, dodac nową stronę z przeglądaniem ćwiczeń
                 }
             }
         }

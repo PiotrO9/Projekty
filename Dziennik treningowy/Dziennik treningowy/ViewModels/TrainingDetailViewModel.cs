@@ -59,8 +59,21 @@ namespace Dziennik_treningowy.ViewModels
 
         public TrainingDetailViewModel()
         {
-            
+            QuitCommand = new Command(QuitCommandImpl);
         }
+
+        #region Commands
+        public Command QuitCommand { get; }
+        #endregion
+
+        #region Methods
+
+        public void QuitCommandImpl()
+        {
+            Shell.Current.GoToAsync("..");
+        }
+
+        #endregion 
 
         private void PerformOperation(string getcont)
         {

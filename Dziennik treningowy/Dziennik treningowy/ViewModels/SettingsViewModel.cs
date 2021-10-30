@@ -1,17 +1,22 @@
 ﻿using Dziennik_treningowy.Views;
+using Dziennik_treningowy.Views.Popups;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
 using System.Text;
+using Xamarin.CommunityToolkit.Extensions;
 using Xamarin.Forms;
 
 namespace Dziennik_treningowy.ViewModels
 {
     class SettingsViewModel
     {
-        public SettingsViewModel()
+        private SettingsPage _sp { get; set; }
+
+        public SettingsViewModel(SettingsPage settingsPage)
         {
+            _sp = settingsPage;
             OneRepCalculatorClick = new Command(OneRepCalculatorClickImpl);
             ClearHistoryClick = new Command(ClearHistoryClickImpl);
         }
@@ -24,19 +29,13 @@ namespace Dziennik_treningowy.ViewModels
             await Shell.Current.GoToAsync(nameof(OneRepPage));
         }
 
-        public void ClearHistoryClickImpl()
+        public async void ClearHistoryClickImpl()
         {
-            string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData)) + "/trainingSaves";
-            System.IO.DirectoryInfo di = new DirectoryInfo(path);
+            _sp.Navigation.ShowPopup(new ClearHistoryPopup()
+            {
+                IsLightDismissEnabled = false
+            });
 
-            foreach (FileInfo file in di.GetFiles())
-            {
-                file.Delete();
-            }
-            foreach (DirectoryInfo dir in di.GetDirectories())
-            {
-                dir.Delete(true);
-            }
         }
     }
 }
