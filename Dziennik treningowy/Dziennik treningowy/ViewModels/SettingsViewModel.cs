@@ -19,23 +19,29 @@ namespace Dziennik_treningowy.ViewModels
             _sp = settingsPage;
             OneRepCalculatorClick = new Command(OneRepCalculatorClickImpl);
             ClearHistoryClick = new Command(ClearHistoryClickImpl);
+            RecordsClick = new Command(RecordsClickImpl);
         }
 
         public Command OneRepCalculatorClick { get; }
         public Command ClearHistoryClick { get; }
+        public Command RecordsClick { get; }
 
         public async void OneRepCalculatorClickImpl()
         {
             await Shell.Current.GoToAsync(nameof(OneRepPage));
         }
 
-        public async void ClearHistoryClickImpl()
+        public void ClearHistoryClickImpl()
         {
             _sp.Navigation.ShowPopup(new ClearHistoryPopup()
             {
                 IsLightDismissEnabled = false
             });
+        }
 
+        public async void RecordsClickImpl()
+        {
+            await Shell.Current.GoToAsync(nameof(RecordsPage));
         }
     }
 }

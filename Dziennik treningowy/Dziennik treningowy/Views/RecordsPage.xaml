@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:views="clr-namespace:Dziennik_treningowy.ViewModels"
+             x:DataType="views:RecordsPageViewModel"
+             x:Class="Dziennik_treningowy.Views.RecordsPage">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="7*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Editor x:Name="MainEditor" Grid.Row="0" Grid.Column="0" HeightRequest="30" WidthRequest="30" Keyboard="Chat" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" FontSize="20" TextColor="Black" Text="{Binding EntryString}"> 
+                
+            </Editor>
+
+            <Button x:Name="btnQuit" Grid.Row="1" Grid.Column="0" Text="⏎" FontSize="30" CornerRadius="45" VerticalOptions="Center" HorizontalOptions="Center" Command="{Binding QuitCommand}"/>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

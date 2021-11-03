@@ -16,17 +16,13 @@
                 <RowDefinition/>
                 <RowDefinition/>
                 <RowDefinition/>
-                <RowDefinition/>
             </Grid.RowDefinitions>
 
+            <Button x:Name="btnRecords" Grid.Column="0" Grid.Row="0" Text="Rekordy" CornerRadius="30" Margin="20,60" Command="{Binding RecordsClick}"/>
 
-            <Button x:Name="btnThemeColor" Grid.Column="0" Grid.Row="0" Text="Theme Motywy" CornerRadius="30" Margin="20,60"/>
-            
-            <Button x:Name="btnRecords" Grid.Column="0" Grid.Row="1" Text="Rekordy" CornerRadius="30" Margin="20,60"/>
+            <Button x:Name="btnOneRepMaxCalculator" Grid.Column="0" Grid.Row="1" Text="Kalkulator maksymalnego powtórzenia" CornerRadius="30" Margin="20,60" Command="{Binding OneRepCalculatorClick}"/>
 
-            <Button x:Name="btnOneRepMaxCalculator" Grid.Column="0" Grid.Row="2" Text="Kalkulator maksymalnego powtórzenia" CornerRadius="30" Margin="20,60" Command="{Binding OneRepCalculatorClick}"/>
-
-            <Button x:Name="btnClearingTrainingsHistory" Grid.Column="0" Grid.Row="3" Text="Usuń historie treningów" CornerRadius="30" Margin="20,60" Command="{ Binding ClearHistoryClick}"/>
+            <Button x:Name="btnClearingTrainingsHistory" Grid.Column="0" Grid.Row="2" Text="Usuń historie treningów" CornerRadius="30" Margin="20,60" Command="{ Binding ClearHistoryClick}"/>
         </Grid>
     </ContentPage.Content>
 </ContentPage>
