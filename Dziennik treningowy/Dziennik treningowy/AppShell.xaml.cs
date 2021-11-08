@@ -25,6 +25,7 @@ namespace Dziennik_treningowy
             Routing.RegisterRoute(nameof(OneRepPage), typeof(OneRepPage));
             Routing.RegisterRoute(nameof(RecordsPage), typeof(RecordsPage));
             Routing.RegisterRoute(nameof(TrainingDetail), typeof(TrainingDetail));
+            Routing.RegisterRoute(nameof(TrainingRoutinePage), typeof(TrainingRoutinePage));
         }
     }
 }

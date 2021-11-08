@@ -14,7 +14,8 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-            <Editor x:Name="MainEditor" Grid.Row="0" Grid.Column="0" HeightRequest="30" WidthRequest="30" Keyboard="Chat" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" FontSize="20" TextColor="Black" Text="{Binding EntryString}"> 
+            <Editor x:Name="MainEditor" Grid.Row="0" Grid.Column="0" HeightRequest="30" WidthRequest="30" Keyboard="Chat" 
+                    VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" FontSize="20" TextColor="Black" Text="{Binding EntryString}"> 
                 
             </Editor>
 

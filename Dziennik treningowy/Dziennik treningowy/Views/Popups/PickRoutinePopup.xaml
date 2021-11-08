@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<xct:Popup  xmlns:xct="http://xamarin.com/schemas/2020/toolkit" 
+            xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+            xmlns:popups="clr-namespace:Dziennik_treningowy.Views.Popups" 
+            xmlns:viewmodels="clr-namespace:Dziennik_treningowy.ViewModels"
+            x:DataType="viewmodels:PickedRoutineViewModel"
+            x:Class="Dziennik_treningowy.Views.Popups.PickRoutinePopup"
+            Size="300,500"
+            IsLightDismissEnabled="False">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+
+        <ListView Grid.Row="0" Grid.Column="0"  SelectionMode="Single" ItemsSource="{Binding SourceCollection}" SelectedItem="{Binding SelectedRoutine}"/>
+
+    </Grid>
+
+
+</xct:Popup>

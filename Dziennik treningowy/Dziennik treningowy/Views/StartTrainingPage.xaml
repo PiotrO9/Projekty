@@ -1,6 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:vm="clr-namespace:Dziennik_treningowy.ViewModels" x:DataType="vm:StartTrainingViewModel"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:vm="clr-namespace:Dziennik_treningowy.ViewModels" 
+             x:DataType="vm:StartTrainingViewModel"
              x:Class="Dziennik_treningowy.Views.StartTrainingPage">
 
     <ContentPage.Content>
@@ -16,7 +18,7 @@
             <Button x:Name="btnNewtraining" Grid.Column="0" Grid.Row="0" Text="Nowy trening" FontSize="30" 
                     FontFamily="MSIcons" CornerRadius="45" Margin="20,30" Routing.Route="NewTrainingPage" Command="{Binding NewTrainingCommand}"/>
 
-            <Button x:Name="btnTrainingRoutine" Grid.Column="0" Grid.Row="1" Text="Rutyna treningowa" CornerRadius="45" Margin="20,30"/>
+            <Button x:Name="btnTrainingRoutine" Grid.Column="0" Grid.Row="1" Text="Rutyna treningowa" CornerRadius="45" Margin="20,30" Routing.Route="TrainingRoutinePage" Command="{Binding ExistingTrainingCommand}"/>
         </Grid>
     </ContentPage.Content>
 </ContentPage>
