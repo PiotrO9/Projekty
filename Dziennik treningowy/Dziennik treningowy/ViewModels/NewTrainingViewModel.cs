@@ -3,6 +3,8 @@ using Dziennik_treningowy.Models;
 using Dziennik_treningowy.Services.Setting_services;
 using Dziennik_treningowy.Views;
 using Dziennik_treningowy.Views.Popups;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Threading;
@@ -155,6 +157,28 @@ namespace Dziennik_treningowy.ViewModels
 
             btnSub3ClickCommand = new Command(btnSub3ClickCommandImpl);
             btnAdd3ClickCommand = new Command(btnAdd3ClickCommandImpl);
+        }
+
+        public NewTrainingViewModel(NewTrainingPage newTrainingPage, List<List<Exercise>> exercises)
+        {
+            _newTrainingPage = newTrainingPage;
+
+            SetStartValues();
+
+            AddClickCommand = new Command(AddClickCommandImpl);
+            AcceptClickCommand = new Command(AcceptClickCommandImpl);
+
+            btnSub1ClickCommand = new Command(btnSub1ClickCommandImpl);
+            btnAdd1ClickCommand = new Command(btnAdd1ClickCommandImpl);
+
+            btnSub2ClickCommand = new Command(btnSub2ClickCommandImpl);
+            btnAdd2ClickCommand = new Command(btnAdd2ClickCommandImpl);
+
+            btnSub3ClickCommand = new Command(btnSub3ClickCommandImpl);
+            btnAdd3ClickCommand = new Command(btnAdd3ClickCommandImpl);
+
+            ExerciseList = exercises; // Tutaj zacząć jak nie działa
+            RefreashPropertiesInViewModel();
         }
 
         #region Commands
