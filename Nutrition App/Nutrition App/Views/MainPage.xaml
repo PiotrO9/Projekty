@@ -1,0 +1,353 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Nutrition_App.Views.MainPage"
+             xmlns:vm="clr-namespace:Nutrition_App.ViewModels" 
+             xmlns:models="clr-namespace:Nutrition_App.Models"
+             Title="{Binding Title}">
+
+    <ContentPage.BindingContext>
+        <vm:MainPageViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Accent">#96d1ff</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid x:Name="AppGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="7*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Row="0" x:Name="DaysGrid" BackgroundColor="Yellow">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Row="0" Grid.Column="0" Text="23 &#x0a;PN" FontSize="15" BackgroundColor="LimeGreen" CornerRadius="45" VerticalOptions="Center" HorizontalOptions="Center"/>
+            <Button Grid.Row="0" Grid.Column="1" Text="24 &#x0a;WT" FontSize="15" BackgroundColor="LimeGreen" CornerRadius="45" VerticalOptions="Center" HorizontalOptions="Center"/>
+            <Button Grid.Row="0" Grid.Column="2" Text="25 &#x0a;ŚR" FontSize="15" BackgroundColor="LimeGreen" CornerRadius="45" VerticalOptions="Center" HorizontalOptions="Center"/>
+            <Button Grid.Row="0" Grid.Column="3" Text="26 &#x0a;CZW" FontSize="15" BackgroundColor="LimeGreen" CornerRadius="45" VerticalOptions="Center" HorizontalOptions="Center"/>
+            <Button Grid.Row="0" Grid.Column="4" Text="27 &#x0a;PT" FontSize="15" BackgroundColor="LimeGreen" CornerRadius="45" VerticalOptions="Center" HorizontalOptions="Center"/>
+        </Grid>
+
+        <ScrollView Grid.Column="0" Grid.Row="1">
+
+            <StackLayout Orientation="Vertical">
+
+                <Grid x:Name="MacrosGrid" Grid.Row="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Grid.Row="0" Grid.Column="1" Text="B" FontSize="25"/>
+                    <Label Grid.Row="0" Grid.Column="2" Text="T" FontSize="25"/>
+                    <Label Grid.Row="0" Grid.Column="3" Text="W" FontSize="25"/>
+
+                </Grid>
+
+                <Grid Grid.Row="1" Grid.Column="0" x:Name="MealsGrid">
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid Grid.Row="0" Grid.Column="0" x:Name="BreakfastGrid">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="70"/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="7*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid Grid.Column="0" x:Name="InsideBreakfastGrid">
+                            <StackLayout Orientation="Vertical" VerticalOptions="Center" HorizontalOptions="Start">
+                                <Button Text="Śniadanie" VerticalOptions="Center" HorizontalOptions="Center" FontSize="20" BackgroundColor="White" TextColor="Black"/>
+
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="30"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Label Grid.Column="0" Text="KCAL" FontSize="15"/>
+                                    <Label Grid.Column="1" Text="KCAL" FontSize="20"/>
+                                    <Label Grid.Column="2" Text="KCAL" FontSize="20"/>
+                                    <Label Grid.Column="3" Text="KCAL" FontSize="20"/>
+
+                                </Grid>
+
+
+
+                            </StackLayout>
+                        </Grid>
+
+                        <Button Grid.Column="1" Text="+" FontSize="15" Margin="0,20,0,0" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="LightGreen" CornerRadius="45"/>
+
+                        <CollectionView Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" HeightRequest="{Binding COllectionViewHeight}" ItemsSource="{Binding collection}">
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate x:DataType="models:MealToDisplay">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition/>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="7*"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+
+
+                                        <Grid Grid.Row="0" Grid.Column="0">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition/>
+                                                <RowDefinition/>
+                                                <RowDefinition/>
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition/>
+                                            </Grid.ColumnDefinitions>
+
+                                            <Label x:Name="lblTitle" Grid.Row="0" Grid.Column="0" Text="{Binding Name}"/>
+                                            <Label x:Name="lblAmount" Grid.Row="1" Grid.Column="0" Text="{Binding Amount}"/>
+
+                                            <Grid x:Name="InsideMacroGrid" Grid.Row="2" Grid.Column="0">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition/>
+                                                </Grid.RowDefinitions>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition/>
+                                                    <ColumnDefinition/>
+                                                    <ColumnDefinition/>
+                                                    <ColumnDefinition/>
+                                                </Grid.ColumnDefinitions>
+
+                                                <Label x:Name="lblKcal" Grid.Row="0" Grid.Column="0" Text="{Binding Kcal}" FontSize="15"/>
+                                                <Label x:Name="lblB" Grid.Row="0" Grid.Column="1" Text="{Binding B}"/>
+                                                <Label x:Name="lblT" Grid.Row="0" Grid.Column="2" Text="{Binding T}"/>
+                                                <Label x:Name="lblW" Grid.Row="0" Grid.Column="3" Text="{Binding W}"/>
+
+                                            </Grid>
+                                            
+                                        </Grid>
+
+                                        <Button Grid.Row="0" Grid.Column="1" Text="+" FontSize="20" CornerRadius="45" VerticalOptions="Center" HorizontalOptions="Center" Command="{Binding command}"/>
+
+                                    </Grid>
+
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+
+                    </Grid>
+
+                    <Grid Grid.Row="1" Grid.Column="0" x:Name="SecondBreakfastGrid">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="90"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="7*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid Grid.Column="0" x:Name="InsideSecondBreakfastGrid">
+                            <StackLayout Orientation="Vertical" VerticalOptions="Center" HorizontalOptions="Start">
+                                <Button Text="Drugie Śniadanie" VerticalOptions="Center" HorizontalOptions="Center" FontSize="20" BackgroundColor="White" TextColor="Black"/>
+
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="30"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Label Grid.Column="0" Text="KCAL" FontSize="15"/>
+                                    <Label Grid.Column="1" Text="KCAL" FontSize="20"/>
+                                    <Label Grid.Column="2" Text="KCAL" FontSize="20"/>
+                                    <Label Grid.Column="3" Text="KCAL" FontSize="20"/>
+
+                                </Grid>
+
+                            </StackLayout>
+                        </Grid>
+
+                        <Button Grid.Column="1" Text="+" FontSize="15" Margin="0,20,0,0" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="LightGreen" CornerRadius="45"/>
+
+                        <CollectionView Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" HeightRequest="50">
+
+                        </CollectionView>
+
+                    </Grid>
+
+                    <Grid Grid.Row="2" Grid.Column="0" x:Name="LunchGrid">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="90"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="7*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid Grid.Column="0" x:Name="InsideLunchGrid">
+                            <StackLayout Orientation="Vertical" VerticalOptions="Center" HorizontalOptions="Start">
+                                <Button Text="Lunch" VerticalOptions="Center" HorizontalOptions="Center" FontSize="20" BackgroundColor="White" TextColor="Black"/>
+
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="30"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Label Grid.Column="0" Text="KCAL" FontSize="15"/>
+                                    <Label Grid.Column="1" Text="KCAL" FontSize="20"/>
+                                    <Label Grid.Column="2" Text="KCAL" FontSize="20"/>
+                                    <Label Grid.Column="3" Text="KCAL" FontSize="20"/>
+
+                                </Grid>
+
+                            </StackLayout>
+                        </Grid>
+
+                        <Button Grid.Column="1" Text="+" FontSize="15" Margin="0,20,0,0" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="LightGreen" CornerRadius="45"/>
+
+                        <CollectionView Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" HeightRequest="50">
+
+                        </CollectionView>
+
+                    </Grid>
+
+                    <Grid Grid.Row="3" Grid.Column="0" x:Name="DinnerfastGrid">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="90"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="7*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid Grid.Column="0" x:Name="InsideDinnertGrid">
+                            <StackLayout Orientation="Vertical" VerticalOptions="Center" HorizontalOptions="Start">
+                                <Button Text="Obiad" VerticalOptions="Center" HorizontalOptions="Center" FontSize="20" BackgroundColor="White" TextColor="Black"/>
+
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="30"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Label Grid.Column="0" Text="KCAL" FontSize="15"/>
+                                    <Label Grid.Column="1" Text="KCAL" FontSize="20"/>
+                                    <Label Grid.Column="2" Text="KCAL" FontSize="20"/>
+                                    <Label Grid.Column="3" Text="KCAL" FontSize="20"/>
+
+                                </Grid>
+
+                            </StackLayout>
+                        </Grid>
+
+                        <Button Grid.Column="1" Text="+" FontSize="15" Margin="0,20,0,0" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="LightGreen" CornerRadius="45"/>
+
+                        <CollectionView Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" HeightRequest="50">
+
+                        </CollectionView>
+
+                    </Grid>
+
+                    <Grid Grid.Row="4" Grid.Column="0" x:Name="SupperGrid">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="90"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="7*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid Grid.Column="0" x:Name="InsideSupperGrid">
+                            <StackLayout Orientation="Vertical" VerticalOptions="Center" HorizontalOptions="Start">
+                                <Button Text="Kolacja" VerticalOptions="Center" HorizontalOptions="Center" FontSize="20" BackgroundColor="White" TextColor="Black"/>
+
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="30"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Label Grid.Column="0" Text="KCAL" FontSize="15"/>
+                                    <Label Grid.Column="1" Text="KCAL" FontSize="20"/>
+                                    <Label Grid.Column="2" Text="KCAL" FontSize="20"/>
+                                    <Label Grid.Column="3" Text="KCAL" FontSize="20"/>
+
+                                </Grid>
+
+                            </StackLayout>
+                        </Grid>
+
+                        <Button Grid.Column="1" Text="+" FontSize="15" Margin="0,20,0,0" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="LightGreen" CornerRadius="45"/>
+
+                        <CollectionView Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" HeightRequest="50">
+                
+                        </CollectionView>
+
+                    </Grid>
+
+                </Grid>
+
+            </StackLayout>
+
+        </ScrollView>
+    </Grid>
+
+</ContentPage>

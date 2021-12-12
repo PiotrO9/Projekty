@@ -16,4 +16,10 @@
     <Folder Include="Enums\" />
     <Folder Include="Controls\" />
   </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Views\MainPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
 </Project>
