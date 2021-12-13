@@ -165,7 +165,7 @@
                                             
                                         </Grid>
 
-                                        <Button Grid.Row="0" Grid.Column="1" Text="+" FontSize="20" CornerRadius="45" VerticalOptions="Center" HorizontalOptions="Center" Command="{Binding command}"/>
+                                        <Button x:Name="{Binding ButtonName}" Grid.Row="0" Grid.Column="1" Text="+" FontSize="20" CornerRadius="45" VerticalOptions="Center" HorizontalOptions="Center" Command="{Binding command}"/>
 
                                     </Grid>
 
