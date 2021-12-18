@@ -120,8 +120,8 @@
                         <Button Grid.Column="1" Text="+" FontSize="15" Margin="0,20,0,0" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="LightGreen" CornerRadius="45"/>
 
                         <CollectionView Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" HeightRequest="{Binding COllectionViewHeight}" ItemsSource="{Binding collection}">
-                            <CollectionView.ItemTemplate>
-                                <DataTemplate x:DataType="models:MealToDisplay">
+                            <CollectionView.ItemTemplate  x:DataType="models:MealToDisplay">
+                                <DataTemplate>
                                     <Grid>
                                         <Grid.RowDefinitions>
                                             <RowDefinition/>
@@ -162,14 +162,15 @@
                                                 <Label x:Name="lblW" Grid.Row="0" Grid.Column="3" Text="{Binding W}"/>
 
                                             </Grid>
-                                            
-                                        </Grid>
 
-                                        <Button x:Name="{Binding ButtonName}" Grid.Row="0" Grid.Column="1" Text="+" FontSize="20" CornerRadius="45" VerticalOptions="Center" HorizontalOptions="Center" Command="{Binding command}"/>
+                                        </Grid>
+                                        <Button x:Name="{Binding ButtonName}" Grid.Row="0" Grid.Column="1" Text="+" FontSize="20" CornerRadius="45"
+                                                VerticalOptions="Center" HorizontalOptions="Center" Command="{Binding command}" CommandParameter="{Binding Source={RelativeSource Mode=Self}}"
+                                                />
 
                                     </Grid>
-
                                 </DataTemplate>
+                                
                             </CollectionView.ItemTemplate>
                         </CollectionView>
 

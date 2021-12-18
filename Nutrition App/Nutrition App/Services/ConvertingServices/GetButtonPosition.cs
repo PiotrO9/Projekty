@@ -12,7 +12,7 @@ namespace Nutrition_App.Services.ConvertingServices
             string btnName = nameof(button);
             string[] separatedDatas = btnName.Split('_');
 
-            return (int.Parse(separatedDatas[1]), int.Parse(separatedDatas[2]));
+            return (int.Parse(separatedDatas[0]), int.Parse(separatedDatas[1]));
         }
 
     }

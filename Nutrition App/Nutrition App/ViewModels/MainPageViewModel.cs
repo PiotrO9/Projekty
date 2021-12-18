@@ -1,4 +1,5 @@
-﻿using Nutrition_App.Models;
+﻿using Nutrition_App.Interfaces;
+using Nutrition_App.Models;
 using Nutrition_App.Services.ConvertingServices;
 using System;
 using System.Collections.Generic;
@@ -21,24 +22,26 @@ namespace Nutrition_App.ViewModels
             Title = "Główna strona";
 
             ButtonClickCommand = new Command(
-            (parameter) =>
-            {
-                var view = parameter as Xamarin.Forms.Button;
-                if (view != null)
-                {
-                    var numbersoFButtonPosition = GetButtonPosition.GetButtonPositionMethod(view);
-
-                }
-            });
+            (parameter) => ButtonClickCommandImpl(parameter));
+            
 
             collection = new ObservableCollection<MealToDisplay>()
             {
-                new MealToDisplay(){Name = "Produkt1",ButtonName="btn_1_5",Kcal="345",Amount="100g",B="32",T="23",W="67",command = ButtonClickCommand},
-                new MealToDisplay(){Name = "Produkt1",Kcal="345",Amount="100g",B="32",T="23",W="67"},
-                new MealToDisplay(){Name = "Produkt1",Kcal="345",Amount="100g",B="32",T="23",W="67"},
-                new MealToDisplay(){Name = "Produkt1",Kcal="345",Amount="100g",B="32",T="23",W="67"},
+                new MealToDisplay(){Name = "Produkt1",ButtonName="btn_1_5",Kcal="345",Amount="100g",B="32",T="23",W="67",command=ButtonClickCommand},
+                new MealToDisplay(){Name = "Produkt1",ButtonName="btn_1_6",Kcal="345",Amount="100g",B="32",T="23",W="67",command=ButtonClickCommand},
+                new MealToDisplay(){Name = "Produkt1",ButtonName="btn_1_7",Kcal="345",Amount="100g",B="32",T="23",W="67",command=ButtonClickCommand},
+                new MealToDisplay(){Name = "Produkt1",ButtonName="btn_1_8",Kcal="345",Amount="100g",B="32",T="23",W="67",command=ButtonClickCommand},
             };
-        }      
+        }
+
+        private void ButtonClickCommandImpl(object parameter)
+        {
+            var view = parameter as Xamarin.Forms.Button;
+            if (view != null)
+            {
+                var numbersoFButtonPosition = GetButtonPosition.GetButtonPositionMethod(view);
+            }
+        }
 
         #region Collections
 
