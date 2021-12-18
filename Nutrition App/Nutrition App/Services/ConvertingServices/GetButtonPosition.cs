@@ -7,12 +7,11 @@ namespace Nutrition_App.Services.ConvertingServices
 {
     public static class GetButtonPosition
     {
-        public static (int, int) GetButtonPositionMethod(Button button)
+        public static (int, int) GetButtonPositionMethod(string ButtonName)
         {
-            string btnName = nameof(button);
-            string[] separatedDatas = btnName.Split('_');
+            string[] separatedDatas = ButtonName.Split('_');
 
-            return (int.Parse(separatedDatas[0]), int.Parse(separatedDatas[1]));
+            return (int.Parse(separatedDatas[1]), int.Parse(separatedDatas[2]));
         }
 
     }

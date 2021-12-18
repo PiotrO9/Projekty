@@ -36,10 +36,10 @@ namespace Nutrition_App.ViewModels
 
         private void ButtonClickCommandImpl(object parameter)
         {
-            var view = parameter as Xamarin.Forms.Button;
-            if (view != null)
+            string ButtonName = parameter as string;
+            if (ButtonName != string.Empty)
             {
-                var numbersoFButtonPosition = GetButtonPosition.GetButtonPositionMethod(view);
+                var numbersoFButtonPosition = GetButtonPosition.GetButtonPositionMethod(ButtonName);
             }
         }
 

@@ -165,7 +165,7 @@
 
                                         </Grid>
                                         <Button x:Name="{Binding ButtonName}" Grid.Row="0" Grid.Column="1" Text="+" FontSize="20" CornerRadius="45"
-                                                VerticalOptions="Center" HorizontalOptions="Center" Command="{Binding command}" CommandParameter="{Binding Source={RelativeSource Mode=Self}}"
+                                                VerticalOptions="Center" HorizontalOptions="Center" Command="{Binding command}" CommandParameter="{Binding ButtonName}"
                                                 />
 
                                     </Grid>
