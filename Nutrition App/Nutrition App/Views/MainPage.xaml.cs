@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Nutrition_App.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,7 @@ namespace Nutrition_App.Views
         public MainPage()
         {
             InitializeComponent();
+            BindingContext = new MainPageViewModel();
         }
     }
 }

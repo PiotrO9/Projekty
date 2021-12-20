@@ -13,26 +13,36 @@ namespace Nutrition_App.ViewModels
 {
     class MainPageViewModel : BaseViewModel
     {
-        public ObservableCollection<MealToDisplay> collection { get; set; }
-
-        public Command ButtonClickCommand { get; set; }
-
         public MainPageViewModel()
         {
             Title = "Główna strona";
 
-            ButtonClickCommand = new Command(
-            (parameter) => ButtonClickCommandImpl(parameter));
-            
+            ButtonClickCommand = new Command((parameter) => ButtonClickCommandImpl(parameter));
 
-            collection = new ObservableCollection<MealToDisplay>()
+
+            FirstMealCollection = new ObservableCollection<MealToDisplay>()
             {
-                new MealToDisplay(){Name = "Produkt1",ButtonName="btn_1_5",Kcal="345",Amount="100g",B="32",T="23",W="67",command=ButtonClickCommand},
+                new MealToDisplay(){Name = "Produkt12",ButtonName="btn_1_5",Kcal="345",Amount="100g",B="32",T="23",W="67",command=ButtonClickCommand},
                 new MealToDisplay(){Name = "Produkt1",ButtonName="btn_1_6",Kcal="345",Amount="100g",B="32",T="23",W="67",command=ButtonClickCommand},
                 new MealToDisplay(){Name = "Produkt1",ButtonName="btn_1_7",Kcal="345",Amount="100g",B="32",T="23",W="67",command=ButtonClickCommand},
                 new MealToDisplay(){Name = "Produkt1",ButtonName="btn_1_8",Kcal="345",Amount="100g",B="32",T="23",W="67",command=ButtonClickCommand},
             };
+
+            SecondMealCollection = new ObservableCollection<MealToDisplay>()
+            {
+                new MealToDisplay(){Name = "Produkt1",ButtonName="btn_1_5",Kcal="345",Amount="100g",B="32",T="23",W="67",command=ButtonClickCommand},
+                new MealToDisplay(){Name = "Produkt1",ButtonName="btn_1_6",Kcal="345",Amount="100g",B="32",T="23",W="67",command=ButtonClickCommand},
+                new MealToDisplay(){Name = "Produkt1",ButtonName="btn_1_7",Kcal="345",Amount="100g",B="32",T="23",W="67",command=ButtonClickCommand},
+            };
+
+            ThirdMealCollection = new ObservableCollection<MealToDisplay>();
+            FourthMealCollection = new ObservableCollection<MealToDisplay>();
+            FifthMealCollection = new ObservableCollection<MealToDisplay>();
+
+            EmptyMealColleciton = new ObservableCollection<MealToDisplay>();
         }
+
+        #region Command implementation
 
         private void ButtonClickCommandImpl(object parameter)
         {
@@ -43,28 +53,196 @@ namespace Nutrition_App.ViewModels
             }
         }
 
+        #endregion
+
         #region Collections
 
+        public ObservableCollection<MealToDisplay> FirstMealCollection { get; set; }
+        public ObservableCollection<MealToDisplay> SecondMealCollection { get; set; }
+        public ObservableCollection<MealToDisplay> ThirdMealCollection { get; set; }
+        public ObservableCollection<MealToDisplay> FourthMealCollection { get; set; }
+        public ObservableCollection<MealToDisplay> FifthMealCollection { get; set; }
 
+        #region
+
+        public ObservableCollection<MealToDisplay> FirstMealCollectionTemporary { get; set; }
+        public ObservableCollection<MealToDisplay> SecondMealCollectionTemporary { get; set; }
+        public ObservableCollection<MealToDisplay> ThirdMealCollectionTemporary { get; set; }
+        public ObservableCollection<MealToDisplay> FourthMealCollectionTemporary { get; set; }
+        public ObservableCollection<MealToDisplay> FifthMealCollectionTemporary { get; set; }
+
+        #endregion
+
+
+        public ObservableCollection<MealToDisplay> EmptyMealColleciton { get; set; }
 
         #endregion
 
         #region Commands
 
+        public Command ButtonClickCommand { get; set; }
+
+        #endregion
+
+        #region Heights
+
+        #region GenerallHeights
+
+        private int _consistentMealHeight { get; set; } = 120;
+
+        private int _firstMealHeight;
+
+        public int FirstMealHeight
+        {
+            get 
+            { 
+                return FirstMealCollectionHeight + _consistentMealHeight; 
+            }
+            set 
+            {
+                _firstMealHeight = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private int _secondMealHeight;
+
+        public int SecondMealHeight
+        {
+            get 
+            {
+                return SecondMealCollectionHeight + _consistentMealHeight; 
+            }
+            set 
+            { 
+                _secondMealHeight = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private int _thirdMealHeight;
+
+        public int ThirdMealHeight
+        {
+            get
+            {
+                return ThirdMealCollectionHeight + _consistentMealHeight;
+            }
+            set
+            {
+                _thirdMealHeight = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private int _fourthMealHeight;
+
+        public int FourthMealHeight
+        {
+            get
+            {
+                return FourthMealCollectionHeight + _consistentMealHeight;
+            }
+            set
+            {
+                _fourthMealHeight = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private int _fifthMealHeight;
+
+        public int FifthMealHeight
+        {
+            get
+            {
+                return FifthMealCollectionHeight + _consistentMealHeight;
+            }
+            set
+            {
+                _fifthMealHeight = value;
+                OnPropertyChanged();
+            }
+        }
+
+
         #endregion
 
         #region Collection views Height
 
-        private int _collectionViewHeight;
+        private int _collectionHeight { get; set; } = 80;
 
-        public int COllectionViewHeight
+        private int _firstMealCollectionHeight;
+
+        public int FirstMealCollectionHeight
         {
-            get { return collection.Count * 80; }
+            get 
+            {
+                return FirstMealCollection.Count * _collectionHeight > 10 ? FirstMealCollection.Count * _collectionHeight : 10;
+            }
             set 
-            { 
-                _collectionViewHeight = value; 
+            {
+                _firstMealCollectionHeight = value;
+                OnPropertyChanged();
             }
         }
+
+        private int _secondMealCollectionHeight;
+
+        public int SecondMealCollectionHeight
+        {
+            get 
+            {
+                return SecondMealCollection.Count * _collectionHeight > 10 ? SecondMealCollection.Count * _collectionHeight : 10;
+
+            }
+            set
+            {
+                _secondMealCollectionHeight = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private int _thirdMealCollectionHeight;
+
+        public int ThirdMealCollectionHeight
+        {
+            get 
+            {
+                return ThirdMealCollection.Count * _collectionHeight > 10 ? ThirdMealCollection.Count * _collectionHeight : 10;
+            }
+            set
+            {
+                _thirdMealCollectionHeight = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private int _fourthMealCollectionHeight;
+
+        public int FourthMealCollectionHeight
+        {
+            get { return FourthMealCollection.Count * _collectionHeight; }
+            set
+            {
+                _fourthMealCollectionHeight = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private int _fifthMealCollectionHeight;
+
+        public int FifthMealCollectionHeight
+        {
+            get { return FifthMealCollection.Count * _collectionHeight; }
+            set
+            {
+                _fifthMealCollectionHeight = value;
+                OnPropertyChanged();
+            }
+        }
+
+        #endregion
 
         #endregion
 

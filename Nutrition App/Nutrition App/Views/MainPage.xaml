@@ -7,7 +7,7 @@
              Title="{Binding Title}">
 
     <ContentPage.BindingContext>
-        <vm:MainPageViewModel />
+        <vm:MainPageViewModel/>
     </ContentPage.BindingContext>
 
     <ContentPage.Resources>
@@ -69,11 +69,11 @@
 
                 <Grid Grid.Row="1" Grid.Column="0" x:Name="MealsGrid">
                     <Grid.RowDefinitions>
-                        <RowDefinition />
-                        <RowDefinition />
-                        <RowDefinition />
-                        <RowDefinition />
-                        <RowDefinition />
+                        <RowDefinition Height="{Binding FirstMealHeight}"/>
+                        <RowDefinition Height="{Binding SecondMealHeight}"/>
+                        <RowDefinition Height="{Binding ThirdMealHeight}"/>
+                        <RowDefinition Height="{Binding FourthMealHeight}"/>
+                        <RowDefinition Height="{Binding FifthMealHeight}"/>
                     </Grid.RowDefinitions>
 
                     <Grid.ColumnDefinitions>
@@ -119,7 +119,7 @@
 
                         <Button Grid.Column="1" Text="+" FontSize="15" Margin="0,20,0,0" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="LightGreen" CornerRadius="45"/>
 
-                        <CollectionView Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" HeightRequest="{Binding COllectionViewHeight}" ItemsSource="{Binding collection}">
+                        <CollectionView Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" HeightRequest="{Binding FirstMealCollectionHeight}" ItemsSource="{Binding FirstMealCollection}">
                             <CollectionView.ItemTemplate  x:DataType="models:MealToDisplay">
                                 <DataTemplate>
                                     <Grid>
@@ -164,7 +164,7 @@
                                             </Grid>
 
                                         </Grid>
-                                        <Button x:Name="{Binding ButtonName}" Grid.Row="0" Grid.Column="1" Text="+" FontSize="20" CornerRadius="45"
+                                        <Button x:Name="{Binding ButtonName}" Grid.Row="0" Grid.Column="1" Text="⚙️" FontSize="20" CornerRadius="45"
                                                 VerticalOptions="Center" HorizontalOptions="Center" Command="{Binding command}" CommandParameter="{Binding ButtonName}"
                                                 />
 
@@ -179,9 +179,10 @@
                     <Grid Grid.Row="1" Grid.Column="0" x:Name="SecondBreakfastGrid">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="90"/>
+                            <RowDefinition />
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="7*"/>
+                            <ColumnDefinition Width="7*" />
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
 
@@ -212,8 +213,59 @@
 
                         <Button Grid.Column="1" Text="+" FontSize="15" Margin="0,20,0,0" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="LightGreen" CornerRadius="45"/>
 
-                        <CollectionView Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" HeightRequest="50">
+                        <CollectionView Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" HeightRequest="{Binding SecondMealCollectionHeight}" ItemsSource="{Binding SecondMealCollection}">
+                            <CollectionView.ItemTemplate  x:DataType="models:MealToDisplay">
+                                <DataTemplate>
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition/>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="7*"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
 
+
+                                        <Grid Grid.Row="0" Grid.Column="0">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition/>
+                                                <RowDefinition/>
+                                                <RowDefinition/>
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition/>
+                                            </Grid.ColumnDefinitions>
+
+                                            <Label x:Name="lblTitle" Grid.Row="0" Grid.Column="0" Text="{Binding Name}"/>
+                                            <Label x:Name="lblAmount" Grid.Row="1" Grid.Column="0" Text="{Binding Amount}"/>
+
+                                            <Grid x:Name="InsideMacroGrid" Grid.Row="2" Grid.Column="0">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition/>
+                                                </Grid.RowDefinitions>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition/>
+                                                    <ColumnDefinition/>
+                                                    <ColumnDefinition/>
+                                                    <ColumnDefinition/>
+                                                </Grid.ColumnDefinitions>
+
+                                                <Label x:Name="lblKcal" Grid.Row="0" Grid.Column="0" Text="{Binding Kcal}" FontSize="15"/>
+                                                <Label x:Name="lblB" Grid.Row="0" Grid.Column="1" Text="{Binding B}"/>
+                                                <Label x:Name="lblT" Grid.Row="0" Grid.Column="2" Text="{Binding T}"/>
+                                                <Label x:Name="lblW" Grid.Row="0" Grid.Column="3" Text="{Binding W}"/>
+
+                                            </Grid>
+
+                                        </Grid>
+                                        <Button x:Name="{Binding ButtonName}" Grid.Row="0" Grid.Column="1" Text="⚙️" FontSize="20" CornerRadius="45"
+                                                VerticalOptions="Center" HorizontalOptions="Center" Command="{Binding command}" CommandParameter="{Binding ButtonName}"
+                                                />
+
+                                    </Grid>
+                                </DataTemplate>
+
+                            </CollectionView.ItemTemplate>
                         </CollectionView>
 
                     </Grid>
@@ -254,8 +306,59 @@
 
                         <Button Grid.Column="1" Text="+" FontSize="15" Margin="0,20,0,0" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="LightGreen" CornerRadius="45"/>
 
-                        <CollectionView Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" HeightRequest="50">
+                        <CollectionView Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" HeightRequest="{Binding ThirdMealCollectionHeight}" ItemsSource="{Binding ThirdMealCollection}">
+                            <CollectionView.ItemTemplate  x:DataType="models:MealToDisplay">
+                                <DataTemplate>
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition/>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="7*"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
 
+
+                                        <Grid Grid.Row="0" Grid.Column="0">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition/>
+                                                <RowDefinition/>
+                                                <RowDefinition/>
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition/>
+                                            </Grid.ColumnDefinitions>
+
+                                            <Label x:Name="lblTitle" Grid.Row="0" Grid.Column="0" Text="{Binding Name}"/>
+                                            <Label x:Name="lblAmount" Grid.Row="1" Grid.Column="0" Text="{Binding Amount}"/>
+
+                                            <Grid x:Name="InsideMacroGrid" Grid.Row="2" Grid.Column="0">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition/>
+                                                </Grid.RowDefinitions>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition/>
+                                                    <ColumnDefinition/>
+                                                    <ColumnDefinition/>
+                                                    <ColumnDefinition/>
+                                                </Grid.ColumnDefinitions>
+
+                                                <Label x:Name="lblKcal" Grid.Row="0" Grid.Column="0" Text="{Binding Kcal}" FontSize="15"/>
+                                                <Label x:Name="lblB" Grid.Row="0" Grid.Column="1" Text="{Binding B}"/>
+                                                <Label x:Name="lblT" Grid.Row="0" Grid.Column="2" Text="{Binding T}"/>
+                                                <Label x:Name="lblW" Grid.Row="0" Grid.Column="3" Text="{Binding W}"/>
+
+                                            </Grid>
+
+                                        </Grid>
+                                        <Button x:Name="{Binding ButtonName}" Grid.Row="0" Grid.Column="1" Text="⚙️" FontSize="20" CornerRadius="45"
+                                                VerticalOptions="Center" HorizontalOptions="Center" Command="{Binding command}" CommandParameter="{Binding ButtonName}"
+                                                />
+
+                                    </Grid>
+                                </DataTemplate>
+
+                            </CollectionView.ItemTemplate>
                         </CollectionView>
 
                     </Grid>
@@ -296,8 +399,59 @@
 
                         <Button Grid.Column="1" Text="+" FontSize="15" Margin="0,20,0,0" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="LightGreen" CornerRadius="45"/>
 
-                        <CollectionView Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" HeightRequest="50">
+                        <CollectionView Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" HeightRequest="{Binding FourthMealCollectionHeight}" ItemsSource="{Binding FourthMealCollection}">
+                            <CollectionView.ItemTemplate  x:DataType="models:MealToDisplay">
+                                <DataTemplate>
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition/>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="7*"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
 
+
+                                        <Grid Grid.Row="0" Grid.Column="0">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition/>
+                                                <RowDefinition/>
+                                                <RowDefinition/>
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition/>
+                                            </Grid.ColumnDefinitions>
+
+                                            <Label x:Name="lblTitle" Grid.Row="0" Grid.Column="0" Text="{Binding Name}"/>
+                                            <Label x:Name="lblAmount" Grid.Row="1" Grid.Column="0" Text="{Binding Amount}"/>
+
+                                            <Grid x:Name="InsideMacroGrid" Grid.Row="2" Grid.Column="0">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition/>
+                                                </Grid.RowDefinitions>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition/>
+                                                    <ColumnDefinition/>
+                                                    <ColumnDefinition/>
+                                                    <ColumnDefinition/>
+                                                </Grid.ColumnDefinitions>
+
+                                                <Label x:Name="lblKcal" Grid.Row="0" Grid.Column="0" Text="{Binding Kcal}" FontSize="15"/>
+                                                <Label x:Name="lblB" Grid.Row="0" Grid.Column="1" Text="{Binding B}"/>
+                                                <Label x:Name="lblT" Grid.Row="0" Grid.Column="2" Text="{Binding T}"/>
+                                                <Label x:Name="lblW" Grid.Row="0" Grid.Column="3" Text="{Binding W}"/>
+
+                                            </Grid>
+
+                                        </Grid>
+                                        <Button x:Name="{Binding ButtonName}" Grid.Row="0" Grid.Column="1" Text="⚙️" FontSize="20" CornerRadius="45"
+                                                VerticalOptions="Center" HorizontalOptions="Center" Command="{Binding command}" CommandParameter="{Binding ButtonName}"
+                                                />
+
+                                    </Grid>
+                                </DataTemplate>
+
+                            </CollectionView.ItemTemplate>
                         </CollectionView>
 
                     </Grid>
@@ -338,8 +492,59 @@
 
                         <Button Grid.Column="1" Text="+" FontSize="15" Margin="0,20,0,0" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="LightGreen" CornerRadius="45"/>
 
-                        <CollectionView Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" HeightRequest="50">
-                
+                        <CollectionView Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" HeightRequest="{Binding FifthMealCollectionHeight}" ItemsSource="{Binding FifthMealCollection}">
+                            <CollectionView.ItemTemplate  x:DataType="models:MealToDisplay">
+                                <DataTemplate>
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition/>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="7*"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+
+
+                                        <Grid Grid.Row="0" Grid.Column="0">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition/>
+                                                <RowDefinition/>
+                                                <RowDefinition/>
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition/>
+                                            </Grid.ColumnDefinitions>
+
+                                            <Label x:Name="lblTitle" Grid.Row="0" Grid.Column="0" Text="{Binding Name}"/>
+                                            <Label x:Name="lblAmount" Grid.Row="1" Grid.Column="0" Text="{Binding Amount}"/>
+
+                                            <Grid x:Name="InsideMacroGrid" Grid.Row="2" Grid.Column="0">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition/>
+                                                </Grid.RowDefinitions>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition/>
+                                                    <ColumnDefinition/>
+                                                    <ColumnDefinition/>
+                                                    <ColumnDefinition/>
+                                                </Grid.ColumnDefinitions>
+
+                                                <Label x:Name="lblKcal" Grid.Row="0" Grid.Column="0" Text="{Binding Kcal}" FontSize="15"/>
+                                                <Label x:Name="lblB" Grid.Row="0" Grid.Column="1" Text="{Binding B}"/>
+                                                <Label x:Name="lblT" Grid.Row="0" Grid.Column="2" Text="{Binding T}"/>
+                                                <Label x:Name="lblW" Grid.Row="0" Grid.Column="3" Text="{Binding W}"/>
+
+                                            </Grid>
+
+                                        </Grid>
+                                        <Button x:Name="{Binding ButtonName}" Grid.Row="0" Grid.Column="1" Text="⚙️" FontSize="20" CornerRadius="45"
+                                                VerticalOptions="Center" HorizontalOptions="Center" Command="{Binding command}" CommandParameter="{Binding ButtonName}"
+                                                />
+
+                                    </Grid>
+                                </DataTemplate>
+
+                            </CollectionView.ItemTemplate>
                         </CollectionView>
 
                     </Grid>
