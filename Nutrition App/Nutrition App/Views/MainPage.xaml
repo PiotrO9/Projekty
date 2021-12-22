@@ -4,10 +4,13 @@
              x:Class="Nutrition_App.Views.MainPage"
              xmlns:vm="clr-namespace:Nutrition_App.ViewModels" 
              xmlns:models="clr-namespace:Nutrition_App.Models"
+             xmlns:Views="clr-namespace:Nutrition_App.Views"
              Title="{Binding Title}">
 
     <ContentPage.BindingContext>
-        <vm:MainPageViewModel/>
+        <vm:MainPageViewModel>
+
+        </vm:MainPageViewModel>
     </ContentPage.BindingContext>
 
     <ContentPage.Resources>
@@ -69,7 +72,7 @@
 
                 <Grid Grid.Row="1" Grid.Column="0" x:Name="MealsGrid">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="{Binding FirstMealHeight}"/>
+                        <RowDefinition Height="{Binding FirstMealHeight, Mode=TwoWay, UpdateSourceEventName=PropertyChanged}"/>
                         <RowDefinition Height="{Binding SecondMealHeight}"/>
                         <RowDefinition Height="{Binding ThirdMealHeight}"/>
                         <RowDefinition Height="{Binding FourthMealHeight}"/>
@@ -92,7 +95,7 @@
 
                         <Grid Grid.Column="0" x:Name="InsideBreakfastGrid">
                             <StackLayout Orientation="Vertical" VerticalOptions="Center" HorizontalOptions="Start">
-                                <Button Text="Śniadanie" VerticalOptions="Center" HorizontalOptions="Center" FontSize="20" BackgroundColor="White" TextColor="Black"/>
+                                <Button Text="Śniadanie" VerticalOptions="Center" HorizontalOptions="Center" FontSize="20" BackgroundColor="White" TextColor="Black" Command="{Binding BreakfastButtonClickCommand}"/>
 
                                 <Grid>
                                     <Grid.RowDefinitions>
@@ -119,7 +122,8 @@
 
                         <Button Grid.Column="1" Text="+" FontSize="15" Margin="0,20,0,0" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="LightGreen" CornerRadius="45"/>
 
-                        <CollectionView Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" HeightRequest="{Binding FirstMealCollectionHeight}" ItemsSource="{Binding FirstMealCollection}">
+                        <CollectionView x:Name="BreakfastCollectionView" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" HeightRequest="{Binding FirstMealCollectionHeight, Mode=TwoWay, UpdateSourceEventName=PropertyChanged}" 
+                                        ItemsSource="{Binding FirstMealCollection, Mode=TwoWay, UpdateSourceEventName=PropertyChanged}">
                             <CollectionView.ItemTemplate  x:DataType="models:MealToDisplay">
                                 <DataTemplate>
                                     <Grid>
@@ -130,7 +134,6 @@
                                             <ColumnDefinition Width="7*"/>
                                             <ColumnDefinition Width="*"/>
                                         </Grid.ColumnDefinitions>
-
 
                                         <Grid Grid.Row="0" Grid.Column="0">
                                             <Grid.RowDefinitions>
@@ -172,6 +175,11 @@
                                 </DataTemplate>
                                 
                             </CollectionView.ItemTemplate>
+                            <CollectionView.EmptyView>
+                                <ContentView>
+                                    <Label Text="test" FontSize="10"/>
+                                </ContentView>
+                            </CollectionView.EmptyView>
                         </CollectionView>
 
                     </Grid>

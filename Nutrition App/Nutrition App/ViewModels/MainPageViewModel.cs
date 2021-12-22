@@ -1,6 +1,7 @@
 ﻿using Nutrition_App.Interfaces;
 using Nutrition_App.Models;
 using Nutrition_App.Services.ConvertingServices;
+using Nutrition_App.Views;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -13,12 +14,16 @@ namespace Nutrition_App.ViewModels
 {
     class MainPageViewModel : BaseViewModel
     {
+
         public MainPageViewModel()
         {
             Title = "Główna strona";
 
             ButtonClickCommand = new Command((parameter) => ButtonClickCommandImpl(parameter));
 
+            BreakfastButtonClickCommand = new Command(BreakfastButtonClickCommandImpl);
+
+            //FirstMealCollection = new ObservableCollection<MealToDisplay>();
 
             FirstMealCollection = new ObservableCollection<MealToDisplay>()
             {
@@ -53,11 +58,35 @@ namespace Nutrition_App.ViewModels
             }
         }
 
+        private void BreakfastButtonClickCommandImpl()
+        {
+            if(FirstMealCollection.Count == 0)
+            {
+                FirstMealCollection = FirstMealCollectionTemporary;
+            }
+            else
+            {
+                FirstMealCollectionTemporary = FirstMealCollection;
+                FirstMealCollection = EmptyMealColleciton;
+            }
+
+            FirstMealCollectionHeight = FirstMealCollection.Count * _collectionHeight > 10 ? FirstMealCollection.Count * _collectionHeight : 10;
+            FirstMealHeight = FirstMealCollectionHeight + _consistentMealHeight;
+
+        }
+
         #endregion
 
         #region Collections
 
-        public ObservableCollection<MealToDisplay> FirstMealCollection { get; set; }
+        private ObservableCollection<MealToDisplay> _firstMealCollection;
+
+        public ObservableCollection<MealToDisplay> FirstMealCollection
+        {
+            get { return _firstMealCollection; }
+            set { _firstMealCollection = value; OnPropertyChanged(); }
+        }
+
         public ObservableCollection<MealToDisplay> SecondMealCollection { get; set; }
         public ObservableCollection<MealToDisplay> ThirdMealCollection { get; set; }
         public ObservableCollection<MealToDisplay> FourthMealCollection { get; set; }
@@ -65,22 +94,30 @@ namespace Nutrition_App.ViewModels
 
         #region
 
-        public ObservableCollection<MealToDisplay> FirstMealCollectionTemporary { get; set; }
+        private ObservableCollection<MealToDisplay> _firstMealCollectionTemporary;
+
+        public ObservableCollection<MealToDisplay> FirstMealCollectionTemporary
+        {
+            get { return _firstMealCollectionTemporary; }
+            set { _firstMealCollectionTemporary = value; OnPropertyChanged(); }
+        }
+
         public ObservableCollection<MealToDisplay> SecondMealCollectionTemporary { get; set; }
         public ObservableCollection<MealToDisplay> ThirdMealCollectionTemporary { get; set; }
         public ObservableCollection<MealToDisplay> FourthMealCollectionTemporary { get; set; }
         public ObservableCollection<MealToDisplay> FifthMealCollectionTemporary { get; set; }
 
+        public ObservableCollection<MealToDisplay> EmptyMealColleciton { get; set; }
+
         #endregion
 
-
-        public ObservableCollection<MealToDisplay> EmptyMealColleciton { get; set; }
 
         #endregion
 
         #region Commands
 
         public Command ButtonClickCommand { get; set; }
+        public Command BreakfastButtonClickCommand { get; set; }
 
         #endregion
 
