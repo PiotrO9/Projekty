@@ -41,11 +41,11 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
-            <Button Grid.Row="0" Grid.Column="0" Text="23 &#x0a;PN" FontSize="15" BackgroundColor="LimeGreen" CornerRadius="45" VerticalOptions="Center" HorizontalOptions="Center"/>
-            <Button Grid.Row="0" Grid.Column="1" Text="24 &#x0a;WT" FontSize="15" BackgroundColor="LimeGreen" CornerRadius="45" VerticalOptions="Center" HorizontalOptions="Center"/>
-            <Button Grid.Row="0" Grid.Column="2" Text="25 &#x0a;ŚR" FontSize="15" BackgroundColor="LimeGreen" CornerRadius="45" VerticalOptions="Center" HorizontalOptions="Center"/>
-            <Button Grid.Row="0" Grid.Column="3" Text="26 &#x0a;CZW" FontSize="15" BackgroundColor="LimeGreen" CornerRadius="45" VerticalOptions="Center" HorizontalOptions="Center"/>
-            <Button Grid.Row="0" Grid.Column="4" Text="27 &#x0a;PT" FontSize="15" BackgroundColor="LimeGreen" CornerRadius="45" VerticalOptions="Center" HorizontalOptions="Center"/>
+            <Button Grid.Row="0" Grid.Column="0" Text="{Binding TwoDaysAgoText}" FontSize="15" BackgroundColor="LimeGreen" CornerRadius="45" VerticalOptions="Center" HorizontalOptions="Center"/>
+            <Button Grid.Row="0" Grid.Column="1" Text="{Binding YesterdayText}" FontSize="15" BackgroundColor="LimeGreen" CornerRadius="45" VerticalOptions="Center" HorizontalOptions="Center"/>
+            <Button Grid.Row="0" Grid.Column="2" Text="{Binding TodayText}" FontSize="15" BackgroundColor="LimeGreen" CornerRadius="45" VerticalOptions="Center" HorizontalOptions="Center"/>
+            <Button Grid.Row="0" Grid.Column="3" Text="{Binding TomorrowText}" FontSize="15" BackgroundColor="LimeGreen" CornerRadius="45" VerticalOptions="Center" HorizontalOptions="Center"/>
+            <Button Grid.Row="0" Grid.Column="4" Text="{Binding InTwoDays}" FontSize="15" BackgroundColor="LimeGreen" CornerRadius="45" VerticalOptions="Center" HorizontalOptions="Center"/>
         </Grid>
 
         <ScrollView Grid.Column="0" Grid.Row="1">

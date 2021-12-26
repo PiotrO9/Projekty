@@ -1,6 +1,8 @@
 ﻿using Nutrition_App.Interfaces;
 using Nutrition_App.Models;
+using Nutrition_App.Services;
 using Nutrition_App.Services.ConvertingServices;
+using Nutrition_App.Services.DateServices;
 using Nutrition_App.Views;
 using System;
 using System.Collections.Generic;
@@ -20,6 +22,10 @@ namespace Nutrition_App.ViewModels
             Title = "Główna strona";
 
             ButtonClickCommand = new Command((parameter) => ButtonClickCommandImpl(parameter));
+
+            SetDaysBinding();
+
+            #region Common
 
             BreakfastButtonClickCommand = new Command(BreakfastButtonClickCommandImpl);
             SecondBreakfastButtonClickCommand = new Command(SecondBreakfastButtonClickCommandImpl);
@@ -66,7 +72,27 @@ namespace Nutrition_App.ViewModels
             };
 
             EmptyMealColleciton = new ObservableCollection<MealToDisplay>();
+
+            #endregion
+
+
+       }
+
+        #region Methods
+
+        public void SetDaysBinding()
+        {
+            string[] DaysInformation = CombineDateInformation.CombineDateInformationMethod();
+
+            TwoDaysAgoText = DaysInformation[0];
+            YesterdayText = DaysInformation[1];
+            TodayText = DaysInformation[2];
+            TomorrowText = DaysInformation[3];
+            InTwoDays = DaysInformation[4];
         }
+
+
+        #endregion
 
         #region Command implementation
 
@@ -395,6 +421,50 @@ namespace Nutrition_App.ViewModels
         }
 
         #endregion
+
+        #endregion
+
+        #region Fields
+
+        private string _twoDaysAgoText;
+
+        public string TwoDaysAgoText
+        {
+            get { return _twoDaysAgoText; }
+            set { _twoDaysAgoText = value; OnPropertyChanged(); }
+        }
+
+        private string _yesterdayText;
+
+        public string YesterdayText
+        {
+            get { return _yesterdayText; }
+            set { _yesterdayText = value; OnPropertyChanged(); }
+        }
+
+        private string _todayText;
+
+        public string TodayText
+        {
+            get { return _todayText; }
+            set { _todayText = value; OnPropertyChanged(); }
+        }
+
+        private string _tomorrowText;
+
+        public string TomorrowText
+        {
+            get { return _tomorrowText; }
+            set { _tomorrowText = value; OnPropertyChanged(); }
+        }
+
+        private string _inTwoDays;
+
+        public string InTwoDays
+        {
+            get { return _inTwoDays; }
+            set { _inTwoDays = value; OnPropertyChanged(); }
+        }
 
         #endregion
 
