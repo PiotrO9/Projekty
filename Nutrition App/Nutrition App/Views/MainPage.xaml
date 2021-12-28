@@ -29,7 +29,7 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <Grid Grid.Row="0" x:Name="DaysGrid" BackgroundColor="Yellow">
+        <Grid Grid.Row="0" x:Name="DaysGrid">
             <Grid.RowDefinitions>
                 <RowDefinition/>
             </Grid.RowDefinitions>
@@ -167,7 +167,7 @@
                                             </Grid>
 
                                         </Grid>
-                                        <Button x:Name="{Binding ButtonName}" Grid.Row="0" Grid.Column="1" Text="⚙️" FontSize="20" CornerRadius="45"
+                                        <Button x:Name="{Binding ButtonName}" Grid.Row="0" Grid.Column="1" Text="⚙️" BackgroundColor="White" Margin="0,0,3,0" FontSize="20" CornerRadius="45"
                                                 VerticalOptions="Center" HorizontalOptions="Center" Command="{Binding command}" CommandParameter="{Binding ButtonName}"
                                                 />
 
@@ -177,7 +177,7 @@
                             </CollectionView.ItemTemplate>
                             <CollectionView.EmptyView>
                                 <ContentView>
-                                    <Label Text="test" FontSize="10"/>
+                                    
                                 </ContentView>
                             </CollectionView.EmptyView>
                         </CollectionView>
@@ -267,7 +267,7 @@
                                             </Grid>
 
                                         </Grid>
-                                        <Button x:Name="{Binding ButtonName}" Grid.Row="0" Grid.Column="1" Text="⚙️" FontSize="20" CornerRadius="45"
+                                        <Button x:Name="{Binding ButtonName}" Grid.Row="0" Grid.Column="1" Text="⚙️" BackgroundColor="White" Margin="0,0,3,0" FontSize="20" CornerRadius="45"
                                                 VerticalOptions="Center" HorizontalOptions="Center" Command="{Binding command}" CommandParameter="{Binding ButtonName}"
                                                 />
 
@@ -365,7 +365,7 @@
                                             </Grid>
 
                                         </Grid>
-                                        <Button x:Name="{Binding ButtonName}" Grid.Row="0" Grid.Column="1" Text="⚙️" FontSize="20" CornerRadius="45"
+                                        <Button x:Name="{Binding ButtonName}" Grid.Row="0" Grid.Column="1" Text="⚙️" BackgroundColor="White" Margin="0,0,3,0" FontSize="20" CornerRadius="45"
                                                 VerticalOptions="Center" HorizontalOptions="Center" Command="{Binding command}" CommandParameter="{Binding ButtonName}"
                                                 />
 
@@ -464,7 +464,7 @@
                                             </Grid>
 
                                         </Grid>
-                                        <Button x:Name="{Binding ButtonName}" Grid.Row="0" Grid.Column="1" Text="⚙️" FontSize="20" CornerRadius="45"
+                                        <Button x:Name="{Binding ButtonName}" Grid.Row="0" Grid.Column="1" Text="⚙️" BackgroundColor="White" Margin="0,0,3,0" FontSize="20" CornerRadius="45"
                                                 VerticalOptions="Center" HorizontalOptions="Center" Command="{Binding command}" CommandParameter="{Binding ButtonName}"
                                                 />
 
@@ -563,7 +563,7 @@
                                             </Grid>
 
                                         </Grid>
-                                        <Button x:Name="{Binding ButtonName}" Grid.Row="0" Grid.Column="1" Text="⚙️" FontSize="20" CornerRadius="45"
+                                        <Button x:Name="{Binding ButtonName}" Grid.Row="0" Grid.Column="1" Text="⚙️" BackgroundColor="White" Margin="0,0,3,0" FontSize="20" CornerRadius="45"
                                                 VerticalOptions="Center" HorizontalOptions="Center" Command="{Binding command}" CommandParameter="{Binding ButtonName}"
                                                 />
 
