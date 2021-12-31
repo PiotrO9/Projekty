@@ -23,6 +23,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="7*"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
@@ -585,6 +586,88 @@
             </StackLayout>
 
         </ScrollView>
+
+        <Grid x:Name="StatsGrid" Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Grid x:Name="KcalGridSubmit" Grid.Row="0" Grid.Column="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <ProgressBar Grid.Column="0" Grid.Row="0" WidthRequest="5"/>
+
+                <Label Grid.Column="0" Grid.Row="1" Text="Kcal"/>
+                <Label Grid.Column="0" Grid.Row="2" Text="/3000 kcal"/>
+
+            </Grid>
+
+            <Grid x:Name="BGridSubmit" Grid.Row="0" Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <ProgressBar Grid.Column="0" Grid.Row="0" WidthRequest="5"/>
+
+                <Label Grid.Column="0" Grid.Row="1" Text="Białka"/>
+                <Label Grid.Column="0" Grid.Row="2" Text="/150 g"/>
+
+            </Grid>
+
+            <Grid x:Name="TGridSubmit" Grid.Row="0" Grid.Column="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <ProgressBar Grid.Column="0" Grid.Row="0" WidthRequest="5"/>
+
+                <Label Grid.Column="0" Grid.Row="1" Text="Tł."/>
+                <Label Grid.Column="0" Grid.Row="2" Text="/100 g"/>
+
+            </Grid>
+
+            <Grid x:Name="WGridSubmit" Grid.Row="0" Grid.Column="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <ProgressBar Grid.Column="0" Grid.Row="0" WidthRequest="5"/>
+
+                <Label Grid.Column="0" Grid.Row="1" Text="Węgl."/>
+                <Label Grid.Column="0" Grid.Row="2" Text="/500 g"/>
+
+            </Grid>
+            
+        </Grid>
+        
     </Grid>
 
 </ContentPage>
