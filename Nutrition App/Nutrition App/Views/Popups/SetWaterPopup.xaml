@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<xct:Popup  xmlns:xct="http://xamarin.com/schemas/2020/toolkit" 
+            xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+            xmlns:popupsviewmodels="clr-namespace:Nutrition_App.ViewModels.PopupsViewModels" 
+            x:DataType="popupsviewmodels:SetWaterPopupViewModel"
+            Size="300,300"
+            x:Class="Nutrition_App.Views.Popups.SetWaterPopup">
+
+    <StackLayout>
+        <CollectionView ItemsSource="{Binding CollectionSource}" SelectedItem="{Binding SelectedItem}" SelectionMode="Single"/>
+        <Button Command="{Binding QuitCommand}"/>
+    </StackLayout>
+    
+</xct:Popup>

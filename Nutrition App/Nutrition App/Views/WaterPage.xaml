@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:viewmodels="clr-namespace:Nutrition_App.ViewModels" 
+             x:DataType="viewmodels:WaterPageViewModel"
+             x:Class="Nutrition_App.Views.WaterPage">
+    <ContentPage.Content>
+        <Grid x:Name="MainGrid">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0" Margin="10,0,10,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Image Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Source="glass_of_water.jpg"/>
+
+                <Label Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Text="Testowy" FontSize="30" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Margin="0,0,0,70" FontAttributes="Bold"/>
+
+                <Label Grid.Column="1" Grid.Row="0" Text="Wybierz pojemność szklanki" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" FontSize="28" FontAttributes="Bold" Padding="20,45,0,0"/>
+
+                <Button Grid.Column="1" Grid.Row="1" Text="Zmień" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,0,0,40" Padding="20" Command="{Binding GlassCapacityClick}"/>
+
+            </Grid>
+            <Grid Grid.Row="1" Margin="10,0,10,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Image Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Source="glass_of_water.jpg"/>
+
+                <Label Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Text="Testowy" FontSize="30" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Margin="0,0,0,70" FontAttributes="Bold"/>
+
+                <Label Grid.Column="1" Grid.Row="0" Text="Wybierz dzienny cel" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" FontSize="33" FontAttributes="Bold" Padding="20,60,0,0"/>
+
+                <Button Grid.Column="1" Grid.Row="1" Text="Zmień" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,0,0,40" Padding="20" Command="{Binding WaterAmountClick}"/>
+
+            </Grid>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

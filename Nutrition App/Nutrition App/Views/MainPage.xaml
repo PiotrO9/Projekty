@@ -583,6 +583,27 @@
 
                 </Grid>
 
+                <Grid x:Name="WaterGrid">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="5*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                    <StackLayout x:Name="WaterAamount" Grid.Column="0" Grid.Row="0" Orientation="Vertical">
+                        <ProgressBar/>
+                        <Label Text="3000" VerticalOptions="Center" HorizontalOptions="Center"/>
+                    </StackLayout>
+
+                    <StackLayout x:Name="WaterOperations" Grid.Column="1" Grid.Row="0" Orientation="Horizontal">
+                        <Button Text="+" CornerRadius="45" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="50" FontSize="15"/>
+                        <Button Text="-" CornerRadius="45" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="50" FontSize="15"/>
+                    </StackLayout>
+
+                </Grid>
+                
             </StackLayout>
 
         </ScrollView>
