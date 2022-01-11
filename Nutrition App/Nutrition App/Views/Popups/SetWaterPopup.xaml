@@ -8,7 +8,7 @@
             x:Class="Nutrition_App.Views.Popups.SetWaterPopup">
 
     <StackLayout>
-        <CollectionView ItemsSource="{Binding CollectionSource}" SelectedItem="{Binding SelectedItem}" SelectionMode="Single"/>
+        <CollectionView ItemsSource="{Binding CollectionSource}" SelectedItem="{Binding SelectedItem}" SelectionMode="Single" VerticalOptions="Center" HorizontalOptions="Center"/>
         <Button Command="{Binding QuitCommand}"/>
     </StackLayout>
     

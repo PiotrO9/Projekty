@@ -53,12 +53,12 @@ namespace Nutrition_App.ViewModels.PopupsViewModels
                 {
                     case WaterOperationType.TotalAmount:
                         {
-                            Preferences.Set("TotalWaterAmount", SelectedItem+"ml");
+                            Preferences.Set("TotalWaterAmount", SelectedItem);
                             break; 
                         }
                     case WaterOperationType.Capacity:
                         {
-                            Preferences.Set("CapacityOfWater", SelectedItem + "ml");
+                            Preferences.Set("CapacityOfWater", SelectedItem);
                             break; 
                         }
                 }

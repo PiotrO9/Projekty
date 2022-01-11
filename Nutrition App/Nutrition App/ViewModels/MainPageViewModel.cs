@@ -23,9 +23,19 @@ namespace Nutrition_App.ViewModels
 
             ButtonClickCommand = new Command((parameter) => ButtonClickCommandImpl(parameter));
 
+            //Preferences.Clear();
+
+            TotalWaterAmount = int.Parse(Preferences.Get("TotalWaterAmount", "2000"));
+            CapacityOfWater = int.Parse(Preferences.Get("CapacityOfWater", "250"));
+            bool test = Preferences.ContainsKey("CapacityOfWater");
+            CurrentAmountOfWater = 0; // Zmienić, gdy wczytywanie z pliku
+
             SetDaysBinding();
 
             #region Common
+
+            AddWaterClick = new Command(AddWaterClickImpl);
+            SubWaterClick = new Command(SubWaterClickImpl);
 
             BreakfastButtonClickCommand = new Command(BreakfastButtonClickCommandImpl);
             SecondBreakfastButtonClickCommand = new Command(SecondBreakfastButtonClickCommandImpl);
@@ -91,7 +101,19 @@ namespace Nutrition_App.ViewModels
             InTwoDays = DaysInformation[4];
         }
 
+        public float CalculateCurrentWaterState()
+        {
+            float calculation = float.Parse(CurrentAmountOfWater.ToString()) / float.Parse(TotalWaterAmount.ToString());
 
+            if (calculation >= 1.0)
+            {
+                return 1.0F;
+            }
+            else
+            {
+                return calculation;
+            }
+        }
         #endregion
 
         #region Command implementation
@@ -185,6 +207,26 @@ namespace Nutrition_App.ViewModels
 
         }
 
+        private void AddWaterClickImpl()
+        {
+            if (CurrentAmountOfWater < TotalWaterAmount)
+            {
+                CurrentAmountOfWater += CapacityOfWater;
+            }
+        }
+
+        private void SubWaterClickImpl()
+        {
+            if(CurrentAmountOfWater > CapacityOfWater)
+            {
+                CurrentAmountOfWater -= CapacityOfWater;
+            }
+            else
+            {
+                CurrentAmountOfWater = 0;
+            }
+        }
+
         #endregion
 
         #region Collections
@@ -253,6 +295,12 @@ namespace Nutrition_App.ViewModels
         public Command LunchButtonClickCommand { get; set; }
         public Command DinnerButtonClickCommand { get; set; }
         public Command SupperButtonClickCommand { get; set; }
+
+
+
+        public Command AddWaterClick { get; set; }
+        public Command SubWaterClick { get; set; }
+
 
         #endregion
 
@@ -426,6 +474,45 @@ namespace Nutrition_App.ViewModels
 
         #region Fields
 
+        #region Water fields
+
+        private int _totalWaterAmount;
+
+        public int TotalWaterAmount
+        {
+            get { return _totalWaterAmount; }
+            set { _totalWaterAmount = value; OnPropertyChanged(); }
+        }
+
+        private int _capacityOfWater;
+
+        public int CapacityOfWater
+        {
+            get { return _capacityOfWater; }
+            set { _capacityOfWater = value; OnPropertyChanged(); }
+        }
+
+        private int _currentAmountOfWater;
+
+        public int CurrentAmountOfWater
+        {
+            get { return _currentAmountOfWater; }
+            set { _currentAmountOfWater = value; OnPropertyChanged(); ProgressBarState = CalculateCurrentWaterState(); }
+        }
+
+        private float _progressBarState;
+
+        public float ProgressBarState
+        {
+            get { return _progressBarState; }
+            set { _progressBarState = value; OnPropertyChanged(); }
+        }
+
+
+        #endregion
+
+        #region Days fields
+
         private string _twoDaysAgoText;
 
         public string TwoDaysAgoText
@@ -465,6 +552,8 @@ namespace Nutrition_App.ViewModels
             get { return _inTwoDays; }
             set { _inTwoDays = value; OnPropertyChanged(); }
         }
+
+        #endregion
 
         #endregion
 
