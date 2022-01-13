@@ -42,7 +42,8 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
-            <Button Grid.Row="0" Grid.Column="0" Text="{Binding TwoDaysAgoText}" FontSize="15" BackgroundColor="LimeGreen" CornerRadius="45" VerticalOptions="Center" HorizontalOptions="Center"/>
+            <Button x:Name="btnTwoDaysAgo" Grid.Row="0" Grid.Column="0" Text="{Binding TwoDaysAgoText}" FontSize="15" BackgroundColor="LimeGreen" 
+                    CornerRadius="45" VerticalOptions="Center" HorizontalOptions="Center" Command="{Binding DaysButtonClickCommand}" CommandParameter="{x:Reference btnTwoDaysAgo}"/>
             <Button Grid.Row="0" Grid.Column="1" Text="{Binding YesterdayText}" FontSize="15" BackgroundColor="LimeGreen" CornerRadius="45" VerticalOptions="Center" HorizontalOptions="Center"/>
             <Button Grid.Row="0" Grid.Column="2" Text="{Binding TodayText}" FontSize="15" BackgroundColor="LimeGreen" CornerRadius="45" VerticalOptions="Center" HorizontalOptions="Center"/>
             <Button Grid.Row="0" Grid.Column="3" Text="{Binding TomorrowText}" FontSize="15" BackgroundColor="LimeGreen" CornerRadius="45" VerticalOptions="Center" HorizontalOptions="Center"/>

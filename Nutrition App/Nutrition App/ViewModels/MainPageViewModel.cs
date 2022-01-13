@@ -3,6 +3,7 @@ using Nutrition_App.Models;
 using Nutrition_App.Services;
 using Nutrition_App.Services.ConvertingServices;
 using Nutrition_App.Services.DateServices;
+using Nutrition_App.Services.FileServices;
 using Nutrition_App.Views;
 using System;
 using System.Collections.Generic;
@@ -22,6 +23,7 @@ namespace Nutrition_App.ViewModels
             Title = "Główna strona";
 
             ButtonClickCommand = new Command((parameter) => ButtonClickCommandImpl(parameter));
+            DaysButtonClickCommand = new Command((parametr) => DaysButtonClickCommandImpl(parametr));
 
             //Preferences.Clear();
 
@@ -125,6 +127,16 @@ namespace Nutrition_App.ViewModels
             {
                 var numbersoFButtonPosition = GetButtonPosition.GetButtonPositionMethod(ButtonName);
             }
+        }
+
+        private void DaysButtonClickCommandImpl(object parametr)
+        {
+            Button WorkButton = parametr as Button;
+            string ButtonText = WorkButton.Text;
+            string[] SingleWordsArray = ButtonText.Split(new char[0], StringSplitOptions.RemoveEmptyEntries);
+
+            string result = CombineFileName.CombineFileNameMethod(SingleWordsArray);
+
         }
 
         private void BreakfastButtonClickCommandImpl()
@@ -290,6 +302,10 @@ namespace Nutrition_App.ViewModels
         #region Commands
 
         public Command ButtonClickCommand { get; set; }
+        public Command DaysButtonClickCommand { get; set; }
+
+
+
         public Command BreakfastButtonClickCommand { get; set; }
         public Command SecondBreakfastButtonClickCommand { get; set; }
         public Command LunchButtonClickCommand { get; set; }
