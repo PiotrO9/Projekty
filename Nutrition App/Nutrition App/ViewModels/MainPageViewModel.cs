@@ -88,6 +88,25 @@ namespace Nutrition_App.ViewModels
             #endregion
 
 
+            List<ObservableCollection<MealToDisplay>> c1 = new List<ObservableCollection<MealToDisplay>>();
+            c1.Add(FirstMealCollection);
+            c1.Add(SecondMealCollection);
+            c1.Add(ThirdMealCollection);
+            c1.Add(FourthMealCollection);
+            c1.Add(FifthMealCollection);
+
+            string result = MealsListToString.MealsListToStringMethod(c1);
+
+            List<ObservableCollection<MealToDisplay>> resultTest = StringToMealsList.StringToMealsListMethod(result);
+
+            foreach (var list in resultTest)
+            {
+                foreach (var meal in list)
+                {
+                    meal.command = ButtonClickCommand;
+                }
+            }
+
        }
 
         #region Methods
@@ -282,7 +301,6 @@ namespace Nutrition_App.ViewModels
             get { return _fifthMealCollection; }
             set { _fifthMealCollection = value; OnPropertyChanged(); }
         }
-
 
         #region
 

@@ -8,7 +8,7 @@ using Xamarin.Forms;
 
 namespace Nutrition_App.Models
 {
-    class MealToDisplay 
+    public class MealToDisplay
     {
 
         public string Name { get; set; }
