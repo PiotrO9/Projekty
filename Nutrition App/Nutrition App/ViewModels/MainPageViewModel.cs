@@ -3,11 +3,13 @@ using Nutrition_App.Models;
 using Nutrition_App.Services;
 using Nutrition_App.Services.ConvertingServices;
 using Nutrition_App.Services.DateServices;
+using Nutrition_App.Services.DeveloperConfigure;
 using Nutrition_App.Services.FileServices;
 using Nutrition_App.Views;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Text;
 using System.Windows.Input;
 using Xamarin.Essentials;
@@ -33,6 +35,9 @@ namespace Nutrition_App.ViewModels
             CurrentAmountOfWater = 0; // Zmienić, gdy wczytywanie z pliku
 
             SetDaysBinding();
+
+            
+
 
             #region Common
 
@@ -67,14 +72,12 @@ namespace Nutrition_App.ViewModels
                 new MealToDisplay(){Name = "Produkt1",ButtonName="btn_1_7",Kcal="345",Amount="100g",B="32",T="23",W="67",command=ButtonClickCommand},
             };
 
-
             FourthMealCollection = new ObservableCollection<MealToDisplay>()
             {
                 new MealToDisplay(){Name = "Produkt1",ButtonName="btn_1_5",Kcal="345",Amount="100g",B="32",T="23",W="67",command=ButtonClickCommand},
                 new MealToDisplay(){Name = "Produkt1",ButtonName="btn_1_6",Kcal="345",Amount="100g",B="32",T="23",W="67",command=ButtonClickCommand},
                 new MealToDisplay(){Name = "Produkt1",ButtonName="btn_1_7",Kcal="345",Amount="100g",B="32",T="23",W="67",command=ButtonClickCommand},
             };
-
 
             FifthMealCollection = new ObservableCollection<MealToDisplay>()
             {
@@ -95,19 +98,11 @@ namespace Nutrition_App.ViewModels
             c1.Add(FourthMealCollection);
             c1.Add(FifthMealCollection);
 
-            string result = MealsListToString.MealsListToStringMethod(c1);
+            CollectionToFile.CollectionToFileMethod(c1);
 
-            List<ObservableCollection<MealToDisplay>> resultTest = StringToMealsList.StringToMealsListMethod(result);
+            string[] device = GetFilesFromPath.GetFilesFromPathMethod(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData)) + "/saves");
 
-            foreach (var list in resultTest)
-            {
-                foreach (var meal in list)
-                {
-                    meal.command = ButtonClickCommand;
-                }
-            }
-
-       }
+        }
 
         #region Methods
 
