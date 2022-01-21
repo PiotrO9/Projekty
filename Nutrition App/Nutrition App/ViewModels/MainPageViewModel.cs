@@ -31,6 +31,13 @@ namespace Nutrition_App.ViewModels
 
             TotalWaterAmount = int.Parse(Preferences.Get("TotalWaterAmount", "2000"));
             CapacityOfWater = int.Parse(Preferences.Get("CapacityOfWater", "250"));
+
+            KcalSubmitLimit = Preferences.Get("KcalSubmitLimit", "2500");
+            BSubmitLimit = Preferences.Get("BSubmitLimit", "150");
+            TSubmitLimit = Preferences.Get("TSubmitLimit", "100");
+            WSubmitLimit = Preferences.Get("WSubmitLimit", "450");
+
+
             bool test = Preferences.ContainsKey("CapacityOfWater");
             CurrentAmountOfWater = 0; // Zmienić, gdy wczytywanie z pliku
 
@@ -101,6 +108,7 @@ namespace Nutrition_App.ViewModels
             //CollectionToFile.CollectionToFileMethod(c1);
 
             List<ObservableCollection<MealToDisplay>> temp = FileToCollection.FileToCollectionMethod();
+            FillByMissingCommand(temp);
             UpdateCollections(temp);
 
             CheckIfCollectionsAreNotNull();
@@ -175,6 +183,17 @@ namespace Nutrition_App.ViewModels
             {
                 FifthMealCollection = new ObservableCollection<MealToDisplay>();
                 FifthMealCollectionTemporary = new ObservableCollection<MealToDisplay>();
+            }
+        }
+
+        public void FillByMissingCommand(List<ObservableCollection<MealToDisplay>> collections)
+        {
+            foreach (var collection in collections)
+            {
+                foreach (var item in collection)
+                {
+                    item.command = ButtonClickCommand;
+                }
             }
         }
 
@@ -574,15 +593,15 @@ namespace Nutrition_App.ViewModels
         public int CurrentAmountOfWater
         {
             get { return _currentAmountOfWater; }
-            set { _currentAmountOfWater = value; OnPropertyChanged(); ProgressBarState = CalculateCurrentWaterState(); }
+            set { _currentAmountOfWater = value; OnPropertyChanged(); WaterProgressBarState = CalculateCurrentWaterState(); }
         }
 
-        private float _progressBarState;
+        private float _waterProgressBarState;
 
-        public float ProgressBarState
+        public float WaterProgressBarState
         {
-            get { return _progressBarState; }
-            set { _progressBarState = value; OnPropertyChanged(); }
+            get { return _waterProgressBarState; }
+            set { _waterProgressBarState = value; OnPropertyChanged(); }
         }
 
 
@@ -629,6 +648,120 @@ namespace Nutrition_App.ViewModels
             get { return _inTwoDays; }
             set { _inTwoDays = value; OnPropertyChanged(); }
         }
+
+        #endregion
+
+        #region Submit fields
+
+            #region Submit limits
+
+            private string _kcalSubmitLimit;   
+
+            public string KcalSubmitLimit
+            {
+                get { return _kcalSubmitLimit; }
+                set { _kcalSubmitLimit = "/" + value + " kcal"; OnPropertyChanged(); }
+            }
+
+            private string _bSubmitLimit;
+
+            public string BSubmitLimit
+            {
+                get { return _bSubmitLimit; }
+                set { _bSubmitLimit = "/" + value + " g"; OnPropertyChanged(); }
+            }
+
+            private string _tSubmitLimit;
+
+            public string TSubmitLimit
+            {
+                get { return _tSubmitLimit; }
+                set { _tSubmitLimit = "/" + value + " g"; OnPropertyChanged(); }
+            }
+
+            private string _WSubmitLimit;
+
+            public string WSubmitLimit
+            {
+                get { return _WSubmitLimit; }
+                set { _WSubmitLimit = "/" + value + " g"; OnPropertyChanged(); }
+            }
+
+        #endregion
+
+            #region Submit bars fileds
+
+            private float _kcalProgressBarState;
+
+            public float KcalProgressBarState
+            {
+                get { return _kcalProgressBarState; }
+                set { _kcalProgressBarState = value; OnPropertyChanged(); }
+            }
+
+            private float _bProgressBarState;
+
+            public float BProgressBarState
+            {
+                get { return _bProgressBarState; }
+                set { _bProgressBarState = value; OnPropertyChanged(); }
+            }
+
+            private float _tProgressBarState;
+
+            public float TProgressBarState
+            {
+                get { return _tProgressBarState; }
+                set { _tProgressBarState = value; OnPropertyChanged(); }
+            }
+
+            private float _wProgressBarState;
+
+            public float WProgressBarState
+            {
+                get { return _wProgressBarState; }
+                set { _wProgressBarState = value; OnPropertyChanged(); }
+            }
+
+
+        #endregion
+
+        #region Current submit fields
+
+        private int _currentKcalAmount;
+
+        public int CurrentKcalAmount
+        {
+            get { return _currentKcalAmount; }
+            set { _currentKcalAmount = value; OnPropertyChanged(); }
+        }
+
+        private int _currentBAmount;
+
+        public int CurrentBAmount
+        {
+            get { return _currentBAmount; }
+            set { _currentBAmount = value; OnPropertyChanged(); }
+        }
+
+        private int _currentTAmount;
+
+        public int CurrentTAmount
+        {
+            get { return _currentTAmount; }
+            set { _currentTAmount = value; OnPropertyChanged(); }
+        }
+
+        private int _currentWAmount;
+
+        public int CurrentWAmount
+        {
+            get { return _currentWAmount; }
+            set { _currentWAmount = value; OnPropertyChanged(); }
+        }
+
+
+        #endregion
 
         #endregion
 
