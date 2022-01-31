@@ -24,5 +24,24 @@ namespace Nutrition_App.Services
 
             return result;
         }
+
+        public static string[] GetDaysNumbersMethod(int difference)
+        {
+            string[] result = new string[5];
+
+            DateTime dateTime;
+            int iterator = 0;
+
+
+            for (int i = -2; i < 3; i++)
+            {
+                dateTime = DateTime.Today.AddDays(i + difference);
+
+                result[iterator] = dateTime.ToString("dd");
+                iterator++;
+            }
+
+            return result;
+        }
     }
 }

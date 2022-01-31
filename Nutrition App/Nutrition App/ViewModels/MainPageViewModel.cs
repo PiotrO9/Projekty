@@ -19,7 +19,6 @@ namespace Nutrition_App.ViewModels
 {
     class MainPageViewModel : BaseViewModel
     {
-
         public MainPageViewModel()
         {
             Title = "Główna strona";
@@ -41,10 +40,7 @@ namespace Nutrition_App.ViewModels
             bool test = Preferences.ContainsKey("CapacityOfWater");
             CurrentAmountOfWater = 0; // Zmienić, gdy wczytywanie z pliku
 
-            SetDaysBinding();
-
-            
-
+            SetDaysBinding();   
 
             #region Common
 
@@ -97,6 +93,99 @@ namespace Nutrition_App.ViewModels
 
             #endregion
 
+            //List<ObservableCollection<MealToDisplay>> c1 = new List<ObservableCollection<MealToDisplay>>();
+            //c1.Add(FirstMealCollection);
+            //c1.Add(SecondMealCollection);
+            //c1.Add(ThirdMealCollection);
+            //c1.Add(FourthMealCollection);
+            //c1.Add(FifthMealCollection);
+
+            //CollectionToFile.CollectionToFileMethod(c1);
+
+            List<ObservableCollection<MealToDisplay>> temp = FileToCollection.FileToCollectionMethod();
+            FillByMissingCommand(temp);
+            UpdateCollections(temp);
+
+            CheckIfCollectionsAreNotNull();
+
+            DaysDifference = 0;
+        }
+
+        public MainPageViewModel(int difference)
+        {
+            Title = "Główna strona";
+
+            ButtonClickCommand = new Command((parameter) => ButtonClickCommandImpl(parameter));
+            DaysButtonClickCommand = new Command((parametr) => DaysButtonClickCommandImpl(parametr));
+
+            //Preferences.Clear();
+
+            TotalWaterAmount = int.Parse(Preferences.Get("TotalWaterAmount", "2000"));
+            CapacityOfWater = int.Parse(Preferences.Get("CapacityOfWater", "250"));
+
+            KcalSubmitLimit = Preferences.Get("KcalSubmitLimit", "2500");
+            BSubmitLimit = Preferences.Get("BSubmitLimit", "150");
+            TSubmitLimit = Preferences.Get("TSubmitLimit", "100");
+            WSubmitLimit = Preferences.Get("WSubmitLimit", "450");
+
+
+            bool test = Preferences.ContainsKey("CapacityOfWater");
+            CurrentAmountOfWater = 0; // Zmienić, gdy wczytywanie z pliku
+
+            DaysDifference = difference;
+
+            SetDaysBinding(DaysDifference);
+
+            #region Common
+
+            AddWaterClick = new Command(AddWaterClickImpl);
+            SubWaterClick = new Command(SubWaterClickImpl);
+
+            BreakfastButtonClickCommand = new Command(BreakfastButtonClickCommandImpl);
+            SecondBreakfastButtonClickCommand = new Command(SecondBreakfastButtonClickCommandImpl);
+            LunchButtonClickCommand = new Command(LunchButtonClickCommandImpl);
+            DinnerButtonClickCommand = new Command(DinnerButtonClickCommandImpl);
+            SupperButtonClickCommand = new Command(SupperButtonClickCommandImpl);
+
+            //FirstMealCollection = new ObservableCollection<MealToDisplay>()
+            //{
+            //    new MealToDisplay(){Name = "Produkt12",ButtonName="btn_1_5",Kcal="345",Amount="100g",B="32",T="23",W="67",command=ButtonClickCommand},
+            //    new MealToDisplay(){Name = "Produkt1",ButtonName="btn_1_6",Kcal="345",Amount="100g",B="32",T="23",W="67",command=ButtonClickCommand},
+            //    new MealToDisplay(){Name = "Produkt1",ButtonName="btn_1_7",Kcal="345",Amount="100g",B="32",T="23",W="67",command=ButtonClickCommand},
+            //    new MealToDisplay(){Name = "Produkt1",ButtonName="btn_1_8",Kcal="345",Amount="100g",B="32",T="23",W="67",command=ButtonClickCommand},
+            //};
+
+            //SecondMealCollection = new ObservableCollection<MealToDisplay>()
+            //{
+            //    new MealToDisplay(){Name = "Produkt1",ButtonName="btn_1_5",Kcal="345",Amount="100g",B="32",T="23",W="67",command=ButtonClickCommand},
+            //    new MealToDisplay(){Name = "Produkt1",ButtonName="btn_1_6",Kcal="345",Amount="100g",B="32",T="23",W="67",command=ButtonClickCommand},
+            //    new MealToDisplay(){Name = "Produkt1",ButtonName="btn_1_7",Kcal="345",Amount="100g",B="32",T="23",W="67",command=ButtonClickCommand},
+            //};
+
+            //ThirdMealCollection = new ObservableCollection<MealToDisplay>()
+            //{
+            //    new MealToDisplay(){Name = "Produkt1",ButtonName="btn_1_5",Kcal="345",Amount="100g",B="32",T="23",W="67",command=ButtonClickCommand},
+            //    new MealToDisplay(){Name = "Produkt1",ButtonName="btn_1_6",Kcal="345",Amount="100g",B="32",T="23",W="67",command=ButtonClickCommand},
+            //    new MealToDisplay(){Name = "Produkt1",ButtonName="btn_1_7",Kcal="345",Amount="100g",B="32",T="23",W="67",command=ButtonClickCommand},
+            //};
+
+            //FourthMealCollection = new ObservableCollection<MealToDisplay>()
+            //{
+            //    new MealToDisplay(){Name = "Produkt1",ButtonName="btn_1_5",Kcal="345",Amount="100g",B="32",T="23",W="67",command=ButtonClickCommand},
+            //    new MealToDisplay(){Name = "Produkt1",ButtonName="btn_1_6",Kcal="345",Amount="100g",B="32",T="23",W="67",command=ButtonClickCommand},
+            //    new MealToDisplay(){Name = "Produkt1",ButtonName="btn_1_7",Kcal="345",Amount="100g",B="32",T="23",W="67",command=ButtonClickCommand},
+            //};
+
+            //FifthMealCollection = new ObservableCollection<MealToDisplay>()
+            //{
+            //    new MealToDisplay(){Name = "Produkt1",ButtonName="btn_1_5",Kcal="345",Amount="100g",B="32",T="23",W="67",command=ButtonClickCommand},
+            //    new MealToDisplay(){Name = "Produkt1",ButtonName="btn_1_6",Kcal="345",Amount="100g",B="32",T="23",W="67",command=ButtonClickCommand},
+            //    new MealToDisplay(){Name = "Produkt1",ButtonName="btn_1_7",Kcal="345",Amount="100g",B="32",T="23",W="67",command=ButtonClickCommand},
+            //};
+
+            EmptyMealColleciton = new ObservableCollection<MealToDisplay>();
+
+            #endregion
 
             //List<ObservableCollection<MealToDisplay>> c1 = new List<ObservableCollection<MealToDisplay>>();
             //c1.Add(FirstMealCollection);
@@ -116,9 +205,9 @@ namespace Nutrition_App.ViewModels
 
         #region Methods
 
-        public void SetDaysBinding()
+        public void SetDaysBinding(int difference = 0)
         {
-            string[] DaysInformation = CombineDateInformation.CombineDateInformationMethod();
+            string[] DaysInformation = CombineDateInformation.CombineDateInformationMethod(difference);
 
             TwoDaysAgoText = DaysInformation[0];
             YesterdayText = DaysInformation[1];
@@ -197,6 +286,34 @@ namespace Nutrition_App.ViewModels
             }
         }
 
+        public int DetectWhichDayButtonClicked(string btnText)
+        {
+            int difference = 0;
+
+            if(btnText == TwoDaysAgoText)
+            {
+                difference = -2;
+            }
+            else if(btnText == YesterdayText)
+            {
+                difference = -1;
+            }
+            else if(btnText == TodayText)
+            {
+                difference = 0;
+            }
+            else if(btnText == TomorrowText)
+            {
+                difference = 1;
+            }
+            else if(btnText == InTwoDays)
+            {
+                difference = 2;
+            }
+
+            return difference;
+        }
+
         #endregion
 
         #region Command implementation
@@ -215,9 +332,10 @@ namespace Nutrition_App.ViewModels
             Button WorkButton = parametr as Button;
             string ButtonText = WorkButton.Text;
             string[] SingleWordsArray = ButtonText.Split(new char[0], StringSplitOptions.RemoveEmptyEntries);
-
+            
             string result = CombineFileName.CombineFileNameMethod(SingleWordsArray);
-
+            DaysDifference += DetectWhichDayButtonClicked(WorkButton.Text);
+            Application.Current.MainPage.Navigation.PushAsync(new MainPage(DaysDifference));
         }
 
         private void BreakfastButtonClickCommandImpl()
@@ -608,6 +726,15 @@ namespace Nutrition_App.ViewModels
         #endregion
 
         #region Days fields
+
+        private int _daysDifference;
+
+        public int DaysDifference
+        {
+            get { return _daysDifference; }
+            set { _daysDifference = value; OnPropertyChanged(); }
+        }
+
 
         private string _twoDaysAgoText;
 
