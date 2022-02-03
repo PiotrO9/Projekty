@@ -53,41 +53,7 @@ namespace Nutrition_App.ViewModels
             DinnerButtonClickCommand = new Command(DinnerButtonClickCommandImpl);
             SupperButtonClickCommand = new Command(SupperButtonClickCommandImpl);
 
-            //FirstMealCollection = new ObservableCollection<MealToDisplay>()
-            //{
-            //    new MealToDisplay(){Name = "Produkt12",ButtonName="btn_1_5",Kcal="345",Amount="100g",B="32",T="23",W="67",command=ButtonClickCommand},
-            //    new MealToDisplay(){Name = "Produkt1",ButtonName="btn_1_6",Kcal="345",Amount="100g",B="32",T="23",W="67",command=ButtonClickCommand},
-            //    new MealToDisplay(){Name = "Produkt1",ButtonName="btn_1_7",Kcal="345",Amount="100g",B="32",T="23",W="67",command=ButtonClickCommand},
-            //    new MealToDisplay(){Name = "Produkt1",ButtonName="btn_1_8",Kcal="345",Amount="100g",B="32",T="23",W="67",command=ButtonClickCommand},
-            //};
-
-            //SecondMealCollection = new ObservableCollection<MealToDisplay>()
-            //{
-            //    new MealToDisplay(){Name = "Produkt1",ButtonName="btn_1_5",Kcal="345",Amount="100g",B="32",T="23",W="67",command=ButtonClickCommand},
-            //    new MealToDisplay(){Name = "Produkt1",ButtonName="btn_1_6",Kcal="345",Amount="100g",B="32",T="23",W="67",command=ButtonClickCommand},
-            //    new MealToDisplay(){Name = "Produkt1",ButtonName="btn_1_7",Kcal="345",Amount="100g",B="32",T="23",W="67",command=ButtonClickCommand},
-            //};
-
-            //ThirdMealCollection = new ObservableCollection<MealToDisplay>()
-            //{
-            //    new MealToDisplay(){Name = "Produkt1",ButtonName="btn_1_5",Kcal="345",Amount="100g",B="32",T="23",W="67",command=ButtonClickCommand},
-            //    new MealToDisplay(){Name = "Produkt1",ButtonName="btn_1_6",Kcal="345",Amount="100g",B="32",T="23",W="67",command=ButtonClickCommand},
-            //    new MealToDisplay(){Name = "Produkt1",ButtonName="btn_1_7",Kcal="345",Amount="100g",B="32",T="23",W="67",command=ButtonClickCommand},
-            //};
-
-            //FourthMealCollection = new ObservableCollection<MealToDisplay>()
-            //{
-            //    new MealToDisplay(){Name = "Produkt1",ButtonName="btn_1_5",Kcal="345",Amount="100g",B="32",T="23",W="67",command=ButtonClickCommand},
-            //    new MealToDisplay(){Name = "Produkt1",ButtonName="btn_1_6",Kcal="345",Amount="100g",B="32",T="23",W="67",command=ButtonClickCommand},
-            //    new MealToDisplay(){Name = "Produkt1",ButtonName="btn_1_7",Kcal="345",Amount="100g",B="32",T="23",W="67",command=ButtonClickCommand},
-            //};
-
-            //FifthMealCollection = new ObservableCollection<MealToDisplay>()
-            //{
-            //    new MealToDisplay(){Name = "Produkt1",ButtonName="btn_1_5",Kcal="345",Amount="100g",B="32",T="23",W="67",command=ButtonClickCommand},
-            //    new MealToDisplay(){Name = "Produkt1",ButtonName="btn_1_6",Kcal="345",Amount="100g",B="32",T="23",W="67",command=ButtonClickCommand},
-            //    new MealToDisplay(){Name = "Produkt1",ButtonName="btn_1_7",Kcal="345",Amount="100g",B="32",T="23",W="67",command=ButtonClickCommand},
-            //};
+            AddFoodToMealClickCommand = new Command(AddFoodToMealClickCommandImpl);
 
             EmptyMealColleciton = new ObservableCollection<MealToDisplay>();
 
@@ -147,41 +113,9 @@ namespace Nutrition_App.ViewModels
             DinnerButtonClickCommand = new Command(DinnerButtonClickCommandImpl);
             SupperButtonClickCommand = new Command(SupperButtonClickCommandImpl);
 
-            //FirstMealCollection = new ObservableCollection<MealToDisplay>()
-            //{
-            //    new MealToDisplay(){Name = "Produkt12",ButtonName="btn_1_5",Kcal="345",Amount="100g",B="32",T="23",W="67",command=ButtonClickCommand},
-            //    new MealToDisplay(){Name = "Produkt1",ButtonName="btn_1_6",Kcal="345",Amount="100g",B="32",T="23",W="67",command=ButtonClickCommand},
-            //    new MealToDisplay(){Name = "Produkt1",ButtonName="btn_1_7",Kcal="345",Amount="100g",B="32",T="23",W="67",command=ButtonClickCommand},
-            //    new MealToDisplay(){Name = "Produkt1",ButtonName="btn_1_8",Kcal="345",Amount="100g",B="32",T="23",W="67",command=ButtonClickCommand},
-            //};
+            AddFoodToMealClickCommand = new Command(AddFoodToMealClickCommandImpl);
 
-            //SecondMealCollection = new ObservableCollection<MealToDisplay>()
-            //{
-            //    new MealToDisplay(){Name = "Produkt1",ButtonName="btn_1_5",Kcal="345",Amount="100g",B="32",T="23",W="67",command=ButtonClickCommand},
-            //    new MealToDisplay(){Name = "Produkt1",ButtonName="btn_1_6",Kcal="345",Amount="100g",B="32",T="23",W="67",command=ButtonClickCommand},
-            //    new MealToDisplay(){Name = "Produkt1",ButtonName="btn_1_7",Kcal="345",Amount="100g",B="32",T="23",W="67",command=ButtonClickCommand},
-            //};
-
-            //ThirdMealCollection = new ObservableCollection<MealToDisplay>()
-            //{
-            //    new MealToDisplay(){Name = "Produkt1",ButtonName="btn_1_5",Kcal="345",Amount="100g",B="32",T="23",W="67",command=ButtonClickCommand},
-            //    new MealToDisplay(){Name = "Produkt1",ButtonName="btn_1_6",Kcal="345",Amount="100g",B="32",T="23",W="67",command=ButtonClickCommand},
-            //    new MealToDisplay(){Name = "Produkt1",ButtonName="btn_1_7",Kcal="345",Amount="100g",B="32",T="23",W="67",command=ButtonClickCommand},
-            //};
-
-            //FourthMealCollection = new ObservableCollection<MealToDisplay>()
-            //{
-            //    new MealToDisplay(){Name = "Produkt1",ButtonName="btn_1_5",Kcal="345",Amount="100g",B="32",T="23",W="67",command=ButtonClickCommand},
-            //    new MealToDisplay(){Name = "Produkt1",ButtonName="btn_1_6",Kcal="345",Amount="100g",B="32",T="23",W="67",command=ButtonClickCommand},
-            //    new MealToDisplay(){Name = "Produkt1",ButtonName="btn_1_7",Kcal="345",Amount="100g",B="32",T="23",W="67",command=ButtonClickCommand},
-            //};
-
-            //FifthMealCollection = new ObservableCollection<MealToDisplay>()
-            //{
-            //    new MealToDisplay(){Name = "Produkt1",ButtonName="btn_1_5",Kcal="345",Amount="100g",B="32",T="23",W="67",command=ButtonClickCommand},
-            //    new MealToDisplay(){Name = "Produkt1",ButtonName="btn_1_6",Kcal="345",Amount="100g",B="32",T="23",W="67",command=ButtonClickCommand},
-            //    new MealToDisplay(){Name = "Produkt1",ButtonName="btn_1_7",Kcal="345",Amount="100g",B="32",T="23",W="67",command=ButtonClickCommand},
-            //};
+            
 
             EmptyMealColleciton = new ObservableCollection<MealToDisplay>();
 
@@ -438,6 +372,11 @@ namespace Nutrition_App.ViewModels
             }
         }
 
+        private void AddFoodToMealClickCommandImpl()
+        {
+            Application.Current.MainPage.Navigation.PushAsync(new AddFoodPage());
+        }
+
         #endregion
 
         #region Collections
@@ -515,6 +454,7 @@ namespace Nutrition_App.ViewModels
         public Command AddWaterClick { get; set; }
         public Command SubWaterClick { get; set; }
 
+        public Command AddFoodToMealClickCommand { get; set; }
 
         #endregion
 

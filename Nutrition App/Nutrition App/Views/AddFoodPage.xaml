@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:viewmodels="clr-namespace:Nutrition_App.ViewModels" 
+             x:DataType="viewmodels:AddFoodPageViewModel"
+             x:Class="Nutrition_App.Views.AddFoodPage"
+             Title="Wyszukaj produkt">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="7*"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Column="0" Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="6*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Entry Grid.Column="0" Grid.Row="0" MaxLength="50" ClearButtonVisibility="WhileEditing" IsSpellCheckEnabled="True" IsTextPredictionEnabled="True" 
+                       TextColor="LightGreen" />
+                <Button Grid.Column="1" Grid.Row="0" CornerRadius="45" Text="?" HorizontalOptions="Center" VerticalOptions="Center" Command="{Binding SearchButtonClick}"/>
+
+            </Grid>
+
+            <CollectionView Grid.Column="0" Grid.Row="1">
+                
+            </CollectionView>
+            
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
