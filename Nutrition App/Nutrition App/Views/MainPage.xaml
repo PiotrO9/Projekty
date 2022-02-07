@@ -126,8 +126,8 @@
                             </StackLayout>
                         </Grid>
 
-                        <Button Grid.Column="1" Text="+" FontSize="15" Margin="0,20,0,0" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="LightGreen" 
-                                CornerRadius="45" Command="{Binding AddFoodToMealClickCommand}"/>
+                        <Button x:Name="AddMealToBreakfast" Grid.Column="1" Text="+" FontSize="15" Margin="0,20,0,0" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="LightGreen" 
+                                CornerRadius="45" Command="{Binding AddFoodToMealClickCommand}" CommandParameter="1"/>
 
                         <CollectionView x:Name="BreakfastCollectionView" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" HeightRequest="{Binding FirstMealCollectionHeight, Mode=TwoWay, UpdateSourceEventName=PropertyChanged}" 
                                         ItemsSource="{Binding FirstMealCollection, Mode=TwoWay, UpdateSourceEventName=PropertyChanged}">

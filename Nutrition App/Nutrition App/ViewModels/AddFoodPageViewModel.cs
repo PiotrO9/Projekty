@@ -1,4 +1,6 @@
-﻿using Nutrition_App.Services.Scraping;
+﻿using Nutrition_App.Models;
+using Nutrition_App.Services.ConvertingServices;
+using Nutrition_App.Services.Scraping;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -9,8 +11,15 @@ namespace Nutrition_App.ViewModels
 {
     class AddFoodPageViewModel : BaseViewModel
     {
-        public AddFoodPageViewModel()
+        private int _numberOfMeal { get; set; }
+
+        private MainPageViewModel _mainPageViewModel { get; set; }
+
+        public AddFoodPageViewModel(int numberOfMeal, MainPageViewModel mainPageViewModel)
         {
+            numberOfMeal = _numberOfMeal;
+            _mainPageViewModel = mainPageViewModel;
+
             SearchButtonClick = new Command(SearchButtonClickImpl);
         }
 
@@ -26,12 +35,23 @@ namespace Nutrition_App.ViewModels
         {
             Scraper scraper = new Scraper();
             List<List<string>> temp = new List<List<string>>();
-            for (int i = 0; i < 50; i++)
+            for (int i = 0; i < 18; i++)
             {
-                List<string> vs = scraper.GetProducts(i + 1, "Ryż", 1);
+                List<string> vs = scraper.GetProducts(i + 1, "Ryż biały", 1);
 
                 temp.Add(vs);
             }
+
+            if(temp.Count > 0)
+            {
+               MealToDisplay mealToDisplay = StringsListToMealToDisplay.StringsListToMealToDisplayMethod(temp[1], 1, _mainPageViewModel);
+            }
+            else
+            {
+
+            }
+
+
         }
 
         #endregion

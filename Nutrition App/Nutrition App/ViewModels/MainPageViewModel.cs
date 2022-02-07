@@ -17,7 +17,7 @@ using Xamarin.Forms;
 
 namespace Nutrition_App.ViewModels
 {
-    class MainPageViewModel : BaseViewModel
+    public class MainPageViewModel : BaseViewModel
     {
         public MainPageViewModel()
         {
@@ -53,7 +53,7 @@ namespace Nutrition_App.ViewModels
             DinnerButtonClickCommand = new Command(DinnerButtonClickCommandImpl);
             SupperButtonClickCommand = new Command(SupperButtonClickCommandImpl);
 
-            AddFoodToMealClickCommand = new Command(AddFoodToMealClickCommandImpl);
+            AddFoodToMealClickCommand = new Command((parametr) => AddFoodToMealClickCommandImpl(parametr));
 
             EmptyMealColleciton = new ObservableCollection<MealToDisplay>();
 
@@ -113,9 +113,9 @@ namespace Nutrition_App.ViewModels
             DinnerButtonClickCommand = new Command(DinnerButtonClickCommandImpl);
             SupperButtonClickCommand = new Command(SupperButtonClickCommandImpl);
 
-            AddFoodToMealClickCommand = new Command(AddFoodToMealClickCommandImpl);
+            AddFoodToMealClickCommand = new Command((parametr) => AddFoodToMealClickCommandImpl(parametr));
 
-            
+
 
             EmptyMealColleciton = new ObservableCollection<MealToDisplay>();
 
@@ -372,9 +372,22 @@ namespace Nutrition_App.ViewModels
             }
         }
 
-        private void AddFoodToMealClickCommandImpl()
+        private void AddFoodToMealClickCommandImpl(object parametr)
         {
-            Application.Current.MainPage.Navigation.PushAsync(new AddFoodPage());
+            int numberOfMeal = int.Parse(parametr.ToString());
+
+            switch (numberOfMeal)
+            {
+                case 1:
+                    {
+                        Application.Current.MainPage.Navigation.PushAsync(new AddFoodPage(1,this));
+                        break;
+                    }
+                default:
+                    break;
+            }
+
+            
         }
 
         #endregion
