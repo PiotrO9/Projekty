@@ -3,13 +3,14 @@ using Nutrition_App.Services.ConvertingServices;
 using Nutrition_App.Services.Scraping;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Text;
 using System.Windows.Input;
 using Xamarin.Forms;
 
 namespace Nutrition_App.ViewModels
 {
-    class AddFoodPageViewModel : BaseViewModel
+    public class AddFoodPageViewModel : BaseViewModel
     {
         private int _numberOfMeal { get; set; }
 
@@ -20,12 +21,28 @@ namespace Nutrition_App.ViewModels
             numberOfMeal = _numberOfMeal;
             _mainPageViewModel = mainPageViewModel;
 
+            MealsCollection = new ObservableCollection<MealToDisplay>() { new MealToDisplay{ Name = "test", B = "testing", T = "testing" , W = "testing" }, new MealToDisplay { Name = "test", B = "testing", T = "testing", W = "testing" } };
+
             SearchButtonClick = new Command(SearchButtonClickImpl);
+            OnSelectedCommand = new Command(OnSelectedCommandImpl);
         }
 
-        # region Commands
+        #region Collections
+
+        private ObservableCollection<MealToDisplay> _mealsCollection;
+
+        public ObservableCollection<MealToDisplay> MealsCollection
+        {
+            get { return _mealsCollection; }
+            set { _mealsCollection = value; OnPropertyChanged(); }
+        }
+
+        #endregion
+
+        #region Commands
 
         public Command SearchButtonClick { get; set; }
+        public Command OnSelectedCommand { get; set; }
 
         #endregion
 
@@ -51,13 +68,16 @@ namespace Nutrition_App.ViewModels
 
             }
 
+        }
+
+        public void OnSelectedCommandImpl()
+        {
 
         }
 
         #endregion
 
-        #region
-
+        #region Methods
 
 
         #endregion
