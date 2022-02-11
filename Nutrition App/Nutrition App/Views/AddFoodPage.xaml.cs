@@ -18,7 +18,7 @@ namespace Nutrition_App.Views
         public AddFoodPage(int numberOfMeal, MainPageViewModel mainPageViewModel)
         {
             InitializeComponent();
-            BindingContext = new AddFoodPageViewModel(numberOfMeal, mainPageViewModel);
+            BindingContext = new AddFoodPageViewModel(numberOfMeal, mainPageViewModel, MainCollectionView, mainEntry);
         }
     }
 }

@@ -34,12 +34,16 @@ namespace Nutrition_App.Services.ConvertingServices
 
             float kcalTemp = float.Parse(kcalTempAmount.ToString()) / float.Parse(gTempAmount.ToString());
 
-            result.Kcal = (kcalTemp * 100).ToString();
+            float multipliedBy100 = kcalTemp * 100;
+
+            int tempInt = (int)multipliedBy100;
+
+            result.Kcal = tempInt.ToString();
 
             result.B = ((float)Math.Round((float)((BTempAmount / gTempAmount) * 100), 2)).ToString();
             result.T = ((float)Math.Round((float)((TTempAmount / gTempAmount) * 100), 2)).ToString();
             result.W = ((float)Math.Round((float)((WTempAmount / gTempAmount) * 100), 2)).ToString();
-            result.ButtonName = CombineBtnName.CombineBtnNameMethod(numberOfMeal,mainPageViewModel);
+            result.ButtonName = CombineBtnName.CombineBtnNameMethod(numberOfMeal, mainPageViewModel);
 
             return result;
         }
