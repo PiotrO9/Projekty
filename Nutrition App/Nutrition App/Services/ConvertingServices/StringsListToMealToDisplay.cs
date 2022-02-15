@@ -12,6 +12,11 @@ namespace Nutrition_App.Services.ConvertingServices
         {
             MealToDisplay result = new MealToDisplay();
 
+            if(mealToTransform.Count == 0)
+            {
+                return result;
+            }
+
             string temp;
 
             string tempName = mealToTransform[0].Remove(mealToTransform[0].Length - 13,13).Remove(0, 22);

@@ -1,5 +1,6 @@
 ﻿using Nutrition_App.Models;
 using Nutrition_App.Services.ConvertingServices;
+using Nutrition_App.Services.DateServices;
 using Nutrition_App.Services.Scraping;
 using Nutrition_App.Views;
 using System;
@@ -95,6 +96,8 @@ namespace Nutrition_App.ViewModels
             if (_collectionViewCollection.SelectedItem != null)
             {
                 MealToDisplay mealToDisplay = (MealToDisplay)_collectionViewCollection.SelectedItem;
+
+                Application.Current.MainPage.Navigation.PushAsync(new AddFoodDetailsPage(mealToDisplay, GetMealTitle.GetMealTitleMethod(mealToDisplay.ButtonName)));
             }
         }
 
