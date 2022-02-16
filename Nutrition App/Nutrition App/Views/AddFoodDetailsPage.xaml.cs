@@ -14,10 +14,10 @@ namespace Nutrition_App.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class AddFoodDetailsPage : ContentPage
     {
-        public AddFoodDetailsPage(MealToDisplay mealToDisplay, string title)
+        public AddFoodDetailsPage(MealToDisplay mealToDisplay, string title, MainPageViewModel mainPageViewModel)
         {
             InitializeComponent();
-            BindingContext = new AddFoodDetailsViewModel(mealToDisplay, title);
+            BindingContext = new AddFoodDetailsViewModel(mealToDisplay, title, mainPageViewModel);
         }
     }
 }

@@ -97,7 +97,7 @@ namespace Nutrition_App.ViewModels
             {
                 MealToDisplay mealToDisplay = (MealToDisplay)_collectionViewCollection.SelectedItem;
 
-                Application.Current.MainPage.Navigation.PushAsync(new AddFoodDetailsPage(mealToDisplay, GetMealTitle.GetMealTitleMethod(mealToDisplay.ButtonName)));
+                Application.Current.MainPage.Navigation.PushAsync(new AddFoodDetailsPage(mealToDisplay, GetMealTitle.GetMealTitleMethod(mealToDisplay.ButtonName), _mainPageViewModel));
             }
         }
 

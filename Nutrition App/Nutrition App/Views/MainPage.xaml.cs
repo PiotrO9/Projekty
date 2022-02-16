@@ -16,14 +16,14 @@ namespace Nutrition_App.Views
         public MainPage()
         {
             InitializeComponent();
-            BindingContext = new MainPageViewModel();
+            BindingContext = new MainPageViewModel(this);
             
         }
 
         public MainPage(int difference)
         {
             InitializeComponent();
-            BindingContext = new MainPageViewModel(difference);
+            BindingContext = new MainPageViewModel(difference, this);
         }
     }
 }

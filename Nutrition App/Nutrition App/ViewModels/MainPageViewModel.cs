@@ -19,9 +19,13 @@ namespace Nutrition_App.ViewModels
 {
     public class MainPageViewModel : BaseViewModel
     {
-        public MainPageViewModel()
+        public MainPage _mainPage { get; set; }
+
+        public MainPageViewModel(MainPage mainPage)
         {
             Title = "Główna strona";
+
+            _mainPage = mainPage;
 
             ButtonClickCommand = new Command((parameter) => ButtonClickCommandImpl(parameter));
             DaysButtonClickCommand = new Command((parametr) => DaysButtonClickCommandImpl(parametr));
@@ -77,9 +81,11 @@ namespace Nutrition_App.ViewModels
             DaysDifference = 0;
         }
 
-        public MainPageViewModel(int difference)
+        public MainPageViewModel(int difference, MainPage mainPage)
         {
             Title = "Główna strona";
+
+            _mainPage = mainPage;
 
             ButtonClickCommand = new Command((parameter) => ButtonClickCommandImpl(parameter));
             DaysButtonClickCommand = new Command((parametr) => DaysButtonClickCommandImpl(parametr));
@@ -246,6 +252,18 @@ namespace Nutrition_App.ViewModels
             }
 
             return difference;
+        }
+
+        public void SaveCollections()
+        {
+            List<ObservableCollection<MealToDisplay>> ListOfCollections = new List<ObservableCollection<MealToDisplay>>();
+            ListOfCollections.Add(FirstMealCollection);
+            ListOfCollections.Add(SecondMealCollection);
+            ListOfCollections.Add(ThirdMealCollection);
+            ListOfCollections.Add(FourthMealCollection);
+            ListOfCollections.Add(FifthMealCollection);
+
+            CollectionToFile.CollectionToFileMethod(ListOfCollections);
         }
 
         #endregion

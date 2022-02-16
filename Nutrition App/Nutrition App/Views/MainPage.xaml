@@ -3,15 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Nutrition_App.Views.MainPage"
              xmlns:vm="clr-namespace:Nutrition_App.ViewModels" 
+             x:DataType="vm:MainPageViewModel"
              xmlns:models="clr-namespace:Nutrition_App.Models"
              xmlns:Views="clr-namespace:Nutrition_App.Views"
              Title="{Binding Title}">
-
-    <ContentPage.BindingContext>
-        <vm:MainPageViewModel>
-
-        </vm:MainPageViewModel>
-    </ContentPage.BindingContext>
 
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -132,7 +127,7 @@
                         <CollectionView x:Name="BreakfastCollectionView" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" HeightRequest="{Binding FirstMealCollectionHeight, Mode=TwoWay, UpdateSourceEventName=PropertyChanged}" 
                                         ItemsSource="{Binding FirstMealCollection, Mode=TwoWay, UpdateSourceEventName=PropertyChanged}">
                             <CollectionView.ItemTemplate  x:DataType="models:MealToDisplay">
-                                <DataTemplate>
+                                <DataTemplate x:DataType="models:MealToDisplay">
                                     <Grid>
                                         <Grid.RowDefinitions>
                                             <RowDefinition/>
@@ -231,7 +226,7 @@
                         <CollectionView Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" HeightRequest="{Binding SecondMealCollectionHeight, Mode=TwoWay, UpdateSourceEventName=PropertyChanged}" 
                                         ItemsSource="{Binding SecondMealCollection, Mode=TwoWay, UpdateSourceEventName=PropertyChanged}">
                             <CollectionView.ItemTemplate  x:DataType="models:MealToDisplay">
-                                <DataTemplate>
+                                <DataTemplate x:DataType="models:MealToDisplay">
                                     <Grid>
                                         <Grid.RowDefinitions>
                                             <RowDefinition/>
@@ -329,7 +324,7 @@
 
                         <CollectionView Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" HeightRequest="{Binding ThirdMealCollectionHeight, Mode=TwoWay, UpdateSourceEventName=PropertyChanged}" ItemsSource="{Binding ThirdMealCollection, Mode=TwoWay, UpdateSourceEventName=PropertyChanged}">
                             <CollectionView.ItemTemplate  x:DataType="models:MealToDisplay">
-                                <DataTemplate>
+                                <DataTemplate x:DataType="models:MealToDisplay">
                                     <Grid>
                                         <Grid.RowDefinitions>
                                             <RowDefinition/>
@@ -428,7 +423,7 @@
                         <CollectionView Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" HeightRequest="{Binding FourthMealCollectionHeight, Mode=TwoWay, UpdateSourceEventName=PropertyChanged}" 
                                         ItemsSource="{Binding FourthMealCollection, Mode=TwoWay, UpdateSourceEventName=PropertyChanged}">
                             <CollectionView.ItemTemplate  x:DataType="models:MealToDisplay">
-                                <DataTemplate>
+                                <DataTemplate x:DataType="models:MealToDisplay">
                                     <Grid>
                                         <Grid.RowDefinitions>
                                             <RowDefinition/>
@@ -527,7 +522,7 @@
                         <CollectionView Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" HeightRequest="{Binding FifthMealCollectionHeight, Mode=TwoWay, UpdateSourceEventName=PropertyChanged}" 
                                         ItemsSource="{Binding FifthMealCollection, Mode=TwoWay, UpdateSourceEventName=PropertyChanged}">
                             <CollectionView.ItemTemplate  x:DataType="models:MealToDisplay">
-                                <DataTemplate>
+                                <DataTemplate x:DataType="models:MealToDisplay">
                                     <Grid>
                                         <Grid.RowDefinitions>
                                             <RowDefinition/>
