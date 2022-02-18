@@ -10,7 +10,7 @@ namespace Nutrition_App.Services.FileServices
 {
     public static class CollectionToFile
     {
-        public static void CollectionToFileMethod(List<ObservableCollection<MealToDisplay>> collection)
+        public static void CollectionToFileMethod(List<ObservableCollection<MealToDisplay>> collection, int difference)
         {
             string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData)) + "/saves";
 
@@ -19,7 +19,7 @@ namespace Nutrition_App.Services.FileServices
                 Directory.CreateDirectory(path);
             }
 
-            string todayFileName = CombineTodayFileName.CombineTodayFileNameMethod();
+            string todayFileName = CombineDifferenceFileName.CombineDifferenceFileNameMethod(difference);
 
             using (var writer = new StreamWriter(File.Create(path + "/" + todayFileName)))
             {

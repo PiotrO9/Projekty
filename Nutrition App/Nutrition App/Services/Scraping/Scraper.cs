@@ -3,12 +3,13 @@ using HtmlAgilityPack.CssSelectors.NetCore;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Nutrition_App.Services.Scraping
 {
     class Scraper
     {
-        public List<string> GetProducts(int number, string ProductSearch, int PageNumber)
+        public async Task<List<string>> GetProducts(int number, string ProductSearch, int PageNumber)
         {
             List<string> list = new List<string>(); // Output list
 

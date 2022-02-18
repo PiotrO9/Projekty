@@ -11,9 +11,20 @@ namespace Nutrition_App.Services.ConvertingServices
         {
             string tempAmount = (ratio * 100).ToString();
             string tempKcal = ((float.Parse(mealToDisplay.Kcal.Remove(mealToDisplay.Kcal.Length - 5, 5))) * ratio).ToString();
-            string tempB = (float.Parse(mealToDisplay.B) * ratio).ToString();
-            string tempT = (float.Parse(mealToDisplay.T) * ratio).ToString();
-            string tempW = (float.Parse(mealToDisplay.W) * ratio).ToString();
+
+            float temp;
+
+            temp = float.Parse(mealToDisplay.B) * ratio;
+            temp = (float)(Math.Round((Double)temp, 2));
+            string tempB = temp.ToString();
+
+            temp = float.Parse(mealToDisplay.T) * ratio;
+            temp = (float)(Math.Round((Double)temp, 2));
+            string tempT = temp.ToString();
+
+            temp = float.Parse(mealToDisplay.W) * ratio;
+            temp = (float)(Math.Round((Double)temp, 2));
+            string tempW = temp.ToString();
 
             mealToDisplay.Amount = tempAmount;
             mealToDisplay.Kcal = tempKcal;

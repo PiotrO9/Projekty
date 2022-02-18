@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -29,12 +30,9 @@ namespace Nutrition_App.ViewModels
             _collectionViewCollection = collectionView;
             _mainEntry = entry;
 
-            //MealsCollection = new ObservableCollection<MealToDisplay>() { new MealToDisplay{ Name = "test", B = "testing", T = "testing" , W = "testing" },
-            //                                                              new MealToDisplay { Name = "test", B = "testing", T = "testing", W = "testing" } };
-
-            SearchButtonClick = new Command(SearchButtonClickImpl);
+            SearchButtonClick = new Command(async () => await SearchButtonClickImpl());
             OnSelectedCommand = new Command(OnSelectedCommandImpl);
-        }
+    }
 
         #region Collections
 
@@ -57,7 +55,7 @@ namespace Nutrition_App.ViewModels
 
         #region Commands impl
 
-        public void SearchButtonClickImpl()
+        public async Task SearchButtonClickImpl()
         {
             string textFromEntry = _mainEntry.Text;
 
@@ -65,7 +63,7 @@ namespace Nutrition_App.ViewModels
             List<List<string>> ListOfStringsResults = new List<List<string>>();
             for (int i = 0; i < 18; i++)
             {
-                List<string> vs = scraper.GetProducts(i + 1, textFromEntry, 1);
+                List<string> vs = await scraper.GetProducts(i + 1, textFromEntry, 1);
 
                 ListOfStringsResults.Add(vs);
             }

@@ -44,7 +44,7 @@ namespace Nutrition_App.ViewModels
             bool test = Preferences.ContainsKey("CapacityOfWater");
             CurrentAmountOfWater = 0; // Zmienić, gdy wczytywanie z pliku
 
-            SetDaysBinding();   
+            SetDaysBinding();
 
             #region Common
 
@@ -63,21 +63,11 @@ namespace Nutrition_App.ViewModels
 
             #endregion
 
-            //List<ObservableCollection<MealToDisplay>> c1 = new List<ObservableCollection<MealToDisplay>>();
-            //c1.Add(FirstMealCollection);
-            //c1.Add(SecondMealCollection);
-            //c1.Add(ThirdMealCollection);
-            //c1.Add(FourthMealCollection);
-            //c1.Add(FifthMealCollection);
-
-            //CollectionToFile.CollectionToFileMethod(c1);
-
-            List<ObservableCollection<MealToDisplay>> temp = FileToCollection.FileToCollectionMethod();
+            List<ObservableCollection<MealToDisplay>> temp = FileToCollection.FileToCollectionMethod(DaysDifference);
             FillByMissingCommand(temp);
             UpdateCollections(temp);
 
             CheckIfCollectionsAreNotNull();
-
             DaysDifference = 0;
         }
 
@@ -121,22 +111,11 @@ namespace Nutrition_App.ViewModels
 
             AddFoodToMealClickCommand = new Command((parametr) => AddFoodToMealClickCommandImpl(parametr));
 
-
-
             EmptyMealColleciton = new ObservableCollection<MealToDisplay>();
 
             #endregion
 
-            //List<ObservableCollection<MealToDisplay>> c1 = new List<ObservableCollection<MealToDisplay>>();
-            //c1.Add(FirstMealCollection);
-            //c1.Add(SecondMealCollection);
-            //c1.Add(ThirdMealCollection);
-            //c1.Add(FourthMealCollection);
-            //c1.Add(FifthMealCollection);
-
-            //CollectionToFile.CollectionToFileMethod(c1);
-
-            List<ObservableCollection<MealToDisplay>> temp = FileToCollection.FileToCollectionMethod();
+            List<ObservableCollection<MealToDisplay>> temp = FileToCollection.FileToCollectionMethod(CombineDifferenceFileName.CombineDifferenceFileNameMethod(DaysDifference), DaysDifference);
             FillByMissingCommand(temp);
             UpdateCollections(temp);
 
@@ -263,7 +242,7 @@ namespace Nutrition_App.ViewModels
             ListOfCollections.Add(FourthMealCollection);
             ListOfCollections.Add(FifthMealCollection);
 
-            CollectionToFile.CollectionToFileMethod(ListOfCollections);
+            CollectionToFile.CollectionToFileMethod(ListOfCollections, DaysDifference);
         }
 
         #endregion

@@ -10,7 +10,7 @@ namespace Nutrition_App.Services.FileServices
 {
     public static class FileToCollection
     {
-        public static List<ObservableCollection<MealToDisplay>> FileToCollectionMethod()
+        public static List<ObservableCollection<MealToDisplay>> FileToCollectionMethod(int difference)
         {
             List<ObservableCollection<MealToDisplay>> ResultCollection = new List<ObservableCollection<MealToDisplay>>();
 
@@ -35,13 +35,13 @@ namespace Nutrition_App.Services.FileServices
             }
             catch
             {
-                CollectionToFile.CollectionToFileMethod(ResultCollection);
+                CollectionToFile.CollectionToFileMethod(ResultCollection, difference);
             }
 
             return ResultCollection;
         }
 
-        public static List<ObservableCollection<MealToDisplay>> FileToCollectionMethod(string fileName)
+        public static List<ObservableCollection<MealToDisplay>> FileToCollectionMethod(string fileName, int difference)
         {
             List<ObservableCollection<MealToDisplay>> ResultCollection = new List<ObservableCollection<MealToDisplay>>();
 
@@ -66,7 +66,7 @@ namespace Nutrition_App.Services.FileServices
             }
             catch
             {
-                CollectionToFile.CollectionToFileMethod(ResultCollection);
+                CollectionToFile.CollectionToFileMethod(ResultCollection, difference);
             }
 
             return ResultCollection;

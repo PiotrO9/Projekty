@@ -42,38 +42,185 @@ namespace Nutrition_App.ViewModels
 
         public void FristCommandImpl()
         {
-            MealToDisplay test = ChangeRatioMealToDisplay.ChangeRatioMealToDisplayMethod(_mealToDisplay, 0.5f);
-            test.command = _mainPageViewModel.ButtonClickCommand;
+            MealToDisplay mealToDisplay = ChangeRatioMealToDisplay.ChangeRatioMealToDisplayMethod(_mealToDisplay, 0.5f);
+            mealToDisplay.command = _mainPageViewModel.ButtonClickCommand;
 
-            var numbersoFButtonPosition = GetButtonPosition.GetButtonPositionMethod(test.ButtonName);
+            var numbersoFButtonPosition = GetButtonPosition.GetButtonPositionMethod(mealToDisplay.ButtonName);
 
             switch(numbersoFButtonPosition.Item1)
             {
                 case 1:
                     {
-                        _mainPageViewModel.FirstMealCollection.Add(test);
+                        _mainPageViewModel.FirstMealCollection.Add(mealToDisplay);
                         break;
                     }
+                case 2:
+                    {
+                        _mainPageViewModel.SecondMealCollection.Add(mealToDisplay);
+                        break;
+                    }
+                case 3:
+                    {
+                        _mainPageViewModel.ThirdMealCollection.Add(mealToDisplay);
+                        break;
+                    }
+                case 4:
+                    {
+                        _mainPageViewModel.FourthMealCollection.Add(mealToDisplay);
+                        break;
+                    }
+                case 5:
+                    {
+                        _mainPageViewModel.FifthMealCollection.Add(mealToDisplay);
+                        break;
+                    }
+
             }
 
             _mainPageViewModel.SaveCollections();
 
-            Application.Current.MainPage.Navigation.PushAsync(new MainPage());
+            Application.Current.MainPage.Navigation.PushAsync(new MainPage(_mainPageViewModel.DaysDifference));
         }
 
         public void SecondCommandImpl()
         {
+            MealToDisplay mealToDisplay = ChangeRatioMealToDisplay.ChangeRatioMealToDisplayMethod(_mealToDisplay, 1f);
+            mealToDisplay.command = _mainPageViewModel.ButtonClickCommand;
 
+            var numbersoFButtonPosition = GetButtonPosition.GetButtonPositionMethod(mealToDisplay.ButtonName);
+
+            switch (numbersoFButtonPosition.Item1)
+            {
+                case 1:
+                    {
+                        _mainPageViewModel.FirstMealCollection.Add(mealToDisplay);
+                        break;
+                    }
+                case 2:
+                    {
+                        _mainPageViewModel.SecondMealCollection.Add(mealToDisplay);
+                        break;
+                    }
+                case 3:
+                    {
+                        _mainPageViewModel.ThirdMealCollection.Add(mealToDisplay);
+                        break;
+                    }
+                case 4:
+                    {
+                        _mainPageViewModel.FourthMealCollection.Add(mealToDisplay);
+                        break;
+                    }
+                case 5:
+                    {
+                        _mainPageViewModel.FifthMealCollection.Add(mealToDisplay);
+                        break;
+                    }
+
+            }
+
+            _mainPageViewModel.SaveCollections();
+
+            Application.Current.MainPage.Navigation.PushAsync(new MainPage(_mainPageViewModel.DaysDifference));
         }
 
         public void ThirdCommandImpl()
         {
+            MealToDisplay mealToDisplay = ChangeRatioMealToDisplay.ChangeRatioMealToDisplayMethod(_mealToDisplay, 2f);
+            mealToDisplay.command = _mainPageViewModel.ButtonClickCommand;
 
+            var numbersoFButtonPosition = GetButtonPosition.GetButtonPositionMethod(mealToDisplay.ButtonName);
+
+            switch (numbersoFButtonPosition.Item1)
+            {
+                case 1:
+                    {
+                        _mainPageViewModel.FirstMealCollection.Add(mealToDisplay);
+                        break;
+                    }
+                case 2:
+                    {
+                        _mainPageViewModel.SecondMealCollection.Add(mealToDisplay);
+                        break;
+                    }
+                case 3:
+                    {
+                        _mainPageViewModel.ThirdMealCollection.Add(mealToDisplay);
+                        break;
+                    }
+                case 4:
+                    {
+                        _mainPageViewModel.FourthMealCollection.Add(mealToDisplay);
+                        break;
+                    }
+                case 5:
+                    {
+                        _mainPageViewModel.FifthMealCollection.Add(mealToDisplay);
+                        break;
+                    }
+
+            }
+
+            _mainPageViewModel.SaveCollections();
+
+            Application.Current.MainPage.Navigation.PushAsync(new MainPage(_mainPageViewModel.DaysDifference));
         }
 
         public void FourthCommandImpl()
         {
+            if(EntryText.Length > 0)
+            {
+                if(EntryText.Length >= 1 && EntryText[0] == '0')
+                {
+                    EntryText = string.Empty;
+                    return;
+                }
+                else
+                {
+                    float temp;
+                    if(float.TryParse(EntryText, out temp))
+                    {
+                        MealToDisplay mealToDisplay = ChangeRatioMealToDisplay.ChangeRatioMealToDisplayMethod(_mealToDisplay, temp/100);
+                        mealToDisplay.command = _mainPageViewModel.ButtonClickCommand;
 
+                        var numbersoFButtonPosition = GetButtonPosition.GetButtonPositionMethod(mealToDisplay.ButtonName);
+
+                        switch (numbersoFButtonPosition.Item1)
+                        {
+                            case 1:
+                                {
+                                    _mainPageViewModel.FirstMealCollection.Add(mealToDisplay);
+                                    break;
+                                }
+                            case 2:
+                                {
+                                    _mainPageViewModel.SecondMealCollection.Add(mealToDisplay);
+                                    break;
+                                }
+                            case 3:
+                                {
+                                    _mainPageViewModel.ThirdMealCollection.Add(mealToDisplay);
+                                    break;
+                                }
+                            case 4:
+                                {
+                                    _mainPageViewModel.FourthMealCollection.Add(mealToDisplay);
+                                    break;
+                                }
+                            case 5:
+                                {
+                                    _mainPageViewModel.FifthMealCollection.Add(mealToDisplay);
+                                    break;
+                                }
+
+                        }
+
+                        _mainPageViewModel.SaveCollections();
+
+                        Application.Current.MainPage.Navigation.PushAsync(new MainPage(_mainPageViewModel.DaysDifference));
+                    }
+                }
+            }
         }
 
         #endregion
