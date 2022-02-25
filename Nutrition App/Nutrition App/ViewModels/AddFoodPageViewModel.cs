@@ -25,7 +25,7 @@ namespace Nutrition_App.ViewModels
 
         public AddFoodPageViewModel(int numberOfMeal, MainPageViewModel mainPageViewModel, CollectionView collectionView, Entry entry)
         {
-            numberOfMeal = _numberOfMeal;
+            _numberOfMeal = numberOfMeal;
             _mainPageViewModel = mainPageViewModel;
             _collectionViewCollection = collectionView;
             _mainEntry = entry;
@@ -74,7 +74,7 @@ namespace Nutrition_App.ViewModels
 
                 for (int i = 0; i < ListOfStringsResults.Count; i++)
                 {
-                    MealToDisplay mealToDisplay = StringsListToMealToDisplay.StringsListToMealToDisplayMethod(ListOfStringsResults[i], 1, _mainPageViewModel);
+                    MealToDisplay mealToDisplay = StringsListToMealToDisplay.StringsListToMealToDisplayMethod(ListOfStringsResults[i], _numberOfMeal, _mainPageViewModel);
                     mealToDisplay.Amount += " g";
                     mealToDisplay.Kcal += " kcal";
                     mealsToDisplays.Add(mealToDisplay);

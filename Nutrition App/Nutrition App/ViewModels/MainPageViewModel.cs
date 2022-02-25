@@ -69,6 +69,7 @@ namespace Nutrition_App.ViewModels
 
             CheckIfCollectionsAreNotNull();
             DaysDifference = 0;
+            CalculateMacros();
         }
 
         public MainPageViewModel(int difference, MainPage mainPage)
@@ -245,6 +246,69 @@ namespace Nutrition_App.ViewModels
             CollectionToFile.CollectionToFileMethod(ListOfCollections, DaysDifference);
         }
 
+        public void CalculateMacros()
+        {
+            float sumOfKcal = SumKcalFromSingleMeal(FirstMealCollection);
+
+            KcalProgressBarState = sumOfKcal / float.Parse(KcalSubmitLimit.Remove(0, 1).Remove(KcalSubmitLimit.Length - 6, 5));
+        }
+
+        public float SumBFromSingleMeal(ObservableCollection<MealToDisplay> collectionOfMeals)
+        {
+            float sum = 0;
+
+            foreach (var item in collectionOfMeals)
+            {
+                if(float.TryParse(item.B, out float temp))
+                {
+                    sum += temp;
+                }
+            }
+            return sum;
+        }
+
+        public float SumTFromSingleMeal(ObservableCollection<MealToDisplay> collectionOfMeals)
+        {
+            float sum = 0;
+
+            foreach (var item in collectionOfMeals)
+            {
+                if (float.TryParse(item.T, out float temp))
+                {
+                    sum += temp;
+                }
+            }
+            return sum;
+        }
+
+        public float SumWFromSingleMeal(ObservableCollection<MealToDisplay> collectionOfMeals)
+        {
+            float sum = 0;
+
+            foreach (var item in collectionOfMeals)
+            {
+                if (float.TryParse(item.W, out float temp))
+                {
+                    sum += temp;
+                }
+            }
+            return sum;
+        }
+
+        public float SumKcalFromSingleMeal(ObservableCollection<MealToDisplay> collectionOfMeals)
+        {
+            float sum = 0;
+
+            foreach (var item in collectionOfMeals)
+            {
+                if (float.TryParse(item.Kcal, out float temp))
+                {
+                    sum += temp;
+                }
+            }
+            return sum;
+        }
+
         #endregion
 
         #region Command implementation
@@ -378,6 +442,26 @@ namespace Nutrition_App.ViewModels
                 case 1:
                     {
                         Application.Current.MainPage.Navigation.PushAsync(new AddFoodPage(1,this));
+                        break;
+                    }
+                case 2:
+                    {
+                        Application.Current.MainPage.Navigation.PushAsync(new AddFoodPage(2, this));
+                        break;
+                    }
+                case 3:
+                    {
+                        Application.Current.MainPage.Navigation.PushAsync(new AddFoodPage(3, this));
+                        break;
+                    }
+                case 4:
+                    {
+                        Application.Current.MainPage.Navigation.PushAsync(new AddFoodPage(4, this));
+                        break;
+                    }
+                case 5:
+                    {
+                        Application.Current.MainPage.Navigation.PushAsync(new AddFoodPage(5, this));
                         break;
                     }
                 default:
@@ -841,6 +925,67 @@ namespace Nutrition_App.ViewModels
         #endregion
 
         #endregion
+
+        #region Total macro fields
+        private string _defaultTextTotal { get; set; } = "KCAL";
+
+        #region breakfast
+
+        private string _breakfastBTotalAmount;
+        public string BreakfastBTotalAmount
+        {
+            get { return _breakfastBTotalAmount; }
+            set { _breakfastBTotalAmount = value; OnPropertyChanged(); }
+        }
+
+        private string _breakfastTTotalAmount;
+
+        public string BreakfastTTotalAmount
+        {
+            get { return _breakfastTTotalAmount; }
+            set { _breakfastTTotalAmount = value; OnPropertyChanged(); }
+        }
+
+        private string _breakfastWTotalAmount;
+
+        public string BreakfastWTotalAmount
+        {
+            get { return _breakfastWTotalAmount; }
+            set { _breakfastWTotalAmount = value; OnPropertyChanged(); }
+        }
+
+        #endregion
+
+        #region second breakfast
+
+        private string _secondbreakfastBTotalAmount;
+
+        public string SecondBreakfastBTotalAmount
+        {
+            get { return _secondbreakfastBTotalAmount; }
+            set { _secondbreakfastBTotalAmount = value; OnPropertyChanged(); }
+        }
+
+        private string _secondBreakfastTTotalAmount;
+
+        public string SecondBreakfastTTotalAmount
+        {
+            get { return _secondBreakfastTTotalAmount; }
+            set { _secondBreakfastTTotalAmount = value; OnPropertyChanged(); }
+        }
+
+        private string _secondBreakfastWTotalAmount;
+
+        public string SecondBreakfastWTotalAmount
+        {
+            get { return _secondBreakfastWTotalAmount; }
+            set { _secondBreakfastWTotalAmount = value; OnPropertyChanged(); }
+        }
+
+        #endregion
+
+        #endregion
+
 
         #endregion
 

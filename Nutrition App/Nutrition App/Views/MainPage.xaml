@@ -110,9 +110,9 @@
                                     </Grid.ColumnDefinitions>
 
                                     <Label Grid.Column="0" Text="KCAL" Margin="5,0,0,0" FontSize="15"/>
-                                    <Label Grid.Column="1" Text="KCAL" FontSize="20"/>
-                                    <Label Grid.Column="2" Text="KCAL" FontSize="20"/>
-                                    <Label Grid.Column="3" Text="KCAL" FontSize="20"/>
+                                    <Label Grid.Column="1" Text="{Binding BreakfastBTotalAmount}" FontSize="20"/>
+                                    <Label Grid.Column="2" Text="{Binding BreakfastTTotalAmount}" FontSize="20"/>
+                                    <Label Grid.Column="3" Text="{Binding BreakfastWTotalAmount}" FontSize="20"/>
 
                                 </Grid>
 
@@ -125,7 +125,7 @@
                                 CornerRadius="45" Command="{Binding AddFoodToMealClickCommand}" CommandParameter="1"/>
 
                         <CollectionView x:Name="BreakfastCollectionView" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" HeightRequest="{Binding FirstMealCollectionHeight, Mode=TwoWay, UpdateSourceEventName=PropertyChanged}" 
-                                        ItemsSource="{Binding FirstMealCollection, Mode=TwoWay, UpdateSourceEventName=PropertyChanged}">
+                                        Margin="5,0,5,0" ItemsSource="{Binding FirstMealCollection, Mode=TwoWay, UpdateSourceEventName=PropertyChanged}">
                             <CollectionView.ItemTemplate  x:DataType="models:MealToDisplay">
                                 <DataTemplate x:DataType="models:MealToDisplay">
                                     <Grid>
@@ -221,10 +221,11 @@
                             </StackLayout>
                         </Grid>
 
-                        <Button Grid.Column="1" Text="+" FontSize="15" Margin="0,20,0,0" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="LightGreen" CornerRadius="45"/>
+                        <Button Grid.Column="1" Text="+" FontSize="15" Margin="0,20,0,0" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="LightGreen" 
+                                CornerRadius="45" Command="{Binding AddFoodToMealClickCommand}" CommandParameter="2"/>
 
                         <CollectionView Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" HeightRequest="{Binding SecondMealCollectionHeight, Mode=TwoWay, UpdateSourceEventName=PropertyChanged}" 
-                                        ItemsSource="{Binding SecondMealCollection, Mode=TwoWay, UpdateSourceEventName=PropertyChanged}">
+                                        Margin="5,0,5,0" ItemsSource="{Binding SecondMealCollection, Mode=TwoWay, UpdateSourceEventName=PropertyChanged}">
                             <CollectionView.ItemTemplate  x:DataType="models:MealToDisplay">
                                 <DataTemplate x:DataType="models:MealToDisplay">
                                     <Grid>
@@ -247,7 +248,7 @@
                                                 <ColumnDefinition/>
                                             </Grid.ColumnDefinitions>
 
-                                            <Label x:Name="lblTitle" Grid.Row="0" Grid.Column="0" Text="{Binding Name}"/>
+                                            <Label x:Name="lblTitle" Grid.Row="0" Grid.Column="0" FontSize="20" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Text="{Binding Name}"/>
                                             <Label x:Name="lblAmount" Grid.Row="1" Grid.Column="0" Text="{Binding Amount}"/>
 
                                             <Grid x:Name="InsideMacroGrid" Grid.Row="2" Grid.Column="0">
@@ -320,7 +321,8 @@
                             </StackLayout>
                         </Grid>
 
-                        <Button Grid.Column="1" Text="+" FontSize="15" Margin="0,20,0,0" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="LightGreen" CornerRadius="45"/>
+                        <Button Grid.Column="1" Text="+" FontSize="15" Margin="0,20,0,0" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="LightGreen" 
+                                CornerRadius="45" Command="{Binding AddFoodToMealClickCommand}" CommandParameter="3"/>
 
                         <CollectionView Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" HeightRequest="{Binding ThirdMealCollectionHeight, Mode=TwoWay, UpdateSourceEventName=PropertyChanged}" ItemsSource="{Binding ThirdMealCollection, Mode=TwoWay, UpdateSourceEventName=PropertyChanged}">
                             <CollectionView.ItemTemplate  x:DataType="models:MealToDisplay">
@@ -384,7 +386,7 @@
 
                     </Grid>
 
-                    <Grid Grid.Row="3" Grid.Column="0" x:Name="DinnerfastGrid">
+                    <Grid Grid.Row="3" Grid.Column="0" x:Name="DinnerGrid">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="90"/>
                         </Grid.RowDefinitions>
@@ -418,7 +420,8 @@
                             </StackLayout>
                         </Grid>
 
-                        <Button Grid.Column="1" Text="+" FontSize="15" Margin="0,20,0,0" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="LightGreen" CornerRadius="45"/>
+                        <Button Grid.Column="1" Text="+" FontSize="15" Margin="0,20,0,0" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="LightGreen" 
+                                CornerRadius="45" Command="{Binding AddFoodToMealClickCommand}" CommandParameter="4"/>
 
                         <CollectionView Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" HeightRequest="{Binding FourthMealCollectionHeight, Mode=TwoWay, UpdateSourceEventName=PropertyChanged}" 
                                         ItemsSource="{Binding FourthMealCollection, Mode=TwoWay, UpdateSourceEventName=PropertyChanged}">
@@ -517,7 +520,8 @@
                             </StackLayout>
                         </Grid>
 
-                        <Button Grid.Column="1" Text="+" FontSize="15" Margin="0,20,0,0" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="LightGreen" CornerRadius="45"/>
+                        <Button Grid.Column="1" Text="+" FontSize="15" Margin="0,20,0,0" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="LightGreen" 
+                                CornerRadius="45" Command="{Binding AddFoodToMealClickCommand}" CommandParameter="5"/>
 
                         <CollectionView Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" HeightRequest="{Binding FifthMealCollectionHeight, Mode=TwoWay, UpdateSourceEventName=PropertyChanged}" 
                                         ItemsSource="{Binding FifthMealCollection, Mode=TwoWay, UpdateSourceEventName=PropertyChanged}">
@@ -630,7 +634,7 @@
                     <RowDefinition/>
                 </Grid.RowDefinitions>
 
-                <ProgressBar Grid.Column="0" Grid.Row="0" WidthRequest="5"/>
+                <ProgressBar x:Name="KcalProgressBar" Grid.Column="0" Grid.Row="0" WidthRequest="5" Progress="{Binding KcalProgressBarState}"/>
 
                 <Label Grid.Column="0" Grid.Row="1" Text="Kcal"/>
                 <Label Grid.Column="0" Grid.Row="2" Text="{Binding KcalSubmitLimit}"/>
@@ -647,7 +651,7 @@
                     <RowDefinition/>
                 </Grid.RowDefinitions>
 
-                <ProgressBar Grid.Column="0" Grid.Row="0" WidthRequest="5"/>
+                <ProgressBar x:Name="BProgressBar" Grid.Column="0" Grid.Row="0" WidthRequest="5"/>
 
                 <Label Grid.Column="0" Grid.Row="1" Text="Białka"/>
                 <Label Grid.Column="0" Grid.Row="2" Text="{Binding BSubmitLimit}"/>
@@ -664,7 +668,7 @@
                     <RowDefinition/>
                 </Grid.RowDefinitions>
 
-                <ProgressBar Grid.Column="0" Grid.Row="0" WidthRequest="5"/>
+                <ProgressBar x:Name="TProgressBar" Grid.Column="0" Grid.Row="0" WidthRequest="5"/>
 
                 <Label Grid.Column="0" Grid.Row="1" Text="Tł."/>
                 <Label Grid.Column="0" Grid.Row="2" Text="{Binding TSubmitLimit}"/>
@@ -681,7 +685,7 @@
                     <RowDefinition/>
                 </Grid.RowDefinitions>
 
-                <ProgressBar Grid.Column="0" Grid.Row="0" WidthRequest="5"/>
+                <ProgressBar x:Name="WProgressBar" Grid.Column="0" Grid.Row="0" WidthRequest="5"/>
 
                 <Label Grid.Column="0" Grid.Row="1" Text="Węgl."/>
                 <Label Grid.Column="0" Grid.Row="2" Text="{Binding WSubmitLimit}"/>
