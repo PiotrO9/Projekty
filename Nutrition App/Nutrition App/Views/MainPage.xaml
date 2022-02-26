@@ -651,7 +651,7 @@
                     <RowDefinition/>
                 </Grid.RowDefinitions>
 
-                <ProgressBar x:Name="BProgressBar" Grid.Column="0" Grid.Row="0" WidthRequest="5"/>
+                <ProgressBar x:Name="BProgressBar" Grid.Column="0" Grid.Row="0" WidthRequest="5" Progress="{Binding BProgressBarState}"/>
 
                 <Label Grid.Column="0" Grid.Row="1" Text="Białka"/>
                 <Label Grid.Column="0" Grid.Row="2" Text="{Binding BSubmitLimit}"/>
@@ -668,7 +668,7 @@
                     <RowDefinition/>
                 </Grid.RowDefinitions>
 
-                <ProgressBar x:Name="TProgressBar" Grid.Column="0" Grid.Row="0" WidthRequest="5"/>
+                <ProgressBar x:Name="TProgressBar" Grid.Column="0" Grid.Row="0" WidthRequest="5" Progress="{Binding TProgressBarState}"/>
 
                 <Label Grid.Column="0" Grid.Row="1" Text="Tł."/>
                 <Label Grid.Column="0" Grid.Row="2" Text="{Binding TSubmitLimit}"/>
@@ -685,7 +685,7 @@
                     <RowDefinition/>
                 </Grid.RowDefinitions>
 
-                <ProgressBar x:Name="WProgressBar" Grid.Column="0" Grid.Row="0" WidthRequest="5"/>
+                <ProgressBar x:Name="WProgressBar" Grid.Column="0" Grid.Row="0" WidthRequest="5" Progress="{Binding WProgressBarState}"/>
 
                 <Label Grid.Column="0" Grid.Row="1" Text="Węgl."/>
                 <Label Grid.Column="0" Grid.Row="2" Text="{Binding WSubmitLimit}"/>
