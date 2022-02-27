@@ -65,6 +65,7 @@
                         <ColumnDefinition Width="2*"/>
                     </Grid.ColumnDefinitions>
 
+                    <Label Grid.Row="0" Grid.Column="0" Text="KCAL" FontSize="25" HorizontalTextAlignment="Center" Padding="0,0,20,0"/>
                     <Label Grid.Row="0" Grid.Column="1" Text="B" FontSize="25"/>
                     <Label Grid.Row="0" Grid.Column="2" Text="T" FontSize="25"/>
                     <Label Grid.Row="0" Grid.Column="3" Text="W" FontSize="25"/>
@@ -109,7 +110,7 @@
                                         <ColumnDefinition/>
                                     </Grid.ColumnDefinitions>
 
-                                    <Label Grid.Column="0" Text="KCAL" Margin="5,0,0,0" FontSize="15"/>
+                                    <Label Grid.Column="0" Text="{Binding BreakfastKcalTotalAmount}" Margin="5,0,0,0" FontSize="15"/>
                                     <Label Grid.Column="1" Text="{Binding BreakfastBTotalAmount}" FontSize="20"/>
                                     <Label Grid.Column="2" Text="{Binding BreakfastTTotalAmount}" FontSize="20"/>
                                     <Label Grid.Column="3" Text="{Binding BreakfastWTotalAmount}" FontSize="20"/>
@@ -126,7 +127,7 @@
 
                         <CollectionView x:Name="BreakfastCollectionView" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" HeightRequest="{Binding FirstMealCollectionHeight, Mode=TwoWay, UpdateSourceEventName=PropertyChanged}" 
                                         Margin="5,0,5,0" ItemsSource="{Binding FirstMealCollection, Mode=TwoWay, UpdateSourceEventName=PropertyChanged}">
-                            <CollectionView.ItemTemplate  x:DataType="models:MealToDisplay">
+                            <CollectionView.ItemTemplate x:DataType="models:MealToDisplay">
                                 <DataTemplate x:DataType="models:MealToDisplay">
                                     <Grid>
                                         <Grid.RowDefinitions>
@@ -137,7 +138,7 @@
                                             <ColumnDefinition Width="*"/>
                                         </Grid.ColumnDefinitions>
 
-                                        <Grid Grid.Row="0" Grid.Column="0">
+                                        <Grid Grid.Row="0" Grid.Column="0" Margin="0,5,0,0">
                                             <Grid.RowDefinitions>
                                                 <RowDefinition/>
                                                 <RowDefinition/>
@@ -211,10 +212,10 @@
                                         <ColumnDefinition/>
                                     </Grid.ColumnDefinitions>
 
-                                    <Label Grid.Column="0" Text="KCAL" FontSize="15"/>
-                                    <Label Grid.Column="1" Text="KCAL" FontSize="20"/>
-                                    <Label Grid.Column="2" Text="KCAL" FontSize="20"/>
-                                    <Label Grid.Column="3" Text="KCAL" FontSize="20"/>
+                                    <Label Grid.Column="0" Text="{Binding SecondBreakfastKcalTotalAmount}" Margin="5,0,0,0" FontSize="15"/>
+                                    <Label Grid.Column="1" Text="{Binding SecondBreakfastBTotalAmount}" FontSize="20"/>
+                                    <Label Grid.Column="2" Text="{Binding SecondBreakfastTTotalAmount}" FontSize="20"/>
+                                    <Label Grid.Column="3" Text="{Binding SecondBreakfastWTotalAmount}" FontSize="20"/>
 
                                 </Grid>
 
@@ -238,7 +239,7 @@
                                         </Grid.ColumnDefinitions>
 
 
-                                        <Grid Grid.Row="0" Grid.Column="0">
+                                        <Grid Grid.Row="0" Grid.Column="0" Margin="0,5,0,0">
                                             <Grid.RowDefinitions>
                                                 <RowDefinition/>
                                                 <RowDefinition/>
@@ -311,10 +312,10 @@
                                         <ColumnDefinition/>
                                     </Grid.ColumnDefinitions>
 
-                                    <Label Grid.Column="0" Text="KCAL" FontSize="15"/>
-                                    <Label Grid.Column="1" Text="KCAL" FontSize="20"/>
-                                    <Label Grid.Column="2" Text="KCAL" FontSize="20"/>
-                                    <Label Grid.Column="3" Text="KCAL" FontSize="20"/>
+                                    <Label Grid.Column="0" Text="{Binding LunchKcalTotalAmount}" FontSize="15"/>
+                                    <Label Grid.Column="1" Text="{Binding LunchBTotalAmount}" FontSize="20"/>
+                                    <Label Grid.Column="2" Text="{Binding LunchTTotalAmount}" FontSize="20"/>
+                                    <Label Grid.Column="3" Text="{Binding LunchWTotalAmount}" FontSize="20"/>
 
                                 </Grid>
 
@@ -337,7 +338,7 @@
                                         </Grid.ColumnDefinitions>
 
 
-                                        <Grid Grid.Row="0" Grid.Column="0">
+                                        <Grid Grid.Row="0" Grid.Column="0" Margin="0,5,0,0">
                                             <Grid.RowDefinitions>
                                                 <RowDefinition/>
                                                 <RowDefinition/>
@@ -410,10 +411,10 @@
                                         <ColumnDefinition/>
                                     </Grid.ColumnDefinitions>
 
-                                    <Label Grid.Column="0" Text="KCAL" FontSize="15"/>
-                                    <Label Grid.Column="1" Text="KCAL" FontSize="20"/>
-                                    <Label Grid.Column="2" Text="KCAL" FontSize="20"/>
-                                    <Label Grid.Column="3" Text="KCAL" FontSize="20"/>
+                                    <Label Grid.Column="0" Text="{Binding DinnerKcalTotalAmount}" FontSize="15"/>
+                                    <Label Grid.Column="1" Text="{Binding DinnerBTotalAmount}" FontSize="20"/>
+                                    <Label Grid.Column="2" Text="{Binding DinnerTTotalAmount}" FontSize="20"/>
+                                    <Label Grid.Column="3" Text="{Binding DinnerWTotalAmount}" FontSize="20"/>
 
                                 </Grid>
 
@@ -437,7 +438,7 @@
                                         </Grid.ColumnDefinitions>
 
 
-                                        <Grid Grid.Row="0" Grid.Column="0">
+                                        <Grid Grid.Row="0" Grid.Column="0" Margin="0,5,0,0">
                                             <Grid.RowDefinitions>
                                                 <RowDefinition/>
                                                 <RowDefinition/>
@@ -510,10 +511,10 @@
                                         <ColumnDefinition/>
                                     </Grid.ColumnDefinitions>
 
-                                    <Label Grid.Column="0" Text="KCAL" FontSize="15"/>
-                                    <Label Grid.Column="1" Text="KCAL" FontSize="20"/>
-                                    <Label Grid.Column="2" Text="KCAL" FontSize="20"/>
-                                    <Label Grid.Column="3" Text="KCAL" FontSize="20"/>
+                                    <Label Grid.Column="0" Text="{Binding SupperKcalTotalAmount}" FontSize="15"/>
+                                    <Label Grid.Column="1" Text="{Binding SupperBTotalAmount}" FontSize="20"/>
+                                    <Label Grid.Column="2" Text="{Binding SupperTTotalAmount}" FontSize="20"/>
+                                    <Label Grid.Column="3" Text="{Binding SupperWTotalAmount}" FontSize="20"/>
 
                                 </Grid>
 
@@ -537,7 +538,7 @@
                                         </Grid.ColumnDefinitions>
 
 
-                                        <Grid Grid.Row="0" Grid.Column="0">
+                                        <Grid Grid.Row="0" Grid.Column="0" Margin="0,5,0,0">
                                             <Grid.RowDefinitions>
                                                 <RowDefinition/>
                                                 <RowDefinition/>

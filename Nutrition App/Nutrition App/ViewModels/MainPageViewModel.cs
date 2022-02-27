@@ -324,63 +324,9 @@ namespace Nutrition_App.ViewModels
 
             #region Each meal details
 
+            SetDetailInformationForEachMeal.SetDetailInformationForEachMealMethod(this);
+
             #endregion
-        }
-
-        public float SumBFromSingleMeal(ObservableCollection<MealToDisplay> collectionOfMeals)
-        {
-            float sum = 0;
-
-            foreach (var item in collectionOfMeals)
-            {
-                if (float.TryParse(item.B, out float temp))
-                {
-                    sum += temp;
-                }
-            }
-            return sum;
-        }
-
-        public float SumTFromSingleMeal(ObservableCollection<MealToDisplay> collectionOfMeals)
-        {
-            float sum = 0;
-
-            foreach (var item in collectionOfMeals)
-            {
-                if (float.TryParse(item.T, out float temp))
-                {
-                    sum += temp;
-                }
-            }
-            return sum;
-        }
-
-        public float SumWFromSingleMeal(ObservableCollection<MealToDisplay> collectionOfMeals)
-        {
-            float sum = 0;
-
-            foreach (var item in collectionOfMeals)
-            {
-                if (float.TryParse(item.W, out float temp))
-                {
-                    sum += temp;
-                }
-            }
-            return sum;
-        }
-
-        public float SumKcalFromSingleMeal(ObservableCollection<MealToDisplay> collectionOfMeals)
-        {
-            float sum = 0;
-
-            foreach (var item in collectionOfMeals)
-            {
-                if (float.TryParse(item.Kcal, out float temp))
-                {
-                    sum += temp;
-                }
-            }
-            return sum;
         }
 
     #endregion
@@ -1002,65 +948,191 @@ namespace Nutrition_App.ViewModels
 
     #region Total macro fields
 
-    #region breakfast
+        #region breakfast
 
-    private string _breakfastBTotalAmount;
-    public string BreakfastBTotalAmount
-    {
-        get { return _breakfastBTotalAmount; }
-        set { _breakfastBTotalAmount = value; OnPropertyChanged(); }
+        private string _breakfastBTotalAmount;
+        public string BreakfastBTotalAmount
+        {
+            get { return _breakfastBTotalAmount; }
+            set { _breakfastBTotalAmount = value; OnPropertyChanged(); }
+        }
+
+        private string _breakfastTTotalAmount;
+
+        public string BreakfastTTotalAmount
+        {
+            get { return _breakfastTTotalAmount; }
+            set { _breakfastTTotalAmount = value; OnPropertyChanged(); }
+        }
+
+        private string _breakfastWTotalAmount;
+
+        public string BreakfastWTotalAmount
+        {
+            get { return _breakfastWTotalAmount; }
+            set { _breakfastWTotalAmount = value; OnPropertyChanged(); }
+        }
+
+        private string _breakfastKcalTotalAmount;
+
+        public string BreakfastKcalTotalAmount
+        {
+            get { return _breakfastKcalTotalAmount; }
+            set { _breakfastKcalTotalAmount = value; OnPropertyChanged(); }
+        }
+
+
+        #endregion
+
+        #region second breakfast
+
+        private string _secondbreakfastBTotalAmount;
+
+        public string SecondBreakfastBTotalAmount
+        {
+            get { return _secondbreakfastBTotalAmount; }
+            set { _secondbreakfastBTotalAmount = value; OnPropertyChanged(); }
+        }
+
+        private string _secondBreakfastTTotalAmount;
+
+        public string SecondBreakfastTTotalAmount
+        {
+            get { return _secondBreakfastTTotalAmount; }
+            set { _secondBreakfastTTotalAmount = value; OnPropertyChanged(); }
+        }
+
+        private string _secondBreakfastWTotalAmount;
+
+        public string SecondBreakfastWTotalAmount
+        {
+            get { return _secondBreakfastWTotalAmount; }
+            set { _secondBreakfastWTotalAmount = value; OnPropertyChanged(); }
+        }
+
+        private string _secondBreakfastKcalTotalAmount; 
+
+        public string SecondBreakfastKcalTotalAmount
+        {
+            get { return _secondBreakfastKcalTotalAmount; }
+            set { _secondBreakfastKcalTotalAmount = value; OnPropertyChanged(); }
+        }
+
+
+        #endregion
+
+        #region Lunch
+
+        private string _lunchBTotalAmount;
+
+        public string LunchBTotalAmount
+        {
+            get { return _lunchBTotalAmount; }
+            set { _lunchBTotalAmount = value; OnPropertyChanged(); }
+        }
+
+        private string _lunchTTotalAmount;
+
+        public string LunchTTotalAmount
+        {
+            get { return _lunchBTotalAmount; }
+            set { _lunchBTotalAmount = value; OnPropertyChanged(); }
+        }
+
+        private string _lunchWTotalAmount;
+
+        public string LunchWTotalAmount
+        {
+            get { return _lunchBTotalAmount; }
+            set { _lunchBTotalAmount = value; OnPropertyChanged(); }
+        }
+
+        private string _lunchKcalTotalAmount;
+
+        public string LunchKcalTotalAmount
+        {
+            get { return _lunchBTotalAmount; }
+            set { _lunchBTotalAmount = value; OnPropertyChanged(); }
+        }
+
+        #endregion
+
+        #region Dinner
+
+        private string _dinnerBTotalAmount;
+
+        public string DinnerBTotalAmount
+        {
+            get { return _dinnerBTotalAmount; }
+            set { _dinnerBTotalAmount = value; OnPropertyChanged(); }
+        }
+
+        private string _dinnerTTotalAmount;
+
+        public string DinnerTTotalAmount
+        {
+            get { return _dinnerTTotalAmount; }
+            set { _dinnerTTotalAmount = value; OnPropertyChanged(); }
+        }
+
+        private string _dinnerWTotalAmount;
+
+        public string DinnerWTotalAmount
+        {
+            get { return _dinnerWTotalAmount; }
+            set { _dinnerWTotalAmount = value; OnPropertyChanged(); }
+        }
+
+        private string _dinnerKcalTotalAmount;
+
+        public string DinnerKcalTotalAmount
+        {
+            get { return _dinnerKcalTotalAmount; }
+            set { _dinnerKcalTotalAmount = value; OnPropertyChanged(); }
+        }
+
+        #endregion
+
+        #region Supper
+
+        private string _supperBTotalAmount;
+
+        public string SupperBTotalAmount
+        {
+            get { return _supperBTotalAmount; }
+            set { _supperBTotalAmount = value; OnPropertyChanged(); }
+        }
+
+        private string _supperTTotalAmount;
+
+        public string SupperTTotalAmount
+        {
+            get { return _supperTTotalAmount; }
+            set { _supperTTotalAmount = value; OnPropertyChanged(); }
+        }
+
+        private string _supperWTotalAmount;
+
+        public string SupperWTotalAmount
+        {
+            get { return _supperWTotalAmount; }
+            set { _supperWTotalAmount = value; OnPropertyChanged(); }
+        }
+
+        private string _supperKcalTotalAmount;
+
+        public string SupperKcalTotalAmount
+        {
+            get { return _supperKcalTotalAmount; }
+            set { _supperKcalTotalAmount = value; OnPropertyChanged(); }
+        }
+
+        #endregion
+
+        #endregion
+
+        #endregion
     }
-
-    private string _breakfastTTotalAmount;
-
-    public string BreakfastTTotalAmount
-    {
-        get { return _breakfastTTotalAmount; }
-        set { _breakfastTTotalAmount = value; OnPropertyChanged(); }
-    }
-
-    private string _breakfastWTotalAmount;
-
-    public string BreakfastWTotalAmount
-    {
-        get { return _breakfastWTotalAmount; }
-        set { _breakfastWTotalAmount = value; OnPropertyChanged(); }
-    }
-
-    #endregion
-
-    #region second breakfast
-
-    private string _secondbreakfastBTotalAmount;
-
-    public string SecondBreakfastBTotalAmount
-    {
-        get { return _secondbreakfastBTotalAmount; }
-        set { _secondbreakfastBTotalAmount = value; OnPropertyChanged(); }
-    }
-
-    private string _secondBreakfastTTotalAmount;
-
-    public string SecondBreakfastTTotalAmount
-    {
-        get { return _secondBreakfastTTotalAmount; }
-        set { _secondBreakfastTTotalAmount = value; OnPropertyChanged(); }
-    }
-
-    private string _secondBreakfastWTotalAmount;
-
-    public string SecondBreakfastWTotalAmount
-    {
-        get { return _secondBreakfastWTotalAmount; }
-        set { _secondBreakfastWTotalAmount = value; OnPropertyChanged(); }
-    }
-
-    #endregion
-
-    #endregion
-
-    #endregion
-}
 }
 
 
