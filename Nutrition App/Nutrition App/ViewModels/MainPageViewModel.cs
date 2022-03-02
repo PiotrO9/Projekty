@@ -31,8 +31,6 @@ namespace Nutrition_App.ViewModels
             ButtonClickCommand = new Command((parameter) => ButtonClickCommandImpl(parameter));
             DaysButtonClickCommand = new Command((parametr) => DaysButtonClickCommandImpl(parametr));
 
-            //Preferences.Clear();
-
             TotalWaterAmount = int.Parse(Preferences.Get("TotalWaterAmount", "2000"));
             CapacityOfWater = int.Parse(Preferences.Get("CapacityOfWater", "250"));
 
@@ -354,82 +352,119 @@ namespace Nutrition_App.ViewModels
     }
 
     private void BreakfastButtonClickCommandImpl()
-    {
-        if (FirstMealCollection.Count == 0)
         {
-            FirstMealCollection = FirstMealCollectionTemporary;
-        }
-        else
-        {
-            FirstMealCollectionTemporary = FirstMealCollection;
-            FirstMealCollection = EmptyMealColleciton;
-        }
+            if (FirstMealCollection != null)
+            {
+                if (FirstMealCollection.Count == 0)
+                {
+                    if(FirstMealCollectionTemporary == null || FirstMealCollectionTemporary.Count == 0)
+                    {
+                        return;
+                    }
 
-        FirstMealCollectionHeight = FirstMealCollection.Count * _collectionHeight > 10 ? FirstMealCollection.Count * _collectionHeight : 10;
-        FirstMealHeight = FirstMealCollectionHeight + _consistentMealHeight;
+                    FirstMealCollection = FirstMealCollectionTemporary;
+                }
+                else
+                {
+                    FirstMealCollectionTemporary = FirstMealCollection;
+                    FirstMealCollection = EmptyMealColleciton; 
+                }
 
-    }
+                FirstMealCollectionHeight = FirstMealCollection.Count * _collectionHeight > 10 ? FirstMealCollection.Count * _collectionHeight : 10;
+                FirstMealHeight = FirstMealCollectionHeight + _consistentMealHeight;
+            }
+        }
     private void SecondBreakfastButtonClickCommandImpl()
-    {
-        if (SecondMealCollection.Count == 0)
         {
-            SecondMealCollection = SecondMealCollectionTemporary;
-        }
-        else
-        {
-            SecondMealCollectionTemporary = SecondMealCollection;
-            SecondMealCollection = EmptyMealColleciton;
-        }
+            if (SecondMealCollection != null)
+            {
+                if (SecondMealCollection.Count == 0)
+                {
+                    if(SecondMealCollectionTemporary == null || SecondMealCollectionTemporary.Count == 0)
+                    {
+                        return;
+                    }
+                    SecondMealCollection = SecondMealCollectionTemporary;
+                }
+                else
+                {
+                    SecondMealCollectionTemporary = SecondMealCollection;
+                    SecondMealCollection = EmptyMealColleciton;
+                }
 
-        SecondMealCollectionHeight = SecondMealCollection.Count * _collectionHeight > 10 ? SecondMealCollection.Count * _collectionHeight : 10;
-        SecondMealHeight = SecondMealCollectionHeight + _consistentMealHeight;
+                SecondMealCollectionHeight = SecondMealCollection.Count * _collectionHeight > 10 ? SecondMealCollection.Count * _collectionHeight : 10;
+                SecondMealHeight = SecondMealCollectionHeight + _consistentMealHeight;
+            }
 
-    }
+        }
     private void LunchButtonClickCommandImpl()
-    {
-        if (ThirdMealCollection.Count == 0)
         {
-            ThirdMealCollection = ThirdMealCollectionTemporary;
-        }
-        else
-        {
-            ThirdMealCollectionTemporary = ThirdMealCollection;
-            ThirdMealCollection = EmptyMealColleciton;
-        }
+            if (ThirdMealCollection != null)
+            {
+                if (ThirdMealCollection.Count == 0)
+                {
+                    if (ThirdMealCollectionTemporary == null || ThirdMealCollectionTemporary.Count == 0)
+                    {
+                        return;
+                    }
+                    ThirdMealCollection = ThirdMealCollectionTemporary;
+                }
+                else
+                {
+                    ThirdMealCollectionTemporary = ThirdMealCollection;
+                    ThirdMealCollection = EmptyMealColleciton;
+                }
 
-        ThirdMealCollectionHeight = ThirdMealCollection.Count * _collectionHeight > 10 ? ThirdMealCollection.Count * _collectionHeight : 10;
-        ThirdMealHeight = ThirdMealCollectionHeight + _consistentMealHeight;
+                ThirdMealCollectionHeight = ThirdMealCollection.Count * _collectionHeight > 10 ? ThirdMealCollection.Count * _collectionHeight : 10;
+                ThirdMealHeight = ThirdMealCollectionHeight + _consistentMealHeight;
+            }
 
-    }
+        }
     private void DinnerButtonClickCommandImpl()
     {
-        if (FourthMealCollection.Count == 0)
-        {
-            FourthMealCollection = FourthMealCollectionTemporary;
-        }
-        else
-        {
-            FourthMealCollectionTemporary = FourthMealCollection;
-            FourthMealCollection = EmptyMealColleciton;
-        }
+        if(FourthMealCollection != null)
+            {
+                if (FourthMealCollection.Count == 0)
+                {
+                    if (FourthMealCollectionTemporary == null || FourthMealCollectionTemporary.Count == 0)
+                    {
+                        return;
+                    }
+                    FourthMealCollection = FourthMealCollectionTemporary;
+                }
 
-        FourthMealCollectionHeight = FourthMealCollection.Count * _collectionHeight > 10 ? FourthMealCollection.Count * _collectionHeight : 10;
-        FourthMealHeight = FourthMealCollectionHeight + _consistentMealHeight;
+                else
+                {
+                    FourthMealCollectionTemporary = FourthMealCollection;
+                    FourthMealCollection = EmptyMealColleciton;
+                }
+
+                FourthMealCollectionHeight = FourthMealCollection.Count * _collectionHeight > 10 ? FourthMealCollection.Count * _collectionHeight : 10;
+                FourthMealHeight = FourthMealCollectionHeight + _consistentMealHeight;
+            }
+        
     }
     private void SupperButtonClickCommandImpl()
     {
-        if (FifthMealCollection.Count == 0)
-        {
-            FifthMealCollection = FifthMealCollectionTemporary;
-        }
-        else
-        {
-            FifthMealCollectionTemporary = FifthMealCollection;
-            FifthMealCollection = EmptyMealColleciton;
-        }
+        if(FifthMealCollection != null)
+            {
+                if (FifthMealCollection.Count == 0)
+                {
+                    if (FifthMealCollectionTemporary == null || FifthMealCollectionTemporary.Count == 0)
+                    {
+                        return;
+                    }
+                    FifthMealCollection = FifthMealCollectionTemporary;
+                }
+                else
+                {
+                    FifthMealCollectionTemporary = FifthMealCollection;
+                    FifthMealCollection = EmptyMealColleciton;
+                }
 
-        FifthMealCollectionHeight = FifthMealCollection.Count * _collectionHeight > 10 ? FifthMealCollection.Count * _collectionHeight : 10;
-        FifthMealHeight = FifthMealCollectionHeight + _consistentMealHeight;
+                FifthMealCollectionHeight = FifthMealCollection.Count * _collectionHeight > 10 ? FifthMealCollection.Count * _collectionHeight : 10;
+                FifthMealHeight = FifthMealCollectionHeight + _consistentMealHeight;
+            }
 
     }
 

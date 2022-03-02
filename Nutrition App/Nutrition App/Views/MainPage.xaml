@@ -117,8 +117,6 @@
 
                                 </Grid>
 
-
-
                             </StackLayout>
                         </Grid>
 
@@ -348,7 +346,7 @@
                                                 <ColumnDefinition/>
                                             </Grid.ColumnDefinitions>
 
-                                            <Label x:Name="lblTitle" Grid.Row="0" Grid.Column="0" Text="{Binding Name}"/>
+                                            <Label x:Name="lblTitle" Grid.Row="0" Grid.Column="0" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Text="{Binding Name}"/>
                                             <Label x:Name="lblAmount" Grid.Row="1" Grid.Column="0" Text="{Binding Amount}"/>
 
                                             <Grid x:Name="InsideMacroGrid" Grid.Row="2" Grid.Column="0">
@@ -448,7 +446,7 @@
                                                 <ColumnDefinition/>
                                             </Grid.ColumnDefinitions>
 
-                                            <Label x:Name="lblTitle" Grid.Row="0" Grid.Column="0" Text="{Binding Name}"/>
+                                            <Label x:Name="lblTitle" Grid.Row="0" Grid.Column="0" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="20" Text="{Binding Name}"/>
                                             <Label x:Name="lblAmount" Grid.Row="1" Grid.Column="0" Text="{Binding Amount}"/>
 
                                             <Grid x:Name="InsideMacroGrid" Grid.Row="2" Grid.Column="0">
@@ -548,7 +546,7 @@
                                                 <ColumnDefinition/>
                                             </Grid.ColumnDefinitions>
 
-                                            <Label x:Name="lblTitle" Grid.Row="0" Grid.Column="0" Text="{Binding Name}"/>
+                                            <Label x:Name="lblTitle" Grid.Row="0" Grid.Column="0" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="20" Text="{Binding Name}"/>
                                             <Label x:Name="lblAmount" Grid.Row="1" Grid.Column="0" Text="{Binding Amount}"/>
 
                                             <Grid x:Name="InsideMacroGrid" Grid.Row="2" Grid.Column="0">

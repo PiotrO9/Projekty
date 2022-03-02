@@ -177,10 +177,10 @@ namespace Nutrition_App.ViewModels
                 }
                 else
                 {
-                    float temp;
-                    if(float.TryParse(EntryText, out temp))
+                    float AmountFromEntry;
+                    if(float.TryParse(EntryText, out AmountFromEntry))
                     {
-                        MealToDisplay mealToDisplay = ChangeRatioMealToDisplay.ChangeRatioMealToDisplayMethod(_mealToDisplay, temp/100);
+                        MealToDisplay mealToDisplay = ChangeRatioMealToDisplay.ChangeRatioMealToDisplayMethod(_mealToDisplay, AmountFromEntry / 100);
                         mealToDisplay.command = _mainPageViewModel.ButtonClickCommand;
 
                         var numbersoFButtonPosition = GetButtonPosition.GetButtonPositionMethod(mealToDisplay.ButtonName);
