@@ -39,9 +39,7 @@ namespace Nutrition_App.ViewModels
             TSubmitLimit = Preferences.Get("TSubmitLimit", "100");
             WSubmitLimit = Preferences.Get("WSubmitLimit", "450");
 
-
-            bool test = Preferences.ContainsKey("CapacityOfWater");
-            CurrentAmountOfWater = 0; // Zmienić, gdy wczytywanie z pliku
+            CurrentAmountOfWater = int.Parse(ReadFileToWater.ReadFileToWaterMethod(DaysDifference));
 
             SetDaysBinding();
 
@@ -77,10 +75,10 @@ namespace Nutrition_App.ViewModels
 
             _mainPage = mainPage;
 
+            DaysDifference = difference;
+
             ButtonClickCommand = new Command((parameter) => ButtonClickCommandImpl(parameter));
             DaysButtonClickCommand = new Command((parametr) => DaysButtonClickCommandImpl(parametr));
-
-            //Preferences.Clear();
 
             TotalWaterAmount = int.Parse(Preferences.Get("TotalWaterAmount", "2000"));
             CapacityOfWater = int.Parse(Preferences.Get("CapacityOfWater", "250"));
@@ -90,11 +88,7 @@ namespace Nutrition_App.ViewModels
             TSubmitLimit = Preferences.Get("TSubmitLimit", "100");
             WSubmitLimit = Preferences.Get("WSubmitLimit", "450");
 
-
-            bool test = Preferences.ContainsKey("CapacityOfWater");
-            CurrentAmountOfWater = 0; // Zmienić, gdy wczytywanie z pliku
-
-            DaysDifference = difference;
+            CurrentAmountOfWater = int.Parse(ReadFileToWater.ReadFileToWaterMethod(DaysDifference));
 
             SetDaysBinding(DaysDifference);
 
@@ -473,7 +467,8 @@ namespace Nutrition_App.ViewModels
         if (CurrentAmountOfWater < TotalWaterAmount)
         {
             CurrentAmountOfWater += CapacityOfWater;
-        }
+            SaveWaterToFile.SaveWaterToFileMethod(CurrentAmountOfWater.ToString(), DaysDifference);
+        }                         
     }
 
     private void SubWaterClickImpl()
@@ -486,6 +481,8 @@ namespace Nutrition_App.ViewModels
         {
             CurrentAmountOfWater = 0;
         }
+
+        SaveWaterToFile.SaveWaterToFileMethod(CurrentAmountOfWater.ToString(), DaysDifference);
     }
 
     private void AddFoodToMealClickCommandImpl(object parametr)
