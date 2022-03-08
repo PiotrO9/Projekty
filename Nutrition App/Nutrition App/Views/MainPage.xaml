@@ -123,7 +123,7 @@
                         <Button x:Name="AddMealToBreakfast" Grid.Column="1" Text="+" FontSize="15" Margin="0,20,0,0" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="LightGreen" 
                                 CornerRadius="45" Command="{Binding AddFoodToMealClickCommand}" CommandParameter="1"/>
 
-                        <CollectionView x:Name="BreakfastCollectionView" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" HeightRequest="{Binding FirstMealCollectionHeight, Mode=TwoWay, UpdateSourceEventName=PropertyChanged}" 
+                        <CollectionView x:Name="BreakfastCollectionView" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" HeightRequest="{Binding FirstMealCollectionHeight, Mode=TwoWay, UpdateSourceEventName=PropertyChanged}"
                                         Margin="5,0,5,0" ItemsSource="{Binding FirstMealCollection, Mode=TwoWay, UpdateSourceEventName=PropertyChanged}">
                             <CollectionView.ItemTemplate x:DataType="models:MealToDisplay">
                                 <DataTemplate x:DataType="models:MealToDisplay">
@@ -147,11 +147,11 @@
                                             </Grid.ColumnDefinitions>
 
                                             <Label x:Name="lblTitle" Grid.Row="0" Grid.Column="0" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="20" Text="{Binding Name}"/>
-                                            <Label x:Name="lblAmount" Grid.Row="1" Grid.Column="0" Text="{Binding Amount}"/>
+                                            <Label x:Name="lblAmount" Grid.Row="1" Grid.Column="0" Text="{Binding Amount }"/>
 
                                             <Grid x:Name="InsideMacroGrid" Grid.Row="2" Grid.Column="0">
                                                 <Grid.RowDefinitions>
-                                                    <RowDefinition/>
+                                                    <RowDefinition Height="Auto"/>
                                                 </Grid.RowDefinitions>
                                                 <Grid.ColumnDefinitions>
                                                     <ColumnDefinition/>

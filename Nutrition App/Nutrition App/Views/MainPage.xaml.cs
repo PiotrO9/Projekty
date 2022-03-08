@@ -17,7 +17,6 @@ namespace Nutrition_App.Views
         {
             InitializeComponent();
             BindingContext = new MainPageViewModel(this);
-            
         }
 
         public MainPage(int difference)

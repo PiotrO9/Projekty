@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Text;
 
 namespace Nutrition_App.Services.ConvertingServices
@@ -13,8 +14,8 @@ namespace Nutrition_App.Services.ConvertingServices
         // ### - koniec całego pliku, listy list
 
         public static string MealsListToStringMethod(List<ObservableCollection<MealToDisplay>> collections)
-        {
-            string result = "";
+        { 
+            var sb = new StringBuilder();
 
             foreach (var collection in collections)
             {
@@ -22,20 +23,19 @@ namespace Nutrition_App.Services.ConvertingServices
                 {
                     if(collection.Count == 0)
                     {
-                        result += "!!!\n";
+                       sb.Append("!!!\n");
                     }
                     else
                     {
-                        result += MealToString.MealToStringMethod(meal);
-                        result += "///\n";
+                       sb.Append( MealToString.MealToStringMethod(meal));
+                       sb.Append("///\n");
                     }
                 }
-                result += "!!!\n";
+                sb.Append( "!!!\n");
             }
 
-            result += "###";
-
-            return result;
+           sb.Append( "###");
+           return sb.ToString() ;
         }
     }
 }

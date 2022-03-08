@@ -12,8 +12,8 @@ namespace Nutrition_App.Services.FileServices
     {
         public static void CollectionToFileMethod(List<ObservableCollection<MealToDisplay>> collection, int difference)
         {
-            string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData)) + "/saves";
-
+            string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "saves");
+            
             if (!Directory.Exists(path))
             {
                 Directory.CreateDirectory(path);
@@ -26,6 +26,7 @@ namespace Nutrition_App.Services.FileServices
                 string ContentToSave = MealsListToString.MealsListToStringMethod(collection);
 
                 writer.Write(ContentToSave);
+                
             }
         }
     }

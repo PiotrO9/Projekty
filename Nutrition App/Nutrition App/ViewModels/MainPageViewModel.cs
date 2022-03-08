@@ -67,6 +67,8 @@ namespace Nutrition_App.ViewModels
             CheckIfCollectionsAreNotNull();
             DaysDifference = 0;
             CalculateMacros();
+
+            Models.Email email = new Models.Email("@");
         }
 
         public MainPageViewModel(int difference, MainPage mainPage)
@@ -327,11 +329,13 @@ namespace Nutrition_App.ViewModels
 
     private void ButtonClickCommandImpl(object parameter)
     {
-        string ButtonName = parameter as string;
-        if (ButtonName != string.Empty)
-        {
-            var numbersoFButtonPosition = GetButtonPosition.GetButtonPositionMethod(ButtonName);
-        }
+        if( parameter is string ButtonName)
+            {
+                if(!String.IsNullOrWhiteSpace(ButtonName))
+                {
+                    var numbersoFButtonPosition = GetButtonPosition.GetButtonPositionMethod(ButtonName);
+                }
+            }
     }
 
     private void DaysButtonClickCommandImpl(object parametr)
@@ -489,38 +493,7 @@ namespace Nutrition_App.ViewModels
     {
         int numberOfMeal = int.Parse(parametr.ToString());
 
-        switch (numberOfMeal)
-        {
-            case 1:
-                {
-                    Application.Current.MainPage.Navigation.PushAsync(new AddFoodPage(1, this));
-                    break;
-                }
-            case 2:
-                {
-                    Application.Current.MainPage.Navigation.PushAsync(new AddFoodPage(2, this));
-                    break;
-                }
-            case 3:
-                {
-                    Application.Current.MainPage.Navigation.PushAsync(new AddFoodPage(3, this));
-                    break;
-                }
-            case 4:
-                {
-                    Application.Current.MainPage.Navigation.PushAsync(new AddFoodPage(4, this));
-                    break;
-                }
-            case 5:
-                {
-                    Application.Current.MainPage.Navigation.PushAsync(new AddFoodPage(5, this));
-                    break;
-                }
-            default:
-                break;
-        }
-
-
+        Application.Current.MainPage.Navigation.PushAsync(new AddFoodPage(numberOfMeal, this));
     }
 
     #endregion
