@@ -55,7 +55,7 @@
                     </Grid.RowDefinitions>
 
                     <Label Grid.Column="0" Text="Białka" VerticalTextAlignment="Center" FontSize="20" Padding="5,0,0,0"/>
-                    <Entry Grid.Column="1" Text="{Binding BEntryAmount}" IsReadOnly="True" HorizontalTextAlignment="Center" Keyboard="Numeric"/>
+                    <Entry Grid.Column="1" Text="{Binding BEntryAmount}" TextColor="Gray" IsReadOnly="True" HorizontalTextAlignment="Center" Keyboard="Numeric"/>
                     <Label Grid.Column="2" Text="g" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="20"/>
                     <Entry Grid.Column="3" Text="{Binding BEntryPercent}" IsReadOnly="{Binding ModifyValuesState}" HorizontalTextAlignment="Center" Keyboard="Numeric"/>
                     <Label Grid.Column="4" Text="%" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="20"/>
@@ -74,9 +74,9 @@
                     </Grid.RowDefinitions>
 
                     <Label Grid.Column="0" Text="Tłuszcze" VerticalTextAlignment="Center" FontSize="20" Padding="5,0,0,0"/>
-                    <Entry Grid.Column="1" Text="{Binding TEntryAmount}" IsReadOnly="True" HorizontalTextAlignment="Center" Keyboard="Numeric"/>
+                    <Entry Grid.Column="1" Text="{Binding TEntryAmount}" TextColor="Gray" IsReadOnly="True" HorizontalTextAlignment="Center" Keyboard="Numeric"/>
                     <Label Grid.Column="2" Text="g" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="20"/>
-                    <Entry Grid.Column="3" Text="" IsReadOnly="{Binding ModifyValuesState}" HorizontalTextAlignment="Center" Keyboard="Numeric"/>
+                    <Entry Grid.Column="3" Text="{Binding BEntryAmount}" IsReadOnly="{Binding ModifyValuesState}" HorizontalTextAlignment="Center" Keyboard="Numeric"/>
                     <Label Grid.Column="4" Text="%" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="20"/>
                 </Grid>
 
@@ -93,7 +93,7 @@
                     </Grid.RowDefinitions>
 
                     <Label Grid.Column="0" Text="Węgl." VerticalTextAlignment="Center" FontSize="20" Padding="5,0,0,0"/>
-                    <Entry Grid.Column="1" Text="{Binding WEntryAmount}" IsReadOnly="True" HorizontalTextAlignment="Center" Keyboard="Numeric"/>
+                    <Entry Grid.Column="1" Text="{Binding WEntryAmount}" TextColor="Gray" IsReadOnly="True" HorizontalTextAlignment="Center" Keyboard="Numeric"/>
                     <Label Grid.Column="2" Text="g" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="20"/>
                     <Entry Grid.Column="3" Text="" IsReadOnly="{Binding ModifyValuesState}" HorizontalTextAlignment="Center" Keyboard="Numeric"/>
                     <Label Grid.Column="4" Text="%" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="20"/>

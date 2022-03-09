@@ -17,7 +17,13 @@ namespace Nutrition_App.ViewModels
 
         #region Fields
 
-        public bool ModifyValuesState { get; set; }
+        private bool _modifyValuesState;
+
+        public bool ModifyValuesState
+        {
+            get { return _modifyValuesState; }
+            set { _modifyValuesState = value; OnPropertyChanged(); }
+        }
 
         private int _kcalAmount;
 
@@ -29,6 +35,7 @@ namespace Nutrition_App.ViewModels
                 _kcalAmount = value;
                 OnPropertyChanged();
                 KcalTextChangedCommand.Execute(this);
+                KcalTextChanged(KcalAmount);
             }
         }
 
@@ -109,23 +116,22 @@ namespace Nutrition_App.ViewModels
 
         private void PercentTextChanged(TypeOfMacro typeOfMacro)
         {
-            //if(CheckSumOfPercents())
-            //{
-            //    switch (typeOfMacro)
-            //    {
-            //        case TypeOfMacro.B:
-            //            {
-                            
-            //            break;
-            //            }
-            //        case TypeOfMacro.T:
-            //            break;
-            //        case TypeOfMacro.W:
-            //            break;
-            //        default:
-            //            break;
-            //    }
-            //}
+            if (CheckSumOfPercents())
+            {
+                switch (typeOfMacro)
+                {
+                    case TypeOfMacro.B:
+                        {
+                            break;
+                        }
+                    case TypeOfMacro.T:
+                        break;
+                    case TypeOfMacro.W:
+                        break;
+                    default:
+                        break;
+                }
+            }
         }
 
         private void KcalTextChanged(int t)
@@ -150,9 +156,18 @@ namespace Nutrition_App.ViewModels
         private void CheckIfKcalIsOver1000()
         {
             if (KcalAmount >= 1000)
-                ModifyValuesState = true;
-            else
                 ModifyValuesState = false;
+            else
+                ModifyValuesState = true;
+        }
+        private bool CheckIfSumIs100Percnt()
+        {
+            int sum = BEntryPercent + TEntryPercent + WEntryPercent;
+
+            if (sum == 100)
+                return true;
+            else 
+                return false;
         }
 
         public bool CheckSumOfPercents()// True - suma mniejsza lub równa 100
