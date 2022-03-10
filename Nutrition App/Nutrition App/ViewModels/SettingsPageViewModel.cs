@@ -212,12 +212,12 @@ namespace Nutrition_App.ViewModels
         {
             int sum = BEntryPercent + TEntryPercent + WEntryPercent;
 
-            if(sum > 100)
+            if (sum > 100)
             {
-                PercentsToUse += sum - 100;
+                PercentsToUse += (sum - 100) / 2;
             }
 
-            if(PercentsToUse < 0)
+            if (PercentsToUse < 0)
             {
                 PercentsToUse += PercentsToUse * -1;
             }

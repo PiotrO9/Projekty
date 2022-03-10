@@ -67,8 +67,10 @@
                     <Label Grid.Column="2" Text="g" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="20"/>
                     <Entry Grid.Column="3" IsReadOnly="{Binding ModifyValuesState}" HorizontalTextAlignment="Center" Keyboard="Numeric">
                         <Entry.Text>
-                            <Binding Converter="{StaticResource Over100PercentConverter}" ConverterParameter="{x:Reference HiddenPercentsToUseLabel}" Path="BEntryPercent" Mode="TwoWay">
-                            </Binding>
+                            <MultiBinding Converter="{StaticResource Over100PercentConverter}">
+                                <Binding Path="BEntryPercent" Mode="TwoWay"></Binding>
+                                <Binding Path="PercentsToUse" Mode="TwoWay"></Binding>
+                            </MultiBinding>
                         </Entry.Text>
                     </Entry>
                     <Label Grid.Column="4" Text="%" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="20"/>
@@ -91,8 +93,10 @@
                     <Label Grid.Column="2" Text="g" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="20"/>
                     <Entry Grid.Column="3" IsReadOnly="{Binding ModifyValuesState}" HorizontalTextAlignment="Center" Keyboard="Numeric">
                         <Entry.Text>
-                            <Binding Converter="{StaticResource Over100PercentConverter}" ConverterParameter="{x:Reference HiddenPercentsToUseLabel}" Path="TEntryPercent" Mode="TwoWay">
-                            </Binding>
+                            <MultiBinding Converter="{StaticResource Over100PercentConverter}">
+                                <Binding Path="TEntryPercent" Mode="TwoWay"></Binding>
+                                <Binding Path="PercentsToUse" Mode="TwoWay"></Binding>
+                            </MultiBinding>
                         </Entry.Text>
                     </Entry>
                     <Label Grid.Column="4" Text="%" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="20"/>
@@ -115,8 +119,10 @@
                     <Label Grid.Column="2" Text="g" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="20"/>
                     <Entry Grid.Column="3" IsReadOnly="{Binding ModifyValuesState}" HorizontalTextAlignment="Center" Keyboard="Numeric">
                         <Entry.Text>
-                            <Binding Converter="{StaticResource Over100PercentConverter}" ConverterParameter="{x:Reference HiddenPercentsToUseLabel}" Path="WEntryPercent" Mode="TwoWay">
-                            </Binding>
+                            <MultiBinding Converter="{StaticResource Over100PercentConverter}">
+                                <Binding Path="WEntryPercent" Mode="TwoWay"></Binding>
+                                <Binding Path="PercentsToUse" Mode="TwoWay"></Binding>
+                            </MultiBinding>
                         </Entry.Text>
                     </Entry>
                     <Label Grid.Column="4" Text="%" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="20"/>

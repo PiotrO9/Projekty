@@ -6,21 +6,28 @@ using Xamarin.Forms;
 
 namespace Nutrition_App.Converters
 {
-    public class Over100PercentConverter : IValueConverter
+    public class Over100PercentConverter : IMultiValueConverter
     {
-        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        public object Convert(object[] value, Type targetType, object parameter, CultureInfo culture)
         {
-            var lbl = parameter as Label;
-            string lblText = lbl.Text;
-            int freePercents = 0;
-            if(!String.IsNullOrEmpty(lblText))
+            if ((value?.Length ?? 0) != 2)
             {
-                freePercents = int.Parse(lblText);
+                return 0;
             }
 
-            if(value is int number)
+            var valueType1 = value[0]?.GetType();
+            var valueType2= value[1]?.GetType();
+            if(valueType1 != typeof(int) || valueType2 != typeof(int))
             {
-                if(freePercents >= 0)
+                return 0;
+            }
+
+            int freePercents =(int)value[1];
+
+            int number = (int)value[0];
+
+
+                if (freePercents >= 0)
                 {
                     if (number > freePercents)
                     {
@@ -32,22 +39,13 @@ namespace Nutrition_App.Converters
                 {
                     return 100;
                 }
-            }
 
-            return value;
+            return number;
         }
 
-        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        object[] IMultiValueConverter.ConvertBack(object value, Type[] targetTypes, object parameter, CultureInfo culture)
         {
-            if (value is int number)
-            {
-                if (number > 100)
-                {
-                    return 100;
-                }
-            }
-
-            return value;
+            return new object[] {1,2};
         }
     }
 }
