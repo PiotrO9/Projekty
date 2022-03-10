@@ -45,7 +45,11 @@ namespace Nutrition_App.Converters
 
         object[] IMultiValueConverter.ConvertBack(object value, Type[] targetTypes, object parameter, CultureInfo culture)
         {
-            return new object[] {1,2};
+            if(value.ToString() != "")
+                return new object[] {int.Parse(value.ToString())};
+
+            return new object[] { 1 };
+
         }
     }
 }
