@@ -48,5 +48,6 @@
 
   <ItemGroup>
     <Folder Include="Controls\" />
+    <Folder Include="Validators\" />
   </ItemGroup>
 </Project>

@@ -17,6 +17,15 @@ namespace Nutrition_App.ViewModels
 
         #region Fields
 
+        private int _percentsToUse;
+
+        public int PercentsToUse
+        {
+            get { return _percentsToUse; }
+            set { _percentsToUse = value; OnPropertyChanged(); }
+        }
+
+
         private bool _modifyValuesState;
 
         public bool ModifyValuesState
@@ -60,6 +69,7 @@ namespace Nutrition_App.ViewModels
             {
                 _bEntryPercent = value;
                 OnPropertyChanged();
+                UpdatePercentsToUse();
             }
         }
 
@@ -84,6 +94,7 @@ namespace Nutrition_App.ViewModels
             {
                 _tEntryPercent = value;
                 OnPropertyChanged();
+                UpdatePercentsToUse();
             }
         }
 
@@ -104,6 +115,7 @@ namespace Nutrition_App.ViewModels
             {
                 _wEntryPercent = value;
                 OnPropertyChanged();
+                UpdatePercentsToUse();
             }
         }
 
@@ -150,6 +162,15 @@ namespace Nutrition_App.ViewModels
             TEntryAmount = int.Parse(Preferences.Get("TSubmitLimit", "0"));
             WEntryAmount = int.Parse(Preferences.Get("WSubmitLimit", "0"));
 
+            if(KcalAmount == 0 && BEntryAmount == 0 && TEntryAmount == 0 && WEntryAmount == 0)
+            {
+                PercentsToUse = 100;
+            }
+            else
+            {
+                PercentsToUse = 0;
+            }
+
             CheckIfKcalIsOver1000();
         }
 
@@ -185,6 +206,31 @@ namespace Nutrition_App.ViewModels
             }
 
             return true;
+        }
+
+        public void UpdatePercentsToUse()
+        {
+            int sum = BEntryPercent + TEntryPercent + WEntryPercent;
+
+            if(sum > 100)
+            {
+                PercentsToUse += sum - 100;
+            }
+
+            if(PercentsToUse < 0)
+            {
+                PercentsToUse += PercentsToUse * -1;
+            }
+            else
+            {
+                int calculation = 100 - sum;
+
+                if (calculation >= 0)
+                    PercentsToUse = calculation;
+                else
+                    PercentsToUse = 0;
+            }
+
         }
 
         #endregion

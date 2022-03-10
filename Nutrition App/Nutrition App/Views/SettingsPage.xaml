@@ -1,10 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-             xmlns:viewmodels="clr-namespace:Nutrition_App.ViewModels" 
+             xmlns:viewmodels="clr-namespace:Nutrition_App.ViewModels"
+             xmlns:CON="clr-namespace:Nutrition_App.Converters"
              x:DataType="viewmodels:SettingsPageViewModel"
              x:Class="Nutrition_App.Views.SettingsPage"
              Title="Ustawienia">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <CON:Over100PercentConverter x:Key="Over100PercentConverter"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
     <ContentPage.Content>
         <Grid x:Name="MainGrid">
             <Grid.ColumnDefinitions>
@@ -57,7 +65,12 @@
                     <Label Grid.Column="0" Text="Białka" VerticalTextAlignment="Center" FontSize="20" Padding="5,0,0,0"/>
                     <Entry Grid.Column="1" Text="{Binding BEntryAmount}" TextColor="Gray" IsReadOnly="True" HorizontalTextAlignment="Center" Keyboard="Numeric"/>
                     <Label Grid.Column="2" Text="g" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="20"/>
-                    <Entry Grid.Column="3" Text="{Binding BEntryPercent}" IsReadOnly="{Binding ModifyValuesState}" HorizontalTextAlignment="Center" Keyboard="Numeric"/>
+                    <Entry Grid.Column="3" IsReadOnly="{Binding ModifyValuesState}" HorizontalTextAlignment="Center" Keyboard="Numeric">
+                        <Entry.Text>
+                            <Binding Converter="{StaticResource Over100PercentConverter}" ConverterParameter="{x:Reference HiddenPercentsToUseLabel}" Path="BEntryPercent" Mode="TwoWay">
+                            </Binding>
+                        </Entry.Text>
+                    </Entry>
                     <Label Grid.Column="4" Text="%" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="20"/>
                 </Grid>
 
@@ -76,7 +89,12 @@
                     <Label Grid.Column="0" Text="Tłuszcze" VerticalTextAlignment="Center" FontSize="20" Padding="5,0,0,0"/>
                     <Entry Grid.Column="1" Text="{Binding TEntryAmount}" TextColor="Gray" IsReadOnly="True" HorizontalTextAlignment="Center" Keyboard="Numeric"/>
                     <Label Grid.Column="2" Text="g" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="20"/>
-                    <Entry Grid.Column="3" Text="{Binding BEntryAmount}" IsReadOnly="{Binding ModifyValuesState}" HorizontalTextAlignment="Center" Keyboard="Numeric"/>
+                    <Entry Grid.Column="3" IsReadOnly="{Binding ModifyValuesState}" HorizontalTextAlignment="Center" Keyboard="Numeric">
+                        <Entry.Text>
+                            <Binding Converter="{StaticResource Over100PercentConverter}" ConverterParameter="{x:Reference HiddenPercentsToUseLabel}" Path="TEntryPercent" Mode="TwoWay">
+                            </Binding>
+                        </Entry.Text>
+                    </Entry>
                     <Label Grid.Column="4" Text="%" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="20"/>
                 </Grid>
 
@@ -95,14 +113,19 @@
                     <Label Grid.Column="0" Text="Węgl." VerticalTextAlignment="Center" FontSize="20" Padding="5,0,0,0"/>
                     <Entry Grid.Column="1" Text="{Binding WEntryAmount}" TextColor="Gray" IsReadOnly="True" HorizontalTextAlignment="Center" Keyboard="Numeric"/>
                     <Label Grid.Column="2" Text="g" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="20"/>
-                    <Entry Grid.Column="3" Text="" IsReadOnly="{Binding ModifyValuesState}" HorizontalTextAlignment="Center" Keyboard="Numeric"/>
+                    <Entry Grid.Column="3" IsReadOnly="{Binding ModifyValuesState}" HorizontalTextAlignment="Center" Keyboard="Numeric">
+                        <Entry.Text>
+                            <Binding Converter="{StaticResource Over100PercentConverter}" ConverterParameter="{x:Reference HiddenPercentsToUseLabel}" Path="WEntryPercent" Mode="TwoWay">
+                            </Binding>
+                        </Entry.Text>
+                    </Entry>
                     <Label Grid.Column="4" Text="%" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="20"/>
                 </Grid>
                 
             </Grid>
             <Label Grid.Row="1" Text="Łączna wartość % musi wynosić 100 %" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontSize="18"/>
-            
-            
+            <Label Grid.Row="2" Text="{Binding PercentsToUse, Mode=OneWay}" x:Name="HiddenPercentsToUseLabel" IsVisible="false"/>
+
         </Grid>
     </ContentPage.Content>
 </ContentPage>
