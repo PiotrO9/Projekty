@@ -147,6 +147,7 @@ namespace Nutrition_App.ViewModels
             }
             UpdatePercentsToUse();
             CalculateKcalFromPercentMacros();
+            SaveToPreferences();
         }
         private void PercentTTextChanged(int number)
         {
@@ -169,6 +170,7 @@ namespace Nutrition_App.ViewModels
             }
             UpdatePercentsToUse();
             CalculateKcalFromPercentMacros();
+            SaveToPreferences();
         }
         private void PercentWTextChanged(int number)
         {
@@ -189,6 +191,7 @@ namespace Nutrition_App.ViewModels
             }
             UpdatePercentsToUse();
             CalculateKcalFromPercentMacros();
+            SaveToPreferences();
         }
 
         private void KcalTextChanged(int t)
@@ -239,6 +242,31 @@ namespace Nutrition_App.ViewModels
             BEntryAmount = (KcalAmount / 100 * BEntryPercent) / 4;
             TEntryAmount = (KcalAmount / 100 * TEntryPercent) / 9;
             WEntryAmount = (KcalAmount / 100 * WEntryPercent) / 4;
+        }
+        public bool CheckIfPercentEntriesEqual100()//True jeżeli wartości łącznie dają 100%
+        {
+            int sum = BEntryPercent + TEntryPercent + WEntryPercent;
+
+            if(BEntryPercent != 0 && TEntryPercent != 0 && WEntryPercent != 0)
+            {
+                if (sum == 100)
+                    return true;
+            }
+            
+            return false;
+        }
+
+        public void SaveToPreferences()
+        {
+            if(CheckIfPercentEntriesEqual100())
+            {
+                int sum = (BEntryAmount * 4) + (TEntryAmount * 9) + (WEntryAmount * 4);
+
+                Preferences.Set("KcalSubmitLimit", sum.ToString());
+                Preferences.Set("BSubmitLimit", BEntryAmount.ToString());
+                Preferences.Set("TSubmitLimit", TEntryAmount.ToString());
+                Preferences.Set("WSubmitLimit", WEntryAmount.ToString());
+            }
         }
 
         #endregion

@@ -67,8 +67,6 @@ namespace Nutrition_App.ViewModels
             CheckIfCollectionsAreNotNull();
             DaysDifference = 0;
             CalculateMacros();
-
-            Models.Email email = new Models.Email("@");
         }
 
         public MainPageViewModel(int difference, MainPage mainPage)
