@@ -16,29 +16,18 @@ namespace Nutrition_App.Converters
             }
 
             var valueType1 = value[0]?.GetType();
-            var valueType2= value[1]?.GetType();
+            var valueType2 = value[1]?.GetType();
+
             if(valueType1 != typeof(int) || valueType2 != typeof(int))
             {
                 return 0;
             }
 
-            int freePercents =(int)value[1];
+            int freePercents = (int)value[1];
 
             int number = (int)value[0];
 
-
-                if (freePercents >= 0)
-                {
-                    if (number > freePercents)
-                    {
-                        return freePercents;
-                    }
-                }
-
-                if (number > 100)
-                {
-                    return 100;
-                }
+            int i = 1;
 
             return number;
         }

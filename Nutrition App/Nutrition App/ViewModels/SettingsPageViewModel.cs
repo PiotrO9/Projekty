@@ -69,7 +69,7 @@ namespace Nutrition_App.ViewModels
             {
                 _bEntryPercent = value;
                 OnPropertyChanged();
-                UpdatePercentsToUse();
+                PercentBTextChangedCommand.Execute(BEntryPercent);
             }
         }
 
@@ -94,7 +94,7 @@ namespace Nutrition_App.ViewModels
             {
                 _tEntryPercent = value;
                 OnPropertyChanged();
-                UpdatePercentsToUse();
+                PercentTTextChangedCommand.Execute(TEntryPercent);
             }
         }
 
@@ -103,7 +103,7 @@ namespace Nutrition_App.ViewModels
         public int WEntryAmount
         {
             get { return _wEntryAmount; }
-            set { _wEntryAmount = value; }
+            set { _wEntryAmount = value;OnPropertyChanged(); }
         }
 
         private int _wEntryPercent;
@@ -115,7 +115,7 @@ namespace Nutrition_App.ViewModels
             {
                 _wEntryPercent = value;
                 OnPropertyChanged();
-                UpdatePercentsToUse();
+                PercentWTextChangedCommand.Execute(WEntryPercent);
             }
         }
 
@@ -124,26 +124,71 @@ namespace Nutrition_App.ViewModels
         #region Entry
 
         public Command KcalTextChangedCommand => new Command<int>((t) => KcalTextChanged(t));
-        public Command PercentTextChangedCommand => new Command<TypeOfMacro>((t) => PercentTextChanged(t));
+        public Command PercentBTextChangedCommand => new Command<int>((t) => PercentBTextChanged(t));
+        public Command PercentTTextChangedCommand => new Command<int>((t) => PercentTTextChanged(t));
+        public Command PercentWTextChangedCommand => new Command<int>((t) => PercentWTextChanged(t));
 
-        private void PercentTextChanged(TypeOfMacro typeOfMacro)
+        private void PercentBTextChanged(int number)
         {
-            if (CheckSumOfPercents())
+            if(number > 100)
             {
-                switch (typeOfMacro)
-                {
-                    case TypeOfMacro.B:
-                        {
-                            break;
-                        }
-                    case TypeOfMacro.T:
-                        break;
-                    case TypeOfMacro.W:
-                        break;
-                    default:
-                        break;
-                }
+                number = 100;
             }
+
+            if(PercentsToUse >= 0)
+            {
+                if (number > PercentsToUse)
+                {
+                    BEntryPercent = PercentsToUse;
+                    PercentsToUse = 0;
+                }
+                else
+                    PercentsToUse -= number;
+            }
+            UpdatePercentsToUse();
+            CalculateKcalFromPercentMacros();
+        }
+        private void PercentTTextChanged(int number)
+        {
+            if (number > 100)
+            {
+                //TEntryPercent = PercentsToUse + (TEntryPercent - 100);
+                TEntryPercent -= 100;
+                //PercentsToUse += TEntryAmount - 100;
+            }
+
+            if (PercentsToUse >= 0)
+            {
+                if (number > PercentsToUse)
+                {
+                    TEntryPercent = PercentsToUse;
+                    PercentsToUse = 0;
+                }
+                else
+                    PercentsToUse -= number;
+            }
+            UpdatePercentsToUse();
+            CalculateKcalFromPercentMacros();
+        }
+        private void PercentWTextChanged(int number)
+        {
+            if (number > 100)
+            {
+                number = 100;
+            }
+
+            if (PercentsToUse >= 0)
+            {
+                if (number > PercentsToUse)
+                {
+                    WEntryPercent = PercentsToUse;
+                    PercentsToUse = 0;
+                }
+                else
+                    PercentsToUse -= number;
+            }
+            UpdatePercentsToUse();
+            CalculateKcalFromPercentMacros();
         }
 
         private void KcalTextChanged(int t)
@@ -181,56 +226,19 @@ namespace Nutrition_App.ViewModels
             else
                 ModifyValuesState = true;
         }
-        private bool CheckIfSumIs100Percnt()
-        {
-            int sum = BEntryPercent + TEntryPercent + WEntryPercent;
-
-            if (sum == 100)
-                return true;
-            else 
-                return false;
-        }
-
-        public bool CheckSumOfPercents()// True - suma mniejsza lub równa 100
-        {
-            if(BEntryPercent >= 100 || TEntryPercent >= 100 || WEntryPercent >= 100)
-            {
-                return false;
-            }
-
-            int sum = BEntryPercent + TEntryPercent + WEntryPercent;
-
-            if (sum > 100)
-            {
-                return false;
-            }
-
-            return true;
-        }
 
         public void UpdatePercentsToUse()
         {
             int sum = BEntryPercent + TEntryPercent + WEntryPercent;
 
-            if (sum > 100)
-            {
-                PercentsToUse += (sum - 100) / 2;
-            }
+            PercentsToUse = 100 - sum;
+        }
 
-            if (PercentsToUse < 0)
-            {
-                PercentsToUse += PercentsToUse * -1;
-            }
-            else
-            {
-                int calculation = 100 - sum;
-
-                if (calculation >= 0)
-                    PercentsToUse = calculation;
-                else
-                    PercentsToUse = 0;
-            }
-
+        public void CalculateKcalFromPercentMacros()
+        {
+            BEntryAmount = (KcalAmount / 100 * BEntryPercent) / 4;
+            TEntryAmount = (KcalAmount / 100 * TEntryPercent) / 9;
+            WEntryAmount = (KcalAmount / 100 * WEntryPercent) / 4;
         }
 
         #endregion

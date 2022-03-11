@@ -65,14 +65,7 @@
                     <Label Grid.Column="0" Text="Białka" VerticalTextAlignment="Center" FontSize="20" Padding="5,0,0,0"/>
                     <Entry Grid.Column="1" Text="{Binding BEntryAmount}" TextColor="Gray" IsReadOnly="True" HorizontalTextAlignment="Center" Keyboard="Numeric"/>
                     <Label Grid.Column="2" Text="g" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="20"/>
-                    <Entry Grid.Column="3" IsReadOnly="{Binding ModifyValuesState}" HorizontalTextAlignment="Center" Keyboard="Numeric">
-                        <Entry.Text>
-                            <MultiBinding Converter="{StaticResource Over100PercentConverter}">
-                                <Binding Path="BEntryPercent" Mode="TwoWay"></Binding>
-                                <Binding Path="PercentsToUse" Mode="TwoWay"></Binding>
-                            </MultiBinding>
-                        </Entry.Text>
-                    </Entry>
+                    <Entry Grid.Column="3" Text="{Binding BEntryPercent, Mode=TwoWay}" IsReadOnly="{Binding ModifyValuesState}" HorizontalTextAlignment="Center" Keyboard="Numeric" />
                     <Label Grid.Column="4" Text="%" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="20"/>
                 </Grid>
 
@@ -91,14 +84,7 @@
                     <Label Grid.Column="0" Text="Tłuszcze" VerticalTextAlignment="Center" FontSize="20" Padding="5,0,0,0"/>
                     <Entry Grid.Column="1" Text="{Binding TEntryAmount}" TextColor="Gray" IsReadOnly="True" HorizontalTextAlignment="Center" Keyboard="Numeric"/>
                     <Label Grid.Column="2" Text="g" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="20"/>
-                    <Entry Grid.Column="3" IsReadOnly="{Binding ModifyValuesState}" HorizontalTextAlignment="Center" Keyboard="Numeric">
-                        <Entry.Text>
-                            <MultiBinding Converter="{StaticResource Over100PercentConverter}">
-                                <Binding Path="TEntryPercent" Mode="TwoWay"></Binding>
-                                <Binding Path="PercentsToUse" Mode="TwoWay"></Binding>
-                            </MultiBinding>
-                        </Entry.Text>
-                    </Entry>
+                    <Entry Grid.Column="3" Text="{Binding TEntryPercent,Mode=TwoWay}" IsReadOnly="{Binding ModifyValuesState}" HorizontalTextAlignment="Center" Keyboard="Numeric"/>
                     <Label Grid.Column="4" Text="%" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="20"/>
                 </Grid>
 
@@ -117,14 +103,7 @@
                     <Label Grid.Column="0" Text="Węgl." VerticalTextAlignment="Center" FontSize="20" Padding="5,0,0,0"/>
                     <Entry Grid.Column="1" Text="{Binding WEntryAmount}" TextColor="Gray" IsReadOnly="True" HorizontalTextAlignment="Center" Keyboard="Numeric"/>
                     <Label Grid.Column="2" Text="g" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="20"/>
-                    <Entry Grid.Column="3" IsReadOnly="{Binding ModifyValuesState}" HorizontalTextAlignment="Center" Keyboard="Numeric">
-                        <Entry.Text>
-                            <MultiBinding Converter="{StaticResource Over100PercentConverter}">
-                                <Binding Path="WEntryPercent" Mode="TwoWay"></Binding>
-                                <Binding Path="PercentsToUse" Mode="TwoWay"></Binding>
-                            </MultiBinding>
-                        </Entry.Text>
-                    </Entry>
+                    <Entry Grid.Column="3" Text="{Binding WEntryPercent,Mode=TwoWay}" IsReadOnly="{Binding ModifyValuesState}" HorizontalTextAlignment="Center" Keyboard="Numeric"/>
                     <Label Grid.Column="4" Text="%" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="20"/>
                 </Grid>
                 
