@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<xct:Popup  xmlns:xct="http://xamarin.com/schemas/2020/toolkit" 
+<xct:Popup  xmlns:xct="clr-namespace:Xamarin.CommunityToolkit.UI.Views;assembly=Xamarin.CommunityToolkit"
             xmlns="http://xamarin.com/schemas/2014/forms"
             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
             xmlns:popupsviewmodels="clr-namespace:Nutrition_App.ViewModels.PopupsViewModels" 
@@ -19,8 +19,9 @@
                             <RowDefinition/>
                             <RowDefinition/>
                         </Grid.RowDefinitions>
-                        
-                        <Label Text="{Binding}" VerticalOptions="Center" HorizontalOptions="Center" FontSize="50"/>
+
+                        <Label Text="{Binding}" VerticalOptions="Center" HorizontalOptions="Center" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" 
+                               FontSize="50" FontAttributes="Bold"/>
                     </Grid>
                 </DataTemplate>
             </CollectionView.ItemTemplate>

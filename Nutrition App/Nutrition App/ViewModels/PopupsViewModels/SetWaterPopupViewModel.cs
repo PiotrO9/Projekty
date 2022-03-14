@@ -20,14 +20,14 @@ namespace Nutrition_App.ViewModels.PopupsViewModels
 
         private WaterOperationType _waterOperationChoice { get; set; }
 
-        private WaterPage _wp { get; set; }
+        private WaterPageViewModel _wpVM { get; set; }
 
-        public SetWaterPopupViewModel(SetWaterPopup setWaterPopup, ObservableCollection<string> vs, WaterOperationType waterOperationType,WaterPage waterPage)
+        public SetWaterPopupViewModel(SetWaterPopup setWaterPopup, ObservableCollection<string> vs, WaterOperationType waterOperationType, WaterPageViewModel waterPageViewModel)
         {
             _swp = setWaterPopup;
             CollectionSource = vs;
             _waterOperationChoice = waterOperationType;
-            _wp = waterPage;
+            _wpVM = waterPageViewModel;
 
             QuitCommand = new Command(QuitCommandImpl);
         }
@@ -62,9 +62,9 @@ namespace Nutrition_App.ViewModels.PopupsViewModels
                             break; 
                         }
                 }
-  
 
-            _swp.Dismiss(null);
+                _wpVM.UpdateValuesToTexts();
+                _swp.Dismiss(null);
             }
         }
     }

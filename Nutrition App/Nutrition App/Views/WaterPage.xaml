@@ -26,9 +26,11 @@
 
                 <Image Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Source="glass_of_water.jpg"/>
 
-                <Label Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Text="Testowy" FontSize="30" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Margin="0,0,0,70" FontAttributes="Bold"/>
+                <Label Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Text="{Binding Capacity}" FontSize="30" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
+                       Margin="0,0,0,90" FontAttributes="Bold"/>
 
-                <Label Grid.Column="1" Grid.Row="0" Text="Wybierz pojemność szklanki" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" FontSize="28" FontAttributes="Bold" Padding="20,45,0,0"/>
+                <Label Grid.Column="1" Grid.Row="0" Text="Wybierz pojemność szklanki" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
+                       FontSize="28" FontAttributes="Bold" Padding="20,45,0,0"/>
 
                 <Button Grid.Column="1" Grid.Row="1" Text="Zmień" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,0,0,40" Padding="20" Command="{Binding GlassCapacityClick}"/>
 
@@ -45,9 +47,11 @@
 
                 <Image Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Source="glass_of_water.jpg"/>
 
-                <Label Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Text="Testowy" FontSize="30" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Margin="0,0,0,70" FontAttributes="Bold"/>
+                <Label Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Text="{Binding WaterTarget}" FontSize="30" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
+                       Margin="0,0,0,90" FontAttributes="Bold"/>
 
-                <Label Grid.Column="1" Grid.Row="0" Text="Wybierz dzienny cel" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" FontSize="33" FontAttributes="Bold" Padding="20,60,0,0"/>
+                <Label Grid.Column="1" Grid.Row="0" Text="Wybierz dzienny cel" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
+                       FontSize="33" FontAttributes="Bold" Padding="20,60,0,0"/>
 
                 <Button Grid.Column="1" Grid.Row="1" Text="Zmień" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,0,0,40" Padding="20" Command="{Binding WaterAmountClick}"/>
 
