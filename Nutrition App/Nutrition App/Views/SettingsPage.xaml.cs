@@ -16,7 +16,7 @@ namespace Nutrition_App.Views
         public SettingsPage()
         {
             InitializeComponent();
-            BindingContext = new SettingsPageViewModel();
+            BindingContext = new SettingsPageViewModel(this);
         }
     }
 }

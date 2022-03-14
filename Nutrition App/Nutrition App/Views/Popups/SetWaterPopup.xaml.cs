@@ -1,4 +1,5 @@
 ﻿using Nutrition_App.Enums;
+using Nutrition_App.Services;
 using Nutrition_App.ViewModels.PopupsViewModels;
 using System;
 using System.Collections.Generic;
@@ -17,25 +18,23 @@ namespace Nutrition_App.Views.Popups
     {
         private WaterPage _wp { get; set; }
 
-        public SetWaterPopup(WaterOperationType waterOperationType,WaterPage waterPage)
+        public SetWaterPopup(WaterOperationType waterOperationType, WaterPage waterPage)
         {
             _wp = waterPage;
 
-            ObservableCollection<string> collection;
+            ObservableCollection<string> collection = new ObservableCollection<string>();
 
             switch (waterOperationType)
             {
                 case WaterOperationType.TotalAmount:
                     {
-                        collection = new ObservableCollection<string>() { "1000", "1050", "1100", "1150", "1200", "1250", "1300", "1350", "1400", "1450", "1500", "1550", "1600", "1650",
-                        "1700","1750","1800","1850","1900","1950","2000","2050","2100","2150","2200","2250","2300","2350","2400","2450","2500","2550","2600","2650","2700","2750","2800",
-                            "2850","2900","2950","3000",};
-                        BindingContext = new SetWaterPopupViewModel(this, collection, waterOperationType,_wp);
-                        break; 
+                        collection = GetListOfWaterAmount.GetListOfWaterAmountMethod(WaterOperationType.TotalAmount, 81);
+                        BindingContext = new SetWaterPopupViewModel(this, collection, waterOperationType, _wp);
+                        break;
                     }
                 case WaterOperationType.Capacity:
                     {
-                        collection = new ObservableCollection<string>() { "50", "100", "150", "200", "250", "300", "350", "400", "450", "500" };
+                        collection = GetListOfWaterAmount.GetListOfWaterAmountMethod(WaterOperationType.Capacity, 10);
                         BindingContext = new SetWaterPopupViewModel(this, collection, waterOperationType,_wp);
                         break; 
                     }

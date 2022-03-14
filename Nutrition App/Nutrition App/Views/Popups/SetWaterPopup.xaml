@@ -8,8 +8,24 @@
             x:Class="Nutrition_App.Views.Popups.SetWaterPopup">
 
     <StackLayout>
-        <CollectionView ItemsSource="{Binding CollectionSource}" SelectedItem="{Binding SelectedItem}" SelectionMode="Single" VerticalOptions="Center" HorizontalOptions="Center"/>
-        <Button Command="{Binding QuitCommand}"/>
+        <CollectionView ItemsSource="{Binding CollectionSource}" SelectedItem="{Binding SelectedItem}" SelectionMode="Single" VerticalOptions="Center" HorizontalOptions="Center">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="x:String">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        
+                        <Label Text="{Binding}" VerticalOptions="Center" HorizontalOptions="Center" FontSize="50"/>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        <Button Text="Zatwierdź" FontSize="20" Command="{Binding QuitCommand}" VerticalOptions="Center" HorizontalOptions="Center"/>
     </StackLayout>
     
 </xct:Popup>

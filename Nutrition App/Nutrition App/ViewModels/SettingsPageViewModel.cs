@@ -1,8 +1,12 @@
 ﻿using Nutrition_App.Enums;
+using Nutrition_App.Services;
+using Nutrition_App.Views;
+using Nutrition_App.Views.Popups;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
+using Xamarin.CommunityToolkit.Extensions;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 
@@ -10,8 +14,9 @@ namespace Nutrition_App.ViewModels
 {
     public class SettingsPageViewModel : BaseViewModel
     {
-        public SettingsPageViewModel()
+        public SettingsPageViewModel(SettingsPage settingsPage)
         {
+            _sp = settingsPage;
             LoadPreferences();
         }
 
@@ -120,6 +125,8 @@ namespace Nutrition_App.ViewModels
         }
 
         #endregion
+
+        private SettingsPage _sp { get; set; }
 
         #region Entry
 
@@ -266,6 +273,8 @@ namespace Nutrition_App.ViewModels
                 Preferences.Set("BSubmitLimit", BEntryAmount.ToString());
                 Preferences.Set("TSubmitLimit", TEntryAmount.ToString());
                 Preferences.Set("WSubmitLimit", WEntryAmount.ToString());
+
+                _sp.Navigation.ShowPopup(new MacrosInfoPopup(CombineMacrosTextToDisplay.CombineMacrosTextToDisplayMethod(BEntryAmount,TEntryAmount,WEntryAmount)));
             }
         }
 

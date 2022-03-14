@@ -1,4 +1,5 @@
-﻿using Nutrition_App.Interfaces;
+﻿using Acr.UserDialogs;
+using Nutrition_App.Interfaces;
 using Nutrition_App.Models;
 using Nutrition_App.Services;
 using Nutrition_App.Services.ConvertingServices;
@@ -28,6 +29,10 @@ namespace Nutrition_App.ViewModels
 
             _mainPage = mainPage;
 
+            DaysDifference = 0;
+
+            #region Common
+
             ButtonClickCommand = new Command((parameter) => ButtonClickCommandImpl(parameter));
             DaysButtonClickCommand = new Command((parametr) => DaysButtonClickCommandImpl(parametr));
 
@@ -42,8 +47,6 @@ namespace Nutrition_App.ViewModels
             CurrentAmountOfWater = int.Parse(ReadFileToWater.ReadFileToWaterMethod(DaysDifference));
 
             SetDaysBinding();
-
-            #region Common
 
             AddWaterClick = new Command(AddWaterClickImpl);
             SubWaterClick = new Command(SubWaterClickImpl);
@@ -60,12 +63,11 @@ namespace Nutrition_App.ViewModels
 
             #endregion
 
-            List<ObservableCollection<MealToDisplay>> temp = FileToCollection.FileToCollectionMethod(DaysDifference);
-            FillByMissingCommand(temp);
-            UpdateCollections(temp);
+            List<ObservableCollection<MealToDisplay>> LoadedCollection = FileToCollection.FileToCollectionMethod(DaysDifference);
+            FillByMissingCommand(LoadedCollection);
+            UpdateCollections(LoadedCollection);
 
             CheckIfCollectionsAreNotNull();
-            DaysDifference = 0;
             CalculateMacros();
         }
 
@@ -76,6 +78,8 @@ namespace Nutrition_App.ViewModels
             _mainPage = mainPage;
 
             DaysDifference = difference;
+
+            #region Common
 
             ButtonClickCommand = new Command((parameter) => ButtonClickCommandImpl(parameter));
             DaysButtonClickCommand = new Command((parametr) => DaysButtonClickCommandImpl(parametr));
@@ -92,8 +96,6 @@ namespace Nutrition_App.ViewModels
 
             SetDaysBinding(DaysDifference);
 
-            #region Common
-
             AddWaterClick = new Command(AddWaterClickImpl);
             SubWaterClick = new Command(SubWaterClickImpl);
 
@@ -109,9 +111,9 @@ namespace Nutrition_App.ViewModels
 
             #endregion
 
-            List<ObservableCollection<MealToDisplay>> temp = FileToCollection.FileToCollectionMethod(CombineDifferenceFileName.CombineDifferenceFileNameMethod(DaysDifference), DaysDifference);
-            FillByMissingCommand(temp);
-            UpdateCollections(temp);
+            List<ObservableCollection<MealToDisplay>> LoadedCollection = FileToCollection.FileToCollectionMethod(CombineDifferenceFileName.CombineDifferenceFileNameMethod(DaysDifference), DaysDifference);
+            FillByMissingCommand(LoadedCollection);
+            UpdateCollections(LoadedCollection);
 
             CheckIfCollectionsAreNotNull();
             CalculateMacros();
@@ -1137,6 +1139,3 @@ namespace Nutrition_App.ViewModels
         #endregion
     }
 }
-
-
-
