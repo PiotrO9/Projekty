@@ -323,16 +323,35 @@ namespace Nutrition_App.ViewModels
             #endregion
         }
 
+        public void RenameMealsInCollection(ObservableCollection<MealToDisplay> mealToDisplays)
+        {
+            if (mealToDisplays == null)
+                return;
+
+            int length = mealToDisplays.Count;
+
+            if (length > 0)
+            {
+                for (int i = 0; i < length; i++)
+                {
+                    var numbersoFButtonPosition = GetButtonPosition.GetButtonPositionMethod(mealToDisplays[i].ButtonName);
+
+                    mealToDisplays[i].ButtonName = "btn_" + numbersoFButtonPosition.Item1.ToString() + "_" + (i + 1).ToString(); 
+                }
+            }
+        }
+
     #endregion
 
     #region Command implementation
 
     private void ButtonClickCommandImpl(object parameter)
     {
-        if( parameter is string ButtonName)
+        if (parameter is string ButtonName)
             {
                 if(!String.IsNullOrWhiteSpace(ButtonName))
                 {
+                    DeleteMeal.DeleteMealMethod(this, ButtonName);
                     var numbersoFButtonPosition = GetButtonPosition.GetButtonPositionMethod(ButtonName);
                 }
             }

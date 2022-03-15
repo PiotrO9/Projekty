@@ -147,7 +147,7 @@
                                             </Grid.ColumnDefinitions>
 
                                             <Label x:Name="lblTitle" Grid.Row="0" Grid.Column="0" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="20" Text="{Binding Name}"/>
-                                            <Label x:Name="lblAmount" Grid.Row="1" Grid.Column="0" Text="{Binding Amount}"/>
+                                            <Label x:Name="lblAmount" Grid.Row="1" Grid.Column="0" Text="{Binding Amount, StringFormat='{0} g'}"/>
 
                                             <Grid x:Name="InsideMacroGrid" Grid.Row="2" Grid.Column="0">
                                                 <Grid.RowDefinitions>
@@ -160,7 +160,7 @@
                                                     <ColumnDefinition/>
                                                 </Grid.ColumnDefinitions>
 
-                                                <Label x:Name="lblKcal" Grid.Row="0" Grid.Column="0" Text="{Binding Kcal}" FontSize="15"/>
+                                                <Label x:Name="lblKcal" Grid.Row="0" Grid.Column="0" Text="{Binding Kcal, StringFormat='{0} kcal'}" FontSize="15"/>
                                                 <Label x:Name="lblB" Grid.Row="0" Grid.Column="1" Text="{Binding B}"/>
                                                 <Label x:Name="lblT" Grid.Row="0" Grid.Column="2" Text="{Binding T}"/>
                                                 <Label x:Name="lblW" Grid.Row="0" Grid.Column="3" Text="{Binding W}"/>
@@ -248,7 +248,7 @@
                                             </Grid.ColumnDefinitions>
 
                                             <Label x:Name="lblTitle" Grid.Row="0" Grid.Column="0" FontSize="20" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Text="{Binding Name}"/>
-                                            <Label x:Name="lblAmount" Grid.Row="1" Grid.Column="0" Text="{Binding Amount}"/>
+                                            <Label x:Name="lblAmount" Grid.Row="1" Grid.Column="0" Text="{Binding Amount, StringFormat='{0} g'}"/>
 
                                             <Grid x:Name="InsideMacroGrid" Grid.Row="2" Grid.Column="0">
                                                 <Grid.RowDefinitions>
@@ -261,7 +261,7 @@
                                                     <ColumnDefinition/>
                                                 </Grid.ColumnDefinitions>
 
-                                                <Label x:Name="lblKcal" Grid.Row="0" Grid.Column="0" Text="{Binding Kcal}" FontSize="15"/>
+                                                <Label x:Name="lblKcal" Grid.Row="0" Grid.Column="0" Text="{Binding Kcal, StringFormat='{0} kcal'}" FontSize="15"/>
                                                 <Label x:Name="lblB" Grid.Row="0" Grid.Column="1" Text="{Binding B}"/>
                                                 <Label x:Name="lblT" Grid.Row="0" Grid.Column="2" Text="{Binding T}"/>
                                                 <Label x:Name="lblW" Grid.Row="0" Grid.Column="3" Text="{Binding W}"/>
@@ -347,7 +347,7 @@
                                             </Grid.ColumnDefinitions>
 
                                             <Label x:Name="lblTitle" Grid.Row="0" Grid.Column="0" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Text="{Binding Name}"/>
-                                            <Label x:Name="lblAmount" Grid.Row="1" Grid.Column="0" Text="{Binding Amount}"/>
+                                            <Label x:Name="lblAmount" Grid.Row="1" Grid.Column="0" Text="{Binding Amount, StringFormat='{0} g'}"/>
 
                                             <Grid x:Name="InsideMacroGrid" Grid.Row="2" Grid.Column="0">
                                                 <Grid.RowDefinitions>
@@ -360,7 +360,7 @@
                                                     <ColumnDefinition/>
                                                 </Grid.ColumnDefinitions>
 
-                                                <Label x:Name="lblKcal" Grid.Row="0" Grid.Column="0" Text="{Binding Kcal}" FontSize="15"/>
+                                                <Label x:Name="lblKcal" Grid.Row="0" Grid.Column="0" Text="{Binding Kcal, StringFormat='{0} kcal'}" FontSize="15"/>
                                                 <Label x:Name="lblB" Grid.Row="0" Grid.Column="1" Text="{Binding B}"/>
                                                 <Label x:Name="lblT" Grid.Row="0" Grid.Column="2" Text="{Binding T}"/>
                                                 <Label x:Name="lblW" Grid.Row="0" Grid.Column="3" Text="{Binding W}"/>
@@ -447,7 +447,7 @@
                                             </Grid.ColumnDefinitions>
 
                                             <Label x:Name="lblTitle" Grid.Row="0" Grid.Column="0" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="20" Text="{Binding Name}"/>
-                                            <Label x:Name="lblAmount" Grid.Row="1" Grid.Column="0" Text="{Binding Amount}"/>
+                                            <Label x:Name="lblAmount" Grid.Row="1" Grid.Column="0" Text="{Binding Amount, StringFormat='{0} g'}"/>
 
                                             <Grid x:Name="InsideMacroGrid" Grid.Row="2" Grid.Column="0">
                                                 <Grid.RowDefinitions>
@@ -460,7 +460,7 @@
                                                     <ColumnDefinition/>
                                                 </Grid.ColumnDefinitions>
 
-                                                <Label x:Name="lblKcal" Grid.Row="0" Grid.Column="0" Text="{Binding Kcal}" FontSize="15"/>
+                                                <Label x:Name="lblKcal" Grid.Row="0" Grid.Column="0" Text="{Binding Kcal, StringFormat='{0} kcal'}" FontSize="15"/>
                                                 <Label x:Name="lblB" Grid.Row="0" Grid.Column="1" Text="{Binding B}"/>
                                                 <Label x:Name="lblT" Grid.Row="0" Grid.Column="2" Text="{Binding T}"/>
                                                 <Label x:Name="lblW" Grid.Row="0" Grid.Column="3" Text="{Binding W}"/>
@@ -547,7 +547,7 @@
                                             </Grid.ColumnDefinitions>
 
                                             <Label x:Name="lblTitle" Grid.Row="0" Grid.Column="0" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="20" Text="{Binding Name}"/>
-                                            <Label x:Name="lblAmount" Grid.Row="1" Grid.Column="0" Text="{Binding Amount}"/>
+                                            <Label x:Name="lblAmount" Grid.Row="1" Grid.Column="0" Text="{Binding Amount, StringFormat='{0} g'}"/>
 
                                             <Grid x:Name="InsideMacroGrid" Grid.Row="2" Grid.Column="0">
                                                 <Grid.RowDefinitions>
@@ -560,7 +560,7 @@
                                                     <ColumnDefinition/>
                                                 </Grid.ColumnDefinitions>
 
-                                                <Label x:Name="lblKcal" Grid.Row="0" Grid.Column="0" Text="{Binding Kcal}" FontSize="15"/>
+                                                <Label x:Name="lblKcal" Grid.Row="0" Grid.Column="0" Text="{Binding Kcal, StringFormat='{0} kcal'}" FontSize="15"/>
                                                 <Label x:Name="lblB" Grid.Row="0" Grid.Column="1" Text="{Binding B}"/>
                                                 <Label x:Name="lblT" Grid.Row="0" Grid.Column="2" Text="{Binding T}"/>
                                                 <Label x:Name="lblW" Grid.Row="0" Grid.Column="3" Text="{Binding W}"/>
