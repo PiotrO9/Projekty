@@ -24,13 +24,13 @@ namespace Nutrition_App.Services.ConvertingServices
             int gTempAmount = int.Parse(mealToTransform[2].Remove(mealToTransform[2].Length - 2, 2).ToString());
 
             temp = mealToTransform[3].Remove(0, 3).ToString();
-            float BTempAmount = float.Parse(temp.Remove(temp.Length - 2, 2));
+            float BTempAmount = float.Parse(temp.Remove(temp.Length - 2, 2).Replace(',', '.'));
 
             temp = mealToTransform[4].Remove(0, 3).ToString();
-            float TTempAmount = float.Parse(temp.Remove(temp.Length - 2, 2).ToString());
+            float TTempAmount = float.Parse(temp.Remove(temp.Length - 2, 2).Replace(',', '.'));
 
             temp = mealToTransform[5].Remove(0, 3).ToString();
-            float WTempAmount = float.Parse(temp.Remove(temp.Length - 2, 2).ToString());
+            float WTempAmount = float.Parse(temp.Remove(temp.Length - 2, 2).Replace(',', '.'));
 
             // Liczenie wartości dla 1g oraz 100g
 

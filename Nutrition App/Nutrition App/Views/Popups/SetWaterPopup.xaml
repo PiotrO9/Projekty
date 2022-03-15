@@ -3,6 +3,7 @@
             xmlns="http://xamarin.com/schemas/2014/forms"
             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
             xmlns:popupsviewmodels="clr-namespace:Nutrition_App.ViewModels.PopupsViewModels" 
+            xmlns:val="clr-namespace:Nutrition_App.Validators"
             x:DataType="popupsviewmodels:SetWaterPopupViewModel"
             Size="300,300"
             x:Class="Nutrition_App.Views.Popups.SetWaterPopup">
@@ -26,7 +27,8 @@
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
-        <Button Text="Zatwierdź" FontSize="20" Command="{Binding QuitCommand}" VerticalOptions="Center" HorizontalOptions="Center"/>
+        <Button Text="Zatwierdź" FontSize="20" Command="{Binding QuitCommand}" VerticalOptions="Center" HorizontalOptions="Center"
+                BackgroundColor="{Binding ButtonBackgroundColor, Mode=OneWay}"/>
     </StackLayout>
     
 </xct:Popup>

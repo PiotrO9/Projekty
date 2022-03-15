@@ -53,6 +53,5 @@
   <ItemGroup>
     <Folder Include="Controls\" />
     <Folder Include="Effects\" />
-    <Folder Include="Validators\" />
   </ItemGroup>
 </Project>

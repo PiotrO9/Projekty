@@ -1,5 +1,6 @@
 ﻿using Nutrition_App.Views.Popups;
 using System;
+using System.Drawing;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
@@ -10,11 +11,11 @@ using Nutrition_App.Views;
 
 namespace Nutrition_App.ViewModels.PopupsViewModels
 {
-    class SetWaterPopupViewModel : BaseViewModel
+    public class SetWaterPopupViewModel : BaseViewModel
     {
         private SetWaterPopup _swp { get; set; }
 
-        private bool isNotSelected { get; set; } = false;
+        public bool IsNotSelected { get; set; }
 
         public ObservableCollection<string> CollectionSource { get; set; }
 
@@ -24,10 +25,14 @@ namespace Nutrition_App.ViewModels.PopupsViewModels
 
         public SetWaterPopupViewModel(SetWaterPopup setWaterPopup, ObservableCollection<string> vs, WaterOperationType waterOperationType, WaterPageViewModel waterPageViewModel)
         {
+            IsNotSelected = false;
+
             _swp = setWaterPopup;
             CollectionSource = vs;
             _waterOperationChoice = waterOperationType;
             _wpVM = waterPageViewModel;
+
+            ButtonBackgroundColor = System.Drawing.Color.FromArgb(255, 0, 0);
 
             QuitCommand = new Command(QuitCommandImpl);
         }
@@ -37,17 +42,28 @@ namespace Nutrition_App.ViewModels.PopupsViewModels
         public string SelectedItem
         {
             get { return _selectedItem; }
-            set 
+            set
             {
                 _selectedItem = value;
-                isNotSelected = true;
+                IsNotSelected = true;
+                ButtonBackgroundColor = System.Drawing.Color.FromArgb(0, 255, 0);
             }
         }
+
+        private System.Drawing.Color _buttonBackgroundColor;
+
+        public System.Drawing.Color ButtonBackgroundColor
+        {
+            get { return _buttonBackgroundColor; }
+            set { _buttonBackgroundColor = value; OnPropertyChanged(); }
+        }
+
+
 
         public Command QuitCommand { get; }
         public void QuitCommandImpl()
         {
-            if(isNotSelected == true)
+            if(IsNotSelected == true)
             {
                 switch (_waterOperationChoice)
                 {
