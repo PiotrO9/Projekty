@@ -15,7 +15,7 @@ namespace Nutrition_App.Services.Scraping
 
             var web = new HtmlWeb();
 
-            var document = web.Load("http://www.ilewazy.pl/produkty/page/" + PageNumber + "/q/" + ProductSearch + "/");
+            var document = await web.LoadFromWebAsync("http://www.ilewazy.pl/produkty/page/" + PageNumber + "/q/" + ProductSearch + "/");
 
             var ProductsAmount = document.QuerySelectorAll(".span3").Count - 2; // Products amount by class name
 

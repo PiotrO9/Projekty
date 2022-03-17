@@ -27,8 +27,6 @@ namespace Nutrition_App.Converters
 
             int number = (int)value[0];
 
-            int i = 1;
-
             return number;
         }
 

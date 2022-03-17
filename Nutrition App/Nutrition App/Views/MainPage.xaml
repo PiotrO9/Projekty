@@ -110,7 +110,7 @@
                                         <ColumnDefinition/>
                                     </Grid.ColumnDefinitions>
 
-                                    <Label Grid.Column="0" Text="{Binding BreakfastKcalTotalAmount}" Margin="5,0,0,0" FontSize="15"/>
+                                    <Label Grid.Column="0" Text="{Binding BreakfastKcalTotalAmount}" Margin="5,0,0,0" FontSize="20" HorizontalTextAlignment="Center" Padding="0,0,10,0"/>
                                     <Label Grid.Column="1" Text="{Binding BreakfastBTotalAmount}" FontSize="20"/>
                                     <Label Grid.Column="2" Text="{Binding BreakfastTTotalAmount}" FontSize="20"/>
                                     <Label Grid.Column="3" Text="{Binding BreakfastWTotalAmount}" FontSize="20"/>
@@ -161,9 +161,9 @@
                                                 </Grid.ColumnDefinitions>
 
                                                 <Label x:Name="lblKcal" Grid.Row="0" Grid.Column="0" Text="{Binding Kcal, StringFormat='{0} kcal'}" FontSize="15"/>
-                                                <Label x:Name="lblB" Grid.Row="0" Grid.Column="1" Text="{Binding B}"/>
-                                                <Label x:Name="lblT" Grid.Row="0" Grid.Column="2" Text="{Binding T}"/>
-                                                <Label x:Name="lblW" Grid.Row="0" Grid.Column="3" Text="{Binding W}"/>
+                                                <Label x:Name="lblB" Grid.Row="0" Grid.Column="1" Text="{Binding B, StringFormat='{0} g'}"/>
+                                                <Label x:Name="lblT" Grid.Row="0" Grid.Column="2" Text="{Binding T, StringFormat='{0} g'}"/>
+                                                <Label x:Name="lblW" Grid.Row="0" Grid.Column="3" Text="{Binding W, StringFormat='{0} g'}"/>
 
                                             </Grid>
 
@@ -210,7 +210,7 @@
                                         <ColumnDefinition/>
                                     </Grid.ColumnDefinitions>
 
-                                    <Label Grid.Column="0" Text="{Binding SecondBreakfastKcalTotalAmount}" Margin="5,0,0,0" FontSize="15"/>
+                                    <Label Grid.Column="0" Text="{Binding SecondBreakfastKcalTotalAmount}" Margin="5,0,0,0" FontSize="20" HorizontalTextAlignment="Center" Padding="0,0,10,0"/>
                                     <Label Grid.Column="1" Text="{Binding SecondBreakfastBTotalAmount}" FontSize="20"/>
                                     <Label Grid.Column="2" Text="{Binding SecondBreakfastTTotalAmount}" FontSize="20"/>
                                     <Label Grid.Column="3" Text="{Binding SecondBreakfastWTotalAmount}" FontSize="20"/>
@@ -310,7 +310,7 @@
                                         <ColumnDefinition/>
                                     </Grid.ColumnDefinitions>
 
-                                    <Label Grid.Column="0" Text="{Binding LunchKcalTotalAmount}" FontSize="15"/>
+                                    <Label Grid.Column="0" Text="{Binding LunchKcalTotalAmount}" FontSize="20" HorizontalTextAlignment="Center" Padding="0,0,10,0"/>
                                     <Label Grid.Column="1" Text="{Binding LunchBTotalAmount}" FontSize="20"/>
                                     <Label Grid.Column="2" Text="{Binding LunchTTotalAmount}" FontSize="20"/>
                                     <Label Grid.Column="3" Text="{Binding LunchWTotalAmount}" FontSize="20"/>
@@ -361,9 +361,9 @@
                                                 </Grid.ColumnDefinitions>
 
                                                 <Label x:Name="lblKcal" Grid.Row="0" Grid.Column="0" Text="{Binding Kcal, StringFormat='{0} kcal'}" FontSize="15"/>
-                                                <Label x:Name="lblB" Grid.Row="0" Grid.Column="1" Text="{Binding B}"/>
-                                                <Label x:Name="lblT" Grid.Row="0" Grid.Column="2" Text="{Binding T}"/>
-                                                <Label x:Name="lblW" Grid.Row="0" Grid.Column="3" Text="{Binding W}"/>
+                                                <Label x:Name="lblB" Grid.Row="0" Grid.Column="1" Text="{Binding B, StringFormat='{0} g'}"/>
+                                                <Label x:Name="lblT" Grid.Row="0" Grid.Column="2" Text="{Binding T, StringFormat='{0} g'}"/>
+                                                <Label x:Name="lblW" Grid.Row="0" Grid.Column="3" Text="{Binding W, StringFormat='{0} g'}"/>
 
                                             </Grid>
 
@@ -409,7 +409,7 @@
                                         <ColumnDefinition/>
                                     </Grid.ColumnDefinitions>
 
-                                    <Label Grid.Column="0" Text="{Binding DinnerKcalTotalAmount}" FontSize="15"/>
+                                    <Label Grid.Column="0" Text="{Binding DinnerKcalTotalAmount}" FontSize="20" HorizontalTextAlignment="Center" Padding="0,0,10,0"/>
                                     <Label Grid.Column="1" Text="{Binding DinnerBTotalAmount}" FontSize="20"/>
                                     <Label Grid.Column="2" Text="{Binding DinnerTTotalAmount}" FontSize="20"/>
                                     <Label Grid.Column="3" Text="{Binding DinnerWTotalAmount}" FontSize="20"/>
@@ -509,7 +509,7 @@
                                         <ColumnDefinition/>
                                     </Grid.ColumnDefinitions>
 
-                                    <Label Grid.Column="0" Text="{Binding SupperKcalTotalAmount}" FontSize="15"/>
+                                    <Label Grid.Column="0" Text="{Binding SupperKcalTotalAmount}" FontSize="20" HorizontalTextAlignment="Center" Padding="0,0,10,0"/>
                                     <Label Grid.Column="1" Text="{Binding SupperBTotalAmount}" FontSize="20"/>
                                     <Label Grid.Column="2" Text="{Binding SupperTTotalAmount}" FontSize="20"/>
                                     <Label Grid.Column="3" Text="{Binding SupperWTotalAmount}" FontSize="20"/>

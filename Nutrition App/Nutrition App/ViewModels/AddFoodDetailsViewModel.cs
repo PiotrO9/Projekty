@@ -312,9 +312,9 @@ namespace Nutrition_App.ViewModels
             }
         }
 
-        public Command TextChangedCommand => new Command<string>(async (_entryText) => await TextChanged(_entryText));
+        public Command TextChangedCommand => new Command<string>((_entryText) => TextChanged(_entryText));
 
-        private async Task TextChanged(string p)
+        private void TextChanged(string p)
         {
             if (p == string.Empty)
             {

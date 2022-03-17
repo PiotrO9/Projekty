@@ -1059,24 +1059,24 @@ namespace Nutrition_App.ViewModels
 
         public string LunchTTotalAmount
         {
-            get { return _lunchBTotalAmount; }
-            set { _lunchBTotalAmount = value; OnPropertyChanged(); }
+            get { return _lunchTTotalAmount; }
+            set { _lunchTTotalAmount = value; OnPropertyChanged(); }
         }
 
         private string _lunchWTotalAmount;
 
         public string LunchWTotalAmount
         {
-            get { return _lunchBTotalAmount; }
-            set { _lunchBTotalAmount = value; OnPropertyChanged(); }
+            get { return _lunchWTotalAmount; }
+            set { _lunchWTotalAmount = value; OnPropertyChanged(); }
         }
 
         private string _lunchKcalTotalAmount;
 
         public string LunchKcalTotalAmount
         {
-            get { return _lunchBTotalAmount; }
-            set { _lunchBTotalAmount = value; OnPropertyChanged(); }
+            get { return _lunchKcalTotalAmount; }
+            set { _lunchKcalTotalAmount = value; OnPropertyChanged(); }
         }
 
         #endregion

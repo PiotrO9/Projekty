@@ -77,14 +77,14 @@ namespace Nutrition_App.ViewModels
                     MealToDisplay mealToDisplay = StringsListToMealToDisplay.StringsListToMealToDisplayMethod(ListOfStringsResults[i], _numberOfMeal, _mainPageViewModel);
                     mealToDisplay.Amount += " g";
                     mealToDisplay.Kcal += " kcal";
-                    mealsToDisplays.Add(mealToDisplay);
+
+                    if(mealToDisplay.Name != null)
+                    {
+                        mealsToDisplays.Add(mealToDisplay);
+                    }
                 }
 
                 MealsCollection = mealsToDisplays;
-            }
-            else
-            {
-                //Dodać empty template
             }
 
         }
@@ -100,11 +100,5 @@ namespace Nutrition_App.ViewModels
         }
 
         #endregion
-
-        #region Methods
-
-
-        #endregion
-
     }
 }

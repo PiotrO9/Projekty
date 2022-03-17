@@ -56,6 +56,11 @@
                         </Grid>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
+                <CollectionView.EmptyView>
+                    <Grid>
+                        <Label Text="Nie znaleziono produktów" FontSize="30" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" HorizontalOptions="Center" VerticalOptions="Center"/>
+                    </Grid>
+                </CollectionView.EmptyView>
             </CollectionView>
             
         </Grid>
