@@ -78,10 +78,8 @@ namespace Nutrition_App.ViewModels
                     mealToDisplay.Amount += " g";
                     mealToDisplay.Kcal += " kcal";
 
-                    if(mealToDisplay.Name != null)
-                    {
+                    if (!string.IsNullOrWhiteSpace(mealToDisplay?.Name))
                         mealsToDisplays.Add(mealToDisplay);
-                    }
                 }
 
                 MealsCollection = mealsToDisplays;
