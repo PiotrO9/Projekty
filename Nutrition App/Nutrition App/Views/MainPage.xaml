@@ -97,7 +97,7 @@
 
                         <Grid Grid.Column="0" x:Name="InsideBreakfastGrid">
                             <StackLayout Orientation="Vertical" VerticalOptions="Center" HorizontalOptions="Start">
-                                <Button Text="Śniadanie" VerticalOptions="Center" HorizontalOptions="Center" FontSize="20" BackgroundColor="White" TextColor="Black" Command="{Binding BreakfastButtonClickCommand}"/>
+                                <Button Text="Śniadanie" VerticalOptions="Center" HorizontalOptions="Center" FontSize="30" TextColor="Black" Command="{Binding BreakfastButtonClickCommand}"/>
 
                                 <Grid>
                                     <Grid.RowDefinitions>
@@ -197,7 +197,7 @@
 
                         <Grid Grid.Column="0" x:Name="InsideSecondBreakfastGrid">
                             <StackLayout Orientation="Vertical" VerticalOptions="Center" HorizontalOptions="Start">
-                                <Button Text="Drugie Śniadanie" VerticalOptions="Center" HorizontalOptions="Center" FontSize="20" BackgroundColor="White" TextColor="Black" Command="{Binding SecondBreakfastButtonClickCommand}"/>
+                                <Button Text="Drugie Śniadanie" VerticalOptions="Center" HorizontalOptions="Center" FontSize="30" TextColor="Black" Command="{Binding SecondBreakfastButtonClickCommand}"/>
 
                                 <Grid>
                                     <Grid.RowDefinitions>
@@ -297,7 +297,7 @@
 
                         <Grid Grid.Column="0" x:Name="InsideLunchGrid">
                             <StackLayout Orientation="Vertical" VerticalOptions="Center" HorizontalOptions="Start">
-                                <Button Text="Lunch" VerticalOptions="Center" HorizontalOptions="Center" FontSize="20" BackgroundColor="White" TextColor="Black" Command="{Binding LunchButtonClickCommand}"/>
+                                <Button Text="Lunch" VerticalOptions="Center" HorizontalOptions="Center" FontSize="30" TextColor="Black" Command="{Binding LunchButtonClickCommand}"/>
 
                                 <Grid>
                                     <Grid.RowDefinitions>
@@ -396,7 +396,7 @@
 
                         <Grid Grid.Column="0" x:Name="InsideDinnertGrid">
                             <StackLayout Orientation="Vertical" VerticalOptions="Center" HorizontalOptions="Start">
-                                <Button Text="Obiad" VerticalOptions="Center" HorizontalOptions="Center" FontSize="20" BackgroundColor="White" TextColor="Black" Command="{Binding DinnerButtonClickCommand}"/>
+                                <Button Text="Obiad" VerticalOptions="Center" HorizontalOptions="Center" FontSize="30" TextColor="Black" Command="{Binding DinnerButtonClickCommand}"/>
 
                                 <Grid>
                                     <Grid.RowDefinitions>
@@ -496,7 +496,7 @@
 
                         <Grid Grid.Column="0" x:Name="InsideSupperGrid">
                             <StackLayout Orientation="Vertical" VerticalOptions="Center" HorizontalOptions="Start">
-                                <Button Text="Kolacja" VerticalOptions="Center" HorizontalOptions="Center" FontSize="20" BackgroundColor="White" TextColor="Black" Command="{Binding SupperButtonClickCommand}"/>
+                                <Button Text="Kolacja" VerticalOptions="Center" HorizontalOptions="Center" FontSize="30" TextColor="Black" Command="{Binding SupperButtonClickCommand}"/>
 
                                 <Grid>
                                     <Grid.RowDefinitions>
