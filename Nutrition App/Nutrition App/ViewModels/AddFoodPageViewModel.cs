@@ -32,7 +32,7 @@ namespace Nutrition_App.ViewModels
 
             SearchButtonClick = new Command(async () => await SearchButtonClickImpl());
             OnSelectedCommand = new Command(OnSelectedCommandImpl);
-    }
+        }
 
         #region Collections
 
