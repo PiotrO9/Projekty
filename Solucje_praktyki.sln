@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30225.117
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32314.265
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp1", "ConsoleApp1\ConsoleApp1.csproj", "{6BDF8D0D-1C16-46BD-911C-E8F47103A786}"
 EndProject
@@ -259,7 +259,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dziennik treningowy", "Dzie
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nutrition App.Android", "Nutrition App\Nutrition App.Android\Nutrition App.Android.csproj", "{2DAEF8D2-D658-4A71-B8DB-E336D1FBC5C8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nutrition App", "Nutrition App\Nutrition App\Nutrition App.csproj", "{F673025F-7B04-40B9-8AE5-090DDE57DB1A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nutrition App", "Nutrition App\Nutrition App\Nutrition App.csproj", "{F673025F-7B04-40B9-8AE5-090DDE57DB1A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MAUI", "MAUI", "{68AEA7BF-5B30-446F-B5AF-3A277DD28563}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyFirstMAUIApp", "MyFirstMAUIApp\MyFirstMAUIApp.csproj", "{9FCF895A-A516-446B-B7BE-874564251F18}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -759,6 +763,12 @@ Global
 		{F673025F-7B04-40B9-8AE5-090DDE57DB1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F673025F-7B04-40B9-8AE5-090DDE57DB1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F673025F-7B04-40B9-8AE5-090DDE57DB1A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9FCF895A-A516-446B-B7BE-874564251F18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9FCF895A-A516-446B-B7BE-874564251F18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9FCF895A-A516-446B-B7BE-874564251F18}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{9FCF895A-A516-446B-B7BE-874564251F18}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9FCF895A-A516-446B-B7BE-874564251F18}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9FCF895A-A516-446B-B7BE-874564251F18}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -809,6 +819,7 @@ Global
 		{DF64A4A9-119D-4F3C-AE9E-2DBBE7DA687B} = {2AD941BC-36CB-4DF1-A71D-C3C80503466F}
 		{2DAEF8D2-D658-4A71-B8DB-E336D1FBC5C8} = {2AD941BC-36CB-4DF1-A71D-C3C80503466F}
 		{F673025F-7B04-40B9-8AE5-090DDE57DB1A} = {2AD941BC-36CB-4DF1-A71D-C3C80503466F}
+		{9FCF895A-A516-446B-B7BE-874564251F18} = {68AEA7BF-5B30-446F-B5AF-3A277DD28563}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {72C7B389-4144-4568-B93F-CFAD988CEABF}
