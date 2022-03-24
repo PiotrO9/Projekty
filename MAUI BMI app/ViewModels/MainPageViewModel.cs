@@ -31,7 +31,7 @@ namespace MAUI_BMI_app.ViewModels
         public string HeightSliderValue
         {
             get { return _heightSliderValue.ToString(); }
-            set { _heightSliderValue = value; OnPropertyChanged(); }
+            set { _heightSliderValue = value; HeightLabelText = CombineHieghtLabelText(); OnPropertyChanged(); }
         }
 
         private Measurement _measurementType;
@@ -46,43 +46,52 @@ namespace MAUI_BMI_app.ViewModels
 
         public string HeightLabelText
         {
-            get 
-            {
-                string result = HeightSliderValue.ToString();
-                switch (MeasurementType)
-                {
-                    case Measurement.metric:
-                        {
-                            result += "cm";
-                            break;
-                        }
-                    case Measurement.imperial:
-                        {
-                            result += "lbs";
-                            break;
-                        }
-                }
-
-                return result;
-            }
+            get { return _heightLabelText; }
             private set { _heightLabelText = value; OnPropertyChanged(); }
         }
 
 
         public void MetricClickImpl()
         {
-
+            MeasurementType = Measurement.metric;
         }
 
         public void ImperialClickImpl()
         {
-            
+            MeasurementType = Measurement.imperial;
         }
 
         public void CalculateClickCommandImpl()
         {
 
         }
+
+        public string CombineHieghtLabelText()
+        {
+            string result = HeightSliderValue.ToString();
+            switch (MeasurementType)
+            {
+                case Measurement.metric:
+                    {
+                        result += " cm";
+                        break;
+                    }
+                case Measurement.imperial:
+                    {
+                        result += " lbs";
+                        break;
+                    }
+                default:
+                    {
+                        result += " cm";
+                        break;
+                    }
+            }
+
+            return result;
+        }
+
+        #region PropertyChanged
 
         public event PropertyChangedEventHandler PropertyChanged;
         protected void OnPropertyChanged([CallerMemberName] string propertyName = "")
@@ -93,5 +102,7 @@ namespace MAUI_BMI_app.ViewModels
 
             changed.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+
+        #endregion
     }
 }

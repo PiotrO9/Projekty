@@ -2,39 +2,40 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:vm="clr-namespace:MAUI_BMI_app.ViewModels"
-             xmlns:pri="clr-namespace:Microsoft.Extensions.Primitives;assembly=Microsoft.Extensions.Primitives" 
+             xmlns:con="clr-namespace:MAUI_BMI_app.Converters"
              x:DataType="vm:MainPageViewModel"
              x:Class="MAUI_BMI_app.MainPage"
              BackgroundColor="#1D1E33">
     <ContentPage.Resources>
         <ResourceDictionary>
+
+            <con:FloatToIntConverter x:Key="FloatToIntConverter"/>
+
+            <!-- Styles -->
+            
             <Style x:Key="FrameStyle" TargetType="Frame">
                 <Setter Property="BackgroundColor" Value="purple"/>
                 <Setter Property="Margin" Value="8"/>
                 <Setter Property="CornerRadius" Value="15"/>
+                <Setter Property="Padding" Value="0"/>
             </Style>
-            <Style x:Key="MeasureLabelStyle" TargetType="Label">
-                <Setter Property="FontSize" Value="25"/>
-                <Setter Property="FontAttributes" Value="Bold"/>
-                <Setter Property="TextColor" Value="White"/>
-                <Setter Property="VerticalOptions" Value="Center"/>
-                <Setter Property="HorizontalOptions" Value="Center"/>
-                <Setter Property="VerticalTextAlignment" Value="Center"/>
-                <Setter Property="HorizontalTextAlignment" Value="Center"/>
-            </Style>
-            <Style x:Key="IconLabelStyle" TargetType="Label">
-                <Setter Property="FontSize" Value="30"/>
-                <Setter Property="Padding" Value="0,10,0,0"/>
+
+            <Style x:Key="CentredLabel" TargetType="Label">
                 <Setter Property="VerticalOptions" Value="Center"/>
                 <Setter Property="HorizontalOptions" Value="Center"/>
                 <Setter Property="VerticalTextAlignment" Value="Center"/>
                 <Setter Property="HorizontalTextAlignment" Value="Center"/>
             </Style>
             
-            <!-- SLIDER -->
-
-            <!-- SLIDER -->
-
+            <Style x:Key="MeasureLabelStyle" TargetType="Label" BasedOn="{StaticResource CentredLabel}">
+                <Setter Property="FontSize" Value="25"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="TextColor" Value="White"/>
+            </Style>
+            <Style x:Key="IconLabelStyle" TargetType="Label" BasedOn="{StaticResource CentredLabel}">
+                <Setter Property="FontSize" Value="30"/>
+                <Setter Property="Padding" Value="0,10,0,0"/>
+            </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
     
@@ -58,7 +59,7 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
 
-            <Frame Grid.Column="0" Style="{StaticResource FrameStyle}" Padding="0">
+            <Frame Grid.Column="0" Style="{StaticResource FrameStyle}">
                 <Frame.GestureRecognizers>
                     <TapGestureRecognizer Command="{Binding MetricClick}" NumberOfTapsRequired="1"/>
                 </Frame.GestureRecognizers>
@@ -68,33 +69,49 @@
                 </StackLayout>
             </Frame>
 
-                <Frame Grid.Column="1" Style="{StaticResource FrameStyle}" Padding="0">
-                <Frame.GestureRecognizers>
-                    <TapGestureRecognizer Command="{Binding ImperialClick}" NumberOfTapsRequired="1"/>
-                </Frame.GestureRecognizers>
+            <Frame Grid.Column="1" Style="{StaticResource FrameStyle}" Padding="0">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding ImperialClick}" NumberOfTapsRequired="1"/>
+                    </Frame.GestureRecognizers>
                 <StackLayout Orientation="Vertical">
-                    <Label Style="{StaticResource IconLabelStyle}" Text="{OnPlatform UWP=⚖️,Android=🇺🇸}"/>
+                    <Label Style="{StaticResource IconLabelStyle}" Text="{OnPlatform UWP=⚖️,Android=🇺🇸,iOS=🇺🇸,MacCatalyst=🇺🇸}"/>
                     <Label Style="{StaticResource MeasureLabelStyle}" Text="Miara imperialna"/>
                 </StackLayout>
-                    
-                </Frame>
+
+            </Frame>
 
         </Grid>
 
-        <Frame Grid.Row="1">
-            <StackLayout>
-                <Label Text="{Binding HeightLabelText}"/>
-                <Label Text="{Binding HeightSliderValue}"/>
-                <Slider VerticalOptions="Center" Minimum="20" Value="{Binding HeightSliderValue}" Maximum="200" ThumbColor="red"/>
+        <Frame Grid.Row="1" Style="{StaticResource FrameStyle}">
+            <StackLayout VerticalOptions="Center">
+                <Label Text="Wysokość" FontSize="25" FontAttributes="Bold" Margin="0,10,0,10" TextColor="Gray" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                <Label Text="{Binding HeightLabelText}" Style="{StaticResource CentredLabel}" Margin="0,10,0,10" TextColor="Wheat" FontSize="30"/>
+                <Slider VerticalOptions="Center" Maximum="200" Minimum="20" Value="{Binding HeightSliderValue, Converter={StaticResource FloatToIntConverter}}" Margin="0,10,0,10" ThumbColor="#FB1555"/>
             </StackLayout>
         </Frame>
 
         <Frame Grid.Row="2">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
 
+                <Frame Grid.Column="0" Style="{StaticResource FrameStyle}">
+                
+                </Frame>
+
+                <Frame Grid.Column="1" Style="{StaticResource FrameStyle}">
+
+                </Frame>
+            </Grid>
         </Frame>
 
         <Grid Grid.Row="3">
-            <Border Stroke="gold" StrokeThickness="{OnPlatform UWP=4,Android=7,iOS=7}" BackgroundColor="Purple" IsVisible="True" Margin="5">
+            <Border Stroke="gold" StrokeThickness="{OnPlatform UWP=4,Android=7,iOS=7}" BackgroundColor="#FB1555" IsVisible="True" Margin="5">
                 <Border.StrokeShape>
                     <RoundRectangle CornerRadius="40,0,0,40"/>
                 </Border.StrokeShape>
