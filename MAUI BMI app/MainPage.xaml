@@ -132,7 +132,6 @@
 
                             <Button Grid.Column="0" Text="-" Style="{StaticResource ChangeAmoountButtonStyle}" Command="{Binding SubWeightClickCommand}"/>
                             <Button Grid.Column="1" Text="+" Style="{StaticResource ChangeAmoountButtonStyle}" Command="{Binding AddWeightClickCommand}"/>
-
                         </Grid>
 
                     </Grid>

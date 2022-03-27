@@ -99,12 +99,22 @@ namespace MAUI_BMI_app.ViewModels
 
         public void MetricClickImpl()
         {
+            if(MeasurementType == Measurement.metric)
+                return;
+
             MeasurementType = Measurement.metric;
+            float TempCalculation = WeightAmount / 2.2f;
+            WeightAmount = (int)TempCalculation;
         }
 
         public void ImperialClickImpl()
         {
+            if (MeasurementType == Measurement.imperial)
+                return;
+
             MeasurementType = Measurement.imperial;
+            float TempCalculation = WeightAmount * 2.2f;
+            WeightAmount = (int)TempCalculation;
         }
 
         public void CalculateClickCommandImpl()
@@ -137,24 +147,7 @@ namespace MAUI_BMI_app.ViewModels
         public string CombineHieghtLabelText()
         {
             string result = HeightSliderValue.ToString();
-            switch (MeasurementType)
-            {
-                case Measurement.metric:
-                    {
-                        result += " cm";
-                        break;
-                    }
-                case Measurement.imperial:
-                    {
-                        result += " lbs";
-                        break;
-                    }
-                default:
-                    {
-                        result += " cm";
-                        break;
-                    }
-            }
+            result += " cm";
 
             return result;
         }
