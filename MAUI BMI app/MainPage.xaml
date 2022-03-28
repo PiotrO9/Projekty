@@ -87,7 +87,7 @@
                         <TapGestureRecognizer Command="{Binding ImperialClick}" NumberOfTapsRequired="1"/>
                     </Frame.GestureRecognizers>
                 <StackLayout Orientation="Vertical" VerticalOptions="Center" HorizontalOptions="Center">
-                    <Label Style="{StaticResource MeasureLabelStyle}" Text="{OnPlatform UWP=⚖️,Android=🇺🇸,iOS=🇺🇸,MacCatalyst=🇺🇸}"/>
+                    <Label Style="{StaticResource IconLabelStyle}" Text="{OnPlatform UWP=⚖️,Android=🇺🇸,iOS=🇺🇸,MacCatalyst=🇺🇸}"/>
                     <Label Style="{StaticResource MeasureLabelStyle}" Text="Miara imperialna"/>
                 </StackLayout>
 
