@@ -76,7 +76,7 @@
                 <Frame.GestureRecognizers>
                     <TapGestureRecognizer Command="{Binding MetricClick}" NumberOfTapsRequired="1"/>
                 </Frame.GestureRecognizers>
-                <StackLayout Orientation="Vertical">
+                <StackLayout Orientation="Vertical" VerticalOptions="Center" HorizontalOptions="Center">
                     <Label Text="🌍" TextColor="Black" Padding="0,10,0,0" FontSize="30" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" VerticalOptions="Center" HorizontalOptions="Center"/>
                     <Label Style="{StaticResource MeasureLabelStyle}" Text="Miara metryczna"/>
                 </StackLayout>
@@ -86,8 +86,8 @@
                     <Frame.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding ImperialClick}" NumberOfTapsRequired="1"/>
                     </Frame.GestureRecognizers>
-                <StackLayout Orientation="Vertical">
-                    <Label Style="{StaticResource IconLabelStyle}" Text="{OnPlatform UWP=⚖️,Android=🇺🇸,iOS=🇺🇸,MacCatalyst=🇺🇸}"/>
+                <StackLayout Orientation="Vertical" VerticalOptions="Center" HorizontalOptions="Center">
+                    <Label Style="{StaticResource MeasureLabelStyle}" Text="{OnPlatform UWP=⚖️,Android=🇺🇸,iOS=🇺🇸,MacCatalyst=🇺🇸}"/>
                     <Label Style="{StaticResource MeasureLabelStyle}" Text="Miara imperialna"/>
                 </StackLayout>
 
@@ -103,14 +103,14 @@
             </StackLayout>
         </Frame>
 
-        <Frame Grid.Row="2" Padding="5,10,0,0">
+        <Frame Grid.Row="2" Padding="5,10,0,0" BackgroundColor="#1D1E33">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
                 <Frame Grid.Column="0" Style="{StaticResource FrameStyle}">

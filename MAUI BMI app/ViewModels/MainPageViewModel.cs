@@ -117,9 +117,18 @@ namespace MAUI_BMI_app.ViewModels
             WeightAmount = (int)TempCalculation;
         }
 
-        public void CalculateClickCommandImpl()
+        public async void CalculateClickCommandImpl()
         {
+            float TemporaryCalculation = float.Parse(HeightLabelText.Remove(HeightLabelText.Length - 3, 3))/100;
 
+            float result;
+
+            if (MeasurementType == Measurement.metric)
+                result = WeightAmount / (TemporaryCalculation * TemporaryCalculation);
+            else
+                result = ((float)WeightAmount / 2.2f) / (TemporaryCalculation * TemporaryCalculation);
+
+            await App.Current.MainPage.DisplayAlert("Wynik", Math.Round((decimal)result, 1).ToString(), "OK");
         }
 
         public void AddWeightClickCommandImpl()

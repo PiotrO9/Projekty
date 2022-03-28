@@ -15,7 +15,7 @@ namespace MAUI_BMI_app.Converters
 
             if (string.IsNullOrWhiteSpace(ReceivedValue))
             {
-                return "20";
+                return "80";
             }
 
             float ConvertToTempFloat = float.Parse(ReceivedValue);
@@ -30,7 +30,7 @@ namespace MAUI_BMI_app.Converters
 
             if (string.IsNullOrWhiteSpace(ReceivedValue))
             {
-                return "20";
+                return "80";
             }
 
             float ConvertToTempFloat = float.Parse(ReceivedValue);
