@@ -95,7 +95,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddRecord.cs" />
     <Compile Include="DataBaseInfo.cs" />
+    <Compile Include="DisplayMenu.cs" />
+    <Compile Include="ExecuteDBaction.cs" />
+    <Compile Include="FindRecord.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
