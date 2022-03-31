@@ -13,7 +13,7 @@ namespace FirstDataBaseConsoleApp
         {
             DataBaseInfo dataBaseInfo = new DataBaseInfo();
 
-            string query = "INSERT INTO `Użytkownicy`(`ID`, `Imie`, `Nazwisko`, `Wiek`) VALUES('1,Jan,Kowalski,23')";
+            string query = "INSERT INTO `Users`(`Name`, `LastName`) VALUES ('Jan','Kowalski')";
 
             try
             {
