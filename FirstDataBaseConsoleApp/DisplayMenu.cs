@@ -10,12 +10,14 @@ namespace FirstDataBaseConsoleApp
     {
         public static void DisplayMenuMethod()
         {
+            Console.Clear();
+
             Console.WriteLine("-----------");
             Console.WriteLine("Wybierz opcje");
             Console.WriteLine("1. Stwórz rekord");
             Console.WriteLine("2. Znajdź rekord");
             Console.WriteLine("3. Usuń rekord");
-            Console.WriteLine("4. Wypisz rekordy");
+            Console.WriteLine("-----------");
         }
     }
 }

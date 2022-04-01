@@ -9,8 +9,27 @@ namespace FirstDataBaseConsoleApp
 {
     public static class ExecuteDBaction
     {
-        public static void ExecuteDBactionMethod(DataBaseInfo dataBaseInfo, string query)
+        public static void ExecuteAddRecordActionMethod(DataBaseInfo dataBaseInfo)
         {
+            string Name = "";
+            string LastName = "";
+
+            while (string.IsNullOrWhiteSpace(Name))
+            {
+                Console.Clear();
+                Console.WriteLine("Podaj imie: ");
+                Name = Console.ReadLine();
+            }
+
+            while (string.IsNullOrWhiteSpace(LastName))
+            {
+                Console.Clear();
+                Console.WriteLine("Podaj nazwisko: ");
+                LastName = Console.ReadLine();
+            }
+
+            string query = $"INSERT INTO `Users`(`Name`, `LastName`) VALUES ('{Name}','{LastName}')";
+
             try
             {
                 dataBaseInfo.con.Open();
@@ -25,9 +44,10 @@ namespace FirstDataBaseConsoleApp
 
             Console.WriteLine("Dodano nowy rekord, sprawdź swoją bazę danych");
             dataBaseInfo.con.Close();
+            Console.WriteLine("Naciśnij dowolny klawisz, żeby wrócić do menu");
         }
 
-        public static void ExecuteDBactionWithResultMethod(DataBaseInfo dataBaseInfo, string query)
+        public static void ExecuteDbFindActionWithResultMethod(DataBaseInfo dataBaseInfo, string query)
         {
             try
             {
@@ -49,6 +69,46 @@ namespace FirstDataBaseConsoleApp
                 throw new Exception(e.Message);
             }
             dataBaseInfo.con.Close();
+
+            Console.WriteLine("Naciśnij dowolny klawisz, żeby wrócić do menu");
+        }
+
+        public static void ExecuteDbDeleteActionMethod(DataBaseInfo dataBaseInfo)
+        {
+            string Name = "";
+            string LastName = "";
+
+            while (string.IsNullOrWhiteSpace(Name))
+            {
+                Console.Clear();
+                Console.WriteLine("Podaj imie: ");
+                Name = Console.ReadLine();
+            }
+
+            while (string.IsNullOrWhiteSpace(LastName))
+            {
+                Console.Clear();
+                Console.WriteLine("Podaj nazwisko: ");
+                LastName = Console.ReadLine();
+            }
+
+            string query = $"DELETE FROM `Users` WHERE Name = '{Name}' AND LastName = '{LastName}'";
+
+            try
+            {
+                dataBaseInfo.con.Open();
+
+                MySqlCommand cmd = new MySqlCommand(query, dataBaseInfo.con);
+                int value = cmd.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+
+            Console.WriteLine("Usunięto istniejące rekordy w bazie danych");
+            dataBaseInfo.con.Close();
+            Console.WriteLine("Naciśnij dowolny klawisz, żeby wrócić do menu");
         }
     }
 }

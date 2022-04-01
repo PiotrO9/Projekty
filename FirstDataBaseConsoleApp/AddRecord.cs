@@ -8,7 +8,7 @@ namespace FirstDataBaseConsoleApp
 {
     public static class AddRecord
     {
-        public static (string name, string lastName) AddRecordMethod()
+        public static Task<(string name, string lastName)> AddRecordMethod()
         {
             Console.Clear();
 
@@ -29,7 +29,7 @@ namespace FirstDataBaseConsoleApp
                 LastName = Console.ReadLine();
             }
 
-            return (Name, LastName);
+            return Task.FromResult((Name, LastName));
         }
     }
 }

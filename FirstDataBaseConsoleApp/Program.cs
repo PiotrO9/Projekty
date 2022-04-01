@@ -13,57 +13,43 @@ namespace FirstDataBaseConsoleApp
 
         static void Main(string[] args)
         {
-            DisplayMenu.DisplayMenuMethod();
-
-            int choice = int.TryParse(Console.ReadLine(), out choice) ? choice : 1;
-            string query = "";
-
-            DataBaseInfo dataBaseInfo = new DataBaseInfo();
-
-            switch (choice)
+            while (true)
             {
-                case 1:
-                    {
-                        (string,string) RecordTuple = AddRecord.AddRecordMethod();
-                        ExecuteDBaction.ExecuteDBactionMethod(dataBaseInfo, $"INSERT INTO `Users`(`Name`, `LastName`) VALUES ({RecordTuple.Item1},{RecordTuple.Item1})");
+                DisplayMenu.DisplayMenuMethod();
 
+                int choice = int.TryParse(Console.ReadLine(), out choice) ? choice : -1;
+
+                DataBaseInfo dataBaseInfo = new DataBaseInfo();
+
+                switch (choice)
+                {
+                    case 1:
+                        {
+                            ExecuteDBaction.ExecuteAddRecordActionMethod(dataBaseInfo);
+
+                            break;
+                        }
+                    case 2:
+                        {
+
+                            ExecuteDBaction.ExecuteDbFindActionWithResultMethod(dataBaseInfo, $"SELECT * FROM `Users` WHERE LastName = '{FindRecord.FindRecordMethod()}'");
+
+                            break;
+                        }
+                    case 3:
+                        {
+                            ExecuteDBaction.ExecuteDbDeleteActionMethod(dataBaseInfo);
+
+                            break;
+                        }
+                    default:
                         break;
-                    }
-                case 2:
-                    {
+                }
 
-                        ExecuteDBaction.ExecuteDBactionWithResultMethod(dataBaseInfo, $"SELECT * FROM `Users` WHERE LastName = '{FindRecord.FindRecordMethod()}'");
+                dataBaseInfo.con.Close();
 
-                        break;
-                    }
-                default:
-                    break;
+                Console.ReadKey();
             }
-
-            dataBaseInfo.con.Close();
-
-
-            //DataBaseInfo dataBaseInfo = new DataBaseInfo();
-
-            //string query = "INSERT INTO `Users`(`Name`, `LastName`) VALUES ('Jan','Kowalski')";
-
-            //try
-            //{
-            //    dataBaseInfo.con.Open();
-
-            //    Console.WriteLine("Połączono z bazą danych");
-
-            //    MySqlCommand cmd = new MySqlCommand(query,dataBaseInfo.con);
-            //    int value = cmd.ExecuteNonQuery();
-
-            //    dataBaseInfo.con.Close();
-            //}
-            //catch(Exception ex)
-            //{
-            //    Console.Write(ex.ToString());
-            //}
-
-            Console.ReadKey();
         }
     }
 }
