@@ -269,6 +269,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MAUI BMI app", "MAUI BMI ap
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FirstDataBaseConsoleApp", "FirstDataBaseConsoleApp\FirstDataBaseConsoleApp.csproj", "{20905468-356E-4525-A4DA-EBDFAA818B60}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FirstRegexApp", "FirstRegexApp\FirstRegexApp.csproj", "{C5F20294-724E-4150-9292-843E9D23F235}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -783,6 +785,10 @@ Global
 		{20905468-356E-4525-A4DA-EBDFAA818B60}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{20905468-356E-4525-A4DA-EBDFAA818B60}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{20905468-356E-4525-A4DA-EBDFAA818B60}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5F20294-724E-4150-9292-843E9D23F235}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5F20294-724E-4150-9292-843E9D23F235}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5F20294-724E-4150-9292-843E9D23F235}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5F20294-724E-4150-9292-843E9D23F235}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
