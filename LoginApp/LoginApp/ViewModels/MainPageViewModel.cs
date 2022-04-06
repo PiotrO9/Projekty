@@ -14,6 +14,15 @@ namespace LoginApp.ViewModels
             : base(navigationService)
         {
             Title = "Main Page";
+            LoginClickCommand = new DelegateCommand(LoginClickCommandImpl);
         }
+
+        public DelegateCommand LoginClickCommand { get; private set; }
+
+        private void LoginClickCommandImpl()
+        {
+
+        }
+
     }
 }

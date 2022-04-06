@@ -4,8 +4,7 @@
              xmlns:prism="http://prismlibrary.com"
              x:Class="LoginApp.App">
   <Application.Resources>
-
-    <!-- Application resource dictionary -->
-
-  </Application.Resources>
+        <Color x:Key="DarkPurpleBackgroudnColor">#4E3B7C</Color>
+        <Color x:Key="LightPurpleBackgroudnColor">#745BAF</Color>
+    </Application.Resources>
 </prism:PrismApplication>
