@@ -1,3 +1,5 @@
+using LoginApp.Interface;
+using LoginApp.Services;
 using LoginApp.ViewModels;
 using LoginApp.Views;
 using Prism;
@@ -25,6 +27,7 @@ namespace LoginApp
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
             containerRegistry.RegisterSingleton<IAppInfo, AppInfoImplementation>();
+            containerRegistry.Register<IUserExisting, IsUserExistingService>();
 
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();
