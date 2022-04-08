@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<popup:PopupPage  xmlns="http://xamarin.com/schemas/2014/forms"
+                  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                  xmlns:popup="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+                  xmlns:prism="http://prismlibrary.com"
+                  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                  x:Class="LoginApp.Views.WrongLoginPopUp"
+                  mc:Ignorable="d"
+                  WidthRequest="200" HeightRequest="200"
+                  NavigationPage.HasBackButton="False"
+                  NavigationPage.HasNavigationBar="False"
+                  Title="{Binding Title}"
+                  CloseWhenBackgroundIsClicked="False">
+
+    <StackLayout HorizontalOptions="Center" VerticalOptions="Center" BackgroundColor="{StaticResource DarkPurpleBackgroudnColor}">
+        <Button BackgroundColor="{StaticResource DarkPurpleBackgroudnColor}" Text="Wprowadzono złe dane!" FontAttributes="Bold" FontSize="30" 
+                Command="{Binding QuitLabelClick}" VerticalOptions="Center" HorizontalOptions="Center"/>
+    </StackLayout>
+</popup:PopupPage>

@@ -1,7 +1,9 @@
 ﻿using LoginApp.Interface;
+using LoginApp.Views;
 using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Navigation;
+using Rg.Plugins.Popup.Extensions;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,11 +18,14 @@ namespace LoginApp.ViewModels
 
         private readonly IUserExisting _userExisting;
 
-        public MainPageViewModel(INavigationService navigationService, IUserExisting userExisting)
+        private readonly MainPage _mp;
+
+        public MainPageViewModel(INavigationService navigationService, IUserExisting userExisting, MainPage mainPage)
             : base(navigationService)
         {
             _navigationService = navigationService;
             _userExisting = userExisting;
+            _mp = mainPage;
 
             Title = "Main Page";
             LoadingTextAvailable = false;
@@ -63,7 +68,17 @@ namespace LoginApp.ViewModels
 
             LoadingTextAvailable = false;
 
-            bool temp = _userExisting.CheckUserExistence(LoginText, PasswordText);
+            //if(_userExisting.CheckUserExistence(LoginText, PasswordText))
+            //{
+
+            //}
+            //else
+            //{
+            //    _navigationService.NavigateAsync("WrongLoginPopUp");
+            //}
+
+            //_mp.Navigation.PushPopupAsync(new WrongLoginPopUp());
+            _navigationService.NavigateAsync("WrongLoginPopUp");
 
             LoadingTextAvailable = true;
         }
