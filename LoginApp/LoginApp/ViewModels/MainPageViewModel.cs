@@ -66,21 +66,19 @@ namespace LoginApp.ViewModels
             if (String.IsNullOrWhiteSpace(PasswordText))
                 return;
 
-            LoadingTextAvailable = false;
+            if(_userExisting.CheckUserExistence(LoginText, PasswordText))
+            {
+                var navigationParams = new NavigationParameters();
+                navigationParams.Add("login", LoginText);
+                navigationParams.Add("password", PasswordText);
 
-            //if(_userExisting.CheckUserExistence(LoginText, PasswordText))
-            //{
+                _navigationService.NavigateAsync("CorrectLoginPage", navigationParams);
 
-            //}
-            //else
-            //{
-            //    _navigationService.NavigateAsync("WrongLoginPopUp");
-            //}
-
-            //_mp.Navigation.PushPopupAsync(new WrongLoginPopUp());
-            _navigationService.NavigateAsync("WrongLoginPopUp");
-
-            LoadingTextAvailable = true;
+                LoginText = string.Empty;
+                PasswordText = string.Empty;
+            }
+            else
+                _navigationService.NavigateAsync("WrongLoginPopUp");
         }
 
     }

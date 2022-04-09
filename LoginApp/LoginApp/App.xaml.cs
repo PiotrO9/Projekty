@@ -35,6 +35,7 @@ namespace LoginApp
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();
             containerRegistry.RegisterForNavigation<WrongLoginPopUp, WrongLoginPopUpViewModel>();
+            containerRegistry.RegisterForNavigation<CorrectLoginPage, CorrectLoginPageViewModel>();
         }
     }
 }
