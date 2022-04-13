@@ -72,7 +72,7 @@ namespace LoginApp.ViewModels
                 navigationParams.Add("login", LoginText);
                 navigationParams.Add("password", PasswordText);
 
-                _navigationService.NavigateAsync("CorrectLoginPage", navigationParams);
+                _navigationService.NavigateAsync("MasterDetailCorrectLoginPage/NavigationPage/CorrectLoginPage", navigationParams);
 
                 LoginText = string.Empty;
                 PasswordText = string.Empty;

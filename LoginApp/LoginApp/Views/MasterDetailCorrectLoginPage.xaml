@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LoginApp.Views.MasterDetailCorrectLoginPage"
+             xmlns:prism="http://prismlibrary.com"
+             NavigationPage.HasBackButton="False"
+             NavigationPage.HasNavigationBar="False">
+
+    <MasterDetailPage.Master>
+        <ContentPage Title="Test">
+            <StackLayout>
+                <Label Text="Master Detail Demo"
+               FontSize="Large"
+               FontAttributes="Bold"
+               Margin="0,20"/>
+                <Label Text="{Binding UserName, StringFormat='Zalogowano jako: {0}'}"
+               FontSize="Large"
+               FontAttributes="Bold"
+               Margin="0,20"/>
+               <Button Text="Wyloguj" Command="{prism:GoBack}"/>
+            </StackLayout>
+        </ContentPage>
+    </MasterDetailPage.Master>
+    
+</MasterDetailPage>

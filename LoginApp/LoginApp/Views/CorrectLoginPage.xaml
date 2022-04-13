@@ -4,7 +4,8 @@
              xmlns:prism="http://prismlibrary.com"
              x:Class="LoginApp.Views.CorrectLoginPage"
              NavigationPage.HasBackButton="False"
-             NavigationPage.HasNavigationBar="False">
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="{StaticResource DarkPurpleBackgroudnColor}">
     <ContentPage.Content>
         <StackLayout VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="{StaticResource DarkPurpleBackgroudnColor}">
             <Label Text="{Binding Login, StringFormat='Zalogowano jako: {0}'}}" FontSize="20"/>
