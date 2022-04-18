@@ -7,5 +7,10 @@ namespace Game2048.Views
         {
             InitializeComponent();
         }
+
+        private void PanGestureRecognizer_PanUpdated(object sender, Xamarin.Forms.PanUpdatedEventArgs e)
+        {
+
+        }
     }
 }
