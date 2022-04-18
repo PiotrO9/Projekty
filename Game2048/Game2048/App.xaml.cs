@@ -13,6 +13,7 @@ namespace Game2048
         public App(IPlatformInitializer initializer)
             : base(initializer)
         {
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("NjE4NDg0QDMyMzAyZTMxMmUzME9ETDYzQUVJb3pnVjg2L0NQaERCM3gzVmw3eHNpcE9DRHdsUkhjVVcrN0k9");
         }
 
         protected override async void OnInitialized()

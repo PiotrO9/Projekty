@@ -21,6 +21,8 @@ namespace Game2048.iOS
         //
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("NjE4NDg0QDMyMzAyZTMxMmUzME9ETDYzQUVJb3pnVjg2L0NQaERCM3gzVmw3eHNpcE9DRHdsUkhjVVcrN0k9");
+
             global::Xamarin.Forms.Forms.Init();
             LoadApplication(new App(new iOSInitializer()));
 

@@ -12,6 +12,8 @@ namespace Game2048.Droid
     {
         protected override void OnCreate(Bundle savedInstanceState)
         {
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("NjE4NDg0QDMyMzAyZTMxMmUzME9ETDYzQUVJb3pnVjg2L0NQaERCM3gzVmw3eHNpcE9DRHdsUkhjVVcrN0k9");
+
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
 

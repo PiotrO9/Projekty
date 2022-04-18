@@ -1,4 +1,5 @@
-﻿using Prism.Commands;
+﻿using Game2048.Models;
+using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Navigation;
 using System;
@@ -14,17 +15,16 @@ namespace Game2048.ViewModels
             : base(navigationService)
         {
             GameName = "2049";
-            Data = new List<string>();
+            Data = new List<TEST>();
             for (int i = 0; i < 16; i++)
             {
-                Data.Add(i.ToString());
+                Data.Add(new TEST() { test = i });
             }
-
             UpCommand = new DelegateCommand(UpCommandImpl);
         }
 
-        private List<string> _datas;
-        public List<string> Data
+        private List<TEST> _datas;
+        public List<TEST> Data
         {
             get { return _datas; }
             set { SetProperty(ref _datas, value); }
@@ -44,4 +44,5 @@ namespace Game2048.ViewModels
 
         }
     }
+   
 }
