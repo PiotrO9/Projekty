@@ -17,5 +17,10 @@ namespace Game2048.Views
         {
 
         }
+
+        private void SwipeGestureRecognizer_Swiped_1(object sender, Xamarin.Forms.SwipedEventArgs e)
+        {
+
+        }
     }
 }

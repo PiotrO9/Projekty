@@ -1,4 +1,5 @@
-﻿using Game2048.Models;
+﻿using Game2048.Enums;
+using Game2048.Models;
 using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Navigation;
@@ -6,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Xamarin.Forms;
 
 namespace Game2048.ViewModels
 {
@@ -20,7 +22,8 @@ namespace Game2048.ViewModels
             {
                 Data.Add(new TEST() { test = i });
             }
-            UpCommand = new DelegateCommand(UpCommandImpl);
+
+            MoveTrigger = new Command<Direction>((direction) => MoveTriggerImpl(direction));
         }
 
         private List<TEST> _datas;
@@ -37,12 +40,20 @@ namespace Game2048.ViewModels
             set { SetProperty(ref _2048, value); }
         }
 
-        public DelegateCommand UpCommand { get; set; }
-
-        public void UpCommandImpl()
+        private Direction _directionName;
+        public Direction DirectionName
         {
-
+            get { return _directionName; }
+            set { SetProperty(ref _directionName, value); }
         }
+
+        public Command<Direction> MoveTrigger { get; set; }
+
+        public void MoveTriggerImpl(Direction direction)
+        {
+            DirectionName = direction;
+        }
+
     }
    
 }
