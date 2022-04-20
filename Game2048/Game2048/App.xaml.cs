@@ -1,3 +1,6 @@
+using Game2048.Engines;
+using Game2048.Interfaces;
+using Game2048.Services;
 using Game2048.ViewModels;
 using Game2048.Views;
 using Prism;
@@ -26,6 +29,10 @@ namespace Game2048
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
             containerRegistry.RegisterSingleton<IAppInfo, AppInfoImplementation>();
+            containerRegistry.RegisterSingleton<IRandomNumberService, RandomNumberService>();
+            containerRegistry.RegisterSingleton<IRandomRangeNumberService, RangeRandomNumberService>();
+
+            containerRegistry.RegisterSingleton<IGenerateStartBoard, GenerateStartBoard>();
 
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();
