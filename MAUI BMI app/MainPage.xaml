@@ -12,7 +12,7 @@
 
             <!-- Converters -->
 
-            <con:FloatToIntConverter x:Key="FloatToIntConverter"/>
+            <con:FontSizeConverter x:Key="FloatToIntConverter"/>
 
             <!-- Styles -->
             

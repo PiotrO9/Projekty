@@ -24,13 +24,24 @@ namespace Game2048.Services
             int temp = 0;
             Random rnd = new Random();
 
-            do
-            {
-                temp = rnd.Next(minValue, maxValue);
-            }
-            while (temp % 2 == 0);
+            int[] library = new int[] { 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096 };
 
-            return temp;
+            foreach (var number in library)
+            {
+                if (number <= maxValue)
+                {
+                    temp++;
+                }
+                else
+                {
+                    break;
+                }
+            }
+
+            int randomGeneratedNumebrOfLibraryIndex = rnd.Next(1, temp) - 1;
+
+            return library[randomGeneratedNumebrOfLibraryIndex];
         }
+
     }
 }

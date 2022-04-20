@@ -14,7 +14,6 @@ namespace Game2048.Engines
 
         public GenerateStartBoard(int minValue, int maxValue)
         {
-            randomRangeEvenNumberService = new RandomRangeEvenNumberService(minValue, maxValue);
             OutputList = GenerateStartBoardMethod(minValue, maxValue);
         }
 
@@ -24,6 +23,7 @@ namespace Game2048.Engines
 
             for (int i = 0; i < 16; i++)
             {
+                randomRangeEvenNumberService = new RandomRangeEvenNumberService(minValue, maxValue);
                 result.Add(randomRangeEvenNumberService.RandomNumber.ToString());
             }
 

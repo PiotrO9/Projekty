@@ -20,11 +20,17 @@ namespace Game2048.ViewModels
             GameName = "2048";
             MoveTrigger = new Command<Direction>((direction) => MoveTriggerImpl(direction));
 
-            GenerateStartBoard generateStartBoard = new GenerateStartBoard(2, 16);
+            GenerateStartBoard generateStartBoard = new GenerateStartBoard(2, 2048);
 
             UnpackColectionToTiles(generateStartBoard.OutputList);
         }
 
+        private int _fontsize;
+        public int Fontsize
+        {
+            get { return _fontsize; }
+            set { SetProperty(ref _fontsize, value); }
+        }
 
         #region Commands
         public Command<Direction> MoveTrigger { get; set; }
@@ -182,14 +188,17 @@ namespace Game2048.ViewModels
             ResultList.Add(SecondTile);
             ResultList.Add(ThirdTile);
             ResultList.Add(FourthTile);
+
             ResultList.Add(FifthTile);
             ResultList.Add(SixthTile);
             ResultList.Add(SeventhTile);
             ResultList.Add(EighthTile);
+
             ResultList.Add(NinthTile);
             ResultList.Add(TenthTile);
             ResultList.Add(ElevenTile);
             ResultList.Add(TwelfthTile);
+
             ResultList.Add(ThirteenthTile);
             ResultList.Add(FourteenTile);
             ResultList.Add(FifteenthTile);
