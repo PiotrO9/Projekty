@@ -24,11 +24,11 @@ namespace Game2048.Converters
                     }
                 case 3:
                     {
-                        return 16;
+                        return 14;
                     }
                 case 4:
                     {
-                        return 14;
+                        return 12;
                     }
                 default:
                     {

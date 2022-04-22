@@ -21,10 +21,20 @@ namespace Game2048.Engines
         {
             List<string> result = new List<string>();
 
+            Random rnd = new Random();
+            int temp = rnd.Next(0, 15);
+
             for (int i = 0; i < 16; i++)
             {
-                randomRangeEvenNumberService = new RandomRangeEvenNumberService(minValue, maxValue);
-                result.Add(randomRangeEvenNumberService.RandomNumber.ToString());
+                if(i == temp)
+                {
+                    randomRangeEvenNumberService = new RandomRangeEvenNumberService(minValue, maxValue);
+                    result.Add(randomRangeEvenNumberService.RandomNumber.ToString());
+                }
+                else
+                {
+                    result.Add("0");
+                }
             }
 
             return result;

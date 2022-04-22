@@ -5,7 +5,7 @@
              xmlns:enums="clr-namespace:Game2048.Enums"
              xmlns:syncfusion="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"  
              xmlns:sfgrid="clr-namespace:Syncfusion.SfDataGrid.XForms;assembly=Syncfusion.SfDataGrid.XForms"
-             xmlns:con="clr-namespace:Game2048.Converters"
+             xmlns:con="clr-namespace:Game2048.Converters" 
              x:Class="Game2048.Views.MainPage"
              NavigationPage.HasNavigationBar="False"
              NavigationPage.HasBackButton="False">
@@ -14,6 +14,7 @@
         <ResourceDictionary>
 
             <con:FontSizeConverter x:Key="fontSizeConverter"/>
+            <con:BackgroundColorConverter x:Key="backgroundColorConverter"/>
 
             <Style x:Key="Tile" TargetType="Frame">
                 <Setter Property="BackgroundColor" Value="White"/>
@@ -24,6 +25,7 @@
                 <Setter Property="FontSize" Value="16"/>
                 <Setter Property="VerticalTextAlignment" Value="Center"/>
                 <Setter Property="HorizontalTextAlignment" Value="Center"/>
+                <Setter Property="TextColor" Value="White"/>
             </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
@@ -86,170 +88,186 @@
                     <RowDefinition/>
                 </Grid.RowDefinitions>
 
-                <Frame Grid.Column="0" Grid.Row="0" Style="{StaticResource Tile}">
+                <Frame Grid.Column="0" Grid.Row="0" Style="{StaticResource Tile}" BackgroundColor="{Binding FirstTileBackgroundColor}">
                     <Frame.GestureRecognizers>
                         <SwipeGestureRecognizer Direction="Up" Command="{Binding MoveTrigger}" CommandParameter="{Static enums:Direction.Up}"/>
                         <SwipeGestureRecognizer Direction="Down" Command="{Binding MoveTrigger}" CommandParameter="{Static enums:Direction.Down}"/>
                         <SwipeGestureRecognizer Direction="Left" Command="{Binding MoveTrigger}" CommandParameter="{Static enums:Direction.Left}"/>
                         <SwipeGestureRecognizer Direction="Right" Command="{Binding MoveTrigger}" CommandParameter="{Static enums:Direction.Right}"/>
                     </Frame.GestureRecognizers>
-                    <Label x:Name="FirstTileLbl" Text="{Binding FirstTile}" FontSize="{Binding Fontsize, Converter={StaticResource fontSizeConverter}, ConverterParameter={x:Reference FirstTileLbl}}" Style="{StaticResource LabelInTile}"/>
+                    <Label x:Name="FirstTileLbl" Text="{Binding FirstTile}" FontSize="{Binding FirstTileFontsize, Converter={StaticResource fontSizeConverter}, 
+                        ConverterParameter={x:Reference FirstTileLbl}}" Style="{StaticResource LabelInTile}"/>
                 </Frame>
 
-                <Frame Grid.Column="1" Grid.Row="0" Style="{StaticResource Tile}">
+                <Frame Grid.Column="1" Grid.Row="0" Style="{StaticResource Tile}" BackgroundColor="{Binding SecondTileBackgroundColor}">
                     <Frame.GestureRecognizers>
                         <SwipeGestureRecognizer Direction="Up" Command="{Binding MoveTrigger}" CommandParameter="{Static enums:Direction.Up}"/>
                         <SwipeGestureRecognizer Direction="Down" Command="{Binding MoveTrigger}" CommandParameter="{Static enums:Direction.Down}"/>
                         <SwipeGestureRecognizer Direction="Left" Command="{Binding MoveTrigger}" CommandParameter="{Static enums:Direction.Left}"/>
                         <SwipeGestureRecognizer Direction="Right" Command="{Binding MoveTrigger}" CommandParameter="{Static enums:Direction.Right}"/>
                     </Frame.GestureRecognizers>
-                    <Label Text="{Binding SecondTile}" Style="{StaticResource LabelInTile}"/>
+                    <Label x:Name="SecondTileLbl" Text="{Binding SecondTile}" FontSize="{Binding SecondTileFontsize, Converter={StaticResource fontSizeConverter}, 
+                        ConverterParameter={x:Reference SecondTileLbl}}" Style="{StaticResource LabelInTile}"/>
                 </Frame>
 
-                <Frame Grid.Column="2" Grid.Row="0" Style="{StaticResource Tile}">
+                <Frame Grid.Column="2" Grid.Row="0" Style="{StaticResource Tile}" BackgroundColor="{Binding ThirdTileBackgroundColor}">
                     <Frame.GestureRecognizers>
                         <SwipeGestureRecognizer Direction="Up" Command="{Binding MoveTrigger}" CommandParameter="{Static enums:Direction.Up}"/>
                         <SwipeGestureRecognizer Direction="Down" Command="{Binding MoveTrigger}" CommandParameter="{Static enums:Direction.Down}"/>
                         <SwipeGestureRecognizer Direction="Left" Command="{Binding MoveTrigger}" CommandParameter="{Static enums:Direction.Left}"/>
                         <SwipeGestureRecognizer Direction="Right" Command="{Binding MoveTrigger}" CommandParameter="{Static enums:Direction.Right}"/>
                     </Frame.GestureRecognizers>
-                    <Label Text="{Binding ThirdTile}" Style="{StaticResource LabelInTile}"/>
+                    <Label x:Name="ThirdTileLbl" Text="{Binding ThirdTile}" FontSize="{Binding ThirdTileFontsize, Converter={StaticResource fontSizeConverter}, 
+                        ConverterParameter={x:Reference ThirdTileLbl}}" Style="{StaticResource LabelInTile}"/>
                 </Frame>
 
-                <Frame Grid.Column="3" Grid.Row="0" Style="{StaticResource Tile}">
+                <Frame Grid.Column="3" Grid.Row="0" Style="{StaticResource Tile}" BackgroundColor="{Binding FourthTileBackgroundColor}">
                     <Frame.GestureRecognizers>
                         <SwipeGestureRecognizer Direction="Up" Command="{Binding MoveTrigger}" CommandParameter="{Static enums:Direction.Up}"/>
                         <SwipeGestureRecognizer Direction="Down" Command="{Binding MoveTrigger}" CommandParameter="{Static enums:Direction.Down}"/>
                         <SwipeGestureRecognizer Direction="Left" Command="{Binding MoveTrigger}" CommandParameter="{Static enums:Direction.Left}"/>
                         <SwipeGestureRecognizer Direction="Right" Command="{Binding MoveTrigger}" CommandParameter="{Static enums:Direction.Right}"/>
                     </Frame.GestureRecognizers>
-                    <Label Text="{Binding FourthTile}" Style="{StaticResource LabelInTile}"/>
-                </Frame>
-
-                <!-- -->
-                
-                <Frame Grid.Column="0" Grid.Row="1" Style="{StaticResource Tile}">
-                    <Frame.GestureRecognizers>
-                        <SwipeGestureRecognizer Direction="Up" Command="{Binding MoveTrigger}" CommandParameter="{Static enums:Direction.Up}"/>
-                        <SwipeGestureRecognizer Direction="Down" Command="{Binding MoveTrigger}" CommandParameter="{Static enums:Direction.Down}"/>
-                        <SwipeGestureRecognizer Direction="Left" Command="{Binding MoveTrigger}" CommandParameter="{Static enums:Direction.Left}"/>
-                        <SwipeGestureRecognizer Direction="Right" Command="{Binding MoveTrigger}" CommandParameter="{Static enums:Direction.Right}"/>
-                    </Frame.GestureRecognizers>
-                    <Label Text="{Binding FifthTile}" Style="{StaticResource LabelInTile}"/>
-                </Frame>
-
-                <Frame Grid.Column="1" Grid.Row="1" Style="{StaticResource Tile}">
-                    <Frame.GestureRecognizers>
-                        <SwipeGestureRecognizer Direction="Up" Command="{Binding MoveTrigger}" CommandParameter="{Static enums:Direction.Up}"/>
-                        <SwipeGestureRecognizer Direction="Down" Command="{Binding MoveTrigger}" CommandParameter="{Static enums:Direction.Down}"/>
-                        <SwipeGestureRecognizer Direction="Left" Command="{Binding MoveTrigger}" CommandParameter="{Static enums:Direction.Left}"/>
-                        <SwipeGestureRecognizer Direction="Right" Command="{Binding MoveTrigger}" CommandParameter="{Static enums:Direction.Right}"/>
-                    </Frame.GestureRecognizers>
-                    <Label Text="{Binding SixthTile}" Style="{StaticResource LabelInTile}"/>
-                </Frame>
-
-                <Frame Grid.Column="2" Grid.Row="1" Style="{StaticResource Tile}">
-                    <Frame.GestureRecognizers>
-                        <SwipeGestureRecognizer Direction="Up" Command="{Binding MoveTrigger}" CommandParameter="{Static enums:Direction.Up}"/>
-                        <SwipeGestureRecognizer Direction="Down" Command="{Binding MoveTrigger}" CommandParameter="{Static enums:Direction.Down}"/>
-                        <SwipeGestureRecognizer Direction="Left" Command="{Binding MoveTrigger}" CommandParameter="{Static enums:Direction.Left}"/>
-                        <SwipeGestureRecognizer Direction="Right" Command="{Binding MoveTrigger}" CommandParameter="{Static enums:Direction.Right}"/>
-                    </Frame.GestureRecognizers>
-                    <Label Text="{Binding SeventhTile}" Style="{StaticResource LabelInTile}"/>
-                </Frame>
-
-                <Frame Grid.Column="3" Grid.Row="1" Style="{StaticResource Tile}">
-                    <Frame.GestureRecognizers>
-                        <SwipeGestureRecognizer Direction="Up" Command="{Binding MoveTrigger}" CommandParameter="{Static enums:Direction.Up}"/>
-                        <SwipeGestureRecognizer Direction="Down" Command="{Binding MoveTrigger}" CommandParameter="{Static enums:Direction.Down}"/>
-                        <SwipeGestureRecognizer Direction="Left" Command="{Binding MoveTrigger}" CommandParameter="{Static enums:Direction.Left}"/>
-                        <SwipeGestureRecognizer Direction="Right" Command="{Binding MoveTrigger}" CommandParameter="{Static enums:Direction.Right}"/>
-                    </Frame.GestureRecognizers>
-                    <Label Text="{Binding EighthTile}" Style="{StaticResource LabelInTile}"/>
-                </Frame>
-
-                <!-- -->
-
-                <Frame Grid.Column="0" Grid.Row="2" Style="{StaticResource Tile}">
-                    <Frame.GestureRecognizers>
-                        <SwipeGestureRecognizer Direction="Up" Command="{Binding MoveTrigger}" CommandParameter="{Static enums:Direction.Up}"/>
-                        <SwipeGestureRecognizer Direction="Down" Command="{Binding MoveTrigger}" CommandParameter="{Static enums:Direction.Down}"/>
-                        <SwipeGestureRecognizer Direction="Left" Command="{Binding MoveTrigger}" CommandParameter="{Static enums:Direction.Left}"/>
-                        <SwipeGestureRecognizer Direction="Right" Command="{Binding MoveTrigger}" CommandParameter="{Static enums:Direction.Right}"/>
-                    </Frame.GestureRecognizers>
-                    <Label Text="{Binding NinthTile}" Style="{StaticResource LabelInTile}"/>
-                </Frame>
-
-                <Frame Grid.Column="1" Grid.Row="2" Style="{StaticResource Tile}">
-                    <Frame.GestureRecognizers>
-                        <SwipeGestureRecognizer Direction="Up" Command="{Binding MoveTrigger}" CommandParameter="{Static enums:Direction.Up}"/>
-                        <SwipeGestureRecognizer Direction="Down" Command="{Binding MoveTrigger}" CommandParameter="{Static enums:Direction.Down}"/>
-                        <SwipeGestureRecognizer Direction="Left" Command="{Binding MoveTrigger}" CommandParameter="{Static enums:Direction.Left}"/>
-                        <SwipeGestureRecognizer Direction="Right" Command="{Binding MoveTrigger}" CommandParameter="{Static enums:Direction.Right}"/>
-                    </Frame.GestureRecognizers>
-                    <Label Text="{Binding TenthTile}" Style="{StaticResource LabelInTile}"/>
-                </Frame>
-
-                <Frame Grid.Column="2" Grid.Row="2" Style="{StaticResource Tile}">
-                    <Frame.GestureRecognizers>
-                        <SwipeGestureRecognizer Direction="Up" Command="{Binding MoveTrigger}" CommandParameter="{Static enums:Direction.Up}"/>
-                        <SwipeGestureRecognizer Direction="Down" Command="{Binding MoveTrigger}" CommandParameter="{Static enums:Direction.Down}"/>
-                        <SwipeGestureRecognizer Direction="Left" Command="{Binding MoveTrigger}" CommandParameter="{Static enums:Direction.Left}"/>
-                        <SwipeGestureRecognizer Direction="Right" Command="{Binding MoveTrigger}" CommandParameter="{Static enums:Direction.Right}"/>
-                    </Frame.GestureRecognizers>
-                    <Label Text="{Binding ElevenTile}" Style="{StaticResource LabelInTile}"/>
-                </Frame>
-
-                <Frame Grid.Column="3" Grid.Row="2" Style="{StaticResource Tile}">
-                    <Frame.GestureRecognizers>
-                        <SwipeGestureRecognizer Direction="Up" Command="{Binding MoveTrigger}" CommandParameter="{Static enums:Direction.Up}"/>
-                        <SwipeGestureRecognizer Direction="Down" Command="{Binding MoveTrigger}" CommandParameter="{Static enums:Direction.Down}"/>
-                        <SwipeGestureRecognizer Direction="Left" Command="{Binding MoveTrigger}" CommandParameter="{Static enums:Direction.Left}"/>
-                        <SwipeGestureRecognizer Direction="Right" Command="{Binding MoveTrigger}" CommandParameter="{Static enums:Direction.Right}"/>
-                    </Frame.GestureRecognizers>
-                    <Label Text="{Binding TwelfthTile}" Style="{StaticResource LabelInTile}"/>
+                    <Label x:Name="FourthTileLbl" Text="{Binding FourthTile}" FontSize="{Binding FourthTileFontsize, Converter={StaticResource fontSizeConverter}, 
+                        ConverterParameter={x:Reference FourthTileLbl}}" Style="{StaticResource LabelInTile}"/>
                 </Frame>
 
                 <!-- -->
                 
-                <Frame Grid.Column="0" Grid.Row="3" Style="{StaticResource Tile}">
+                <Frame Grid.Column="0" Grid.Row="1" Style="{StaticResource Tile}" BackgroundColor="{Binding FifthTileBackgroundColor}">
                     <Frame.GestureRecognizers>
                         <SwipeGestureRecognizer Direction="Up" Command="{Binding MoveTrigger}" CommandParameter="{Static enums:Direction.Up}"/>
                         <SwipeGestureRecognizer Direction="Down" Command="{Binding MoveTrigger}" CommandParameter="{Static enums:Direction.Down}"/>
                         <SwipeGestureRecognizer Direction="Left" Command="{Binding MoveTrigger}" CommandParameter="{Static enums:Direction.Left}"/>
                         <SwipeGestureRecognizer Direction="Right" Command="{Binding MoveTrigger}" CommandParameter="{Static enums:Direction.Right}"/>
                     </Frame.GestureRecognizers>
-                    <Label Text="{Binding ThirteenthTile}" Style="{StaticResource LabelInTile}"/>
+                    <Label x:Name="FifthTileLbl" Text="{Binding FifthTile}" FontSize="{Binding FifthTileFontsize, Converter={StaticResource fontSizeConverter},
+                        ConverterParameter={x:Reference FifthTileLbl}}" Style="{StaticResource LabelInTile}"/>
                 </Frame>
 
-                <Frame Grid.Column="1" Grid.Row="3" Style="{StaticResource Tile}">
+                <Frame Grid.Column="1" Grid.Row="1" Style="{StaticResource Tile}" BackgroundColor="{Binding SixthTileBackgroundColor}">
                     <Frame.GestureRecognizers>
                         <SwipeGestureRecognizer Direction="Up" Command="{Binding MoveTrigger}" CommandParameter="{Static enums:Direction.Up}"/>
                         <SwipeGestureRecognizer Direction="Down" Command="{Binding MoveTrigger}" CommandParameter="{Static enums:Direction.Down}"/>
                         <SwipeGestureRecognizer Direction="Left" Command="{Binding MoveTrigger}" CommandParameter="{Static enums:Direction.Left}"/>
                         <SwipeGestureRecognizer Direction="Right" Command="{Binding MoveTrigger}" CommandParameter="{Static enums:Direction.Right}"/>
                     </Frame.GestureRecognizers>
-                    <Label Text="{Binding FourteenTile}" Style="{StaticResource LabelInTile}"/>
+                    <Label x:Name="SixthTileLbl" Text="{Binding SixthTile}" FontSize="{Binding SixthTileFontsize, Converter={StaticResource fontSizeConverter},
+                        ConverterParameter={x:Reference SixthTileLbl}}" Style="{StaticResource LabelInTile}"/>
                 </Frame>
 
-                <Frame Grid.Column="2" Grid.Row="3" Style="{StaticResource Tile}">
+                <Frame Grid.Column="2" Grid.Row="1" Style="{StaticResource Tile}" BackgroundColor="{Binding SeventhTileBackgroundColor}">
                     <Frame.GestureRecognizers>
                         <SwipeGestureRecognizer Direction="Up" Command="{Binding MoveTrigger}" CommandParameter="{Static enums:Direction.Up}"/>
                         <SwipeGestureRecognizer Direction="Down" Command="{Binding MoveTrigger}" CommandParameter="{Static enums:Direction.Down}"/>
                         <SwipeGestureRecognizer Direction="Left" Command="{Binding MoveTrigger}" CommandParameter="{Static enums:Direction.Left}"/>
                         <SwipeGestureRecognizer Direction="Right" Command="{Binding MoveTrigger}" CommandParameter="{Static enums:Direction.Right}"/>
                     </Frame.GestureRecognizers>
-                    <Label Text="{Binding FifteenthTile}" Style="{StaticResource LabelInTile}"/>
+                    <Label x:Name="SeventhTileLbl" Text="{Binding SeventhTile}" FontSize="{Binding SeventhTileFontsize, Converter={StaticResource fontSizeConverter},
+                        ConverterParameter={x:Reference SeventhTileLbl}}" Style="{StaticResource LabelInTile}"/>
                 </Frame>
 
-                <Frame Grid.Column="3" Grid.Row="3" Style="{StaticResource Tile}">
+                <Frame Grid.Column="3" Grid.Row="1" Style="{StaticResource Tile}" BackgroundColor="{Binding EighthTileBackgroundColor}">
                     <Frame.GestureRecognizers>
                         <SwipeGestureRecognizer Direction="Up" Command="{Binding MoveTrigger}" CommandParameter="{Static enums:Direction.Up}"/>
                         <SwipeGestureRecognizer Direction="Down" Command="{Binding MoveTrigger}" CommandParameter="{Static enums:Direction.Down}"/>
                         <SwipeGestureRecognizer Direction="Left" Command="{Binding MoveTrigger}" CommandParameter="{Static enums:Direction.Left}"/>
                         <SwipeGestureRecognizer Direction="Right" Command="{Binding MoveTrigger}" CommandParameter="{Static enums:Direction.Right}"/>
                     </Frame.GestureRecognizers>
-                    <Label Text="{Binding SixteenthTile}" Style="{StaticResource LabelInTile}"/>
+                    <Label x:Name="EighthTileLbl" Text="{Binding EighthTile}" FontSize="{Binding EighthTileFontsize, Converter={StaticResource fontSizeConverter},
+                        ConverterParameter={x:Reference EighthTileLbl}}" Style="{StaticResource LabelInTile}"/>
+                </Frame>
+
+                <!-- -->
+
+                <Frame Grid.Column="0" Grid.Row="2" Style="{StaticResource Tile}" BackgroundColor="{Binding NinthTileBackgroundColor}">
+                    <Frame.GestureRecognizers>
+                        <SwipeGestureRecognizer Direction="Up" Command="{Binding MoveTrigger}" CommandParameter="{Static enums:Direction.Up}"/>
+                        <SwipeGestureRecognizer Direction="Down" Command="{Binding MoveTrigger}" CommandParameter="{Static enums:Direction.Down}"/>
+                        <SwipeGestureRecognizer Direction="Left" Command="{Binding MoveTrigger}" CommandParameter="{Static enums:Direction.Left}"/>
+                        <SwipeGestureRecognizer Direction="Right" Command="{Binding MoveTrigger}" CommandParameter="{Static enums:Direction.Right}"/>
+                    </Frame.GestureRecognizers>
+                    <Label x:Name="NinthTileLbl" Text="{Binding NinthTile}" FontSize="{Binding NinthTileFontsize, Converter={StaticResource fontSizeConverter},
+                        ConverterParameter={x:Reference NinthTileLbl}}" Style="{StaticResource LabelInTile}"/>
+                </Frame>
+
+                <Frame Grid.Column="1" Grid.Row="2" Style="{StaticResource Tile}" BackgroundColor="{Binding TenthTileBackgroundColor}">
+                    <Frame.GestureRecognizers>
+                        <SwipeGestureRecognizer Direction="Up" Command="{Binding MoveTrigger}" CommandParameter="{Static enums:Direction.Up}"/>
+                        <SwipeGestureRecognizer Direction="Down" Command="{Binding MoveTrigger}" CommandParameter="{Static enums:Direction.Down}"/>
+                        <SwipeGestureRecognizer Direction="Left" Command="{Binding MoveTrigger}" CommandParameter="{Static enums:Direction.Left}"/>
+                        <SwipeGestureRecognizer Direction="Right" Command="{Binding MoveTrigger}" CommandParameter="{Static enums:Direction.Right}"/>
+                    </Frame.GestureRecognizers>
+                    <Label x:Name="TenthTileLbl" Text="{Binding TenthTile}" FontSize="{Binding TenthTileFontsize, Converter={StaticResource fontSizeConverter},
+                        ConverterParameter={x:Reference TenthTileLbl}}" Style="{StaticResource LabelInTile}"/>
+                </Frame>
+
+                <Frame Grid.Column="2" Grid.Row="2" Style="{StaticResource Tile}" BackgroundColor="{Binding EleventhTileBackgroundColor}">
+                    <Frame.GestureRecognizers>
+                        <SwipeGestureRecognizer Direction="Up" Command="{Binding MoveTrigger}" CommandParameter="{Static enums:Direction.Up}"/>
+                        <SwipeGestureRecognizer Direction="Down" Command="{Binding MoveTrigger}" CommandParameter="{Static enums:Direction.Down}"/>
+                        <SwipeGestureRecognizer Direction="Left" Command="{Binding MoveTrigger}" CommandParameter="{Static enums:Direction.Left}"/>
+                        <SwipeGestureRecognizer Direction="Right" Command="{Binding MoveTrigger}" CommandParameter="{Static enums:Direction.Right}"/>
+                    </Frame.GestureRecognizers>
+                    <Label x:Name="ElevenTileLbl" Text="{Binding ElevenTile}" FontSize="{Binding EleventhTileFontsize, Converter={StaticResource fontSizeConverter},
+                        ConverterParameter={x:Reference ElevenTileLbl}}" Style="{StaticResource LabelInTile}"/>
+                </Frame>
+
+                <Frame Grid.Column="3" Grid.Row="2" Style="{StaticResource Tile}" BackgroundColor="{Binding TwelfthTileBackgroundColor}">
+                    <Frame.GestureRecognizers>
+                        <SwipeGestureRecognizer Direction="Up" Command="{Binding MoveTrigger}" CommandParameter="{Static enums:Direction.Up}"/>
+                        <SwipeGestureRecognizer Direction="Down" Command="{Binding MoveTrigger}" CommandParameter="{Static enums:Direction.Down}"/>
+                        <SwipeGestureRecognizer Direction="Left" Command="{Binding MoveTrigger}" CommandParameter="{Static enums:Direction.Left}"/>
+                        <SwipeGestureRecognizer Direction="Right" Command="{Binding MoveTrigger}" CommandParameter="{Static enums:Direction.Right}"/>
+                    </Frame.GestureRecognizers>
+                    <Label x:Name="TwelfthTileLbl" Text="{Binding TwelfthTile}" FontSize="{Binding TwelfthTileFontsize, Converter={StaticResource fontSizeConverter},
+                        ConverterParameter={x:Reference TwelfthTileLbl}}" Style="{StaticResource LabelInTile}"/>
+                </Frame>
+
+                <!-- -->
+                
+                <Frame Grid.Column="0" Grid.Row="3" Style="{StaticResource Tile}" BackgroundColor="{Binding ThirteenthTileBackgroundColor}">
+                    <Frame.GestureRecognizers>
+                        <SwipeGestureRecognizer Direction="Up" Command="{Binding MoveTrigger}" CommandParameter="{Static enums:Direction.Up}"/>
+                        <SwipeGestureRecognizer Direction="Down" Command="{Binding MoveTrigger}" CommandParameter="{Static enums:Direction.Down}"/>
+                        <SwipeGestureRecognizer Direction="Left" Command="{Binding MoveTrigger}" CommandParameter="{Static enums:Direction.Left}"/>
+                        <SwipeGestureRecognizer Direction="Right" Command="{Binding MoveTrigger}" CommandParameter="{Static enums:Direction.Right}"/>
+                    </Frame.GestureRecognizers>
+                    <Label x:Name="ThirteenthTileLbl" Text="{Binding ThirteenthTile}" FontSize="{Binding ThirteenthTileFontsize, Converter={StaticResource fontSizeConverter},
+                        ConverterParameter={x:Reference ThirteenthTileLbl}}" Style="{StaticResource LabelInTile}"/>
+                </Frame>
+
+                <Frame Grid.Column="1" Grid.Row="3" Style="{StaticResource Tile}" BackgroundColor="{Binding FourteenthTileBackgroundColor}">
+                    <Frame.GestureRecognizers>
+                        <SwipeGestureRecognizer Direction="Up" Command="{Binding MoveTrigger}" CommandParameter="{Static enums:Direction.Up}"/>
+                        <SwipeGestureRecognizer Direction="Down" Command="{Binding MoveTrigger}" CommandParameter="{Static enums:Direction.Down}"/>
+                        <SwipeGestureRecognizer Direction="Left" Command="{Binding MoveTrigger}" CommandParameter="{Static enums:Direction.Left}"/>
+                        <SwipeGestureRecognizer Direction="Right" Command="{Binding MoveTrigger}" CommandParameter="{Static enums:Direction.Right}"/>
+                    </Frame.GestureRecognizers>
+                    <Label x:Name="FourteenTileLbl" Text="{Binding FourteenTile}" FontSize="{Binding FourteenthTileFontsize, Converter={StaticResource fontSizeConverter},
+                        ConverterParameter={x:Reference FourteenTileLbl}}" Style="{StaticResource LabelInTile}"/>
+                </Frame>
+
+                <Frame Grid.Column="2" Grid.Row="3" Style="{StaticResource Tile}" BackgroundColor="{Binding FifteenthTileBackgroundColor}">
+                    <Frame.GestureRecognizers>
+                        <SwipeGestureRecognizer Direction="Up" Command="{Binding MoveTrigger}" CommandParameter="{Static enums:Direction.Up}"/>
+                        <SwipeGestureRecognizer Direction="Down" Command="{Binding MoveTrigger}" CommandParameter="{Static enums:Direction.Down}"/>
+                        <SwipeGestureRecognizer Direction="Left" Command="{Binding MoveTrigger}" CommandParameter="{Static enums:Direction.Left}"/>
+                        <SwipeGestureRecognizer Direction="Right" Command="{Binding MoveTrigger}" CommandParameter="{Static enums:Direction.Right}"/>
+                    </Frame.GestureRecognizers>
+                    <Label x:Name="FifteenthTileLbl" Text="{Binding FifteenthTile}" FontSize="{Binding FifteenthTileFontsize, Converter={StaticResource fontSizeConverter},
+                        ConverterParameter={x:Reference FifteenthTileLbl}}" Style="{StaticResource LabelInTile}"/>
+                </Frame>
+
+                <Frame Grid.Column="3" Grid.Row="3" Style="{StaticResource Tile}" BackgroundColor="{Binding SixteenthTileBackgroundColor}">
+                    <Frame.GestureRecognizers>
+                        <SwipeGestureRecognizer Direction="Up" Command="{Binding MoveTrigger}" CommandParameter="{Static enums:Direction.Up}"/>
+                        <SwipeGestureRecognizer Direction="Down" Command="{Binding MoveTrigger}" CommandParameter="{Static enums:Direction.Down}"/>
+                        <SwipeGestureRecognizer Direction="Left" Command="{Binding MoveTrigger}" CommandParameter="{Static enums:Direction.Left}"/>
+                        <SwipeGestureRecognizer Direction="Right" Command="{Binding MoveTrigger}" CommandParameter="{Static enums:Direction.Right}"/>
+                    </Frame.GestureRecognizers>
+                    <Label x:Name="SixteenthTileLbl" Text="{Binding SixteenthTile}" FontSize="{Binding SixteenthTileFontsize, Converter={StaticResource fontSizeConverter},
+                        ConverterParameter={x:Reference SixteenthTileLbl}}" Style="{StaticResource LabelInTile}"/>
                 </Frame>
 
             </Grid>
