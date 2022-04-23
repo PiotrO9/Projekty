@@ -37,6 +37,9 @@ namespace Game2048.ViewModels
         public void MoveTriggerImpl(Direction direction)
         {
             DirectionName = direction;
+            MoveEngine moveEngine = new MoveEngine(PackTilesToColection(), direction);
+            UnpackColectionToTiles(moveEngine.MovedList);
+            UpdateTilesBackgroundColors();
         }
 
         #endregion
