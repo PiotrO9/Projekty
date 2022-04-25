@@ -40,6 +40,7 @@ namespace Game2048.ViewModels
             MoveEngine moveEngine = new MoveEngine(PackTilesToColection(), direction);
             UnpackColectionToTiles(moveEngine.MovedList);
             UpdateTilesBackgroundColors();
+            TriggerFontSizeChange();
         }
 
         #endregion
@@ -542,6 +543,29 @@ namespace Game2048.ViewModels
                         return "#E8BE4E";
                     }
             }
+        }
+
+        private void TriggerFontSizeChange()
+        {
+            FirstTileFontsize = FirstTileFontsize;
+            SecondTileFontsize = SecondTileFontsize;
+            ThirdTileFontsize = ThirdTileFontsize;
+            FourthTile = FourthTile;
+
+            FifthTileFontsize = FifthTileFontsize;
+            SixthTileFontsize = SixthTileFontsize;
+            SeventhTileFontsize = SeventhTileFontsize;
+            EighthTileFontsize = EighthTileFontsize;
+
+            NinthTileFontsize = NinthTileFontsize;
+            TenthTileFontsize = TenthTileFontsize;
+            EleventhTileFontsize = EleventhTileFontsize;
+            TwelfthTileFontsize = TwelfthTileFontsize;
+
+            ThirteenthTileFontsize = ThirteenthTileFontsize;
+            FourteenthTileFontsize = FourteenthTileFontsize;
+            FifteenthTileFontsize = FifteenthTileFontsize;
+            SixteenthTileFontsize = SixteenthTileFontsize;
         }
 
         #endregion

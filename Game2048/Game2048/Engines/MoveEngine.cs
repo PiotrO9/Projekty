@@ -26,7 +26,14 @@ namespace Game2048.Engines
                     PackedList[i] = DeleteEmptyPlacesInLane.DeleteEmptyPlacesInLaneMethod(tempList, direction);
                 }
 
-                MovedList = UnPackListToVertical(PackedList);
+                List<string> ResturnList = UnPackListToVertical(PackedList);
+
+                if (ResturnList.Contains("0"))
+                {
+                    ResturnList = GenerateNewTileInList.GenerateNewTileInListMethod(ResturnList);
+                }
+
+                MovedList = ResturnList;
             }
             else
             {
@@ -38,7 +45,14 @@ namespace Game2048.Engines
                     PackedList[i] = DeleteEmptyPlacesInLane.DeleteEmptyPlacesInLaneMethod(tempList, direction);
                 }
 
-                MovedList = UnPackListToHorizontal(PackedList);
+                List<string> ResturnList = UnPackListToHorizontal(PackedList);
+
+                if (ResturnList.Contains("0"))
+                {
+                    ResturnList = GenerateNewTileInList.GenerateNewTileInListMethod(ResturnList);
+                }
+
+                MovedList = ResturnList;
             }
 
 

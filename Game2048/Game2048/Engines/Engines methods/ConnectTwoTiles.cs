@@ -14,7 +14,7 @@ namespace Game2048.Engines.Engines_methods
             {
                 case Direction.Up:
                     {
-                        for (int i = 0; i < 4; i++)
+                        for (int i = 0; i < 3; i++)
                         {
                             if (lane[i] == lane[i + 1])
                             {
@@ -35,11 +35,11 @@ namespace Game2048.Engines.Engines_methods
                                 lane[i - 1] = "0";
                             }
                         }
-                    break;
+                        break;
                     }
                 case Direction.Left:
                     {
-                        for (int i = 0; i < 4; i++)
+                        for (int i = 0; i < 3; i++)
                         {
                             if (lane[i] == lane[i + 1])
                             {
@@ -47,7 +47,7 @@ namespace Game2048.Engines.Engines_methods
                                 lane[i + 1] = "0";
                             }
                         }
-                    break;
+                        break;
                     }
                 case Direction.Right:
                     {
@@ -59,7 +59,7 @@ namespace Game2048.Engines.Engines_methods
                                 lane[i - 1] = "0";
                             }
                         }
-                    break;
+                        break;
                     }
             }
 

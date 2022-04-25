@@ -12,15 +12,15 @@ namespace Game2048.Converters
         {
             Label label = (Label)parameter;
 
-            switch(label.Text.Length)
+            switch (label.Text.Length)
             {
                 case 1:
                     {
-                        return 22;
+                        return 20;
                     }
                 case 2:
                     {
-                        return 20;
+                        return 18;
                     }
                 case 3:
                     {
