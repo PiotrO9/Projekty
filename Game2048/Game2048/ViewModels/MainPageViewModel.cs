@@ -20,7 +20,10 @@ namespace Game2048.ViewModels
             : base(navigationService)
         {
             GameName = "2048";
+            Score = "0";
+            BestScore = "0";
             MoveTrigger = new Command<Direction>((direction) => MoveTriggerImpl(direction));
+            RestartGameCommand = new Command(RestartGame);
 
             GenerateStartBoard generateStartBoard = new GenerateStartBoard(2, 4);
 
@@ -30,6 +33,7 @@ namespace Game2048.ViewModels
 
         #region Commands
         public Command<Direction> MoveTrigger { get; set; }
+        public Command RestartGameCommand { get; set; }
 
         #endregion
 
@@ -37,15 +41,50 @@ namespace Game2048.ViewModels
         public void MoveTriggerImpl(Direction direction)
         {
             DirectionName = direction;
-            MoveEngine moveEngine = new MoveEngine(PackTilesToColection(), direction);
+            List<string> PackedList = PackTilesToColection();
+
+            MoveEngine moveEngine = new MoveEngine(PackedList, direction);
             UnpackColectionToTiles(moveEngine.MovedList);
             UpdateTilesBackgroundColors();
             TriggerFontSizeChange();
+
+            int ScoreAfterMove = CalculateScoreBoard.CalculateScoreBoardMethod(PackTilesToColection());
+
+            if (ScoreAfterMove > int.Parse(Score))
+                Score = ScoreAfterMove.ToString();
+
+            if (ScoreAfterMove > int.Parse(BestScore))
+                BestScore = ScoreAfterMove.ToString();
+        }
+
+        public void RestartGame()
+        {
+            GenerateStartBoard generateStartBoard = new GenerateStartBoard(2, 4);
+
+            UnpackColectionToTiles(generateStartBoard.OutputList);
+            UpdateTilesBackgroundColors();
+            Score = "2";
         }
 
         #endregion
 
         #region Fields
+
+        #region General
+
+        private string _score;
+        public string Score
+        {
+            get { return _score; }
+            set { SetProperty(ref _score, value); OnPropertyChanged(); }
+        }
+
+        private string _bestScore;
+        public string BestScore
+        {
+            get { return _bestScore; }
+            set { SetProperty(ref _bestScore, value); OnPropertyChanged(); }
+        }
 
         private string _2048;
         public string GameName
@@ -60,6 +99,8 @@ namespace Game2048.ViewModels
             get { return _directionName; }
             set { SetProperty(ref _directionName, value); OnPropertyChanged(); }
         }
+
+        #endregion
 
         #region Tile Fields
 
