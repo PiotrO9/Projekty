@@ -55,6 +55,9 @@ namespace Game2048.ViewModels
 
             if (ScoreAfterMove > int.Parse(BestScore))
                 BestScore = ScoreAfterMove.ToString();
+
+            PackedList = PackTilesToColection();
+            if (PlayingOver2048) { CheckIfExist2048Tile(PackedList); }
         }
 
         public void RestartGame()
@@ -71,6 +74,13 @@ namespace Game2048.ViewModels
         #region Fields
 
         #region General
+
+        private bool _playingOver2048;
+        public bool PlayingOver2048
+        {
+            get { return _playingOver2048; }
+            set { SetProperty(ref _playingOver2048, value); }
+        }
 
         private string _score;
         public string Score
@@ -585,7 +595,6 @@ namespace Game2048.ViewModels
                     }
             }
         }
-
         private void TriggerFontSizeChange()
         {
             FirstTileFontsize = FirstTileFontsize;
@@ -607,6 +616,17 @@ namespace Game2048.ViewModels
             FourteenthTileFontsize = FourteenthTileFontsize;
             FifteenthTileFontsize = FifteenthTileFontsize;
             SixteenthTileFontsize = SixteenthTileFontsize;
+        }
+        private bool CheckIfExist2048Tile(List<string> PackedList)
+        {
+            foreach (var item in PackedList)
+            {
+                if (item == "2048")
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
         #endregion

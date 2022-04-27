@@ -66,9 +66,10 @@ namespace Game2048.Engines
                     return lane;
                 else
                 {
-                    if (CheckIfConnectingTwoTilesPossible.CheckIfConnectingTwoTilesPossibleMethod(lane)) // If connection possible
+                    int tempValue = CheckIfConnectingTwoTilesPossible.CheckIfConnectingTwoTilesPossibleMethod(lane, direction);
+                    if (tempValue > -1) // If connection possible
                     {
-                        lane = ConnectTwoTiles.ConnectTwoTilesMethod(lane, direction);
+                        lane = ConnectTwoTiles.ConnectTwoTilesMethod(lane, direction, tempValue);
                         return lane;
                     }
                     else
@@ -77,9 +78,10 @@ namespace Game2048.Engines
             }
             else
             {
-                if (CheckIfConnectingTwoTilesPossible.CheckIfConnectingTwoTilesPossibleMethod(lane)) // If connection possible
+                int tempValue = CheckIfConnectingTwoTilesPossible.CheckIfConnectingTwoTilesPossibleMethod(lane, direction);
+                if (tempValue > -1) // If connection possible
                 {
-                    lane = ConnectTwoTiles.ConnectTwoTilesMethod(lane, direction);
+                    lane = ConnectTwoTiles.ConnectTwoTilesMethod(lane, direction, tempValue);
                     return lane;
                 }
                 else
@@ -96,9 +98,10 @@ namespace Game2048.Engines
                     return lane;
                 else
                 {
-                    if (CheckIfConnectingTwoTilesPossible.CheckIfConnectingTwoTilesPossibleMethod(lane)) // If connection possible
+                    int tempValue = CheckIfConnectingTwoTilesPossible.CheckIfConnectingTwoTilesPossibleMethod(lane, direction);
+                    if (tempValue > -1) // If connection possible
                     {
-                        lane = ConnectTwoTiles.ConnectTwoTilesMethod(lane, direction);
+                        lane = ConnectTwoTiles.ConnectTwoTilesMethod(lane, direction, tempValue);
                         return lane;
                     }
                     else
@@ -107,9 +110,10 @@ namespace Game2048.Engines
             }
             else
             {
-                if (CheckIfConnectingTwoTilesPossible.CheckIfConnectingTwoTilesPossibleMethod(lane)) // If connection possible
+                int tempValue = CheckIfConnectingTwoTilesPossible.CheckIfConnectingTwoTilesPossibleMethod(lane, direction);
+                if (tempValue > -1)
                 {
-                    lane = ConnectTwoTiles.ConnectTwoTilesMethod(lane, direction);
+                    lane = ConnectTwoTiles.ConnectTwoTilesMethod(lane, direction, tempValue);
                     return lane;
                 }
                 else
