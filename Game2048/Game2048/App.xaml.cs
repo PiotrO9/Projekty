@@ -3,6 +3,7 @@ using Game2048.Interfaces;
 using Game2048.Services;
 using Game2048.ViewModels;
 using Game2048.Views;
+using Game2048.Views.Popups;
 using Prism;
 using Prism.Ioc;
 using Xamarin.Essentials.Implementation;
@@ -36,6 +37,7 @@ namespace Game2048
 
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();
+            containerRegistry.RegisterForNavigation<WinningPopup, WinningPopupViewModel>();
         }
     }
 }

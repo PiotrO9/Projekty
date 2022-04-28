@@ -16,9 +16,13 @@ namespace Game2048.ViewModels
 {
     public class MainPageViewModel : ViewModelBase, INotifyPropertyChanged
     {
+        private readonly INavigationService _navigationService;
+
         public MainPageViewModel(INavigationService navigationService)
             : base(navigationService)
         {
+            _navigationService = navigationService;
+
             GameName = "2048";
             Score = "0";
             BestScore = "0";
@@ -29,6 +33,8 @@ namespace Game2048.ViewModels
 
             UnpackColectionToTiles(generateStartBoard.OutputList);
             UpdateTilesBackgroundColors();
+
+            _navigationService.GoBackAsync();
         }
 
         #region Commands
@@ -57,7 +63,16 @@ namespace Game2048.ViewModels
                 BestScore = ScoreAfterMove.ToString();
 
             PackedList = PackTilesToColection();
-            if (PlayingOver2048) { CheckIfExist2048Tile(PackedList); }
+            if (!PlayingOver2048) 
+            {
+                if(CheckIfExist2048Tile(PackedList))
+                {
+                    var navigationParams = new NavigationParameters();
+                    navigationParams.Add("ViewModel", this);
+
+                    _navigationService.NavigateAsync("NavigationPage/WinningPopup", navigationParams);
+                }
+            }
         }
 
         public void RestartGame()
@@ -621,7 +636,7 @@ namespace Game2048.ViewModels
         {
             foreach (var item in PackedList)
             {
-                if (item == "2048")
+                if (item == "4")
                 {
                     return true;
                 }

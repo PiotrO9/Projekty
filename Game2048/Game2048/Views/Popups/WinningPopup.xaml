@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<popup:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:popup="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+             xmlns:prism="http://prismlibrary.com"
+             x:Class="Game2048.Views.Popups.WinningPopup"
+             WidthRequest="200" HeightRequest="200"
+             NavigationPage.HasBackButton="False"
+             NavigationPage.HasNavigationBar="False"
+             CloseWhenBackgroundIsClicked="False">
+
+    <StackLayout Orientation="Vertical" VerticalOptions="Center" HorizontalOptions="Center">
+        <Label Text="You raeched 2048" VerticalOptions="Center" HorizontalOptions="Center" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Column="0" Text="Restart" VerticalOptions="Center" HorizontalOptions="Center" Command="{Binding RestartClickCommand}"/>
+            <Button Grid.Column="1" Text="Continue" VerticalOptions="Center" HorizontalOptions="Center" Command="{Binding ContinueClickCommand}"/>
+        </Grid>
+    </StackLayout>
+
+</popup:PopupPage>
