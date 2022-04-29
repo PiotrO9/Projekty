@@ -28,7 +28,6 @@ namespace Game2048.ViewModels
         public override void OnNavigatedTo(INavigationParameters parameters)
         {
             _mainPageViewModel = parameters.GetValue<MainPageViewModel>("ViewModel");
-            _mainPageViewModel.PlayingOver2048 = true;
         }
 
         private async void RestartClickCommandImpl()
@@ -39,8 +38,13 @@ namespace Game2048.ViewModels
 
         private async void ContinueClickCommandImpl()
         {
-            _mainPageViewModel.PlayingOver2048 = true;
-            await _navigationService.GoBackAsync();
+            var navigationParams = new NavigationParameters();
+
+            navigationParams.Add("Board", _mainPageViewModel.PackTilesToColection());
+            navigationParams.Add("Score", _mainPageViewModel.Score);
+            navigationParams.Add("BestScore", _mainPageViewModel.BestScore);
+
+            await _navigationService.NavigateAsync("MainPage", navigationParams);
         }
     }
 }

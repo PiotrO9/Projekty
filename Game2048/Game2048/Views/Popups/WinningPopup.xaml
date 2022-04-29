@@ -7,10 +7,12 @@
              WidthRequest="200" HeightRequest="200"
              NavigationPage.HasBackButton="False"
              NavigationPage.HasNavigationBar="False"
+             prism:Navigation.CanNavigate="False"
+             prism:DialogLayout.CloseOnBackgroundTapped="False"
              CloseWhenBackgroundIsClicked="False">
 
     <StackLayout Orientation="Vertical" VerticalOptions="Center" HorizontalOptions="Center">
-        <Label Text="You raeched 2048" VerticalOptions="Center" HorizontalOptions="Center" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+        <Label Text="You reached 2048" VerticalOptions="Center" HorizontalOptions="Center" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>

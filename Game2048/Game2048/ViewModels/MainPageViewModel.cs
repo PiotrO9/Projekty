@@ -14,7 +14,7 @@ using Xamarin.Forms;
 
 namespace Game2048.ViewModels
 {
-    public class MainPageViewModel : ViewModelBase, INotifyPropertyChanged
+    public class MainPageViewModel : ViewModelBase, INotifyPropertyChanged, INavigationAware, INavigatedAware
     {
         private readonly INavigationService _navigationService;
 
@@ -503,7 +503,7 @@ namespace Game2048.ViewModels
             SixteenthTileBackgroundColor = SetBackgroundColorForTile(SixteenthTile);
         }
 
-        private List<string> PackTilesToColection()
+        public List<string> PackTilesToColection()
         {
             List<string> ResultList = new List<string>();
             ResultList.Add(FirstTile);
@@ -636,7 +636,7 @@ namespace Game2048.ViewModels
         {
             foreach (var item in PackedList)
             {
-                if (item == "4")
+                if (item == "2048")
                 {
                     return true;
                 }
@@ -656,6 +656,33 @@ namespace Game2048.ViewModels
                 return;
 
             changed.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        #endregion
+
+        #region Navigation
+
+        public override void OnNavigatedTo(INavigationParameters parameters)
+        {
+            if (parameters.TryGetValue("Board", out List<string> ReturnedList))
+            {
+                UnpackColectionToTiles(ReturnedList);
+                Score = parameters.GetValue<string>("Score");
+                BestScore = parameters.GetValue<string>("BestScore");
+
+                UpdateTilesBackgroundColors();
+                TriggerFontSizeChange();
+
+                int ScoreAfterMove = CalculateScoreBoard.CalculateScoreBoardMethod(PackTilesToColection());
+
+                if (ScoreAfterMove > int.Parse(Score))
+                    Score = ScoreAfterMove.ToString();
+
+                if (ScoreAfterMove > int.Parse(BestScore))
+                    BestScore = ScoreAfterMove.ToString();
+
+                PlayingOver2048 = true;
+            }
         }
 
         #endregion
