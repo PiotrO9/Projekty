@@ -4,7 +4,7 @@ using AndroidX.AppCompat.App;
 
 namespace Game2048.Droid
 {
-    [Activity(Theme = "@style/MainTheme.Splash",
+    [Activity(
               MainLauncher = true,
               NoHistory = true)]
     public class SplashActivity : AppCompatActivity
